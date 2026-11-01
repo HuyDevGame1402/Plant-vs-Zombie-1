@@ -487,12 +487,12 @@ GameObject:
   - component: {fileID: 189082011}
   - component: {fileID: 189082012}
   m_Layer: 0
-  m_Name: NormalZombie_New
+  m_Name: NormalZombie_Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &189082011
 Transform:
   m_ObjectHideFlags: 0
@@ -501,12 +501,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189082010}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1232778323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &189082012
 MonoBehaviour:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
   currentLane: 0
-  animationSpeed: 1
+  animationSpeed: 0.5
   blendDuration: 0.12
   randomWalkVariant: 1
   idleClip: idle
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1165fb9666da41e4ba8c61689ff3d581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 1389279694}
+  zombie: {fileID: 189082012}
   testDamage: 50
 --- !u!1 &273975818
 GameObject:
@@ -2095,6 +2095,59 @@ Transform:
   - {fileID: 1771589742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1112751257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112751258}
+  - component: {fileID: 1112751259}
+  m_Layer: 0
+  m_Name: PeashooterNew
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112751258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112751257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112751259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112751257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfa5eb989d0de243ba5ecf052514d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 5a8bc1deebed70e41a194ed6775d4e35, type: 2}
+  initialClip: full_idle
+  sortingLayerName: 
+  sortingOrder: 0
+  playOnEnable: 1
+  idleClipName: full_idle
+  shootClipName: shooting
+  shootSpeed: 3
+  fireFrame: 12
 --- !u!1 &1140616003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2357,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148967048}
   m_CullTransparentMesh: 1
+--- !u!1 &1232778322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232778323}
+  - component: {fileID: 1232778324}
+  m_Layer: 0
+  m_Name: NormalZombieState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1232778323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232778322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 189082011}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1232778324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232778322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa96171c11b3e74dbcdbf7f77a5f355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie: {fileID: 189082012}
+  moveSpeed: 0.2
 --- !u!1 &1241525654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,7 +2685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1389279693
 Transform:
   m_ObjectHideFlags: 0
@@ -2638,13 +2738,13 @@ MonoBehaviour:
   flagClothTrack: Zombie_flag
   tatteredFlagImageId: IMAGE_REANIM_ZOMBIE_FLAG3
   bentArmTrack: Zombie_innerarm_screendoor
+  bentArmHandTrack: Zombie_innerarm_screendoor_hand
   armUpperTrack: anim_innerarm1
   armLowerTrack: anim_innerarm2
   armHandTrack: anim_innerarm3
-  raiseTime: 0.35
-  waveDuration: 1.6
-  waveAngle: 25
-  waveFrequency: 2.5
+  rareDeathClip: superlongdeath
+  rareHeadlessDeathChance: 0.05
+  flagPoleTrack: Zombie_flagpole
 --- !u!1 &1395209752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,7 +3915,7 @@ MonoBehaviour:
   grassOffset: {x: 0, y: 272}
   maskOffsetY: 38
   sortingOrderBase: -10
-  progress: 0
+  progress: 1
   smoothSpeed: 3
   autoPlayDemo: 1
   demoDuration: 3.5
@@ -4130,5 +4230,6 @@ SceneRoots:
   - {fileID: 657740018}
   - {fileID: 1383030100}
   - {fileID: 986619356}
-  - {fileID: 189082011}
   - {fileID: 1389279693}
+  - {fileID: 1232778323}
+  - {fileID: 1112751258}
