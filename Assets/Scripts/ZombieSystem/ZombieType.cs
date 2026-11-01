@@ -1,0 +1,28 @@
+public enum ZombieType
+{
+    Normal = 0,
+    Flag = 1,
+    Conehead = 2,
+    PoleVault = 3,
+    Buckethead = 4,
+    Newspaper = 5,
+    ScreenDoor = 6,
+    Football = 7,
+    Dancing = 8,
+    BackupDancer = 9,
+    DuckyTube = 10,
+    Snorkel = 11,
+    Zomboni = 12,
+    BobsledTeam = 13,
+    DolphinRider = 14,
+    JackInTheBox = 15,
+    Balloon = 16,
+    Digger = 17,
+    Pogo = 18,
+    Yeti = 19,
+    Bungee = 20,
+    Ladder = 21,
+    Catapult = 22,
+    Gargantuar = 23,
+    Imp = 24
+}

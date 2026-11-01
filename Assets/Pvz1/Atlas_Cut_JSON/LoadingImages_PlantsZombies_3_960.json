@@ -1,0 +1,346 @@
+{
+    "compositeId":  "LoadingImages_PlantsZombies_3",
+    "group":  {
+                  "id":  "LoadingImages_PlantsZombies_3_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00|960",
+                                             "path":  "atlases\\LoadingImages_PlantsZombies_3_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464501"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BEGHOULED_TWIST_OVERLAY|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\beghouled_twist_overlay",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "474",
+                                             "aw":  "188",
+                                             "ah":  "188",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  474,
+                                            "y":  0,
+                                            "width":  188,
+                                            "height":  188
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_COBCANNON_TARGET|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\cobcannon_target",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "844",
+                                             "ay":  "110",
+                                             "aw":  "140",
+                                             "ah":  "128",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  844,
+                                            "y":  110,
+                                            "width":  140,
+                                            "height":  128
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DAN_SUNBANK|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\dan_sunbank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "664",
+                                             "ay":  "110",
+                                             "aw":  "169",
+                                             "ah":  "58",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  664,
+                                            "y":  110,
+                                            "width":  169,
+                                            "height":  58
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MONEYBAG_HI_RES|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\moneybag_hi_res",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "260",
+                                             "aw":  "212",
+                                             "ah":  "200",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  260,
+                                            "y":  0,
+                                            "width":  212,
+                                            "height":  200
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_IMITATERADDON|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\seedchooser_imitateraddon",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "844",
+                                             "ay":  "240",
+                                             "aw":  "142",
+                                             "ah":  "112",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  844,
+                                            "y":  240,
+                                            "width":  142,
+                                            "height":  112
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_DIAMOND|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\seedpacket_diamond",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "158",
+                                             "ay":  "276",
+                                             "aw":  "108",
+                                             "ah":  "70",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  158,
+                                            "y":  276,
+                                            "width":  108,
+                                            "height":  70
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_TROPHY|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\seedpacket_trophy",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "268",
+                                             "ay":  "276",
+                                             "aw":  "108",
+                                             "ah":  "70",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  268,
+                                            "y":  276,
+                                            "width":  108,
+                                            "height":  70
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_ZOMBIEQUARIUM|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\seedpacket_zombiequarium",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "378",
+                                             "ay":  "276",
+                                             "aw":  "108",
+                                             "ah":  "70",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  378,
+                                            "y":  276,
+                                            "width":  108,
+                                            "height":  70
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SLOTMACHINE_OVERLAY|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\slotmachine_overlay",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "260",
+                                             "ay":  "202",
+                                             "aw":  "582",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  260,
+                                            "y":  202,
+                                            "width":  582,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZEN_MONEYSIGN|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\zen_moneysign",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "640",
+                                             "ay":  "276",
+                                             "aw":  "80",
+                                             "ah":  "80",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  640,
+                                            "y":  276,
+                                            "width":  80,
+                                            "height":  80
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_NOTE_SMALL|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\zombie_note_small",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "218",
+                                             "aw":  "156",
+                                             "ah":  "104",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  218,
+                                            "width":  156,
+                                            "height":  104
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SCARY_POT|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\scary_pot",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "258",
+                                             "ah":  "216",
+                                             "rows":  "2",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  258,
+                                            "height":  216
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_FLAGMETERPARTS|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\flagmeterparts",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "488",
+                                             "ay":  "276",
+                                             "aw":  "150",
+                                             "ah":  "50",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  488,
+                                            "y":  276,
+                                            "width":  150,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_FLAGMETER|960",
+                                             "path":  "images\\960\\LoadingImages\\PlantsZombies_3\\flagmeter",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "664",
+                                             "aw":  "316",
+                                             "ah":  "108",
+                                             "rows":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PLANTSZOMBIES_3_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  664,
+                                            "y":  0,
+                                            "width":  316,
+                                            "height":  108
+                                        }
+                      }
+                  ]
+}

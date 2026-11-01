@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &703677036028587026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211882449656443495}
+  - component: {fileID: 6858034974458327154}
+  m_Layer: 0
+  m_Name: LoadBarSprout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1211882449656443495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703677036028587026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6858034974458327154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703677036028587026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4790bb8edd7cf488a9de7aa203cdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reanimJson: {fileID: 4900000, guid: a7f945bba1eb68c4db7847bb918844b1, type: 3}
+  atlasTexture: {fileID: 2800000, guid: 277da0326d6aefa46b2d4f12c00163c1, type: 3}
+  atlasJson: {fileID: 4900000, guid: 6a30a89e51ff05844aa1038f0ce34da9, type: 3}
+  pixelsPerUnit: 100
+  positionScale: 1.5
+  spriteScale: 1
+  sortingOrder: 2
+  frontTrackIndices: 09000000
+  frontTrackOffsetPx: {x: 0, y: 6}
+  centerBodyOnOrigin: 1
+  manualOffsetPx: {x: 5, y: 0}
+  enableDynamicOffsetAtHalf: 1
+  triggerProgress: 0.5
+  targetOffsetAtHalf: 6
+  clipBelowGround: 1
+  groundLineY: 25.5
+  maskWidth: 4
+  maskHeight: 4
+  maskScale: {x: 0.664, y: 0.952, z: 1}
+  autoPlay: 1
+  loop: 0
+  speed: 1
+  testPlay: 0
+  testProgress: 0

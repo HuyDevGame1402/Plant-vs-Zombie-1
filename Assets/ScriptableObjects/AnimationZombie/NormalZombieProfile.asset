@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7e2dd3e8f3e4e46a56edc751a2bf51, type: 3}
+  m_Name: NormalZombieProfile
+  m_EditorClassIdentifier: 
+  atlasJson: {fileID: 4900000, guid: 7d6daf17e257ac642859f1ddf6e6969f, type: 3}
+  atlasTexture: {fileID: 2800000, guid: 2aabae1a9e737bb4f8e0068a9809c324, type: 3}
+  reanimJson: {fileID: 4900000, guid: ff40f0fe52f111a429119b4e6a68c296, type: 3}
+  sharedMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  pixelPerUnit: 100
+  globalScale: {x: 1.5, y: 1.5}
+  anchorToFeet: 1
+  pivotOffset: {x: 0, y: 0}
+  shadowImageId: IMAGE_PLANTSHADOW
+  shadowOffset: {x: -1.5, y: -6}
+  extensions:
+  - {fileID: 11400000, guid: 517c2109aa80db749b007876e356cf04, type: 2}

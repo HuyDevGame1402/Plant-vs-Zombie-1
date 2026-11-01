@@ -1,0 +1,68 @@
+{
+    "compositeId":  "Selector_Achievements_Hole_BG",
+    "group":  {
+                  "id":  "Selector_Achievements_Hole_BG_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_BG_480_00|480",
+                                             "path":  "atlases\\Selector_Achievements_Hole_BG_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464521"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_ACHIEVEMENTS_HOLE_CHINA|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_BG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Achievements_Hole\\BG\\selectorscreen_achievements_hole_china",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_ACHIEVEMENTS_HOLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_BG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Achievements_Hole\\BG\\selectorscreen_achievements_hole",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      }
+                  ]
+}

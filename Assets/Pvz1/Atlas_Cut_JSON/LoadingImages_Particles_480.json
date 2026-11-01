@@ -1,0 +1,1130 @@
+{
+    "compositeId":  "LoadingImages_Particles",
+    "group":  {
+                  "id":  "LoadingImages_Particles_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00|480",
+                                             "path":  "atlases\\LoadingImages_Particles_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464449"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BLASTMARK|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\blastmark",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "156",
+                                             "aw":  "107",
+                                             "ah":  "107",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  156,
+                                            "y":  0,
+                                            "width":  107,
+                                            "height":  107
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BOSSEXPLOSION1|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\bossexplosion1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "337",
+                                             "ay":  "156",
+                                             "aw":  "64",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  337,
+                                            "y":  156,
+                                            "width":  64,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BOSSEXPLOSION2|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\bossexplosion2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "432",
+                                             "ay":  "311",
+                                             "aw":  "64",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  432,
+                                            "y":  311,
+                                            "width":  64,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BOSSEXPLOSION3|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\bossexplosion3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "405",
+                                             "ay":  "377",
+                                             "aw":  "64",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  405,
+                                            "y":  377,
+                                            "width":  64,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DAISY|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\daisy",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "167",
+                                             "aw":  "18",
+                                             "ah":  "14",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  167,
+                                            "width":  18,
+                                            "height":  14
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DOOMSHROOM_EXPLOSION_STEM|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\doomshroom_explosion_stem",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "410",
+                                             "ay":  "102",
+                                             "aw":  "72",
+                                             "ah":  "122",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  410,
+                                            "y":  102,
+                                            "width":  72,
+                                            "height":  122
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DOOMSHROOM_EXPLOSION_TOP|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\doomshroom_explosion_top",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "432",
+                                             "ay":  "226",
+                                             "aw":  "78",
+                                             "ah":  "83",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  432,
+                                            "y":  226,
+                                            "width":  78,
+                                            "height":  83
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DOWNARROW|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\downarrow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "183",
+                                             "aw":  "17",
+                                             "ah":  "14",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  183,
+                                            "width":  17,
+                                            "height":  14
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_EXPLOSIONCLOUD|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\explosioncloud",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "190",
+                                             "ay":  "197",
+                                             "aw":  "42",
+                                             "ah":  "42",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  190,
+                                            "y":  197,
+                                            "width":  42,
+                                            "height":  42
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_GLOW_PARTICLE2|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\glow_particle2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "504",
+                                             "ay":  "76",
+                                             "aw":  "4",
+                                             "ah":  "5",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  504,
+                                            "y":  76,
+                                            "width":  4,
+                                            "height":  5
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICETRAIL|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\icetrail",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "475",
+                                             "aw":  "32",
+                                             "ah":  "32",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  475,
+                                            "y":  0,
+                                            "width":  32,
+                                            "height":  32
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LANTERNSHINE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\lanternshine",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "265",
+                                             "aw":  "106",
+                                             "ah":  "106",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  265,
+                                            "y":  0,
+                                            "width":  106,
+                                            "height":  106
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_POOLSPARKLY|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\poolsparkly",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "132",
+                                             "aw":  "20",
+                                             "ah":  "15",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  132,
+                                            "width":  20,
+                                            "height":  15
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_POTATOMINEFLASH|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\potatomineflash",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "475",
+                                             "ay":  "34",
+                                             "aw":  "32",
+                                             "ah":  "32",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  475,
+                                            "y":  34,
+                                            "width":  32,
+                                            "height":  32
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_RAIN|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\rain",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "373",
+                                             "aw":  "100",
+                                             "ah":  "100",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  373,
+                                            "y":  0,
+                                            "width":  100,
+                                            "height":  100
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FIREBALL|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_fireball",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "292",
+                                             "aw":  "90",
+                                             "ah":  "90",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  292,
+                                            "width":  90,
+                                            "height":  90
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FIREBALL_ADDITIVE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_fireball_additive",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "92",
+                                             "ay":  "292",
+                                             "aw":  "90",
+                                             "ah":  "90",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  92,
+                                            "y":  292,
+                                            "width":  90,
+                                            "height":  90
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FIREBALL_CHUNKS|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_fireball_chunks",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "184",
+                                             "ay":  "317",
+                                             "aw":  "90",
+                                             "ah":  "90",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  184,
+                                            "y":  317,
+                                            "width":  90,
+                                            "height":  90
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FIREBALL_MULTIPLY|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_fireball_multiply",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "276",
+                                             "ay":  "321",
+                                             "aw":  "90",
+                                             "ah":  "90",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  276,
+                                            "y":  321,
+                                            "width":  90,
+                                            "height":  90
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FIREBALL_SUPERGLOW|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_fireball_superglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "154",
+                                             "ah":  "154",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  154,
+                                            "height":  154
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "242",
+                                             "ay":  "156",
+                                             "aw":  "93",
+                                             "ah":  "93",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  242,
+                                            "y":  156,
+                                            "width":  93,
+                                            "height":  93
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_CRYSTAL1|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_crystal1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "199",
+                                             "aw":  "12",
+                                             "ah":  "15",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  199,
+                                            "width":  12,
+                                            "height":  15
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_CRYSTAL2|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_crystal2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "475",
+                                             "ay":  "68",
+                                             "aw":  "27",
+                                             "ah":  "31",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  475,
+                                            "y":  68,
+                                            "width":  27,
+                                            "height":  31
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_CRYSTAL3|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_crystal3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "101",
+                                             "aw":  "27",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  101,
+                                            "width":  27,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_HIGHLIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_highlight",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "197",
+                                             "aw":  "93",
+                                             "ah":  "93",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  197,
+                                            "width":  93,
+                                            "height":  93
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_MULTIPLY|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_multiply",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "95",
+                                             "ay":  "197",
+                                             "aw":  "93",
+                                             "ah":  "93",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  95,
+                                            "y":  197,
+                                            "width":  93,
+                                            "height":  93
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEBALL_OVERLAY|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_iceball_overlay",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "337",
+                                             "ay":  "226",
+                                             "aw":  "93",
+                                             "ah":  "93",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  337,
+                                            "y":  226,
+                                            "width":  93,
+                                            "height":  93
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ICEFIRE_SHADOW|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\reanim_zombie_boss_icefire_shadow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "373",
+                                             "ay":  "443",
+                                             "aw":  "84",
+                                             "ah":  "35",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  373,
+                                            "y":  443,
+                                            "width":  84,
+                                            "height":  35
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETFLASH|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\seedpacketflash",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "368",
+                                             "ay":  "321",
+                                             "aw":  "54",
+                                             "ah":  "35",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  368,
+                                            "y":  321,
+                                            "width":  54,
+                                            "height":  35
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETGLOW|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\seedpacketglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "454",
+                                             "aw":  "62",
+                                             "ah":  "43",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  454,
+                                            "width":  62,
+                                            "height":  43
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WHITEELLIPSE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\whiteellipse",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "149",
+                                             "aw":  "16",
+                                             "ah":  "16",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  149,
+                                            "width":  16,
+                                            "height":  16
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WHITEPIXEL|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\whitepixel",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "509",
+                                             "aw":  "1",
+                                             "ah":  "1",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  509,
+                                            "y":  0,
+                                            "width":  1,
+                                            "height":  1
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOSS_FIREBALL_ADDITIVEPARTICLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zombie_boss_fireball_additiveparticle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "504",
+                                             "ay":  "68",
+                                             "aw":  "6",
+                                             "ah":  "6",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  504,
+                                            "y":  68,
+                                            "width":  6,
+                                            "height":  6
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DOOMSHROOM_EXPLOSION_BASE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\doomshroom_explosion_base",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "156",
+                                             "ay":  "109",
+                                             "aw":  "252",
+                                             "ah":  "45",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  156,
+                                            "y":  109,
+                                            "width":  252,
+                                            "height":  45
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DUST_PUFFS|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\dust_puffs",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "64",
+                                             "ay":  "454",
+                                             "aw":  "96",
+                                             "ah":  "27",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  64,
+                                            "y":  454,
+                                            "width":  96,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICE_SPARKLES|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\ice_sparkles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "242",
+                                             "ay":  "469",
+                                             "aw":  "60",
+                                             "ah":  "20",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\LoadingImages\\Particles\\ice_sparkles",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  242,
+                                            "y":  469,
+                                            "width":  60,
+                                            "height":  20
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IMITATERCLOUDS|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\imitaterclouds",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "190",
+                                             "ay":  "251",
+                                             "aw":  "128",
+                                             "ah":  "64",
+                                             "cols":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  190,
+                                            "y":  251,
+                                            "width":  128,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IMITATERPUFFS|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\imitaterpuffs",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "187",
+                                             "ay":  "413",
+                                             "aw":  "216",
+                                             "ah":  "27",
+                                             "cols":  "8",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  187,
+                                            "y":  413,
+                                            "width":  216,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WATERPARTICLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\waterparticle",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "384",
+                                             "aw":  "126",
+                                             "ah":  "21",
+                                             "cols":  "6",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  384,
+                                            "width":  126,
+                                            "height":  21
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZAMBONISMOKE|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zambonismoke",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "162",
+                                             "ay":  "469",
+                                             "aw":  "78",
+                                             "ah":  "22",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  162,
+                                            "y":  469,
+                                            "width":  78,
+                                            "height":  22
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOSS_FIREBALL_GROUNDPARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zombie_boss_fireball_groundparticles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "384",
+                                             "ay":  "480",
+                                             "aw":  "112",
+                                             "ah":  "9",
+                                             "cols":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  384,
+                                            "y":  480,
+                                            "width":  112,
+                                            "height":  9
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOSS_FIREBALL_PARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zombie_boss_fireball_particles",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "156",
+                                             "aw":  "240",
+                                             "ah":  "39",
+                                             "cols":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  156,
+                                            "width":  240,
+                                            "height":  39
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOSS_ICEBALL_GROUNDPARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zombie_boss_iceball_groundparticles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "64",
+                                             "ay":  "483",
+                                             "aw":  "80",
+                                             "ah":  "12",
+                                             "cols":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464318"
+                                         },
+                          "atlasRect":  {
+                                            "x":  64,
+                                            "y":  483,
+                                            "width":  80,
+                                            "height":  12
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOSS_ICEBALL_PARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zombie_boss_iceball_particles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "187",
+                                             "ay":  "442",
+                                             "aw":  "184",
+                                             "ah":  "25",
+                                             "cols":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464318"
+                                         },
+                          "atlasRect":  {
+                                            "x":  187,
+                                            "y":  442,
+                                            "width":  184,
+                                            "height":  25
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBOSS_PARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\zomboss_particles",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "409",
+                                             "aw":  "185",
+                                             "ah":  "43",
+                                             "cols":  "5",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464318"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  409,
+                                            "width":  185,
+                                            "height":  43
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_POTATOMINE_PARTICLES|480",
+                                             "path":  "images\\480\\LoadingImages\\Particles\\potatomine_particles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "304",
+                                             "ay":  "480",
+                                             "aw":  "78",
+                                             "ah":  "14",
+                                             "cols":  "6",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464317"
+                                         },
+                          "atlasRect":  {
+                                            "x":  304,
+                                            "y":  480,
+                                            "width":  78,
+                                            "height":  14
+                                        }
+                      }
+                  ]
+}

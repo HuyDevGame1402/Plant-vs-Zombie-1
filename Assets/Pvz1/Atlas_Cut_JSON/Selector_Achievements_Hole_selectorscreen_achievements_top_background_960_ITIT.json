@@ -1,0 +1,48 @@
+{
+    "compositeId":  "Selector_Achievements_Hole_selectorscreen_achievements_top_background",
+    "group":  {
+                  "id":  "Selector_Achievements_Hole_selectorscreen_achievements_top_background_960_ITIT",
+                  "res":  "960",
+                  "loc":  "ITIT"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_SELECTORSCREEN_ACHIEVEMENTS_TOP_BACKGROUND_960_ITIT_00|960||49544954",
+                                             "path":  "atlases\\Selector_Achievements_Hole_selectorscreen_achievements_top_background_960_ITIT_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464521"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_ACHIEVEMENTS_TOP_BACKGROUND|960||49544954",
+                                             "path":  "locales\\it-it\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_SELECTORSCREEN_ACHIEVEMENTS_TOP_BACKGROUND_960_ITIT_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\it-it\\images\\960\\Selector_Achievements_Hole\\BG\\selectorscreen_achievements_top_background",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      }
+                  ]
+}

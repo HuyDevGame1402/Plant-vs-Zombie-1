@@ -1,0 +1,253 @@
+{
+    "compositeId":  "SeedPackets_SeedAtlas",
+    "group":  {
+                  "id":  "SeedPackets_SeedAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00|480",
+                                             "path":  "atlases\\SeedPackets_SeedAtlas_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "256",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464521"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LOCK|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\lock",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "232",
+                                             "aw":  "20",
+                                             "ah":  "20",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464386"
+                                         },
+                          "atlasRect":  {
+                                            "x":  232,
+                                            "y":  0,
+                                            "width":  20,
+                                            "height":  20
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_CRATER|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpacket_crater",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "56",
+                                             "ay":  "457",
+                                             "aw":  "54",
+                                             "ah":  "35",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464386"
+                                         },
+                          "atlasRect":  {
+                                            "x":  56,
+                                            "y":  457,
+                                            "width":  54,
+                                            "height":  35
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_SHUFFLE|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpacket_shuffle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "112",
+                                             "ay":  "457",
+                                             "aw":  "54",
+                                             "ah":  "35",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464386"
+                                         },
+                          "atlasRect":  {
+                                            "x":  112,
+                                            "y":  457,
+                                            "width":  54,
+                                            "height":  35
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKET_SUN|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpacket_sun",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "457",
+                                             "aw":  "54",
+                                             "ah":  "36",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464386"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  457,
+                                            "width":  54,
+                                            "height":  36
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETS_GRAY_TAB|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets_gray_tab",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "232",
+                                             "ay":  "22",
+                                             "aw":  "22",
+                                             "ah":  "13",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464387"
+                                         },
+                          "atlasRect":  {
+                                            "x":  232,
+                                            "y":  22,
+                                            "width":  22,
+                                            "height":  13
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETS_GREEN_TAB|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets_gray_tab",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "232",
+                                             "ay":  "22",
+                                             "aw":  "22",
+                                             "ah":  "13",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets_green_tab",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  232,
+                                            "y":  22,
+                                            "width":  22,
+                                            "height":  13
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETS_PURPLE_TAB|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets_gray_tab",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "232",
+                                             "ay":  "22",
+                                             "aw":  "22",
+                                             "ah":  "13",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets_purple_tab",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  232,
+                                            "y":  22,
+                                            "width":  22,
+                                            "height":  13
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETSILHOUETTE|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpacketsilhouette",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "168",
+                                             "ay":  "457",
+                                             "aw":  "54",
+                                             "ah":  "35",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464387"
+                                         },
+                          "atlasRect":  {
+                                            "x":  168,
+                                            "y":  457,
+                                            "width":  54,
+                                            "height":  35
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WALLNUT_BOWLINGSTRIPE|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\wallnut_bowlingstripe",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "218",
+                                             "aw":  "12",
+                                             "ah":  "268",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464387"
+                                         },
+                          "atlasRect":  {
+                                            "x":  218,
+                                            "y":  0,
+                                            "width":  12,
+                                            "height":  268
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDPACKETS|480",
+                                             "path":  "images\\480\\SeedPackets\\SeedAtlas\\seedpackets",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "216",
+                                             "ah":  "455",
+                                             "rows":  "13",
+                                             "cols":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SEEDPACKETS_SEEDATLAS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464387"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  216,
+                                            "height":  455
+                                        }
+                      }
+                  ]
+}

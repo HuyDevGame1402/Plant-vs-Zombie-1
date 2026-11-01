@@ -1,0 +1,118 @@
+{
+    "compositeId":  "DelayLoad_Store",
+    "group":  {
+                  "id":  "DelayLoad_Store_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_STORE_960_00|960",
+                                             "path":  "atlases\\DelayLoad_Store_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "1024",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464422"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CAR|960",
+                                             "path":  "images\\960\\DelayLoad_Store\\store\\store_car",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "720",
+                                             "ah":  "542",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_STORE_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464298"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  720,
+                                            "height":  542
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CARCLOSED|960",
+                                             "path":  "images\\960\\DelayLoad_Store\\store\\store_carclosed",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "544",
+                                             "aw":  "642",
+                                             "ah":  "390",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_STORE_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464298"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  544,
+                                            "width":  642,
+                                            "height":  390
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_HATCHBACKOPEN|960",
+                                             "path":  "images\\960\\DelayLoad_Store\\store\\store_hatchbackopen",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "722",
+                                             "aw":  "300",
+                                             "ah":  "129",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_STORE_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464298"
+                                         },
+                          "atlasRect":  {
+                                            "x":  722,
+                                            "y":  0,
+                                            "width":  300,
+                                            "height":  129
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_HATCHBACKOPEN_RIGHT|960",
+                                             "path":  "images\\960\\DelayLoad_Store\\store\\store_hatchbackopen_right",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "722",
+                                             "ay":  "131",
+                                             "aw":  "278",
+                                             "ah":  "129",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_STORE_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464298"
+                                         },
+                          "atlasRect":  {
+                                            "x":  722,
+                                            "y":  131,
+                                            "width":  278,
+                                            "height":  129
+                                        }
+                      }
+                  ]
+}

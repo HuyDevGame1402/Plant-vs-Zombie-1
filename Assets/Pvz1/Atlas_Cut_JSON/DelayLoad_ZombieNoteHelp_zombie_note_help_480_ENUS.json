@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_ZombieNoteHelp_zombie_note_help",
+    "group":  {
+                  "id":  "DelayLoad_ZombieNoteHelp_zombie_note_help_480_ENUS",
+                  "res":  "480",
+                  "loc":  "ENUS"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTEHELP_ZOMBIE_NOTE_HELP_480_ENUS_00|480||454e5553",
+                                             "path":  "atlases\\DelayLoad_ZombieNoteHelp_zombie_note_help_480_ENUS_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464428"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_NOTE_HELP|480||454e5553",
+                                             "path":  "locales\\en-us\\images\\480\\DelayLoad_ZombieNoteHelp\\zombie_note_help\\zombie_note_help",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "282",
+                                             "ah":  "172",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTEHELP_ZOMBIE_NOTE_HELP_480_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  282,
+                                            "height":  172
+                                        }
+                      }
+                  ]
+}

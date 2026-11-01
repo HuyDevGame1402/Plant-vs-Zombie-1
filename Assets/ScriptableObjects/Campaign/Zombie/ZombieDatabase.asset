@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12336acfdca22784181988f519ac72db, type: 3}
+  m_Name: ZombieDatabase
+  m_EditorClassIdentifier: 
+  zombies:
+  - zombieType: 0
+    zombieValue: 1
+    pickWeight: 4000
+    startingLevel: 1
+    firstAllowedWave: 1
+  - zombieType: 1
+    zombieValue: 1
+    pickWeight: 0
+    startingLevel: 1
+    firstAllowedWave: 1
+  - zombieType: 2
+    zombieValue: 2
+    pickWeight: 4000
+    startingLevel: 3
+    firstAllowedWave: 1
+  - zombieType: 3
+    zombieValue: 2
+    pickWeight: 2000
+    startingLevel: 6
+    firstAllowedWave: 5
+  - zombieType: 4
+    zombieValue: 4
+    pickWeight: 3000
+    startingLevel: 8
+    firstAllowedWave: 1
+  - zombieType: 5
+    zombieValue: 2
+    pickWeight: 1000
+    startingLevel: 11
+    firstAllowedWave: 1
+  - zombieType: 6
+    zombieValue: 4
+    pickWeight: 3500
+    startingLevel: 13
+    firstAllowedWave: 5
+  - zombieType: 7
+    zombieValue: 7
+    pickWeight: 2000
+    startingLevel: 16
+    firstAllowedWave: 5
+  - zombieType: 8
+    zombieValue: 5
+    pickWeight: 1000
+    startingLevel: 18
+    firstAllowedWave: 5
+  - zombieType: 9
+    zombieValue: 1
+    pickWeight: 0
+    startingLevel: 18
+    firstAllowedWave: 1
+  - zombieType: 10
+    zombieValue: 1
+    pickWeight: 0
+    startingLevel: 21
+    firstAllowedWave: 5
+  - zombieType: 11
+    zombieValue: 3
+    pickWeight: 2000
+    startingLevel: 23
+    firstAllowedWave: 10
+  - zombieType: 12
+    zombieValue: 7
+    pickWeight: 2000
+    startingLevel: 26
+    firstAllowedWave: 10
+  - zombieType: 13
+    zombieValue: 3
+    pickWeight: 2000
+    startingLevel: 26
+    firstAllowedWave: 10
+  - zombieType: 14
+    zombieValue: 3
+    pickWeight: 1500
+    startingLevel: 28
+    firstAllowedWave: 10
+  - zombieType: 15
+    zombieValue: 3
+    pickWeight: 1000
+    startingLevel: 31
+    firstAllowedWave: 10
+  - zombieType: 16
+    zombieValue: 2
+    pickWeight: 2000
+    startingLevel: 33
+    firstAllowedWave: 10
+  - zombieType: 17
+    zombieValue: 4
+    pickWeight: 1000
+    startingLevel: 36
+    firstAllowedWave: 10
+  - zombieType: 18
+    zombieValue: 4
+    pickWeight: 1000
+    startingLevel: 38
+    firstAllowedWave: 10
+  - zombieType: 19
+    zombieValue: 4
+    pickWeight: 1
+    startingLevel: 40
+    firstAllowedWave: 1
+  - zombieType: 20
+    zombieValue: 3
+    pickWeight: 1000
+    startingLevel: 41
+    firstAllowedWave: 10
+  - zombieType: 21
+    zombieValue: 4
+    pickWeight: 1000
+    startingLevel: 43
+    firstAllowedWave: 10
+  - zombieType: 22
+    zombieValue: 5
+    pickWeight: 1500
+    startingLevel: 46
+    firstAllowedWave: 10
+  - zombieType: 23
+    zombieValue: 10
+    pickWeight: 1500
+    startingLevel: 48
+    firstAllowedWave: 15
+  - zombieType: 24
+    zombieValue: 10
+    pickWeight: 0
+    startingLevel: 48
+    firstAllowedWave: 1

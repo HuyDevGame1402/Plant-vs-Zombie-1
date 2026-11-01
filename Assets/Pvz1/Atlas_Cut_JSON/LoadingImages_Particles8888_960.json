@@ -1,0 +1,332 @@
+{
+    "compositeId":  "LoadingImages_Particles8888",
+    "group":  {
+                  "id":  "LoadingImages_Particles8888_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00|960",
+                                             "path":  "atlases\\LoadingImages_Particles8888_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464448"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_BROWN_RECT|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\almanac_brown_rect",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "322",
+                                             "ay":  "310",
+                                             "aw":  "90",
+                                             "ah":  "90",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  322,
+                                            "y":  310,
+                                            "width":  90,
+                                            "height":  90
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_CLAY_BORDER|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\almanac_clay_border",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "114",
+                                             "ay":  "188",
+                                             "aw":  "120",
+                                             "ah":  "120",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  114,
+                                            "y":  188,
+                                            "width":  120,
+                                            "height":  120
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_ROUNDED_OUTLINE|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\almanac_rounded_outline",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "236",
+                                             "ay":  "188",
+                                             "aw":  "120",
+                                             "ah":  "120",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  236,
+                                            "y":  188,
+                                            "width":  120,
+                                            "height":  120
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AWARDGLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\awardglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "414",
+                                             "ay":  "316",
+                                             "aw":  "64",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  414,
+                                            "y":  316,
+                                            "width":  64,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AWARDPICKUPGLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\awardpickupglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "114",
+                                             "aw":  "186",
+                                             "ah":  "186",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  114,
+                                            "y":  0,
+                                            "width":  186,
+                                            "height":  186
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AWARDRAYS_STAR|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\awardrays_star",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "358",
+                                             "ay":  "188",
+                                             "aw":  "58",
+                                             "ah":  "58",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  358,
+                                            "y":  188,
+                                            "width":  58,
+                                            "height":  58
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AWARDRAYS1|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\awardrays1",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "112",
+                                             "ah":  "318",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  112,
+                                            "height":  318
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AWARDRAYS2|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\awardrays2",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "420",
+                                             "aw":  "44",
+                                             "ah":  "314",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  420,
+                                            "y":  0,
+                                            "width":  44,
+                                            "height":  314
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_PORTAL_CIRCLE_CENTER|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\reanim_portal_circle_center",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "466",
+                                             "aw":  "38",
+                                             "ah":  "120",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  0,
+                                            "width":  38,
+                                            "height":  120
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_PORTAL_CIRCLE_GLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\reanim_portal_circle_glow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "114",
+                                             "ay":  "310",
+                                             "aw":  "72",
+                                             "ah":  "156",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  114,
+                                            "y":  310,
+                                            "width":  72,
+                                            "height":  156
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_PORTAL_CIRCLE_OUTER|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\reanim_portal_circle_outer",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "302",
+                                             "aw":  "116",
+                                             "ah":  "186",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  302,
+                                            "y":  0,
+                                            "width":  116,
+                                            "height":  186
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_PORTAL_SQUARE_CENTER|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\reanim_portal_square_center",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "258",
+                                             "ay":  "310",
+                                             "aw":  "62",
+                                             "ah":  "150",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  258,
+                                            "y":  310,
+                                            "width":  62,
+                                            "height":  150
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_PORTAL_SQUARE_GLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Particles8888\\reanim_portal_square_glow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "188",
+                                             "ay":  "310",
+                                             "aw":  "68",
+                                             "ah":  "150",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_PARTICLES8888_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  188,
+                                            "y":  310,
+                                            "width":  68,
+                                            "height":  150
+                                        }
+                      }
+                  ]
+}

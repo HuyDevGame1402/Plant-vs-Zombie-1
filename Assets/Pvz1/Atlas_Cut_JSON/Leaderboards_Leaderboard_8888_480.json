@@ -1,0 +1,322 @@
+{
+    "compositeId":  "Leaderboards_Leaderboard_8888",
+    "group":  {
+                  "id":  "Leaderboards_Leaderboard_8888_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00|480",
+                                             "path":  "atlases\\Leaderboards_Leaderboard_8888_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464431"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_BLUE|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_blue",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "402",
+                                             "ay":  "215",
+                                             "aw":  "50",
+                                             "ah":  "54",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464303"
+                                         },
+                          "atlasRect":  {
+                                            "x":  402,
+                                            "y":  215,
+                                            "width":  50,
+                                            "height":  54
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_GREEN|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_green",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "454",
+                                             "ay":  "270",
+                                             "aw":  "50",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  454,
+                                            "y":  270,
+                                            "width":  50,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_ORANGE|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_orange",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "454",
+                                             "ay":  "377",
+                                             "aw":  "50",
+                                             "ah":  "49",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  454,
+                                            "y":  377,
+                                            "width":  50,
+                                            "height":  49
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_PURPLE|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_purple",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "454",
+                                             "ay":  "215",
+                                             "aw":  "50",
+                                             "ah":  "53",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  454,
+                                            "y":  215,
+                                            "width":  50,
+                                            "height":  53
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_RED|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_red",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "402",
+                                             "ay":  "324",
+                                             "aw":  "50",
+                                             "ah":  "51",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  402,
+                                            "y":  324,
+                                            "width":  50,
+                                            "height":  51
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_WHITE|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_white",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "454",
+                                             "ay":  "324",
+                                             "aw":  "50",
+                                             "ah":  "51",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  454,
+                                            "y":  324,
+                                            "width":  50,
+                                            "height":  51
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BEJEWELED_GEM_YELLOW|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\bejeweled_gem_yellow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "402",
+                                             "ay":  "377",
+                                             "aw":  "50",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  402,
+                                            "y":  377,
+                                            "width":  50,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_CLOUD_RING|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\cloud_ring",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "402",
+                                             "ay":  "185",
+                                             "aw":  "107",
+                                             "ah":  "28",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  402,
+                                            "y":  185,
+                                            "width":  107,
+                                            "height":  28
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_EDGEOFSPACE_GRADIENT|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\edgeofspace_gradient",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "185",
+                                             "aw":  "400",
+                                             "ah":  "196",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  185,
+                                            "width":  400,
+                                            "height":  196
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_LEADERBOARD_SIGN|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\leaderboard_sign",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "122",
+                                             "ay":  "383",
+                                             "aw":  "223",
+                                             "ah":  "60",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  122,
+                                            "y":  383,
+                                            "width":  223,
+                                            "height":  60
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_PEGGLE_MOON|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\peggle_moon",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "383",
+                                             "aw":  "120",
+                                             "ah":  "120",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  383,
+                                            "width":  120,
+                                            "height":  120
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_YELLOW_CLOUD|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\yellow_cloud",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "475",
+                                             "ah":  "183",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  475,
+                                            "height":  183
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_ICE_SPARKLES|480",
+                                             "path":  "images\\480\\Leaderboards\\leaderboard_8888\\ice_sparkles",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "347",
+                                             "ay":  "429",
+                                             "aw":  "60",
+                                             "ah":  "20",
+                                             "cols":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LEADERBOARDS_LEADERBOARD_8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464304"
+                                         },
+                          "atlasRect":  {
+                                            "x":  347,
+                                            "y":  429,
+                                            "width":  60,
+                                            "height":  20
+                                        }
+                      }
+                  ]
+}

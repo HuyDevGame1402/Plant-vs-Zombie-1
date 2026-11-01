@@ -1,0 +1,136 @@
+{
+    "compositeId":  "Selector_Backgrounds_MAINMENUATLAS_1",
+    "group":  {
+                  "id":  "Selector_Backgrounds_MAINMENUATLAS_1_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00|480",
+                                             "path":  "atlases\\Selector_Backgrounds_MAINMENUATLAS_1_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464521"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BG1_A|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Backgrounds\\MAINMENUATLAS_1\\BG1_A",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BG2_A|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Backgrounds\\MAINMENUATLAS_1\\BG2_A",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BG3_A|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Backgrounds\\MAINMENUATLAS_1\\BG3_A",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BG4_A|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Backgrounds\\MAINMENUATLAS_1\\BG4_A",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_WORM|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_BACKGROUNDS_MAINMENUATLAS_1_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\Selector_Backgrounds\\MAINMENUATLAS_1\\zombie_worm",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      }
+                  ]
+}

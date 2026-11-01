@@ -1,0 +1,38 @@
+{
+    "compositeId":  "GameCredits_NoAtlas",
+    "group":  {
+                  "id":  "GameCredits_NoAtlas_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_CREDITSBGLEFT|960",
+                                             "path":  "images\\960\\GameCredits\\noatlas\\CreditsBgLeft",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_CREDITSBGRIGHT|960",
+                                             "path":  "images\\960\\GameCredits\\noatlas\\CreditsBgRight",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      }
+                  ]
+}

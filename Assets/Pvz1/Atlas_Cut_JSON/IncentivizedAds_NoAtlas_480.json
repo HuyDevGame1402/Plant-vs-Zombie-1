@@ -1,0 +1,108 @@
+{
+    "compositeId":  "IncentivizedAds_NoAtlas",
+    "group":  {
+                  "id":  "IncentivizedAds_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_INCENTIVIZEDADBTN|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\incentivizedadbtn",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_INCENTIVIZEDADBTN_FLARE|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\incentivizedadbtn_flare",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_INCENTIVIZEDADBTN_PRESSED|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\incentivizedadbtn_pressed",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SHOP_BLUENAMEBAR|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\shop_bluenamebar",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464302"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZENGARDENADITEM|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\zengardenaditem",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464302"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_PLANK|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\plank",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464302"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_INCENTIVIZEDADBTN_STORE|480",
+                                             "path":  "images\\480\\IncentivizedAds\\noatlas\\incentivizedadbtn_store",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      }
+                  ]
+}

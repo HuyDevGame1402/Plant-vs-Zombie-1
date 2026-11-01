@@ -1,0 +1,24 @@
+{
+    "compositeId":  "DelayLoad_StoreDay_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_StoreDay_NoAtlas_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_BACKGROUND|960",
+                                             "path":  "images\\960\\DelayLoad_StoreDay\\noatlas\\store_background",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464299"
+                                         }
+                      }
+                  ]
+}

@@ -1,0 +1,1456 @@
+{
+    "compositeId":  "LoadingImages_Dave",
+    "group":  {
+                  "id":  "LoadingImages_Dave_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00|480",
+                                             "path":  "atlases\\LoadingImages_Dave_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464443"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\bacon",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "466",
+                                             "ay":  "71",
+                                             "aw":  "43",
+                                             "ah":  "43",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  71,
+                                            "width":  43,
+                                            "height":  43
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICON_POOLCLEANER|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\icon_poolcleaner",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "485",
+                                             "ay":  "364",
+                                             "aw":  "25",
+                                             "ah":  "34",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  485,
+                                            "y":  364,
+                                            "width":  25,
+                                            "height":  34
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICON_RAKE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\icon_rake",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "429",
+                                             "ay":  "471",
+                                             "aw":  "32",
+                                             "ah":  "33",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  429,
+                                            "y":  471,
+                                            "width":  32,
+                                            "height":  33
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICON_ROOFCLEANER|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\icon_roofcleaner",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "142",
+                                             "ay":  "272",
+                                             "aw":  "30",
+                                             "ah":  "23",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  142,
+                                            "y":  272,
+                                            "width":  30,
+                                            "height":  23
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ICON_VASEBRAKER|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\icon_vasebraker",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "421",
+                                             "aw":  "47",
+                                             "ah":  "47",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  421,
+                                            "width":  47,
+                                            "height":  47
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_BEARD|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_beard",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "418",
+                                             "ay":  "303",
+                                             "aw":  "77",
+                                             "ah":  "59",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  418,
+                                            "y":  303,
+                                            "width":  77,
+                                            "height":  59
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_BLINK1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_blink1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "396",
+                                             "ay":  "473",
+                                             "aw":  "18",
+                                             "ah":  "18",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  396,
+                                            "y":  473,
+                                            "width":  18,
+                                            "height":  18
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_BLINK2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_blink2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "463",
+                                             "ay":  "481",
+                                             "aw":  "18",
+                                             "ah":  "18",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  463,
+                                            "y":  481,
+                                            "width":  18,
+                                            "height":  18
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_BODY1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_body1",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "184",
+                                             "ah":  "215",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  184,
+                                            "height":  215
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_BODY2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_body2",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "186",
+                                             "aw":  "151",
+                                             "ah":  "200",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  186,
+                                            "y":  0,
+                                            "width":  151,
+                                            "height":  200
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_EYE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_eye",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "352",
+                                             "ay":  "473",
+                                             "aw":  "21",
+                                             "ah":  "17",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  352,
+                                            "y":  473,
+                                            "width":  21,
+                                            "height":  17
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_EYEBROW|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_eyebrow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "485",
+                                             "ay":  "419",
+                                             "aw":  "16",
+                                             "ah":  "10",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  485,
+                                            "y":  419,
+                                            "width":  16,
+                                            "height":  10
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_FOOT1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_foot1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "92",
+                                             "ay":  "301",
+                                             "aw":  "99",
+                                             "ah":  "75",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  92,
+                                            "y":  301,
+                                            "width":  99,
+                                            "height":  75
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_FOOT2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_foot2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "324",
+                                             "ay":  "303",
+                                             "aw":  "92",
+                                             "ah":  "60",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  324,
+                                            "y":  303,
+                                            "width":  92,
+                                            "height":  60
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_HANDINGHAND|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_handinghand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "188",
+                                             "ay":  "419",
+                                             "aw":  "61",
+                                             "ah":  "40",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  188,
+                                            "y":  419,
+                                            "width":  61,
+                                            "height":  40
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_HANDINGHAND2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_handinghand2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "485",
+                                             "ay":  "400",
+                                             "aw":  "22",
+                                             "ah":  "17",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  485,
+                                            "y":  400,
+                                            "width":  22,
+                                            "height":  17
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_HANDINGHAND3|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_handinghand3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "389",
+                                             "ay":  "388",
+                                             "aw":  "17",
+                                             "ah":  "23",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  389,
+                                            "y":  388,
+                                            "width":  17,
+                                            "height":  23
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_HEAD|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_head",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "339",
+                                             "ay":  "200",
+                                             "aw":  "97",
+                                             "ah":  "101",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  339,
+                                            "y":  200,
+                                            "width":  97,
+                                            "height":  101
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERARM|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerarm",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "385",
+                                             "ay":  "431",
+                                             "aw":  "42",
+                                             "ah":  "40",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  385,
+                                            "y":  431,
+                                            "width":  42,
+                                            "height":  40
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERFINGER1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerfinger1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "483",
+                                             "ay":  "481",
+                                             "aw":  "21",
+                                             "ah":  "15",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  483,
+                                            "y":  481,
+                                            "width":  21,
+                                            "height":  15
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERFINGER2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerfinger2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "375",
+                                             "ay":  "473",
+                                             "aw":  "19",
+                                             "ah":  "18",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  375,
+                                            "y":  473,
+                                            "width":  19,
+                                            "height":  18
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERFINGER3|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerfinger3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "229",
+                                             "ay":  "461",
+                                             "aw":  "19",
+                                             "ah":  "19",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  229,
+                                            "y":  461,
+                                            "width":  19,
+                                            "height":  19
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERFINGER4|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerfinger4",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "251",
+                                             "ay":  "419",
+                                             "aw":  "16",
+                                             "ah":  "19",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  251,
+                                            "y":  419,
+                                            "width":  16,
+                                            "height":  19
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERHAND|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerhand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "429",
+                                             "ay":  "431",
+                                             "aw":  "44",
+                                             "ah":  "38",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  429,
+                                            "y":  431,
+                                            "width":  44,
+                                            "height":  38
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_INNERPANTS|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_innerpants",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "271",
+                                             "ay":  "365",
+                                             "aw":  "116",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  271,
+                                            "y":  365,
+                                            "width":  116,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "92",
+                                             "ay":  "272",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  92,
+                                            "y":  272,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "323",
+                                             "ay":  "444",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464312"
+                                         },
+                          "atlasRect":  {
+                                            "x":  323,
+                                            "y":  444,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH3|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "79",
+                                             "ay":  "454",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  79,
+                                            "y":  454,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH4|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth4",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "129",
+                                             "ay":  "454",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  129,
+                                            "y":  454,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH5|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth5",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "251",
+                                             "ay":  "455",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  251,
+                                            "y":  455,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_MOUTH6|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_mouth6",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "179",
+                                             "ay":  "461",
+                                             "aw":  "48",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  179,
+                                            "y":  461,
+                                            "width":  48,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERARM|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerarm",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "120",
+                                             "ay":  "378",
+                                             "aw":  "66",
+                                             "ah":  "44",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  120,
+                                            "y":  378,
+                                            "width":  66,
+                                            "height":  44
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERFINGER1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerfinger1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "389",
+                                             "ay":  "365",
+                                             "aw":  "20",
+                                             "ah":  "21",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  389,
+                                            "y":  365,
+                                            "width":  20,
+                                            "height":  21
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERFINGER2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerfinger2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "385",
+                                             "ay":  "413",
+                                             "aw":  "23",
+                                             "ah":  "15",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  385,
+                                            "y":  413,
+                                            "width":  23,
+                                            "height":  15
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERFINGER3|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerfinger3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "79",
+                                             "ay":  "437",
+                                             "aw":  "23",
+                                             "ah":  "14",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  79,
+                                            "y":  437,
+                                            "width":  23,
+                                            "height":  14
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERFINGER4|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerfinger4",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "301",
+                                             "ay":  "455",
+                                             "aw":  "17",
+                                             "ah":  "15",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  301,
+                                            "y":  455,
+                                            "width":  17,
+                                            "height":  15
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_OUTERHAND|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_outerhand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "49",
+                                             "ay":  "437",
+                                             "aw":  "28",
+                                             "ah":  "47",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  49,
+                                            "y":  437,
+                                            "width":  28,
+                                            "height":  47
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_POT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_pot",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "193",
+                                             "ay":  "301",
+                                             "aw":  "129",
+                                             "ah":  "57",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  193,
+                                            "y":  301,
+                                            "width":  129,
+                                            "height":  57
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_POT_INSIDE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_pot_inside",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "120",
+                                             "ay":  "424",
+                                             "aw":  "65",
+                                             "ah":  "28",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  120,
+                                            "y":  424,
+                                            "width":  65,
+                                            "height":  28
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_ARM1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_arm1",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "339",
+                                             "aw":  "125",
+                                             "ah":  "102",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  339,
+                                            "y":  0,
+                                            "width":  125,
+                                            "height":  102
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_ARM2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_arm2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "339",
+                                             "ay":  "104",
+                                             "aw":  "125",
+                                             "ah":  "94",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  339,
+                                            "y":  104,
+                                            "width":  125,
+                                            "height":  94
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_BODY|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_body",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "186",
+                                             "ay":  "202",
+                                             "aw":  "85",
+                                             "ah":  "97",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  186,
+                                            "y":  202,
+                                            "width":  85,
+                                            "height":  97
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_FOOT1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_foot1",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "310",
+                                             "aw":  "76",
+                                             "ah":  "58",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  310,
+                                            "width":  76,
+                                            "height":  58
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_FOOT2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_foot2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "193",
+                                             "ay":  "360",
+                                             "aw":  "76",
+                                             "ah":  "57",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  193,
+                                            "y":  360,
+                                            "width":  76,
+                                            "height":  57
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_GRABHAND|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_grabhand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "475",
+                                             "ay":  "431",
+                                             "aw":  "33",
+                                             "ah":  "48",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  475,
+                                            "y":  431,
+                                            "width":  33,
+                                            "height":  48
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_HAND1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_hand1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "273",
+                                             "ay":  "202",
+                                             "aw":  "52",
+                                             "ah":  "57",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  273,
+                                            "y":  202,
+                                            "width":  52,
+                                            "height":  57
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_HAND2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_hand2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "66",
+                                             "ay":  "378",
+                                             "aw":  "52",
+                                             "ah":  "57",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  66,
+                                            "y":  378,
+                                            "width":  52,
+                                            "height":  57
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_HEAD1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_head1",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "217",
+                                             "aw":  "90",
+                                             "ah":  "91",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464313"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  217,
+                                            "width":  90,
+                                            "height":  91
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_HEAD2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_head2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "301",
+                                             "ay":  "473",
+                                             "aw":  "49",
+                                             "ah":  "26",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  301,
+                                            "y":  473,
+                                            "width":  49,
+                                            "height":  26
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_LOWERLEG1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_lowerleg1",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "466",
+                                             "aw":  "42",
+                                             "ah":  "69",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  0,
+                                            "width":  42,
+                                            "height":  69
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_LOWERLEG2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_lowerleg2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "438",
+                                             "ay":  "200",
+                                             "aw":  "65",
+                                             "ah":  "92",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  438,
+                                            "y":  200,
+                                            "width":  65,
+                                            "height":  92
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_UPPERLEG1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_upperleg1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "273",
+                                             "ay":  "261",
+                                             "aw":  "63",
+                                             "ah":  "38",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  273,
+                                            "y":  261,
+                                            "width":  63,
+                                            "height":  38
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_CRAZYDAVE_ZOMBIE_UPPERLEG2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\reanim_crazydave_zombie_upperleg2",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "370",
+                                             "aw":  "64",
+                                             "ah":  "49",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  370,
+                                            "width":  64,
+                                            "height":  49
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_AQUARIUMGARDENICON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_aquariumgardenicon",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "466",
+                                             "ay":  "161",
+                                             "aw":  "34",
+                                             "ah":  "34",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  161,
+                                            "width":  34,
+                                            "height":  34
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_FIRSTAIDWALLNUTICON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_firstaidwallnuticon",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "271",
+                                             "ay":  "396",
+                                             "aw":  "50",
+                                             "ah":  "57",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  271,
+                                            "y":  396,
+                                            "width":  50,
+                                            "height":  57
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_MUSHROOMGARDENICON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_mushroomgardenicon",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "470",
+                                             "aw":  "34",
+                                             "ah":  "34",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  470,
+                                            "width":  34,
+                                            "height":  34
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_NEXTBUTTONDISABLED|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_nextbuttondisabled",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "92",
+                                             "ay":  "217",
+                                             "aw":  "86",
+                                             "ah":  "53",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  92,
+                                            "y":  217,
+                                            "width":  86,
+                                            "height":  53
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_PACKETUPGRADE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_packetupgrade",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "418",
+                                             "ay":  "364",
+                                             "aw":  "65",
+                                             "ah":  "65",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  418,
+                                            "y":  364,
+                                            "width":  65,
+                                            "height":  65
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_PREVBUTTONDISABLED|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\store_prevbuttondisabled",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "323",
+                                             "ay":  "396",
+                                             "aw":  "60",
+                                             "ah":  "46",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  323,
+                                            "y":  396,
+                                            "width":  60,
+                                            "height":  46
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_TACO|480",
+                                             "path":  "images\\480\\LoadingImages\\Dave\\taco",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "466",
+                                             "ay":  "116",
+                                             "aw":  "43",
+                                             "ah":  "43",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DAVE_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  116,
+                                            "width":  43,
+                                            "height":  43
+                                        }
+                      }
+                  ]
+}

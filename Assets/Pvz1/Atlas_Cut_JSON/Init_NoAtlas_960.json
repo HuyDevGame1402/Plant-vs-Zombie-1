@@ -1,0 +1,24 @@
+{
+    "compositeId":  "Init_NoAtlas",
+    "group":  {
+                  "id":  "Init_NoAtlas_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_POPCAP_LOGO|960",
+                                             "path":  "images\\960\\Init\\noatlas\\popcap_logo",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464302"
+                                         }
+                      }
+                  ]
+}

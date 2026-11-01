@@ -1,0 +1,39 @@
+{
+    "compositeId":  "DelayLoad_Zombiquarium_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_Zombiquarium_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_AQUARIUM1|480",
+                                             "path":  "images\\480\\DelayLoad_Zombiquarium\\noatlas\\aquarium1",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464300"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WAVECENTER|480",
+                                             "path":  "images\\480\\DelayLoad_Zombiquarium\\noatlas\\wavecenter",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "rows":  "12",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464301"
+                                         }
+                      }
+                  ]
+}

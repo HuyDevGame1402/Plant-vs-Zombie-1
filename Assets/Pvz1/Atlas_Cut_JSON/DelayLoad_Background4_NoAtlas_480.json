@@ -1,0 +1,67 @@
+{
+    "compositeId":  "DelayLoad_Background4_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_Background4_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND4|480",
+                                             "path":  "images\\480\\DelayLoad_Background4\\noatlas\\background4",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464291"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND4_GAMEOVER_INTERIOR_OVERLAY|480",
+                                             "path":  "images\\480\\DelayLoad_Background4\\noatlas\\background4_gameover_interior_overlay",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464292"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND4_GAMEOVER_MASK|480",
+                                             "path":  "images\\480\\DelayLoad_Background4\\noatlas\\background4_gameover_mask",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464292"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_FOG|480",
+                                             "path":  "images\\480\\DelayLoad_Background4\\noatlas\\fog",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "cols":  "4",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464292"
+                                         }
+                      }
+                  ]
+}

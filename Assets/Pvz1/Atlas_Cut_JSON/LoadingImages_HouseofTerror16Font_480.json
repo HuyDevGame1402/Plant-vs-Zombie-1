@@ -1,0 +1,71 @@
+{
+    "compositeId":  "LoadingImages_HouseofTerror16Font",
+    "group":  {
+                  "id":  "LoadingImages_HouseofTerror16Font_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_HOUSEOFTERROR16FONT_480_00|480",
+                                             "path":  "atlases\\LoadingImages_HouseofTerror16Font_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "256",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464448"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_HOUSEOFTERROR16|480",
+                                             "path":  "images\\480\\LoadingImages\\HouseofTerror16Font\\houseofterror16",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "199",
+                                             "ah":  "220",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_HOUSEOFTERROR16FONT_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  199,
+                                            "height":  220
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_HOUSEOFTERROR16OUTLINE|480",
+                                             "path":  "images\\480\\LoadingImages\\HouseofTerror16Font\\houseofterror16outline",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "222",
+                                             "aw":  "138",
+                                             "ah":  "176",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_HOUSEOFTERROR16FONT_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  222,
+                                            "width":  138,
+                                            "height":  176
+                                        }
+                      }
+                  ]
+}

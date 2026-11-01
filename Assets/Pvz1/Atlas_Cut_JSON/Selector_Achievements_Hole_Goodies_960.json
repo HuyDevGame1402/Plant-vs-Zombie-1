@@ -1,0 +1,131 @@
+{
+    "compositeId":  "Selector_Achievements_Hole_Goodies",
+    "group":  {
+                  "id":  "Selector_Achievements_Hole_Goodies_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00|960",
+                                             "path":  "atlases\\Selector_Achievements_Hole_Goodies_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "floyed",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464521"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_FOSSIL|960",
+                                             "path":  "images\\960\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\960\\Selector_Achievements_Hole\\Goodies\\fossil",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_GEMS_LEFT|960",
+                                             "path":  "images\\960\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\960\\Selector_Achievements_Hole\\Goodies\\gems_left",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_GEMS_RIGHT|960",
+                                             "path":  "images\\960\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\960\\Selector_Achievements_Hole\\Goodies\\gems_right",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_PIPE|960",
+                                             "path":  "images\\960\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\960\\Selector_Achievements_Hole\\Goodies\\pipe",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_WORM|960",
+                                             "path":  "images\\960\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "0",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_SELECTOR_ACHIEVEMENTS_HOLE_GOODIES_960_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\960\\Selector_Achievements_Hole\\Goodies\\worm",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      }
+                  ]
+}

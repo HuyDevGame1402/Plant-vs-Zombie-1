@@ -1,0 +1,73 @@
+{
+    "compositeId":  "DelayLoad_tombstones",
+    "group":  {
+                  "id":  "DelayLoad_tombstones_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_TOMBSTONES_960_00|960",
+                                             "path":  "atlases\\DelayLoad_tombstones_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464422"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_TOMBSTONES|960",
+                                             "path":  "images\\960\\DelayLoad_tombstones\\tombstones",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "460",
+                                             "ah":  "294",
+                                             "rows":  "3",
+                                             "cols":  "5",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_TOMBSTONES_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464300"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  460,
+                                            "height":  294
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_TOMBSTONE_MOUNDS|960",
+                                             "path":  "images\\960\\DelayLoad_tombstones\\tombstone_mounds",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "296",
+                                             "aw":  "460",
+                                             "ah":  "90",
+                                             "rows":  "3",
+                                             "cols":  "5",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_TOMBSTONES_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464300"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  296,
+                                            "width":  460,
+                                            "height":  90
+                                        }
+                      }
+                  ]
+}

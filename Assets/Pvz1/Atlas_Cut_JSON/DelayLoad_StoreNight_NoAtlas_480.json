@@ -1,0 +1,52 @@
+{
+    "compositeId":  "DelayLoad_StoreNight_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_StoreNight_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_BACKGROUNDNIGHT|480",
+                                             "path":  "images\\480\\DelayLoad_StoreNight\\noatlas\\store_backgroundnight",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464299"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CAR_NIGHT|480",
+                                             "path":  "images\\480\\DelayLoad_StoreNight\\noatlas\\store_car_night",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464300"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CARCLOSED_NIGHT|480",
+                                             "path":  "images\\480\\DelayLoad_StoreNight\\noatlas\\store_carclosed_night",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464300"
+                                         }
+                      }
+                  ]
+}

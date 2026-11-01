@@ -1,0 +1,24 @@
+{
+    "compositeId":  "DelayLoad_ZombieNote_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_ZombieNote_NoAtlas_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_NOTE|960",
+                                             "path":  "images\\960\\DelayLoad_ZombieNote\\noatlas\\zombie_note",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464300"
+                                         }
+                      }
+                  ]
+}

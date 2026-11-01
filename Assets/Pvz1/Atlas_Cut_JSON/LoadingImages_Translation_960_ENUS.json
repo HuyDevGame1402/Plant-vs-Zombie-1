@@ -1,0 +1,2431 @@
+{
+    "compositeId":  "LoadingImages_Translation",
+    "group":  {
+                  "id":  "LoadingImages_Translation_960_ENUS",
+                  "res":  "960",
+                  "loc":  "ENUS"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00|960||454e5553",
+                                             "path":  "atlases\\LoadingImages_Translation_960_ENUS_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "2048",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464512"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ACHIEVEMENT_ICON_SPUDOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\achievement_icon_spudow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "464",
+                                             "ay":  "808",
+                                             "aw":  "140",
+                                             "ah":  "140",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  464,
+                                            "y":  808,
+                                            "width":  140,
+                                            "height":  140
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\almanac",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "862",
+                                             "ay":  "662",
+                                             "aw":  "160",
+                                             "ah":  "160",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  862,
+                                            "y":  662,
+                                            "width":  160,
+                                            "height":  160
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_PLANTS_HEADER|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\almanac_plants_header",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "242",
+                                             "aw":  "530",
+                                             "ah":  "82",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  242,
+                                            "width":  530,
+                                            "height":  82
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_ZOMBIES_HEADER|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\almanac_zombies_header",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "326",
+                                             "aw":  "530",
+                                             "ah":  "82",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  326,
+                                            "width":  530,
+                                            "height":  82
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND1_OVERLAY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\background1_overlay",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "966",
+                                             "ay":  "72",
+                                             "aw":  "56",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  966,
+                                            "y":  72,
+                                            "width":  56,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND2_OVERLAY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\background2_overlay",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "966",
+                                             "ay":  "146",
+                                             "aw":  "56",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  966,
+                                            "y":  146,
+                                            "width":  56,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_IZOMBIE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_IZOMBIE_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_LASTSTAND|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_laststand",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_LASTSTAND_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_laststand_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_VASEBREAKER|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_vasebreaker",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_VASEBREAKER_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_vasebreaker_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_CHOCOLATE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\chocolate",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "946",
+                                             "aw":  "60",
+                                             "ah":  "70",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  946,
+                                            "y":  0,
+                                            "width":  60,
+                                            "height":  70
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DOOM|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\doom",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "1051",
+                                             "aw":  "202",
+                                             "ah":  "86",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  1051,
+                                            "width":  202,
+                                            "height":  86
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_EXPLOSIONPOWIE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\explosionpowie",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "452",
+                                             "ay":  "1096",
+                                             "aw":  "160",
+                                             "ah":  "60",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  452,
+                                            "y":  1096,
+                                            "width":  160,
+                                            "height":  60
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_EXPLOSIONSPUDOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\explosionspudow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "717",
+                                             "ay":  "1060",
+                                             "aw":  "156",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  717,
+                                            "y":  1060,
+                                            "width":  156,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_1|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "870",
+                                             "ay":  "242",
+                                             "aw":  "150",
+                                             "ah":  "137",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  870,
+                                            "y":  242,
+                                            "width":  150,
+                                            "height":  137
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_2|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "870",
+                                             "ay":  "381",
+                                             "aw":  "150",
+                                             "ah":  "137",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  870,
+                                            "y":  381,
+                                            "width":  150,
+                                            "height":  137
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_3|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "868",
+                                             "ay":  "520",
+                                             "aw":  "150",
+                                             "ah":  "137",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  868,
+                                            "y":  520,
+                                            "width":  150,
+                                            "height":  137
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_4|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_4",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "160",
+                                             "ay":  "752",
+                                             "aw":  "150",
+                                             "ah":  "137",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  160,
+                                            "y":  752,
+                                            "width":  150,
+                                            "height":  137
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_5|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_5",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "312",
+                                             "ay":  "808",
+                                             "aw":  "150",
+                                             "ah":  "137",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  312,
+                                            "y":  808,
+                                            "width":  150,
+                                            "height":  137
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_IN_APP_PURCHASE_6|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\in_app_purchase_6",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "752",
+                                             "aw":  "158",
+                                             "ah":  "136",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  752,
+                                            "width":  158,
+                                            "height":  136
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LOCK_OPEN|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\lock_open",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "628",
+                                             "ay":  "722",
+                                             "aw":  "160",
+                                             "ah":  "160",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  628,
+                                            "y":  722,
+                                            "width":  160,
+                                            "height":  160
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_POW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\pow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "790",
+                                             "ay":  "824",
+                                             "aw":  "144",
+                                             "ah":  "130",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464398"
+                                         },
+                          "atlasRect":  {
+                                            "x":  790,
+                                            "y":  824,
+                                            "width":  144,
+                                            "height":  130
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ACHIEVEMENTS|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_achievements",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ACHIEVEMENTS_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_achievements_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ADVENTURE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_adventure",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ADVENTURE_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_adventure_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_BACK|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_back",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_BACK_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_back_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_BONUSGAMES|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_bonusgames",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_BOUNSGAMES_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_bounsgames_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_CLASSIC|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_classic",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_CLASSIC_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_classic_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_DAY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_day",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_DAY_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_day_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_FOG|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_fog",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_FOG_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_fog_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MINIGAMES|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_minigames",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MINIGAMES_GLOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_minigames_glow",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MINIGAMES_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_minigames_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MOREWAYSTOPLAY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_morewaystoplay",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MOREWAYSTOPLAY_GLOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_morewaystoplay_glow",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_MOREWAYSTOPLAY_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_morewaystoplay_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_NIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_night",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_NIGHT_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_night_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_POOL|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_pool",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_POOL_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_pool_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_PUZZLE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_puzzle",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_PUZZLE_GLOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_puzzle_glow",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_PUZZLE_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_puzzle_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_QUICKPLAY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_quickplay",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_QUICKPLAY_GLOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_quickplay_glow",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_QUICKPLAY_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_quickplay_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ROOF|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_roof",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ROOF_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_roof_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_SURVIVAL|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_survival",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_SURVIVAL_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_survival_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ZEN|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_zen",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_BUTTON_ZEN_LIT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_button_zen_lit",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_FINALWAVE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_finalwave",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "578",
+                                             "aw":  "364",
+                                             "ah":  "86",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464399"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  578,
+                                            "width":  364,
+                                            "height":  86
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_ACHIEVEMENTS_BACK_BUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_achievements_back_button",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_ACHIEVEMENTS_BACK_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_achievements_back_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_DOWNLOADPVZ2|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_downloadpvz2",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_BACK_BUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_back_button",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_BACK_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_back_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_BUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_button",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_TOP_LEAVES|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_top_leaves",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_UPDATED|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_selectorscreen_moregames_updated",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_STARTPLANT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_startplant",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "98",
+                                             "aw":  "320",
+                                             "ah":  "142",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464399"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  98,
+                                            "width":  320,
+                                            "height":  142
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_STARTREADY|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_startready",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "322",
+                                             "ay":  "98",
+                                             "aw":  "320",
+                                             "ah":  "142",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464399"
+                                         },
+                          "atlasRect":  {
+                                            "x":  322,
+                                            "y":  98,
+                                            "width":  320,
+                                            "height":  142
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_STARTSET|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_startset",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "644",
+                                             "ay":  "98",
+                                             "aw":  "320",
+                                             "ah":  "142",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464399"
+                                         },
+                          "atlasRect":  {
+                                            "x":  644,
+                                            "y":  98,
+                                            "width":  320,
+                                            "height":  142
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN1|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign1",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN1_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign1_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN4|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign4",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN4_GLOW|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign4_glow",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN4_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign4_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN5|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign5",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN5_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign5_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN6|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign6",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN6_HIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\reanim_woodsign6_highlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BACKGROUND_TOP|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\seedchooser_background_top",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "366",
+                                             "ay":  "662",
+                                             "aw":  "494",
+                                             "ah":  "58",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  366,
+                                            "y":  662,
+                                            "width":  494,
+                                            "height":  58
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\seedchooser_button",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "666",
+                                             "aw":  "312",
+                                             "ah":  "84",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  666,
+                                            "width":  312,
+                                            "height":  84
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BUTTON_DISABLED|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\seedchooser_button_disabled",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "314",
+                                             "ay":  "722",
+                                             "aw":  "312",
+                                             "ah":  "84",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  314,
+                                            "y":  722,
+                                            "width":  312,
+                                            "height":  84
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_ALMANAC|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_almanac",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "676",
+                                             "ay":  "466",
+                                             "aw":  "190",
+                                             "ah":  "194",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  676,
+                                            "y":  466,
+                                            "width":  190,
+                                            "height":  194
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_OPTIONS1|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_options1",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_OPTIONS2|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_options2",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_OPTIONSXMAS1|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_optionsxmas1",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_OPTIONSXMAS2|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_optionsxmas2",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_STORE|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_store",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_STOREHIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_storehighlight",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SPROING|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\sproing",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "366",
+                                             "ay":  "578",
+                                             "aw":  "180",
+                                             "ah":  "76",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  366,
+                                            "y":  578,
+                                            "width":  180,
+                                            "height":  76
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CONTINUEBUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_continuebutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "177",
+                                             "ay":  "947",
+                                             "aw":  "178",
+                                             "ah":  "102",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  177,
+                                            "y":  947,
+                                            "width":  178,
+                                            "height":  102
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_CONTINUEBUTTONDOWN|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_continuebuttondown",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "357",
+                                             "ay":  "950",
+                                             "aw":  "178",
+                                             "ah":  "102",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  357,
+                                            "y":  950,
+                                            "width":  178,
+                                            "height":  102
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_MAINMENUBUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_mainmenubutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "783",
+                                             "ay":  "956",
+                                             "aw":  "178",
+                                             "ah":  "102",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  783,
+                                            "y":  956,
+                                            "width":  178,
+                                            "height":  102
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_MAINMENUBUTTONDOWN|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_mainmenubuttondown",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "537",
+                                             "ay":  "992",
+                                             "aw":  "178",
+                                             "ah":  "102",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  537,
+                                            "y":  992,
+                                            "width":  178,
+                                            "height":  102
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_NEXTBUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_nextbutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "606",
+                                             "ay":  "884",
+                                             "aw":  "175",
+                                             "ah":  "106",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  606,
+                                            "y":  884,
+                                            "width":  175,
+                                            "height":  106
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_NEXTBUTTONHIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_nextbuttonhighlight",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "891",
+                                             "aw":  "175",
+                                             "ah":  "106",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  891,
+                                            "width":  175,
+                                            "height":  106
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_PREVBUTTON|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_prevbutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "204",
+                                             "ay":  "1051",
+                                             "aw":  "122",
+                                             "ah":  "92",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  204,
+                                            "y":  1051,
+                                            "width":  122,
+                                            "height":  92
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_PREVBUTTONHIGHLIGHT|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_prevbuttonhighlight",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "328",
+                                             "ay":  "1054",
+                                             "aw":  "122",
+                                             "ah":  "92",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  328,
+                                            "y":  1054,
+                                            "width":  122,
+                                            "height":  92
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_SIGN|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\button_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1008",
+                                             "aw":  "4",
+                                             "ah":  "4",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "origpath":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\store_sign",
+                                             "padding":  "0 0"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1008,
+                                            "y":  0,
+                                            "width":  4,
+                                            "height":  4
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOBSLED1|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\zombie_bobsled1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "532",
+                                             "ay":  "242",
+                                             "aw":  "336",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  532,
+                                            "y":  242,
+                                            "width":  336,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOBSLED2|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\zombie_bobsled2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "532",
+                                             "ay":  "354",
+                                             "aw":  "336",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  532,
+                                            "y":  354,
+                                            "width":  336,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOBSLED3|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\zombie_bobsled3",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "410",
+                                             "aw":  "336",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  410,
+                                            "width":  336,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_BOBSLED4|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\zombie_bobsled4",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "338",
+                                             "ay":  "466",
+                                             "aw":  "336",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  338,
+                                            "y":  466,
+                                            "width":  336,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_LEVELNUMBERS|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\selectorscreen_levelnumbers",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "522",
+                                             "aw":  "240",
+                                             "ah":  "34",
+                                             "cols":  "10",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464400"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  522,
+                                            "width":  240,
+                                            "height":  34
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_INDEX_HEADER|960||454e5553",
+                                             "path":  "locales\\en-us\\images\\960\\LoadingImages\\Translation\\almanac_index_header",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "944",
+                                             "ah":  "96",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION_960_ENUS_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464397"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  944,
+                                            "height":  96
+                                        }
+                      }
+                  ]
+}

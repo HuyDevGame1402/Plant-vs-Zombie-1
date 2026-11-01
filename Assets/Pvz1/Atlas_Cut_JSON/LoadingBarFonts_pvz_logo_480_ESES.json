@@ -1,0 +1,48 @@
+{
+    "compositeId":  "LoadingBarFonts_pvz_logo",
+    "group":  {
+                  "id":  "LoadingBarFonts_pvz_logo_480_ESES",
+                  "res":  "480",
+                  "loc":  "ESES"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGBARFONTS_PVZ_LOGO_480_ESES_00|480||45534553",
+                                             "path":  "atlases\\LoadingBarFonts_pvz_logo_480_ESES_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "64",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464433"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_PVZ_LOGO|480||45534553",
+                                             "path":  "locales\\es-es\\images\\480\\LoadingBarFonts\\pvz_logo\\pvz_logo",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "374",
+                                             "ah":  "62",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBARFONTS_PVZ_LOGO_480_ESES_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464401"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  374,
+                                            "height":  62
+                                        }
+                      }
+                  ]
+}

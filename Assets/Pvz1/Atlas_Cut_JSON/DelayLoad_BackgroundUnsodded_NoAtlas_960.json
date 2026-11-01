@@ -1,0 +1,24 @@
+{
+    "compositeId":  "DelayLoad_BackgroundUnsodded_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_BackgroundUnsodded_NoAtlas_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND1UNSODDED|960",
+                                             "path":  "images\\960\\DelayLoad_BackgroundUnsodded\\noatlas\\background1unsodded",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464296"
+                                         }
+                      }
+                  ]
+}

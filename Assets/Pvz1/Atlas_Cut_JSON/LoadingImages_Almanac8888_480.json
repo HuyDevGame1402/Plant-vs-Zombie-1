@@ -1,0 +1,114 @@
+{
+    "compositeId":  "LoadingImages_Almanac8888",
+    "group":  {
+                  "id":  "LoadingImages_Almanac8888_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_ALMANAC8888_480_00|480",
+                                             "path":  "atlases\\LoadingImages_Almanac8888_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "128",
+                                             "ah":  "128",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464437"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_CLAY_TABLET|480",
+                                             "path":  "images\\480\\LoadingImages\\Almanac8888\\almanac_clay_tablet",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "60",
+                                             "aw":  "45",
+                                             "ah":  "45",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_ALMANAC8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464308"
+                                         },
+                          "atlasRect":  {
+                                            "x":  60,
+                                            "y":  0,
+                                            "width":  45,
+                                            "height":  45
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_NAVY_RECT|480",
+                                             "path":  "images\\480\\LoadingImages\\Almanac8888\\almanac_navy_rect",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "58",
+                                             "ah":  "59",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_ALMANAC8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464308"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  58,
+                                            "height":  59
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_STONE_BORDER|480",
+                                             "path":  "images\\480\\LoadingImages\\Almanac8888\\almanac_stone_border",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "61",
+                                             "aw":  "30",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_ALMANAC8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464308"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  61,
+                                            "width":  30,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_STONE_TABLET|480",
+                                             "path":  "images\\480\\LoadingImages\\Almanac8888\\almanac_stone_tablet",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "60",
+                                             "ay":  "47",
+                                             "aw":  "45",
+                                             "ah":  "45",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_ALMANAC8888_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464308"
+                                         },
+                          "atlasRect":  {
+                                            "x":  60,
+                                            "y":  47,
+                                            "width":  45,
+                                            "height":  45
+                                        }
+                      }
+                  ]
+}

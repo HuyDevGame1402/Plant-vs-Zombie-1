@@ -1,0 +1,52 @@
+{
+    "compositeId":  "DelayLoad_Background6_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_Background6_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND6BOSS|480",
+                                             "path":  "images\\480\\DelayLoad_Background6\\noatlas\\background6boss",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464294"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND6_GAMEOVER_MASK|480",
+                                             "path":  "images\\480\\DelayLoad_Background6\\noatlas\\background6_gameover_mask",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464294"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND6_STOCKING|480",
+                                             "path":  "images\\480\\DelayLoad_Background6\\noatlas\\background6_stocking",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464294"
+                                         }
+                      }
+                  ]
+}

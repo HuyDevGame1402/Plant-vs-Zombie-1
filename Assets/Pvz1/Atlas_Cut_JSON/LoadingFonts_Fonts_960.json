@@ -1,0 +1,253 @@
+{
+    "compositeId":  "LoadingFonts_Fonts",
+    "group":  {
+                  "id":  "LoadingFonts_Fonts_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_HOUSEOFTERROR16|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\HouseofTerror.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_CONTINUUMBOLD14|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\ContinuumBold28.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_DWARVENTODCRAFT12|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft24.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_DWARVENTODCRAFT15|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft30.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_DWARVENTODCRAFT18|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft36.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_PICO129|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\Pico1218.txt",
+                                             "time":  "1540464287"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_BRIANNETOD12|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\BrianneTod24.txt",
+                                             "time":  "1540464286"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_10|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\_BrianneTod24_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "803",
+                                             "aw":  "220",
+                                             "ah":  "231",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  803,
+                                            "y":  0,
+                                            "width":  220,
+                                            "height":  231
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_11|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\_Pico1218_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "803",
+                                             "ay":  "233",
+                                             "aw":  "183",
+                                             "ah":  "128",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464287"
+                                         },
+                          "atlasRect":  {
+                                            "x":  803,
+                                            "y":  233,
+                                            "width":  183,
+                                            "height":  128
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_12|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\ContinuumBold28_layer1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "734",
+                                             "ay":  "675",
+                                             "aw":  "274",
+                                             "ah":  "284",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  734,
+                                            "y":  675,
+                                            "width":  274,
+                                            "height":  284
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_13|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft24_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "734",
+                                             "ay":  "378",
+                                             "aw":  "287",
+                                             "ah":  "295",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  734,
+                                            "y":  378,
+                                            "width":  287,
+                                            "height":  295
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_14|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft30_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "391",
+                                             "ay":  "378",
+                                             "aw":  "341",
+                                             "ah":  "341",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  391,
+                                            "y":  378,
+                                            "width":  341,
+                                            "height":  341
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_15|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\DwarvenTodcraft36_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "391",
+                                             "aw":  "410",
+                                             "ah":  "376",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  391,
+                                            "y":  0,
+                                            "width":  410,
+                                            "height":  376
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_16|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\HouseofTerror32_layer0_",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "389",
+                                             "ah":  "427",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  389,
+                                            "height":  427
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_17|960",
+                                             "path":  "fonts\\960\\LoadingFonts\\HouseofTerror32_layer1",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "429",
+                                             "aw":  "286",
+                                             "ah":  "281",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464286"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  429,
+                                            "width":  286,
+                                            "height":  281
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGFONTS_FONTS_960_00|960",
+                                             "path":  "atlases\\LoadingFonts_Fonts_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "1024",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464434"
+                                         }
+                      }
+                  ]
+}

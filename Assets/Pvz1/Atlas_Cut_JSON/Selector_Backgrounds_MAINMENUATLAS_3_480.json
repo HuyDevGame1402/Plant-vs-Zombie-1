@@ -1,0 +1,24 @@
+{
+    "compositeId":  "Selector_Backgrounds_MAINMENUATLAS_3",
+    "group":  {
+                  "id":  "Selector_Backgrounds_MAINMENUATLAS_3_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_PUZZLE_PATCH_A|480",
+                                             "path":  "images\\480\\Selector_Backgrounds\\noatlas\\puzzle_patch_A",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "",
+                                             "time":  "1540464387"
+                                         }
+                      }
+                  ]
+}

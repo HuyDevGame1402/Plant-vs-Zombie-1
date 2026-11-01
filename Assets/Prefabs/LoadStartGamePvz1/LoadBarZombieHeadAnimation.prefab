@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4603811387945693756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8703669926281228539}
+  - component: {fileID: 681557202061808874}
+  m_Layer: 0
+  m_Name: LoadBarZombieHeadAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8703669926281228539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603811387945693756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681557202061808874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603811387945693756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30632312f78ced0498bd756ef382ee3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reanimJson: {fileID: 4900000, guid: 0b77a052b5958fe4ba4bea47cf172bdf, type: 3}
+  atlasTexture: {fileID: 2800000, guid: 277da0326d6aefa46b2d4f12c00163c1, type: 3}
+  atlasJson: {fileID: 4900000, guid: 6a30a89e51ff05844aa1038f0ce34da9, type: 3}
+  pixelsPerUnit: 100
+  positionScale: 2.4
+  spriteScale: 1
+  sortingOrder: 2
+  frontTrackIndices: 
+  frontTrackOffsetPx: {x: 0, y: 0}
+  centerBodyOnOrigin: 1
+  manualOffsetPx: {x: 9, y: -15}
+  enableDynamicOffsetAtHalf: 1
+  triggerProgress: 0.5
+  targetOffsetXAtEnd: 18
+  targetOffsetAtHalf: 6
+  clipBelowGround: 1
+  groundLineY: 25.5
+  maskWidth: 4
+  maskHeight: 4
+  maskScale: {x: 1.076806, y: 1.1368, z: 1}
+  autoPlay: 1
+  loop: 0
+  speed: 1
+  testPlay: 0
+  testProgress: 0

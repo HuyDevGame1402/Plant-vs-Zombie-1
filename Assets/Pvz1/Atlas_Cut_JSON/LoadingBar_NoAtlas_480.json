@@ -1,0 +1,24 @@
+{
+    "compositeId":  "LoadingBar_NoAtlas",
+    "group":  {
+                  "id":  "LoadingBar_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_TITLESCREEN|480",
+                                             "path":  "images\\480\\LoadingBar\\noatlas\\titlescreen",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         }
+                      }
+                  ]
+}

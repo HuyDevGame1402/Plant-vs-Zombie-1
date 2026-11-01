@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_ZombieNote2_zombie_note2",
+    "group":  {
+                  "id":  "DelayLoad_ZombieNote2_zombie_note2_480_FRFR",
+                  "res":  "480",
+                  "loc":  "FRFR"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTE2_ZOMBIE_NOTE2_480_FRFR_00|480||46524652",
+                                             "path":  "atlases\\DelayLoad_ZombieNote2_zombie_note2_480_FRFR_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464425"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_NOTE2|480||46524652",
+                                             "path":  "locales\\fr-fr\\images\\480\\DelayLoad_ZombieNote2\\zombie_note2\\zombie_note2",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "293",
+                                             "ah":  "183",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTE2_ZOMBIE_NOTE2_480_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464406"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  293,
+                                            "height":  183
+                                        }
+                      }
+                  ]
+}

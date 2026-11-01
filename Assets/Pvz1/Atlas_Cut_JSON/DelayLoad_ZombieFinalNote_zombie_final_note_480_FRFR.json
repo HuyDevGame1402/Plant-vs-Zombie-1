@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_ZombieFinalNote_zombie_final_note",
+    "group":  {
+                  "id":  "DelayLoad_ZombieFinalNote_zombie_final_note_480_FRFR",
+                  "res":  "480",
+                  "loc":  "FRFR"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIEFINALNOTE_ZOMBIE_FINAL_NOTE_480_FRFR_00|480||46524652",
+                                             "path":  "atlases\\DelayLoad_ZombieFinalNote_zombie_final_note_480_FRFR_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464423"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_FINAL_NOTE|480||46524652",
+                                             "path":  "locales\\fr-fr\\images\\480\\DelayLoad_ZombieFinalNote\\zombie_final_note\\zombie_final_note",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "291",
+                                             "ah":  "171",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIEFINALNOTE_ZOMBIE_FINAL_NOTE_480_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464406"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  291,
+                                            "height":  171
+                                        }
+                      }
+                  ]
+}

@@ -1,0 +1,1147 @@
+{
+    "compositeId":  "LoadingImages_Dialog",
+    "group":  {
+                  "id":  "LoadingImages_Dialog_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00|480",
+                                             "path":  "atlases\\LoadingImages_Dialog_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464446"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_CLOSEBUTTON_X|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\almanac_closebutton_x",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "130",
+                                             "ay":  "252",
+                                             "aw":  "14",
+                                             "ah":  "14",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  130,
+                                            "y":  252,
+                                            "width":  14,
+                                            "height":  14
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_PAPER|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\almanac_paper",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "241",
+                                             "ay":  "318",
+                                             "aw":  "45",
+                                             "ah":  "45",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  241,
+                                            "y":  318,
+                                            "width":  45,
+                                            "height":  45
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_PLANTS_BOTTOMGRADIENT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\almanac_plants_bottomgradient",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "247",
+                                             "aw":  "10",
+                                             "ah":  "10",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  247,
+                                            "width":  10,
+                                            "height":  10
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_PLANTS_TOPGRADIENT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\almanac_plants_topgradient",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "496",
+                                             "ay":  "247",
+                                             "aw":  "10",
+                                             "ah":  "10",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  496,
+                                            "y":  247,
+                                            "width":  10,
+                                            "height":  10
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_DOWN_LEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_down_left",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "57",
+                                             "ay":  "341",
+                                             "aw":  "19",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  57,
+                                            "y":  341,
+                                            "width":  19,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_DOWN_MIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_down_middle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "484",
+                                             "ay":  "215",
+                                             "aw":  "25",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  484,
+                                            "y":  215,
+                                            "width":  25,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_DOWN_RIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_down_right",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "78",
+                                             "ay":  "341",
+                                             "aw":  "19",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  78,
+                                            "y":  341,
+                                            "width":  19,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_LEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_left",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "99",
+                                             "ay":  "341",
+                                             "aw":  "19",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  99,
+                                            "y":  341,
+                                            "width":  19,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_MIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_middle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "362",
+                                             "ay":  "282",
+                                             "aw":  "25",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  362,
+                                            "y":  282,
+                                            "width":  25,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BUTTON_RIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\button_right",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "178",
+                                             "ay":  "352",
+                                             "aw":  "19",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  178,
+                                            "y":  352,
+                                            "width":  19,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_COINBANK|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\coinbank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "130",
+                                             "ay":  "277",
+                                             "aw":  "128",
+                                             "ah":  "31",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  130,
+                                            "y":  277,
+                                            "width":  128,
+                                            "height":  31
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_CREDITS_PLAYBUTTON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\credits_playbutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "341",
+                                             "aw":  "31",
+                                             "ah":  "32",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  341,
+                                            "width":  31,
+                                            "height":  32
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BIGBOTTOMLEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bigbottomleft",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "452",
+                                             "ay":  "124",
+                                             "aw":  "57",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  452,
+                                            "y":  124,
+                                            "width":  57,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BIGBOTTOMMIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bigbottommiddle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "273",
+                                             "ay":  "191",
+                                             "aw":  "50",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464314"
+                                         },
+                          "atlasRect":  {
+                                            "x":  273,
+                                            "y":  191,
+                                            "width":  50,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BIGBOTTOMRIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bigbottomright",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "385",
+                                             "ay":  "124",
+                                             "aw":  "65",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  385,
+                                            "y":  124,
+                                            "width":  65,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BOTTOMLEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bottomleft",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "392",
+                                             "ay":  "259",
+                                             "aw":  "57",
+                                             "ah":  "65",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  392,
+                                            "y":  259,
+                                            "width":  57,
+                                            "height":  65
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BOTTOMMIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bottommiddle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "451",
+                                             "ay":  "259",
+                                             "aw":  "50",
+                                             "ah":  "65",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  451,
+                                            "y":  259,
+                                            "width":  50,
+                                            "height":  65
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_BOTTOMRIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_bottomright",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "215",
+                                             "aw":  "65",
+                                             "ah":  "65",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  215,
+                                            "width":  65,
+                                            "height":  65
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_CENTERLEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_centerleft",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "355",
+                                             "ay":  "326",
+                                             "aw":  "57",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  355,
+                                            "y":  326,
+                                            "width":  57,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_CENTERMIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_centermiddle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "414",
+                                             "ay":  "326",
+                                             "aw":  "50",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  414,
+                                            "y":  326,
+                                            "width":  50,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_CENTERRIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_centerright",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "288",
+                                             "ay":  "318",
+                                             "aw":  "65",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  288,
+                                            "y":  318,
+                                            "width":  65,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_HEADER|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_header",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "260",
+                                             "ay":  "282",
+                                             "aw":  "100",
+                                             "ah":  "34",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  260,
+                                            "y":  282,
+                                            "width":  100,
+                                            "height":  34
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_TOPLEFT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_topleft",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "67",
+                                             "ay":  "287",
+                                             "aw":  "57",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  67,
+                                            "y":  287,
+                                            "width":  57,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_TOPMIDDLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_topmiddle",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "126",
+                                             "ay":  "310",
+                                             "aw":  "50",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  126,
+                                            "y":  310,
+                                            "width":  50,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_DIALOG_TOPRIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\dialog_topright",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "287",
+                                             "aw":  "65",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  287,
+                                            "width":  65,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_EDITBOX|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\editbox",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "392",
+                                             "ay":  "215",
+                                             "aw":  "90",
+                                             "ah":  "42",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  392,
+                                            "y":  215,
+                                            "width":  90,
+                                            "height":  42
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_GRAD_LEFT_TO_RIGHT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\grad_left_to_right",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "425",
+                                             "ay":  "357",
+                                             "aw":  "65",
+                                             "ah":  "3",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  425,
+                                            "y":  357,
+                                            "width":  65,
+                                            "height":  3
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_GRAD_TOP_TO_BOTTOM|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\grad_top_to_bottom",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "509",
+                                             "ay":  "82",
+                                             "aw":  "2",
+                                             "ah":  "40",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  509,
+                                            "y":  82,
+                                            "width":  2,
+                                            "height":  40
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINIGAME_TROPHY|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\minigame_trophy",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "469",
+                                             "ay":  "82",
+                                             "aw":  "38",
+                                             "ah":  "38",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  469,
+                                            "y":  82,
+                                            "width":  38,
+                                            "height":  38
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_OPTIONS_CHECKBOX0|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\options_checkbox0",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "469",
+                                             "aw":  "42",
+                                             "ah":  "39",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  469,
+                                            "y":  0,
+                                            "width":  42,
+                                            "height":  39
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_OPTIONS_CHECKBOX1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\options_checkbox1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "469",
+                                             "ay":  "41",
+                                             "aw":  "42",
+                                             "ah":  "39",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  469,
+                                            "y":  41,
+                                            "width":  42,
+                                            "height":  39
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_OPTIONS_SLIDERKNOB2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\options_sliderknob2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "33",
+                                             "ay":  "341",
+                                             "aw":  "22",
+                                             "ah":  "29",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  33,
+                                            "y":  341,
+                                            "width":  22,
+                                            "height":  29
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_OPTIONS_SLIDERSLOT|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\options_sliderslot",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "288",
+                                             "ay":  "357",
+                                             "aw":  "135",
+                                             "ah":  "10",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  288,
+                                            "y":  357,
+                                            "width":  135,
+                                            "height":  10
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_RATE_BUTTON|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\rate_button",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "273",
+                                             "ay":  "124",
+                                             "aw":  "110",
+                                             "ah":  "65",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  273,
+                                            "y":  124,
+                                            "width":  110,
+                                            "height":  65
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ACHIEVEMENTS_GNOME|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_achievements_gnome",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "154",
+                                             "ay":  "124",
+                                             "aw":  "117",
+                                             "ah":  "151",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  154,
+                                            "y":  124,
+                                            "width":  117,
+                                            "height":  151
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_FOREGROUND_TOMBSTONES|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_foreground_tombstones",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "467",
+                                             "ah":  "122",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464315"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  467,
+                                            "height":  122
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_LEAVES|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_leaves",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "252",
+                                             "aw":  "128",
+                                             "ah":  "33",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  252,
+                                            "width":  128,
+                                            "height":  33
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_PLANK|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "210",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  210,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_MOREGAMES_POLE|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "210",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_pole",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  210,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_QUICKPLAY_TOP_GRASS1|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "210",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_quickplay_top_grass1",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  210,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_SELECTORSCREEN_QUICKPLAY_TOP_GRASS2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "210",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_quickplay_top_grass2",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  210,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_WOODSIGN2|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\reanim_selectorscreen_moregames_plank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "210",
+                                             "aw":  "2",
+                                             "ah":  "2",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "origpath":  "images\\480\\LoadingImages\\Dialog\\reanim_woodsign2",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  210,
+                                            "width":  2,
+                                            "height":  2
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SCROLL_INDICATOR|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\scroll_indicator",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "199",
+                                             "ay":  "352",
+                                             "aw":  "11",
+                                             "ah":  "11",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  199,
+                                            "y":  352,
+                                            "width":  11,
+                                            "height":  11
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTED_PACKET|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\selected_packet",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "178",
+                                             "ay":  "310",
+                                             "aw":  "61",
+                                             "ah":  "40",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  178,
+                                            "y":  310,
+                                            "width":  61,
+                                            "height":  40
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_QUICKPLAY_FRAME|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\selectorscreen_quickplay_frame",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "124",
+                                             "aw":  "152",
+                                             "ah":  "126",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  124,
+                                            "width":  152,
+                                            "height":  126
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SHOVELBANK|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\shovelbank",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "466",
+                                             "ay":  "326",
+                                             "aw":  "40",
+                                             "ah":  "27",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  466,
+                                            "y":  326,
+                                            "width":  40,
+                                            "height":  27
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_STORE_PRICETAG|480",
+                                             "path":  "images\\480\\LoadingImages\\Dialog\\store_pricetag",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "325",
+                                             "ay":  "191",
+                                             "aw":  "56",
+                                             "ah":  "17",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_DIALOG_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464316"
+                                         },
+                          "atlasRect":  {
+                                            "x":  325,
+                                            "y":  191,
+                                            "width":  56,
+                                            "height":  17
+                                        }
+                      }
+                  ]
+}

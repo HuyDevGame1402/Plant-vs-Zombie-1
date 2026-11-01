@@ -1,0 +1,69 @@
+{
+    "compositeId":  "DelayLoad_BackgroundUnsodded_SodRows",
+    "group":  {
+                  "id":  "DelayLoad_BackgroundUnsodded_SodRows_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_BACKGROUNDUNSODDED_SODROWS_480_00|480",
+                                             "path":  "atlases\\DelayLoad_BackgroundUnsodded_SodRows_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464418"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SOD1ROW|480",
+                                             "path":  "images\\480\\DelayLoad_BackgroundUnsodded\\SodRows\\sod1row",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "187",
+                                             "aw":  "411",
+                                             "ah":  "66",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_BACKGROUNDUNSODDED_SODROWS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464296"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  187,
+                                            "width":  411,
+                                            "height":  66
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SOD3ROW|480",
+                                             "path":  "images\\480\\DelayLoad_BackgroundUnsodded\\SodRows\\sod3row",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "411",
+                                             "ah":  "185",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_BACKGROUNDUNSODDED_SODROWS_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464296"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  411,
+                                            "height":  185
+                                        }
+                      }
+                  ]
+}

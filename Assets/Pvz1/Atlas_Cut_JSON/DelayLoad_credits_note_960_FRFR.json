@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_credits_note",
+    "group":  {
+                  "id":  "DelayLoad_credits_note_960_FRFR",
+                  "res":  "960",
+                  "loc":  "FRFR"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_CREDITS_NOTE_960_FRFR_00|960||46524652",
+                                             "path":  "atlases\\DelayLoad_credits_note_960_FRFR_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464420"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_CREDITS_ZOMBIENOTE|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\DelayLoad_credits_note\\credits_zombienote",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "572",
+                                             "ah":  "382",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_CREDITS_NOTE_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464406"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  572,
+                                            "height":  382
+                                        }
+                      }
+                  ]
+}

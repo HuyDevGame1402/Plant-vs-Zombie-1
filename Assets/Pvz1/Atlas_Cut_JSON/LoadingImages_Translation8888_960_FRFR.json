@@ -1,0 +1,330 @@
+{
+    "compositeId":  "LoadingImages_Translation8888",
+    "group":  {
+                  "id":  "LoadingImages_Translation8888_960_FRFR",
+                  "res":  "960",
+                  "loc":  "FRFR"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00|960||46524652",
+                                             "path":  "atlases\\LoadingImages_Translation8888_960_FRFR_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464504"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_BACKBUTTON|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\almanac_backbutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "192",
+                                             "aw":  "164",
+                                             "ah":  "62",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  192,
+                                            "y":  0,
+                                            "width":  164,
+                                            "height":  62
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ALMANAC_CLOSEBUTTON|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\almanac_closebutton",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "192",
+                                             "ay":  "64",
+                                             "aw":  "164",
+                                             "ah":  "62",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  192,
+                                            "y":  64,
+                                            "width":  164,
+                                            "height":  62
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_ALMANAC_BUTTON|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_almanac_button",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "332",
+                                             "aw":  "164",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  332,
+                                            "width":  164,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_ALMANAC_BUTTON_PRESSED|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_almanac_button_pressed",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "166",
+                                             "ay":  "332",
+                                             "aw":  "164",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  166,
+                                            "y":  332,
+                                            "width":  164,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BUTTON_GLOW|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_button_glow",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "196",
+                                             "aw":  "375",
+                                             "ah":  "84",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  196,
+                                            "width":  375,
+                                            "height":  84
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BUTTON2|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_button2",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "282",
+                                             "aw":  "174",
+                                             "ah":  "48",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  282,
+                                            "width":  174,
+                                            "height":  48
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_BUTTON2_GLOW|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_button2_glow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "176",
+                                             "ay":  "282",
+                                             "aw":  "174",
+                                             "ah":  "48",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  176,
+                                            "y":  282,
+                                            "width":  174,
+                                            "height":  48
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_PLAY_BUTTON|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_play_button",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "358",
+                                             "aw":  "134",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  358,
+                                            "y":  0,
+                                            "width":  134,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_PLAY_BUTTON_DISABLED|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_play_button_disabled",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "358",
+                                             "ay":  "74",
+                                             "aw":  "134",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  358,
+                                            "y":  74,
+                                            "width":  134,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_PLAY_BUTTON_PRESSED|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_play_button_pressed",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "377",
+                                             "ay":  "148",
+                                             "aw":  "134",
+                                             "ah":  "72",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  377,
+                                            "y":  148,
+                                            "width":  134,
+                                            "height":  72
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_SHOP_BUTTON|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_shop_button",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "332",
+                                             "ay":  "332",
+                                             "aw":  "164",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  332,
+                                            "y":  332,
+                                            "width":  164,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SEEDCHOOSER_SHOP_BUTTON_PRESSED|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\seedchooser_shop_button_pressed",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "384",
+                                             "aw":  "164",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  384,
+                                            "width":  164,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_SELECTORSCREEN_ALMANACHIGHLIGHT|960||46524652",
+                                             "path":  "locales\\fr-fr\\images\\960\\LoadingImages\\Translation8888\\selectorscreen_almanachighlight",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "190",
+                                             "ah":  "194",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_TRANSLATION8888_960_FRFR_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464407"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  190,
+                                            "height":  194
+                                        }
+                      }
+                  ]
+}

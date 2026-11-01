@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_ZombieNoteHelp_zombie_note_help",
+    "group":  {
+                  "id":  "DelayLoad_ZombieNoteHelp_zombie_note_help_480_ITIT",
+                  "res":  "480",
+                  "loc":  "ITIT"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTEHELP_ZOMBIE_NOTE_HELP_480_ITIT_00|480||49544954",
+                                             "path":  "atlases\\DelayLoad_ZombieNoteHelp_zombie_note_help_480_ITIT_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464428"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_ZOMBIE_NOTE_HELP|480||49544954",
+                                             "path":  "locales\\it-it\\images\\480\\DelayLoad_ZombieNoteHelp\\zombie_note_help\\zombie_note_help",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "282",
+                                             "ah":  "172",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_ZOMBIENOTEHELP_ZOMBIE_NOTE_HELP_480_ITIT_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464411"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  282,
+                                            "height":  172
+                                        }
+                      }
+                  ]
+}

@@ -1,0 +1,54 @@
+{
+    "compositeId":  "LoadingBarFonts_Fonts",
+    "group":  {
+                  "id":  "LoadingBarFonts_Fonts_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "2",
+                                             "id":  "FONT_BRIANNETOD16|480",
+                                             "path":  "fonts\\480\\LoadingBarFonts\\BrianneTod32.txt",
+                                             "time":  "1540464285"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "FONTIMAGE_0|480",
+                                             "path":  "fonts\\480\\LoadingBarFonts\\_BrianneTod32_layer0",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "167",
+                                             "ah":  "158",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBARFONTS_FONTS_480_00",
+                                             "padding":  "0 0",
+                                             "time":  "1540464285"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  167,
+                                            "height":  158
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGBARFONTS_FONTS_480_00|480",
+                                             "path":  "atlases\\LoadingBarFonts_Fonts_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "256",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464433"
+                                         }
+                      }
+                  ]
+}

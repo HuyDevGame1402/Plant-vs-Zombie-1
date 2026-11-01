@@ -1,0 +1,38 @@
+{
+    "compositeId":  "Leaderboards",
+    "group":  {
+                  "id":  "Leaderboards_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BLACK_HOLE|960",
+                                             "path":  "images\\960\\Leaderboards\\noatlas\\black_hole_circular",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464304"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LEADERBOARD_BG|960",
+                                             "path":  "images\\960\\Leaderboards\\noatlas\\leaderboard_bg",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464305"
+                                         }
+                      }
+                  ]
+}

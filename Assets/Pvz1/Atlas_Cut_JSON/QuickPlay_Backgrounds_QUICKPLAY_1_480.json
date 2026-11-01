@@ -1,0 +1,520 @@
+{
+    "compositeId":  "QuickPlay_Backgrounds_QUICKPLAY_1",
+    "group":  {
+                  "id":  "QuickPlay_Backgrounds_QUICKPLAY_1_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00|480",
+                                             "path":  "atlases\\QuickPlay_Backgrounds_QUICKPLAY_1_480_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "512",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464518"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_BEJ|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_bej",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_BOBSLED|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_bobsled",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "124",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  124,
+                                            "y":  0,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_COLUMN|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_column",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "248",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  248,
+                                            "y":  0,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_INVIS|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_invis",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "372",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  372,
+                                            "y":  0,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_IZOMBIE|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_izombie",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "91",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  91,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_LASTSTAND|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_laststand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "124",
+                                             "ay":  "91",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  124,
+                                            "y":  91,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_POGO|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_pogo",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "248",
+                                             "ay":  "91",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  248,
+                                            "y":  91,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_PORTAL|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_portal",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "372",
+                                             "ay":  "91",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  372,
+                                            "y":  91,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_RAIN|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_rain",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "182",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464383"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  182,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_SEEING_STARS|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_seeing_stars",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "124",
+                                             "ay":  "182",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  124,
+                                            "y":  182,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_SLOT|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_slot",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "248",
+                                             "ay":  "182",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  248,
+                                            "y":  182,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_SPEED|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_speed",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "372",
+                                             "ay":  "182",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  372,
+                                            "y":  182,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_TWIST|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_twist",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "273",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  273,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_VASEBREAKER|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_vasebreaker",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "124",
+                                             "ay":  "273",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  124,
+                                            "y":  273,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_WAR|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_war",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "248",
+                                             "ay":  "273",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  248,
+                                            "y":  273,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_ZOMBIQUARIUM|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_zombiquarium",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "372",
+                                             "ay":  "273",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  372,
+                                            "y":  273,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_MINI_ZOMPACKET|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\mini_zompacket",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "364",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  364,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_PUZZLE_PATCH_B|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\puzzle_patch_B",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "455",
+                                             "aw":  "256",
+                                             "ah":  "13",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  455,
+                                            "width":  256,
+                                            "height":  13
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_QUICKPLAY_VASES|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\quickplay_vases",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "124",
+                                             "ay":  "364",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  124,
+                                            "y":  364,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_QUICKPLAY_WACK|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\quickplay_wack",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "248",
+                                             "ay":  "364",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  248,
+                                            "y":  364,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_QUICKPLAY_ZOMBOSS|480",
+                                             "path":  "images\\480\\QuickPlay_Backgrounds\\QUICKPLAY_1\\quickplay_zomboss",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "372",
+                                             "ay":  "364",
+                                             "aw":  "122",
+                                             "ah":  "89",
+                                             "parent":  "ATLASIMAGE_ATLAS_QUICKPLAY_BACKGROUNDS_QUICKPLAY_1_480_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464384"
+                                         },
+                          "atlasRect":  {
+                                            "x":  372,
+                                            "y":  364,
+                                            "width":  122,
+                                            "height":  89
+                                        }
+                      }
+                  ]
+}

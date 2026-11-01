@@ -1,0 +1,47 @@
+{
+    "compositeId":  "DelayLoad_reanim_zombieswon",
+    "group":  {
+                  "id":  "DelayLoad_reanim_zombieswon_480_ITIT",
+                  "res":  "480",
+                  "loc":  "ITIT"
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_DELAYLOAD_REANIM_ZOMBIESWON_480_ITIT_00|480||49544954",
+                                             "path":  "atlases\\DelayLoad_reanim_zombieswon_480_ITIT_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "512",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "none",
+                                             "runtime":  "true",
+                                             "time":  "1540464421"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIESWON|480||49544954",
+                                             "path":  "locales\\it-it\\images\\480\\DelayLoad_reanim_zombieswon\\reanim_zombieswon",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "301",
+                                             "ah":  "250",
+                                             "parent":  "ATLASIMAGE_ATLAS_DELAYLOAD_REANIM_ZOMBIESWON_480_ITIT_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "time":  "1540464410"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  301,
+                                            "height":  250
+                                        }
+                      }
+                  ]
+}

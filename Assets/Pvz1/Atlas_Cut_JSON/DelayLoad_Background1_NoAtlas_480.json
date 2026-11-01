@@ -1,0 +1,52 @@
+{
+    "compositeId":  "DelayLoad_Background1_NoAtlas",
+    "group":  {
+                  "id":  "DelayLoad_Background1_NoAtlas_480",
+                  "res":  "480",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND1|480",
+                                             "path":  "images\\480\\DelayLoad_Background1\\noatlas\\background1",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464287"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND1_GAMEOVER_INTERIOR_OVERLAY|480",
+                                             "path":  "images\\480\\DelayLoad_Background1\\noatlas\\background1_gameover_interior_overlay",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464288"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_BACKGROUND1_GAMEOVER_MASK|480",
+                                             "path":  "images\\480\\DelayLoad_Background1\\noatlas\\background1_gameover_mask",
+                                             "imagetype":  "0",
+                                             "aflags":  "0",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "nobits":  "true",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464288"
+                                         }
+                      }
+                  ]
+}

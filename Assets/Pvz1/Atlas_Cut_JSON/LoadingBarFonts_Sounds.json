@@ -1,0 +1,34 @@
+{
+    "compositeId":  "LoadingBarFonts_Sounds_CompositeShell",
+    "group":  {
+                  "id":  "LoadingBarFonts_Sounds",
+                  "res":  "0",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "1",
+                                             "id":  "SOUND_BUTTONCLICK",
+                                             "path":  "sounds\\LoadingBarFonts\\buttonclick",
+                                             "time":  "1540464415"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "1",
+                                             "id":  "SOUND_LOADINGBAR_FLOWER",
+                                             "path":  "sounds\\LoadingBarFonts\\loadingbar_flower",
+                                             "time":  "1540464415"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "1",
+                                             "id":  "SOUND_LOADINGBAR_ZOMBIE",
+                                             "path":  "sounds\\LoadingBarFonts\\loadingbar_zombie",
+                                             "time":  "1540464415"
+                                         }
+                      }
+                  ]
+}

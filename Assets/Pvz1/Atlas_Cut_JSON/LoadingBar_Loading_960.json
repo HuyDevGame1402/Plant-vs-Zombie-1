@@ -1,0 +1,258 @@
+{
+    "compositeId":  "LoadingBar_Loading",
+    "group":  {
+                  "id":  "LoadingBar_Loading_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00|960",
+                                             "path":  "atlases\\LoadingBar_Loading_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "256",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464433"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LOADBAR_DIRT|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\loadbar_dirt",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "642",
+                                             "ah":  "106",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464305"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  642,
+                                            "height":  106
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_LOADBAR_GRASS|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\loadbar_grass",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "108",
+                                             "aw":  "628",
+                                             "ah":  "66",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464305"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  108,
+                                            "width":  628,
+                                            "height":  66
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_POTATOMINE_ROCK1|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_potatomine_rock1",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1002",
+                                             "aw":  "20",
+                                             "ah":  "20",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1002,
+                                            "y":  0,
+                                            "width":  20,
+                                            "height":  20
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_POTATOMINE_ROCK3|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_potatomine_rock3",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "936",
+                                             "ay":  "32",
+                                             "aw":  "40",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  936,
+                                            "y":  32,
+                                            "width":  40,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_SODROLLCAP|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_sodrollcap",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "644",
+                                             "aw":  "146",
+                                             "ah":  "142",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  644,
+                                            "y":  0,
+                                            "width":  146,
+                                            "height":  142
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_SPROUT_BODY|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_sprout_body",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "900",
+                                             "aw":  "34",
+                                             "ah":  "64",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  900,
+                                            "y":  0,
+                                            "width":  34,
+                                            "height":  64
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_SPROUT_PETAL|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_sprout_petal",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "978",
+                                             "ay":  "32",
+                                             "aw":  "34",
+                                             "ah":  "26",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  978,
+                                            "y":  32,
+                                            "width":  34,
+                                            "height":  26
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_ZOMBIE_HAIR|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_zombie_hair",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "792",
+                                             "ay":  "98",
+                                             "aw":  "128",
+                                             "ah":  "62",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  792,
+                                            "y":  98,
+                                            "width":  128,
+                                            "height":  62
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_ZOMBIE_HEAD|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_zombie_head",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "792",
+                                             "aw":  "106",
+                                             "ah":  "96",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  792,
+                                            "y":  0,
+                                            "width":  106,
+                                            "height":  96
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_LOAD_ZOMBIE_JAW|960",
+                                             "path":  "images\\960\\LoadingBar\\Loading\\reanim_load_zombie_jaw",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "936",
+                                             "aw":  "64",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGBAR_LOADING_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464306"
+                                         },
+                          "atlasRect":  {
+                                            "x":  936,
+                                            "y":  0,
+                                            "width":  64,
+                                            "height":  30
+                                        }
+                      }
+                  ]
+}

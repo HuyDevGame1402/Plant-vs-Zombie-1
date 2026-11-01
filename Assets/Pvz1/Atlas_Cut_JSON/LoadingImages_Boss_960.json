@@ -1,0 +1,1335 @@
+{
+    "compositeId":  "LoadingImages_Boss",
+    "group":  {
+                  "id":  "LoadingImages_Boss_960",
+                  "res":  "960",
+                  "loc":  ""
+              },
+    "resources":  [
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00|960",
+                                             "path":  "atlases\\LoadingImages_Boss_960_00",
+                                             "imagetype":  "2",
+                                             "aflags":  "0",
+                                             "aw":  "1024",
+                                             "ah":  "2048",
+                                             "parent":  "",
+                                             "DefaultImageFilter":  "",
+                                             "rsbfilter":  "",
+                                             "runtime":  "true",
+                                             "time":  "1540464442"
+                                         }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ANTENNA|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_antenna",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "973",
+                                             "ay":  "848",
+                                             "aw":  "50",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  973,
+                                            "y":  848,
+                                            "width":  50,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ANTENNA_LIT|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_antenna_lit",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "973",
+                                             "ay":  "900",
+                                             "aw":  "50",
+                                             "ah":  "50",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  973,
+                                            "y":  900,
+                                            "width":  50,
+                                            "height":  50
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_ARM_UPPER2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_arm_upper2",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "868",
+                                             "aw":  "144",
+                                             "ah":  "158",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  868,
+                                            "y":  0,
+                                            "width":  144,
+                                            "height":  158
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_EYEGLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_eyeglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "465",
+                                             "ay":  "1739",
+                                             "aw":  "211",
+                                             "ah":  "95",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  465,
+                                            "y":  1739,
+                                            "width":  211,
+                                            "height":  95
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_EYEGLOW_BLACK|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_eyeglow_black",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "678",
+                                             "ay":  "1793",
+                                             "aw":  "211",
+                                             "ah":  "95",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  678,
+                                            "y":  1793,
+                                            "width":  211,
+                                            "height":  95
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_EYEGLOW_BLUE|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_eyeglow_blue",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "1810",
+                                             "aw":  "211",
+                                             "ah":  "95",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  1810,
+                                            "width":  211,
+                                            "height":  95
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_EYEGLOW_RED|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_eyeglow_red",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "213",
+                                             "ay":  "1885",
+                                             "aw":  "211",
+                                             "ah":  "95",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  213,
+                                            "y":  1885,
+                                            "width":  211,
+                                            "height":  95
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FLAG|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_flag",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "956",
+                                             "ay":  "529",
+                                             "aw":  "67",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  956,
+                                            "y":  529,
+                                            "width":  67,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FLAGPOLE|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_flagpole",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "1014",
+                                             "aw":  "6",
+                                             "ah":  "105",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1014,
+                                            "y":  0,
+                                            "width":  6,
+                                            "height":  105
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FOOT|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_foot",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "561",
+                                             "ay":  "383",
+                                             "aw":  "393",
+                                             "ah":  "242",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  561,
+                                            "y":  383,
+                                            "width":  393,
+                                            "height":  242
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FOOT_DAMAGE1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_foot_damage1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "497",
+                                             "ay":  "627",
+                                             "aw":  "393",
+                                             "ah":  "242",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  497,
+                                            "y":  627,
+                                            "width":  393,
+                                            "height":  242
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_FOOT_DAMAGE2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_foot_damage2",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "794",
+                                             "aw":  "393",
+                                             "ah":  "242",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  794,
+                                            "width":  393,
+                                            "height":  242
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_HEAD2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_head2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "465",
+                                             "ay":  "1836",
+                                             "aw":  "198",
+                                             "ah":  "81",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  465,
+                                            "y":  1836,
+                                            "width":  198,
+                                            "height":  81
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_FINGER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_finger",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "570",
+                                             "ay":  "1593",
+                                             "aw":  "78",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  570,
+                                            "y":  1593,
+                                            "width":  78,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_FINGERROPE|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_fingerrope",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "924",
+                                             "ay":  "1695",
+                                             "aw":  "78",
+                                             "ah":  "110",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  924,
+                                            "y":  1695,
+                                            "width":  78,
+                                            "height":  110
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_HAND|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_hand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "461",
+                                             "ay":  "1182",
+                                             "aw":  "172",
+                                             "ah":  "151",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  461,
+                                            "y":  1182,
+                                            "width":  172,
+                                            "height":  151
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_LOWER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_lower",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "1308",
+                                             "aw":  "208",
+                                             "ah":  "248",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464309"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  1308,
+                                            "width":  208,
+                                            "height":  248
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_THUMB1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_thumb1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "956",
+                                             "ay":  "408",
+                                             "aw":  "67",
+                                             "ah":  "61",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  956,
+                                            "y":  408,
+                                            "width":  67,
+                                            "height":  61
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_THUMB2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_thumb2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "956",
+                                             "ay":  "306",
+                                             "aw":  "64",
+                                             "ah":  "100",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  956,
+                                            "y":  306,
+                                            "width":  64,
+                                            "height":  100
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERARM_UPPER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerarm_upper",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "1038",
+                                             "aw":  "243",
+                                             "ah":  "268",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  1038,
+                                            "width":  243,
+                                            "height":  268
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERJAW|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerjaw",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "868",
+                                             "ay":  "160",
+                                             "aw":  "152",
+                                             "ah":  "144",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  868,
+                                            "y":  160,
+                                            "width":  152,
+                                            "height":  144
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_INNERLEG_UPPER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_innerleg_upper",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "1558",
+                                             "aw":  "171",
+                                             "ah":  "223",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  1558,
+                                            "width":  171,
+                                            "height":  223
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_LEG_LOWER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_leg_lower",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "684",
+                                             "ay":  "871",
+                                             "aw":  "287",
+                                             "ah":  "308",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  684,
+                                            "y":  871,
+                                            "width":  287,
+                                            "height":  308
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_LEGBITS|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_legbits",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "245",
+                                             "ay":  "1038",
+                                             "aw":  "143",
+                                             "ah":  "125",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  245,
+                                            "y":  1038,
+                                            "width":  143,
+                                            "height":  125
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_LOWERBODY|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_lowerbody",
+                                             "imagetype":  "4",
+                                             "aflags":  "7",
+                                             "ay":  "515",
+                                             "aw":  "495",
+                                             "ah":  "277",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  515,
+                                            "width":  495,
+                                            "height":  277
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_MOUTHGLOW|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_mouthglow",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "424",
+                                             "ay":  "1593",
+                                             "aw":  "144",
+                                             "ah":  "144",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  424,
+                                            "y":  1593,
+                                            "width":  144,
+                                            "height":  144
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_MOUTHGLOW_BLUE|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_mouthglow_blue",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "173",
+                                             "ay":  "1664",
+                                             "aw":  "144",
+                                             "ah":  "144",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  173,
+                                            "y":  1664,
+                                            "width":  144,
+                                            "height":  144
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_MOUTHGLOW_RED|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_mouthglow_red",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "319",
+                                             "ay":  "1739",
+                                             "aw":  "144",
+                                             "ah":  "144",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  319,
+                                            "y":  1739,
+                                            "width":  144,
+                                            "height":  144
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_NECK|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_neck",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "395",
+                                             "ay":  "871",
+                                             "aw":  "287",
+                                             "ah":  "309",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  395,
+                                            "y":  871,
+                                            "width":  287,
+                                            "height":  309
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_FINGER1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_finger1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "892",
+                                             "ay":  "765",
+                                             "aw":  "81",
+                                             "ah":  "81",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  892,
+                                            "y":  765,
+                                            "width":  81,
+                                            "height":  81
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_FINGER2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_finger2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "892",
+                                             "ay":  "627",
+                                             "aw":  "122",
+                                             "ah":  "136",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  892,
+                                            "y":  627,
+                                            "width":  122,
+                                            "height":  136
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_HAND|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_hand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "710",
+                                             "ay":  "1365",
+                                             "aw":  "212",
+                                             "ah":  "212",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  710,
+                                            "y":  1365,
+                                            "width":  212,
+                                            "height":  212
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_HAND_DAMAGE1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_hand_damage1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "210",
+                                             "ay":  "1450",
+                                             "aw":  "212",
+                                             "ah":  "212",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  210,
+                                            "y":  1450,
+                                            "width":  212,
+                                            "height":  212
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_HAND_DAMAGE2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_hand_damage2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "710",
+                                             "ay":  "1579",
+                                             "aw":  "212",
+                                             "ah":  "212",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  710,
+                                            "y":  1579,
+                                            "width":  212,
+                                            "height":  212
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_LOWER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_lower",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "461",
+                                             "ay":  "1365",
+                                             "aw":  "247",
+                                             "ah":  "226",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  461,
+                                            "y":  1365,
+                                            "width":  247,
+                                            "height":  226
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_THUMB_DAMAGE1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_thumb_damage1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "924",
+                                             "ay":  "1475",
+                                             "aw":  "93",
+                                             "ah":  "108",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  924,
+                                            "y":  1475,
+                                            "width":  93,
+                                            "height":  108
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_THUMB_DAMAGE2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_thumb_damage2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "924",
+                                             "ay":  "1585",
+                                             "aw":  "93",
+                                             "ah":  "108",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  924,
+                                            "y":  1585,
+                                            "width":  93,
+                                            "height":  108
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_THUMB1|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_thumb1",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "868",
+                                             "ay":  "306",
+                                             "aw":  "81",
+                                             "ah":  "60",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  868,
+                                            "y":  306,
+                                            "width":  81,
+                                            "height":  60
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_THUMB2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_thumb2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "924",
+                                             "ay":  "1365",
+                                             "aw":  "93",
+                                             "ah":  "108",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  924,
+                                            "y":  1365,
+                                            "width":  93,
+                                            "height":  108
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERARM_UPPER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerarm_upper",
+                                             "imagetype":  "4",
+                                             "aflags":  "11",
+                                             "ax":  "561",
+                                             "aw":  "305",
+                                             "ah":  "381",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  561,
+                                            "y":  0,
+                                            "width":  305,
+                                            "height":  381
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_OUTERLEG_UPPER|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_outerleg_upper",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "245",
+                                             "ay":  "1182",
+                                             "aw":  "214",
+                                             "ah":  "266",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464310"
+                                         },
+                          "atlasRect":  {
+                                            "x":  245,
+                                            "y":  1182,
+                                            "width":  214,
+                                            "height":  266
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_RV|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_rv",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "684",
+                                             "ay":  "1181",
+                                             "aw":  "320",
+                                             "ah":  "182",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  684,
+                                            "y":  1181,
+                                            "width":  320,
+                                            "height":  182
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_RVWHEEL|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_rvwheel",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "395",
+                                             "ay":  "794",
+                                             "aw":  "52",
+                                             "ah":  "52",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  395,
+                                            "y":  794,
+                                            "width":  52,
+                                            "height":  52
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSS_UPPERBODY|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_boss_upperbody",
+                                             "imagetype":  "4",
+                                             "aflags":  "3",
+                                             "aw":  "559",
+                                             "ah":  "513",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  0,
+                                            "y":  0,
+                                            "width":  559,
+                                            "height":  513
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_BODY|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_body",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "497",
+                                             "ay":  "515",
+                                             "aw":  "44",
+                                             "ah":  "78",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  497,
+                                            "y":  515,
+                                            "width":  44,
+                                            "height":  78
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_BRAIN|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_brain",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "956",
+                                             "ay":  "471",
+                                             "aw":  "66",
+                                             "ah":  "56",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  956,
+                                            "y":  471,
+                                            "width":  66,
+                                            "height":  56
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_FACE|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_face",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "650",
+                                             "ay":  "1593",
+                                             "aw":  "52",
+                                             "ah":  "44",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  650,
+                                            "y":  1593,
+                                            "width":  52,
+                                            "height":  44
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_FACE2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_face2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "650",
+                                             "ay":  "1639",
+                                             "aw":  "52",
+                                             "ah":  "44",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  650,
+                                            "y":  1639,
+                                            "width":  52,
+                                            "height":  44
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_INNERHAND|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_innerhand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "975",
+                                             "ay":  "765",
+                                             "aw":  "36",
+                                             "ah":  "46",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  975,
+                                            "y":  765,
+                                            "width":  36,
+                                            "height":  46
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_JAW|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_jaw",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "497",
+                                             "ay":  "595",
+                                             "aw":  "32",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  497,
+                                            "y":  595,
+                                            "width":  32,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_JAW2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_jaw2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "975",
+                                             "ay":  "813",
+                                             "aw":  "32",
+                                             "ah":  "30",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  975,
+                                            "y":  813,
+                                            "width":  32,
+                                            "height":  30
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_LOWERARM|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_lowerarm",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "956",
+                                             "ay":  "583",
+                                             "aw":  "42",
+                                             "ah":  "38",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  956,
+                                            "y":  583,
+                                            "width":  42,
+                                            "height":  38
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_LOWERARM2|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_lowerarm2",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "1000",
+                                             "ay":  "583",
+                                             "aw":  "22",
+                                             "ah":  "26",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  1000,
+                                            "y":  583,
+                                            "width":  22,
+                                            "height":  26
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_OUTERHAND|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_outerhand",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "449",
+                                             "ay":  "794",
+                                             "aw":  "36",
+                                             "ah":  "32",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  449,
+                                            "y":  794,
+                                            "width":  36,
+                                            "height":  32
+                                        }
+                      },
+                      {
+                          "attributes":  {
+                                             "type":  "0",
+                                             "id":  "IMAGE_REANIM_ZOMBIE_BOSSDRIVER_UPPERARM|960",
+                                             "path":  "images\\960\\LoadingImages\\Boss\\reanim_zombie_bossdriver_upperarm",
+                                             "imagetype":  "4",
+                                             "aflags":  "15",
+                                             "ax":  "449",
+                                             "ay":  "828",
+                                             "aw":  "26",
+                                             "ah":  "36",
+                                             "parent":  "ATLASIMAGE_ATLAS_LOADINGIMAGES_BOSS_960_00",
+                                             "nobits":  "true",
+                                             "padding":  "0 0",
+                                             "rsbfilter":  "none",
+                                             "time":  "1540464311"
+                                         },
+                          "atlasRect":  {
+                                            "x":  449,
+                                            "y":  828,
+                                            "width":  26,
+                                            "height":  36
+                                        }
+                      }
+                  ]
+}
