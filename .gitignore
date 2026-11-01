@@ -39,3 +39,6 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Unity Profile Analyzer
+ProfileAnalyzer/
