@@ -12,7 +12,9 @@ namespace PlantReanimation.Core
         public List<string> trackNames = new List<string>();
         public bool loop = true;
         public int FrameCount { get { return Math.Max(0, endFrame - startFrame + 1); } }
-        public float Duration(float fps) { return fps > 0f ? Math.Max(0, FrameCount - 1) / fps : 0f; }
+        // A timeline with N sampled frames occupies N frame intervals. Keeping the
+        // full duration ensures the last sample is shown before a loop/replay restarts.
+        public float Duration(float fps) { return fps > 0f ? FrameCount / fps : 0f; }
         public bool IsValid(int totalFrames) { return !string.IsNullOrWhiteSpace(name) && startFrame >= 0 && endFrame >= startFrame && endFrame < totalFrames && trackNames != null && trackNames.Count > 0; }
     }
 }

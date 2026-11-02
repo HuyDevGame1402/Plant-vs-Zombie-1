@@ -44,6 +44,11 @@ namespace PlantReanimation.Configuration
         public List<PlantReanimLayerConfig> layers =
             new List<PlantReanimLayerConfig>();
 
+
+        [Header("Vị trí neo")]
+        [Tooltip("Tọa độ Reanim tại điểm đặt cây, thường là giữa đáy cây.")]
+        public Vector2 reanimOrigin = Vector2.zero;
+
         // =====================================================
         // VALIDATION
         // =====================================================

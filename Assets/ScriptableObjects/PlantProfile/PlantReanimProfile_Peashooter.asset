@@ -18,13 +18,10 @@ MonoBehaviour:
   material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   pixelsPerUnit: 100
   positionScale: 2
-  globalScale: 1
   plantScale: {x: 1.6, y: 1.6}
   showShadow: 1
   shadowOffset: {x: 0, y: -3}
   shadowScale: 1.2
+  globalScale: 1
   clips: []
   layers: []
-
-
-

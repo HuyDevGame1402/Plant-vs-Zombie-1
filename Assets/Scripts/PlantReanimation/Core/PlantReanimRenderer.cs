@@ -1,5 +1,4 @@
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using PlantReanimation.Utilities;
 
@@ -10,26 +9,35 @@ namespace PlantReanimation.Core
         private class Layer
         {
             public string name;
-
             public GameObject gameObject;
             public Transform transform;
-
             public Mesh mesh;
             public MeshRenderer meshRenderer;
-
             public Vector3[] vertices;
             public Vector2[] uvs;
-
             public PlantAtlasPart currentPart;
             public float x, y, kx, ky, sx = 1f, sy = 1f;
         }
 
+        private const string ShadowLayerA = "__PlantReanimShadowA";
+        private const string ShadowLayerB = "__PlantReanimShadowB";
+
         private readonly Dictionary<string, Layer> layers =
             new Dictionary<string, Layer>();
 
+        [Header("Điểm đặt cây")]
+        [Tooltip(
+            "Tự căn gốc GameObject vào giữa đáy hình cây ở pose đầu tiên. " +
+            "Bật mục này để đặt cây theo vị trí trồng.")]
+        public bool autoAnchorToBottomCenter = true;
+
+        [Tooltip(
+            "Bù thêm vị trí sau khi tự căn, tính theo đơn vị Unity local. " +
+            "Để (0, 0) nếu không cần chỉnh thêm.")]
+        public Vector2 anchorAdjustment = Vector2.zero;
+
         private Texture2D atlasTexture;
         private Material sharedMaterial;
-
         private float pixelsPerUnit = 100f;
         private float positionScale = 1f;
         private float globalScale = 1f;
@@ -40,14 +48,13 @@ namespace PlantReanimation.Core
         private int sortingOrderBase;
         private bool shadowConfigured;
 
+        private bool anchorResolved;
+        private Vector2 automaticAnchorOffset;
+
         public int LayerCount
         {
             get { return layers.Count; }
         }
-
-        // =========================================
-        // INITIALIZE
-        // =========================================
 
         public void Initialize(
             Texture2D texture,
@@ -62,96 +69,157 @@ namespace PlantReanimation.Core
             if (texture == null)
             {
                 Debug.LogError(
-                    "[PlantReanimRenderer] Atlas Texture is null.");
-
+                    "[PlantReanimRenderer] Atlas Texture is null.",
+                    this);
                 return;
             }
 
             if (material == null)
             {
                 Debug.LogError(
-                    "[PlantReanimRenderer] Material is null.");
-
+                    "[PlantReanimRenderer] Material is null.",
+                    this);
                 return;
             }
 
             ClearLayers();
+
             shadowConfigured = false;
+            anchorResolved = !autoAnchorToBottomCenter;
+            automaticAnchorOffset = Vector2.zero;
+
             atlasTexture = texture;
             sharedMaterial = material;
             sortingLayerName = sortingLayer;
             this.sortingOrderBase = sortingOrderBase;
             this.globalScale = Mathf.Max(0.0001f, globalScale);
-            this.plantScale = plantScale == Vector2.zero ? Vector2.one : plantScale;
-
-            this.pixelsPerUnit =
-                Mathf.Max(0.0001f, pixelsPerUnit);
-
+            this.plantScale =
+                plantScale == Vector2.zero ? Vector2.one : plantScale;
+            this.pixelsPerUnit = Mathf.Max(0.0001f, pixelsPerUnit);
             this.positionScale = positionScale;
 
             propertyBlock = new MaterialPropertyBlock();
-
             propertyBlock.SetTexture("_MainTex", atlasTexture);
             propertyBlock.SetTexture("_BaseMap", atlasTexture);
         }
 
-        // =========================================
-        // CREATE LAYER
-        // =========================================
-
-        public void CreateLayer(
-            string layerName,
-            int sortingOrder)
+        private void LateUpdate()
         {
-            if (string.IsNullOrEmpty(layerName))
+            ResolveAnchorFromFirstVisiblePose();
+        }
+
+        private void ResolveAnchorFromFirstVisiblePose()
+        {
+            if (!autoAnchorToBottomCenter || anchorResolved)
                 return;
 
-            if (layers.ContainsKey(layerName))
+            float minX = float.MaxValue;
+            float maxX = float.MinValue;
+            float minY = float.MaxValue;
+            bool foundVisibleBody = false;
+
+            foreach (Layer layer in layers.Values)
+            {
+                if (layer == null ||
+                    layer.currentPart == null ||
+                    layer.gameObject == null ||
+                    !layer.gameObject.activeInHierarchy ||
+                    IsShadowLayer(layer.name))
+                {
+                    continue;
+                }
+
+                for (int i = 0; i < layer.vertices.Length; i++)
+                {
+                    Vector3 vertex = layer.vertices[i];
+                    minX = Mathf.Min(minX, vertex.x);
+                    maxX = Mathf.Max(maxX, vertex.x);
+                    minY = Mathf.Min(minY, vertex.y);
+                    foundVisibleBody = true;
+                }
+            }
+
+            // Chưa có pose hiển thị; thử lại ở LateUpdate tiếp theo.
+            if (!foundVisibleBody || minX > maxX)
                 return;
+
+            // Tọa độ Unity: y nhỏ hơn là thấp hơn trên màn hình.
+            automaticAnchorOffset = new Vector2(
+                (minX + maxX) * 0.5f,
+                minY);
+
+            anchorResolved = true;
+
+            foreach (Layer layer in layers.Values)
+            {
+                if (layer == null || layer.currentPart == null)
+                    continue;
+
+                if (IsShadowLayer(layer.name))
+                {
+                    TranslateLayerVertices(
+                        layer,
+                        -automaticAnchorOffset.x - anchorAdjustment.x,
+                        -automaticAnchorOffset.y - anchorAdjustment.y);
+                }
+                else
+                {
+                    UpdateLayerVertices(layer);
+                }
+            }
+        }
+
+        private static bool IsShadowLayer(string layerName)
+        {
+            return layerName == ShadowLayerA ||
+                   layerName == ShadowLayerB;
+        }
+
+        public void CreateLayer(string layerName, int sortingOrder)
+        {
+            if (string.IsNullOrEmpty(layerName) ||
+                layers.ContainsKey(layerName))
+            {
+                return;
+            }
 
             if (atlasTexture == null || sharedMaterial == null)
             {
                 Debug.LogError(
-                    "[PlantReanimRenderer] Call Initialize first.");
-
+                    "[PlantReanimRenderer] Call Initialize first.",
+                    this);
                 return;
             }
 
             GameObject layerObject = new GameObject(layerName);
-
             layerObject.transform.SetParent(transform, false);
 
-            MeshFilter meshFilter =
-                layerObject.AddComponent<MeshFilter>();
-
-            MeshRenderer meshRenderer =
-                layerObject.AddComponent<MeshRenderer>();
-
-            Mesh mesh = new Mesh();
-
-            mesh.name = "PlantLayer_" + layerName;
+            MeshFilter meshFilter = layerObject.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = layerObject.AddComponent<MeshRenderer>();
+            Mesh mesh = new Mesh
+            {
+                name = "PlantLayer_" + layerName
+            };
 
             Vector3[] vertices =
                 PlantReanimMath.CreateQuadVertices(1f, 1f);
-
             Vector2[] uvs = new Vector2[4];
 
             mesh.vertices = vertices;
-            mesh.triangles =
-                PlantReanimMath.CreateQuadTriangles();
-
+            mesh.triangles = PlantReanimMath.CreateQuadTriangles();
             mesh.uv = uvs;
             mesh.RecalculateBounds();
 
             meshFilter.sharedMesh = mesh;
-
             meshRenderer.sharedMaterial = sharedMaterial;
-            if (!string.IsNullOrEmpty(sortingLayerName)) meshRenderer.sortingLayerName = sortingLayerName;
-            meshRenderer.sortingOrder = sortingOrderBase + sortingOrder;
 
+            if (!string.IsNullOrEmpty(sortingLayerName))
+                meshRenderer.sortingLayerName = sortingLayerName;
+
+            meshRenderer.sortingOrder = sortingOrderBase + sortingOrder;
             meshRenderer.SetPropertyBlock(propertyBlock);
 
-            Layer layer = new Layer
+            layers.Add(layerName, new Layer
             {
                 name = layerName,
                 gameObject = layerObject,
@@ -160,50 +228,48 @@ namespace PlantReanimation.Core
                 meshRenderer = meshRenderer,
                 vertices = vertices,
                 uvs = uvs
-            };
-
-            layers.Add(layerName, layer);
+            });
         }
 
-        // =========================================
-        // SET ATLAS IMAGE
-        // =========================================
-
-        public void SetAtlasPart(
-            string layerName,
-            PlantAtlasPart part)
+        public void SetAtlasPart(string layerName, PlantAtlasPart part)
         {
             if (part == null)
                 return;
 
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
+            Layer layer;
+            if (!layers.TryGetValue(layerName, out layer))
             {
                 Debug.LogWarning(
-                    "[PlantReanimRenderer] Layer not found: " +
-                    layerName);
-
+                    "[PlantReanimRenderer] Layer not found: " + layerName,
+                    this);
                 return;
             }
 
             if (layer.currentPart == part)
                 return;
 
-            Vector2[] newUVs = PlantReanimMath.CalculateUVs(part, atlasTexture);
-            for (int i = 0; i < 4; i++) layer.uvs[i] = newUVs[i];
+            Vector2[] newUvs =
+                PlantReanimMath.CalculateUVs(part, atlasTexture);
+
+            for (int i = 0; i < 4; i++)
+                layer.uvs[i] = newUvs[i];
+
             layer.mesh.uv = layer.uvs;
             layer.currentPart = part;
             UpdateLayerVertices(layer);
         }
 
-        private const string ShadowLayerA = "__PlantReanimShadowA";
-        private const string ShadowLayerB = "__PlantReanimShadowB";
-
-        /// <summary>Draws two identical atlas shadows under the current idle pose.</summary>
-        public void ConfigureShadow(PlantAtlasPart shadowPart, Vector2 offset, float scale)
+        public void ConfigureShadow(
+            PlantAtlasPart shadowPart,
+            Vector2 offset,
+            float scale)
         {
-            if (shadowConfigured || shadowPart == null || atlasTexture == null)
+            if (shadowConfigured ||
+                shadowPart == null ||
+                atlasTexture == null)
+            {
                 return;
+            }
 
             CreateLayer(ShadowLayerA, -1);
             CreateLayer(ShadowLayerB, -1);
@@ -217,9 +283,11 @@ namespace PlantReanimation.Core
             foreach (Layer layer in layers.Values)
             {
                 if (layer.currentPart == null ||
-                    layer.name == ShadowLayerA || layer.name == ShadowLayerB ||
+                    IsShadowLayer(layer.name) ||
                     !layer.gameObject.activeInHierarchy)
+                {
                     continue;
+                }
 
                 for (int i = 0; i < layer.vertices.Length; i++)
                 {
@@ -238,62 +306,163 @@ namespace PlantReanimation.Core
                 return;
             }
 
-            // Bounds are already in local Unity units and include Global/Plant Scale.
-            // The old implementation adds shadowOffset after Plant Scale.
-            float centerX = (minX + maxX) * 0.5f + offset.x * positionScale / pixelsPerUnit;
-            float centerY = minY - offset.y * positionScale / pixelsPerUnit;
-            float safeScale = Mathf.Max(0.0001f, scale);
-            float halfWidth = shadowPart.width * globalScale * safeScale / (2f * pixelsPerUnit);
-            float halfHeight = shadowPart.height * globalScale * safeScale / (2f * pixelsPerUnit);
+            float centerX =
+                (minX + maxX) * 0.5f +
+                offset.x * positionScale / pixelsPerUnit;
 
-            SetShadowQuad(layers[ShadowLayerA], centerX, centerY, halfWidth, halfHeight);
-            SetShadowQuad(layers[ShadowLayerB], centerX, centerY, halfWidth, halfHeight);
+            float centerY =
+                minY -
+                offset.y * positionScale / pixelsPerUnit;
+
+            float safeScale = Mathf.Max(0.0001f, scale);
+            float halfWidth =
+                shadowPart.width * globalScale * safeScale /
+                (2f * pixelsPerUnit);
+            float halfHeight =
+                shadowPart.height * globalScale * safeScale /
+                (2f * pixelsPerUnit);
+
+            SetShadowQuad(
+                layers[ShadowLayerA],
+                centerX,
+                centerY,
+                halfWidth,
+                halfHeight);
+
+            SetShadowQuad(
+                layers[ShadowLayerB],
+                centerX,
+                centerY,
+                halfWidth,
+                halfHeight);
+
             shadowConfigured = true;
         }
 
-        private static void SetShadowQuad(Layer layer, float cx, float cy, float halfWidth, float halfHeight)
+        private static void SetShadowQuad(
+            Layer layer,
+            float centerX,
+            float centerY,
+            float halfWidth,
+            float halfHeight)
         {
-            layer.vertices[0] = new Vector3(cx - halfWidth, cy + halfHeight, 0f);
-            layer.vertices[1] = new Vector3(cx + halfWidth, cy + halfHeight, 0f);
-            layer.vertices[2] = new Vector3(cx + halfWidth, cy - halfHeight, 0f);
-            layer.vertices[3] = new Vector3(cx - halfWidth, cy - halfHeight, 0f);
+            layer.vertices[0] =
+                new Vector3(centerX - halfWidth, centerY + halfHeight, 0f);
+            layer.vertices[1] =
+                new Vector3(centerX + halfWidth, centerY + halfHeight, 0f);
+            layer.vertices[2] =
+                new Vector3(centerX + halfWidth, centerY - halfHeight, 0f);
+            layer.vertices[3] =
+                new Vector3(centerX - halfWidth, centerY - halfHeight, 0f);
+
             layer.mesh.vertices = layer.vertices;
             layer.mesh.RecalculateBounds();
             layer.meshRenderer.enabled = true;
         }
-        // =========================================
-        // SET TRANSFORM
-        // =========================================
 
-        // Matches the original Peashooter renderer's two-axis affine transform.
-        public void SetLayerPose(string layerName, float x, float y, float kx, float ky, float sx, float sy)
+        public void SetLayerPose(
+            string layerName,
+            float x,
+            float y,
+            float kx,
+            float ky,
+            float sx,
+            float sy)
         {
             Layer layer;
-            if (!layers.TryGetValue(layerName, out layer)) return;
-            layer.x = x; layer.y = y; layer.kx = kx; layer.ky = ky; layer.sx = sx; layer.sy = sy;
+            if (!layers.TryGetValue(layerName, out layer))
+                return;
+
+            layer.x = x;
+            layer.y = y;
+            layer.kx = kx;
+            layer.ky = ky;
+            layer.sx = sx;
+            layer.sy = sy;
+
             layer.transform.localPosition = Vector3.zero;
             layer.transform.localRotation = Quaternion.identity;
             layer.transform.localScale = Vector3.one;
+
             UpdateLayerVertices(layer);
         }
 
         private void UpdateLayerVertices(Layer layer)
         {
             PlantAtlasPart part = layer.currentPart;
-            if (part == null) return;
-            float rx = layer.kx * Mathf.Deg2Rad, ry = layer.ky * Mathf.Deg2Rad;
+            if (part == null)
+                return;
+
+            float rx = layer.kx * Mathf.Deg2Rad;
+            float ry = layer.ky * Mathf.Deg2Rad;
+
             float m00 = Mathf.Cos(rx) * layer.sx * globalScale;
             float m01 = -Mathf.Sin(ry) * layer.sy * globalScale;
             float m10 = Mathf.Sin(rx) * layer.sx * globalScale;
             float m11 = Mathf.Cos(ry) * layer.sy * globalScale;
-            float tx = layer.x * positionScale * globalScale, ty = layer.y * positionScale * globalScale;
-            float w = part.width, h = part.height;
-            layer.vertices[0] = new Vector3(tx * plantScale.x / pixelsPerUnit, -ty * plantScale.y / pixelsPerUnit, 0f);
-            layer.vertices[1] = new Vector3((tx + m00 * w) * plantScale.x / pixelsPerUnit, -(ty + m10 * w) * plantScale.y / pixelsPerUnit, 0f);
-            layer.vertices[2] = new Vector3((tx + m00 * w + m01 * h) * plantScale.x / pixelsPerUnit, -(ty + m10 * w + m11 * h) * plantScale.y / pixelsPerUnit, 0f);
-            layer.vertices[3] = new Vector3((tx + m01 * h) * plantScale.x / pixelsPerUnit, -(ty + m11 * h) * plantScale.y / pixelsPerUnit, 0f);            layer.mesh.vertices = layer.vertices;
+
+            float tx = layer.x * positionScale * globalScale;
+            float ty = layer.y * positionScale * globalScale;
+            float width = part.width;
+            float height = part.height;
+
+            layer.vertices[0] = new Vector3(
+                tx * plantScale.x / pixelsPerUnit,
+                -ty * plantScale.y / pixelsPerUnit,
+                0f);
+
+            layer.vertices[1] = new Vector3(
+                (tx + m00 * width) * plantScale.x / pixelsPerUnit,
+                -(ty + m10 * width) * plantScale.y / pixelsPerUnit,
+                0f);
+
+            layer.vertices[2] = new Vector3(
+                (tx + m00 * width + m01 * height) *
+                    plantScale.x / pixelsPerUnit,
+                -(ty + m10 * width + m11 * height) *
+                    plantScale.y / pixelsPerUnit,
+                0f);
+
+            layer.vertices[3] = new Vector3(
+                (tx + m01 * height) * plantScale.x / pixelsPerUnit,
+                -(ty + m11 * height) * plantScale.y / pixelsPerUnit,
+                0f);
+
+            // Căn tự động sau khi đã biết điểm đáy ở pose đầu tiên.
+            // Nếu tự căn tắt, chỉ áp dụng phần bù chỉnh tay.
+            if (anchorResolved)
+            {
+                float offsetX =
+                    automaticAnchorOffset.x + anchorAdjustment.x;
+                float offsetY =
+                    automaticAnchorOffset.y + anchorAdjustment.y;
+
+                for (int i = 0; i < layer.vertices.Length; i++)
+                {
+                    layer.vertices[i].x -= offsetX;
+                    layer.vertices[i].y -= offsetY;
+                }
+            }
+
+            layer.mesh.vertices = layer.vertices;
             layer.mesh.RecalculateBounds();
         }
+
+        private static void TranslateLayerVertices(
+            Layer layer,
+            float deltaX,
+            float deltaY)
+        {
+            for (int i = 0; i < layer.vertices.Length; i++)
+            {
+                layer.vertices[i].x += deltaX;
+                layer.vertices[i].y += deltaY;
+            }
+
+            layer.mesh.vertices = layer.vertices;
+            layer.mesh.RecalculateBounds();
+        }
+
         public void SetLayerTransform(
             string layerName,
             Vector3 localPosition,
@@ -301,99 +470,62 @@ namespace PlantReanimation.Core
             float ky,
             Vector3 localScale)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
+            Layer layer;
+            if (!layers.TryGetValue(layerName, out layer))
                 return;
 
             layer.transform.localPosition = localPosition;
-
             layer.transform.localRotation =
                 PlantReanimMath.GetRotation(kx, ky);
-
             layer.transform.localScale = localScale;
         }
-
-        // =========================================
-        // SET POSITION
-        // =========================================
 
         public void SetLayerPosition(
             string layerName,
             Vector3 localPosition)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
-                return;
-
-            layer.transform.localPosition = localPosition;
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer))
+                layer.transform.localPosition = localPosition;
         }
-
-        // =========================================
-        // SET SCALE
-        // =========================================
 
         public void SetLayerScale(
             string layerName,
             Vector3 localScale)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
-                return;
-
-            layer.transform.localScale = localScale;
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer))
+                layer.transform.localScale = localScale;
         }
-
-        // =========================================
-        // SET ROTATION
-        // =========================================
 
         public void SetLayerRotation(
             string layerName,
             float kx,
             float ky)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
-                return;
-
-            layer.transform.localRotation =
-                PlantReanimMath.GetRotation(kx, ky);
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer))
+            {
+                layer.transform.localRotation =
+                    PlantReanimMath.GetRotation(kx, ky);
+            }
         }
 
-        // =========================================
-        // VISIBILITY
-        // =========================================
-
-        public void SetLayerVisible(
-            string layerName,
-            bool visible)
+        public void SetLayerVisible(string layerName, bool visible)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
-                return;
-
-            layer.gameObject.SetActive(visible);
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer))
+                layer.gameObject.SetActive(visible);
         }
-
-        // =========================================
-        // SORTING
-        // =========================================
 
         public void SetSortingOrder(
             string layerName,
             int sortingOrder)
         {
-            if (!layers.TryGetValue(
-                layerName, out Layer layer))
-                return;
-
-            layer.meshRenderer.sortingOrder =
-                sortingOrder;
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer))
+                layer.meshRenderer.sortingOrder = sortingOrder;
         }
-
-        // =========================================
-        // CLEANUP
-        // =========================================
 
         public void ClearLayers()
         {
@@ -425,13 +557,3 @@ namespace PlantReanimation.Core
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

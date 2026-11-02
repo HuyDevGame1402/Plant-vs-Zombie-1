@@ -16,14 +16,37 @@ namespace PlantReanimation.Controllers.Peashooter
 
         public string idleClipName = "full_idle";
         public string shootClipName = "shooting";
-        public float shootSpeed = 3f;
+        [Min(0f)] public float animationSpeed = 1f;
+        [Min(0f)] public float shootSpeed = 4f;
         [Min(0)] public int fireFrame = 12;
 
+        [Header("Test bắn trong Inspector")]
+        [Tooltip("Bật trong Play Mode để tự bắn theo chu kỳ.")]
+        public bool autoShootTest;
+        [Min(0.1f)] public float autoShootInterval = 2f;
+        [Tooltip("Bật trong Play Mode để kích hoạt một lần bắn; controller tự tắt lại.")]
+        public bool shootNow;
+
+        [Header("Peashooter V2")]
+        [Tooltip("Số lần phát lại trọn clip shooting trong một burst. Repeater = 2.")]
+        [Min(1)] public int shotsPerBurst = 2;
+        public bool logFireEvent;
+
         public event Action OnFire;
+        public event Action OnShootFinished;
+
+        public bool IsShooting { get { return firePending; } }
+        public int CurrentShotIndex { get; private set; }
 
         private PlantReanimPlayer actionPlayer;
         private PlantReanimAnimator actionAnimator;
+        private Vector2[] headAttachOffsets;
         private bool firePending;
+        private int shotsRemaining;
+        private int firedCount;
+        private bool projectileFiredThisCycle;
+        private float autoShootCountdown;
+        private bool wasAutoShootTest;
 
         protected override void InitializePlant()
         {
@@ -41,6 +64,7 @@ namespace PlantReanimation.Controllers.Peashooter
                 plantRenderer,
                 data.GetAtlasPartByIndex,
                 profile.layers);
+            actionAnimator.PositionOffsetProvider = GetHeadAttachOffset;
 
             actionPlayer.OnFrameUpdated += HandleActionFrameUpdated;
             actionPlayer.OnCompleted += HandleActionCompleted;
@@ -48,9 +72,44 @@ namespace PlantReanimation.Controllers.Peashooter
 
         protected override void Update()
         {
+            if (player != null)
+                player.SetSpeed(Mathf.Max(0f, animationSpeed));
             base.Update();
             if (actionPlayer != null)
+            {
+                actionPlayer.SetSpeed(Mathf.Max(0f, animationSpeed * (IsShooting ? shootSpeed : 1f)));
                 actionPlayer.Update(Time.deltaTime);
+            }
+
+            if (shootNow)
+            {
+                shootNow = false;
+                Shoot();
+            }
+
+            if (!autoShootTest)
+            {
+                autoShootCountdown = 0f;
+                wasAutoShootTest = false;
+                return;
+            }
+
+            if (!wasAutoShootTest)
+            {
+                autoShootCountdown = Mathf.Max(0.1f, autoShootInterval);
+                wasAutoShootTest = true;
+            }
+
+            // The interval is a rest period after a complete burst, not a start-to-start period.
+            if (IsShooting)
+                return;
+
+            autoShootCountdown -= Time.deltaTime;
+            if (autoShootCountdown <= 0f)
+            {
+                if (!Shoot())
+                    autoShootCountdown = 0.1f;
+            }
         }
 
         protected override void OnDisable()
@@ -67,7 +126,14 @@ namespace PlantReanimation.Controllers.Peashooter
 
             actionPlayer = null;
             actionAnimator = null;
+            headAttachOffsets = null;
             firePending = false;
+            shotsRemaining = 0;
+            firedCount = 0;
+            CurrentShotIndex = 0;
+            projectileFiredThisCycle = false;
+            autoShootCountdown = 0f;
+            wasAutoShootTest = false;
             base.OnDisable();
         }
 
@@ -77,6 +143,7 @@ namespace PlantReanimation.Controllers.Peashooter
 
             int idleStart, idleEnd;
             int bodyStart, bodyEnd;
+            int headIdleStart, headIdleEnd;
             int shootStart, shootEnd;
             if (!TryGetMarkerRange("anim_full_idle", out idleStart, out idleEnd))
             {
@@ -87,6 +154,11 @@ namespace PlantReanimation.Controllers.Peashooter
             {
                 Debug.LogError("Không tìm thấy marker anim_idle để phân loại track thân.", this);
                 return;
+            }
+            if (!TryGetMarkerRange("anim_head_idle", out headIdleStart, out headIdleEnd))
+            {
+                Debug.LogWarning("Không tìm thấy marker anim_head_idle; đầu sẽ không được căn theo nhịp lắc của thân.", this);
+                headIdleStart = headIdleEnd = -1;
             }
             if (!TryGetMarkerRange("anim_shooting", out shootStart, out shootEnd))
             {
@@ -113,6 +185,7 @@ namespace PlantReanimation.Controllers.Peashooter
             AddClip(idleClipName, idleStart, idleEnd, true, allSpriteTracks);
             AddClip(BodyIdleClipName, idleStart, idleEnd, true, bodyTracks);
             AddClip(shootClipName, shootStart, shootEnd, false, headTracks);
+            BuildHeadAttachOffsets(idleStart, idleEnd, headIdleStart, headIdleEnd);
 
             if (bodyTracks.Count == 0)
                 Debug.LogError("Không phân loại được track thân của Peashooter.", this);
@@ -207,6 +280,54 @@ namespace PlantReanimation.Controllers.Peashooter
             return visible;
         }
 
+        private void BuildHeadAttachOffsets(int fullIdleStart, int fullIdleEnd, int headIdleStart, int headIdleEnd)
+        {
+            headAttachOffsets = null;
+            if (headIdleStart < 0 || headIdleEnd < headIdleStart)
+                return;
+
+            PlantReanimTrack faceTrack = data.GetTrack("anim_face");
+            int frameCount = Mathf.Min(fullIdleEnd - fullIdleStart + 1, headIdleEnd - headIdleStart + 1);
+            if (faceTrack == null || faceTrack.transforms == null || frameCount <= 0)
+                return;
+
+            headAttachOffsets = new Vector2[frameCount];
+            for (int i = 0; i < frameCount; i++)
+            {
+                Vector2 fullPose = GetTrackPosition(faceTrack, fullIdleStart + i);
+                Vector2 headPose = GetTrackPosition(faceTrack, headIdleStart + i);
+                headAttachOffsets[i] = fullPose - headPose;
+            }
+        }
+
+        private static Vector2 GetTrackPosition(PlantReanimTrack track, int frameIndex)
+        {
+            float x = 0f;
+            float y = 0f;
+            int last = Mathf.Min(frameIndex, track.transforms.Count - 1);
+            for (int i = 0; i <= last; i++)
+            {
+                PlantReanimFrame frame = track.transforms[i];
+                if (frame == null) continue;
+                if (frame.x.HasValue) x = frame.x.Value;
+                if (frame.y.HasValue) y = frame.y.Value;
+            }
+            return new Vector2(x, y);
+        }
+
+        private Vector2 GetHeadAttachOffset(string trackName, PlantReanimPlaybackState state)
+        {
+            if (headAttachOffsets == null || headAttachOffsets.Length == 0 ||
+                !string.Equals(state.clip != null ? state.clip.name : null, shootClipName, StringComparison.OrdinalIgnoreCase) ||
+                player == null || data == null || data.fps <= 0f)
+                return Vector2.zero;
+
+            float frame = Mathf.Repeat(player.ElapsedTime * data.fps, headAttachOffsets.Length);
+            int a = Mathf.FloorToInt(frame);
+            int b = (a + 1) % headAttachOffsets.Length;
+            return Vector2.Lerp(headAttachOffsets[a], headAttachOffsets[b], frame - a);
+        }
+
         public bool Shoot()
         {
             if (!IsReady || player == null || actionPlayer == null || actionPlayer.IsPlayingClip(shootClipName))
@@ -225,7 +346,11 @@ namespace PlantReanimation.Controllers.Peashooter
             player.Seek(bodyElapsed);
 
             firePending = true;
-            actionPlayer.SetSpeed(Mathf.Max(0f, shootSpeed));
+            shotsRemaining = Mathf.Max(1, shotsPerBurst);
+            firedCount = 0;
+            CurrentShotIndex = 0;
+            projectileFiredThisCycle = false;
+            actionPlayer.SetSpeed(Mathf.Max(0f, animationSpeed * shootSpeed));
             actionPlayer.PlayOnce(shootingClip);
             return true;
         }
@@ -236,8 +361,9 @@ namespace PlantReanimation.Controllers.Peashooter
                 !string.Equals(state.clip.name, shootClipName, StringComparison.OrdinalIgnoreCase))
                 return;
 
-            if (state.currentFrame - state.clip.startFrame >= fireFrame)
-                Fire();
+            int elapsedFrame = state.currentFrame - state.clip.startFrame;
+            if (firePending && !projectileFiredThisCycle && elapsedFrame >= fireFrame)
+                FireNextProjectile();
         }
 
         private void HandleActionCompleted(PlantReanimClip clip)
@@ -245,16 +371,42 @@ namespace PlantReanimation.Controllers.Peashooter
             if (clip == null || !string.Equals(clip.name, shootClipName, StringComparison.OrdinalIgnoreCase))
                 return;
 
-            if (firePending)
-                Fire();
+            // Keep each projectile paired with a complete animation cycle. The Reanim
+            // JSON contains one 25-frame shooting cycle, so a Repeater must replay it twice.
+            if (firePending && !projectileFiredThisCycle)
+                FireNextProjectile();
 
-            actionPlayer.SetSpeed(1f);
+            if (shotsRemaining > 0)
+            {
+                projectileFiredThisCycle = false;
+                PlantReanimClip shootingClip;
+                if (runtimeClips.TryGetValue(shootClipName, out shootingClip))
+                    actionPlayer.PlayOnce(shootingClip);
+                return;
+            }
+
+            firePending = false;
+            actionPlayer.SetSpeed(Mathf.Max(0f, animationSpeed));
+            float bodyElapsed = player != null ? player.ElapsedTime : 0f;
             Play(idleClipName, true);
+            if (player != null)
+                player.Seek(bodyElapsed);
+            if (autoShootTest)
+                autoShootCountdown = Mathf.Max(0.1f, autoShootInterval);
+            if (OnShootFinished != null)
+                OnShootFinished();
         }
 
-        private void Fire()
+        private void FireNextProjectile()
         {
-            firePending = false;
+            projectileFiredThisCycle = true;
+            shotsRemaining--;
+            CurrentShotIndex = firedCount;
+            firedCount++;
+
+            if (logFireEvent)
+                Debug.Log("Peashooter Repeater: OnFire viên " + firedCount + "/" + Mathf.Max(1, shotsPerBurst), this);
+
             if (OnFire != null)
                 OnFire();
         }

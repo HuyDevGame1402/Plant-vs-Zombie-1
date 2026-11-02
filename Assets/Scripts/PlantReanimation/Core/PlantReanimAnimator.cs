@@ -15,6 +15,8 @@ namespace PlantReanimation.Core
         private IList<PlantReanimLayerConfig> layerConfigs;
         private bool initialized, disposed;
         private readonly Dictionary<string, PlantReanimFrame[]> resolvedTracks = new Dictionary<string, PlantReanimFrame[]>(StringComparer.OrdinalIgnoreCase);
+        /// <summary>Optional per-track translation in source Reanim coordinates.</summary>
+        public Func<string, PlantReanimPlaybackState, Vector2> PositionOffsetProvider { get; set; }
         public bool IsInitialized { get { return initialized; } }
 
         public void Initialize(PlantReanimData reanimData, PlantReanimPlayer animationPlayer, PlantReanimRenderer animationRenderer, Func<int, PlantAtlasPart> indexResolver = null, IList<PlantReanimLayerConfig> layerConfigs = null)
@@ -96,6 +98,12 @@ namespace PlantReanimation.Core
             float t = Mathf.Clamp01(state.interpolation);
             float x = Lerp(a.x, b.x, 0f, t);
             float y = Lerp(a.y, b.y, 0f, t);
+            if (PositionOffsetProvider != null)
+            {
+                Vector2 offset = PositionOffsetProvider(track.name, state);
+                x += offset.x;
+                y += offset.y;
+            }
             float kx = Mathf.Lerp(a.kx ?? 0f, b.kx ?? a.kx ?? 0f, t);
             float ky = Mathf.Lerp(a.ky ?? 0f, b.ky ?? a.ky ?? 0f, t);
             PlantReanimLayerConfig config = GetLayerConfig(track.name);
@@ -129,7 +137,7 @@ namespace PlantReanimation.Core
         {
             if (disposed) return;
             if (player != null) player.OnFrameUpdated -= OnFrameUpdated;
-            resolvedTracks.Clear(); data = null; player = null; renderer = null; atlasIndexResolver = null; layerConfigs = null;
+            resolvedTracks.Clear(); data = null; player = null; renderer = null; atlasIndexResolver = null; layerConfigs = null; PositionOffsetProvider = null;
             initialized = false; disposed = true;
         }
     }

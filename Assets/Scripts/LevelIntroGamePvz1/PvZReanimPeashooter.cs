@@ -279,9 +279,12 @@ public static class PeashooterReanimCache
 
             track.frames[i] = new Frame
             {
-                x = current.x, y = current.y,
-                kx = current.kx, ky = current.ky,
-                sx = current.sx, sy = current.sy,
+                x = current.x,
+                y = current.y,
+                kx = current.kx,
+                ky = current.ky,
+                sx = current.sx,
+                sy = current.sy,
                 visible = current.visible,
                 imageId = current.imageId
             };
@@ -330,11 +333,14 @@ public class PvZReanimPeashooter : MonoBehaviour
     [Tooltip("Tốc độ chạy idle (và thân khi đang bắn).")]
     public float animationSpeed = 1f;
     [Tooltip("Nhân thêm tốc độ cho animation bắn. 12fps x 3 = ~36fps (bắn xong trong ~0.7 giây).")]
-    public float shootSpeed = 3f;
+    public float shootSpeed = 4f;
     [Tooltip("Thời gian chuyển mượt giữa idle <-> bắn (giây). 0 = không chuyển mượt.")]
     public float blendTime = 0.1f;
     [Tooltip("Frame của animation bắn (tính từ 0) mà sự kiện OnFire được gọi - lúc đó bạn tạo viên đạn. Chỉnh cho khớp.")]
     public int fireFrame = 12;
+    [Tooltip("Số viên bắn mỗi lần Shoot(): Peashooter thường = 1, Repeater (2 đạn) = 2. Mỗi viên ứng với 1 lần đầu giật (chạy lại clip shooting).")]
+    [Min(1)]
+    public int shotsPerBurst = 2;
 
     [Header("Chớp mắt")]
     public bool autoBlink = true;
@@ -373,6 +379,8 @@ public class PvZReanimPeashooter : MonoBehaviour
     public event Action OnShootFinished;
 
     public bool IsShooting { get { return shooting; } }
+    /// <summary>Viên thứ mấy trong lượt bắn hiện tại (0 = viên đầu). Dùng trong handler OnFire.</summary>
+    public int CurrentShotIndex { get; private set; }
 
     private enum Layer { Body, Head, Blink }
 
@@ -416,7 +424,7 @@ public class PvZReanimPeashooter : MonoBehaviour
 
     private bool shooting;
     private float shootTime;
-    private bool firedThisShot;
+    private int firedCount;
 
     private float blendTimer;
 
@@ -496,7 +504,8 @@ public class PvZReanimPeashooter : MonoBehaviour
 
         shooting = true;
         shootTime = 0f;
-        firedThisShot = false;
+        firedCount = 0;
+        CurrentShotIndex = 0;
         blinking = false;
         StartBlend();
         return true;
@@ -636,16 +645,22 @@ public class PvZReanimPeashooter : MonoBehaviour
             shootTime += dt * animationSpeed * shootSpeed;
             float shootFrames = shootTime * fps;
 
-            if (!firedThisShot && shootFrames >= fireFrame)
+            int shots = Mathf.Max(1, shotsPerBurst);
+            int clipLen = shootClip.Length;
+            int fireAt = Mathf.Clamp(fireFrame, 0, clipLen - 1);
+
+            // Mỗi viên đạn = 1 lần chạy clip shooting. Viên thứ n bắn tại frame (n * clipLen + fireAt).
+            while (firedCount < shots && shootFrames >= firedCount * clipLen + fireAt)
             {
-                firedThisShot = true;
-                if (logFireEvent) Debug.Log("PvZReanimPeashooter: OnFire (frame " + fireFrame + ")", this);
+                CurrentShotIndex = firedCount;
+                firedCount++;
+                if (logFireEvent) Debug.Log("PvZReanimPeashooter: OnFire viên " + firedCount + "/" + shots, this);
                 if (OnFire != null) OnFire();
             }
 
-            if (shootFrames >= shootClip.Length)
+            if (shootFrames >= clipLen * shots)
             {
-                // bắn xong: đầu quay về idle (sẽ được chuyển mượt)
+                // bắn xong toàn bộ loạt: đầu quay về idle (sẽ được chuyển mượt)
                 shooting = false;
                 StartBlend();
                 ResetBlinkCountdown();
@@ -653,7 +668,8 @@ public class PvZReanimPeashooter : MonoBehaviour
             }
             else
             {
-                shootPos = shootClip.start + shootFrames;
+                // lặp lại clip shooting cho mỗi viên
+                shootPos = shootClip.start + Mathf.Repeat(shootFrames, clipLen);
                 SampleAttachOffset(bodyPos, out attachX, out attachY);
             }
         }

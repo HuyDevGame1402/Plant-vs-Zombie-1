@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -9,76 +10,361 @@ namespace PlantReanimation.Core
     {
         public static void LoadAtlas(TextAsset atlasJson, PlantReanimData data)
         {
-            if (atlasJson == null) throw new ArgumentNullException(nameof(atlasJson));
-            if (data == null) throw new ArgumentNullException(nameof(data));
-            data.atlasParts.Clear(); data.atlasPartList.Clear();
+            if (atlasJson == null)
+                throw new ArgumentNullException(nameof(atlasJson));
+
+            if (data == null)
+                throw new ArgumentNullException(nameof(data));
+
+            data.atlasParts.Clear();
+            data.atlasPartList.Clear();
+
             JObject root = JObject.Parse(atlasJson.text);
             JArray resources = root["resources"] as JArray;
-            if (resources == null) throw new FormatException("Atlas JSON không có resources[]");
+
+            if (resources == null)
+                throw new FormatException("Atlas JSON không có resources[]");
+
             foreach (JToken item in resources)
             {
                 JObject resource = item as JObject;
-                JObject attrs = resource == null ? null : resource["attributes"] as JObject;
-                string id = attrs == null ? null : attrs.Value<string>("id");
-                if (string.IsNullOrWhiteSpace(id) && resource != null) id = resource.Value<string>("id") ?? resource.Value<string>("name");
+                JObject attributes =
+                    resource == null ? null : resource["attributes"] as JObject;
+
+                string id =
+                    attributes == null ? null : attributes.Value<string>("id");
+
+                if (string.IsNullOrWhiteSpace(id) && resource != null)
+                {
+                    id = resource.Value<string>("id") ??
+                         resource.Value<string>("name");
+                }
+
                 id = NormalizeId(id);
-                JObject rect = resource == null ? null : resource["atlasRect"] as JObject;
-                if (rect == null && attrs != null) rect = attrs["atlasRect"] as JObject;
+
+                JObject rect =
+                    resource == null ? null : resource["atlasRect"] as JObject;
+
+                if (rect == null && attributes != null)
+                    rect = attributes["atlasRect"] as JObject;
+
                 PlantAtlasPart part = null;
+
                 if (rect != null)
                 {
-                    float w = Number(rect["width"]), h = Number(rect["height"]);
-                    if (w > 0f && h > 0f) part = new PlantAtlasPart { id = id, x = Number(rect["x"]), y = Number(rect["y"]), width = w, height = h };
+                    float width = Number(rect["width"]);
+                    float height = Number(rect["height"]);
+
+                    if (width > 0f && height > 0f)
+                    {
+                        part = new PlantAtlasPart
+                        {
+                            id = id,
+                            x = Number(rect["x"]),
+                            y = Number(rect["y"]),
+                            width = width,
+                            height = height
+                        };
+                    }
                 }
-                data.atlasPartList.Add(part); // giữ nguyên resource index của atlas
-                if (part != null && !string.IsNullOrEmpty(id)) data.atlasParts[id] = part;
+
+                // Giữ nguyên index resource kể cả resource không có atlasRect.
+                data.atlasPartList.Add(part);
+
+                if (part != null && !string.IsNullOrEmpty(id))
+                    data.atlasParts[id] = part;
             }
-            if (data.atlasParts.Count == 0) throw new FormatException("Không tìm thấy atlasRect hợp lệ trong Atlas JSON.");
+
+            if (data.atlasParts.Count == 0)
+            {
+                throw new FormatException(
+                    "Không tìm thấy atlasRect hợp lệ trong Atlas JSON.");
+            }
         }
 
         public static void LoadReanim(TextAsset reanimJson, PlantReanimData data)
         {
-            if (reanimJson == null) throw new ArgumentNullException(nameof(reanimJson));
-            if (data == null) throw new ArgumentNullException(nameof(data));
+            if (reanimJson == null)
+                throw new ArgumentNullException(nameof(reanimJson));
+
+            if (data == null)
+                throw new ArgumentNullException(nameof(data));
+
             JObject root = JObject.Parse(reanimJson.text);
-            data.fps = Number(root["fps"]); if (data.fps <= 0f) data.fps = 12f;
+
+            data.fps = Number(root["fps"]);
+            if (data.fps <= 0f)
+                data.fps = 12f;
+
             JArray tracks = root["tracks"] as JArray;
-            if (tracks == null) throw new FormatException("Reanim JSON không có tracks[].");
+            if (tracks == null)
+                throw new FormatException("Reanim JSON không có tracks[].");
+
             data.tracks.Clear();
-            int backleafAtlasIndex = -1, backleafReanimIndex = int.MinValue;
-            for (int ti = 0; ti < tracks.Count; ti++)
+
+            HashSet<string> usedTrackNames =
+                new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (JToken token in tracks)
             {
-                JObject source = tracks[ti] as JObject; if (source == null) continue;
-                PlantReanimTrack track = new PlantReanimTrack { name = source.Value<string>("name") };
+                JObject source = token as JObject;
+                if (source == null)
+                    continue;
+
+                //PlantReanimTrack track = new PlantReanimTrack
+                //{
+                //    name = source.Value<string>("name")
+                //};
+
+                string sourceTrackName = source.Value<string>("name");
+                string uniqueTrackName = sourceTrackName;
+                int duplicateIndex = 1;
+
+                while (!usedTrackNames.Add(uniqueTrackName))
+                {
+                    uniqueTrackName =
+                        sourceTrackName + "__duplicate_" + duplicateIndex;
+                    duplicateIndex++;
+                }
+
+                PlantReanimTrack track = new PlantReanimTrack
+                {
+                    name = uniqueTrackName
+                };
+
                 JArray transforms = source["transforms"] as JArray;
+
                 if (transforms != null)
                 {
-                    for (int fi = 0; fi < transforms.Count; fi++)
+                    foreach (JToken frameToken in transforms)
                     {
-                        JObject f = transforms[fi] as JObject;
-                        track.transforms.Add(f == null ? null : ParseFrame(f));
-                        if (backleafReanimIndex == int.MinValue && string.Equals(track.name, "backleaf", StringComparison.OrdinalIgnoreCase) && f != null && f["i"] != null)
-                        {
-                            backleafReanimIndex = (int)f["i"];
-                            for (int ai = 0; ai < data.atlasPartList.Count; ai++)
-                                if (data.atlasPartList[ai] != null && string.Equals(data.atlasPartList[ai].id, "IMAGE_REANIM_PEASHOOTER_BACKLEAF", StringComparison.OrdinalIgnoreCase)) { backleafAtlasIndex = ai; break; }
-                        }
+                        JObject frame = frameToken as JObject;
+                        track.transforms.Add(
+                            frame == null ? null : ParseFrame(frame));
                     }
                 }
+
                 data.tracks.Add(track);
             }
-            data.atlasIndexOffset = backleafAtlasIndex >= 0 && backleafReanimIndex != int.MinValue ? backleafReanimIndex - backleafAtlasIndex : 0;
+
+            data.atlasIndexOffset = FindAtlasIndexOffset(data);
             data.BuildTrackLookup();
-            if (data.tracks.Count == 0 || data.FrameCount == 0) throw new FormatException("Reanim JSON không chứa frame/track hợp lệ.");
+
+            if (data.tracks.Count == 0 || data.FrameCount == 0)
+            {
+                throw new FormatException(
+                    "Reanim JSON không chứa frame/track hợp lệ.");
+            }
+
+            Debug.Log(
+                "[PlantReanimLoader] Atlas index offset = " +
+                data.atlasIndexOffset +
+                " (" + reanimJson.name + ")");
         }
 
-        private static PlantReanimFrame ParseFrame(JObject f)
+        private static int FindAtlasIndexOffset(PlantReanimData data)
         {
-            return new PlantReanimFrame { x = NullableFloat(f["x"]), y = NullableFloat(f["y"]), kx = NullableFloat(f["kx"]), ky = NullableFloat(f["ky"]), sx = NullableFloat(f["sx"]), sy = NullableFloat(f["sy"]), f = NullableInt(f["f"]), i = NullableInt(f["i"]) };
+            Dictionary<int, int> offsetVotes =
+                new Dictionary<int, int>();
+
+            int matchedTracks = 0;
+
+            foreach (PlantReanimTrack track in data.tracks)
+            {
+                if (track == null ||
+                    string.IsNullOrWhiteSpace(track.name) ||
+                    track.transforms == null)
+                {
+                    continue;
+                }
+
+                PlantAtlasPart matchingPart =
+                    FindAtlasPartForTrack(data, track.name);
+
+                if (matchingPart == null)
+                    continue;
+
+                int atlasIndex = data.atlasPartList.IndexOf(matchingPart);
+                if (atlasIndex < 0)
+                    continue;
+
+                int reanimIndex = -1;
+
+                // Mỗi track chỉ bỏ phiếu một lần, dùng image index đầu tiên có dữ liệu.
+                foreach (PlantReanimFrame frame in track.transforms)
+                {
+                    if (frame != null && frame.i.HasValue)
+                    {
+                        reanimIndex = frame.i.Value;
+                        break;
+                    }
+                }
+
+                if (reanimIndex < 0)
+                    continue;
+
+                int offset = reanimIndex - atlasIndex;
+
+                int votes;
+                offsetVotes.TryGetValue(offset, out votes);
+                offsetVotes[offset] = votes + 1;
+                matchedTracks++;
+            }
+
+            if (offsetVotes.Count == 0)
+            {
+                Debug.LogWarning(
+                    "[PlantReanimLoader] Không tìm được track khớp với atlas. " +
+                    "Tạm dùng atlas index offset = 0.");
+                return 0;
+            }
+
+            int bestOffset = 0;
+            int bestVotes = -1;
+
+            foreach (KeyValuePair<int, int> vote in offsetVotes)
+            {
+                if (vote.Value > bestVotes)
+                {
+                    bestOffset = vote.Key;
+                    bestVotes = vote.Value;
+                }
+            }
+
+            Debug.Log(
+                "[PlantReanimLoader] Tính offset từ " +
+                bestVotes + "/" + matchedTracks + " track khớp atlas.");
+
+            return bestOffset;
         }
-        private static string NormalizeId(string id) { if (string.IsNullOrWhiteSpace(id)) return null; int n = id.IndexOf('|'); return (n >= 0 ? id.Substring(0, n) : id).Trim().ToUpperInvariant(); }
-        private static float Number(JToken t) { float n; return t != null && float.TryParse(t.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out n) ? n : 0f; }
-        private static float? NullableFloat(JToken t) { if (t == null || t.Type == JTokenType.Null) return null; float n; return float.TryParse(t.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out n) ? (float?)n : null; }
-        private static int? NullableInt(JToken t) { if (t == null || t.Type == JTokenType.Null) return null; int n; return int.TryParse(t.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out n) ? (int?)n : null; }
+
+        private static PlantAtlasPart FindAtlasPartForTrack(
+            PlantReanimData data,
+            string trackName)
+        {
+            string normalizedTrack = trackName.Trim();
+
+            // Cherrybomb: CherryBomb_leftstem
+            // -> IMAGE_REANIM_CHERRYBOMB_LEFTSTEM
+            string directId = NormalizeId("IMAGE_REANIM_" + normalizedTrack);
+
+            PlantAtlasPart part;
+            if (data.atlasParts.TryGetValue(directId, out part))
+                return part;
+
+            // Peashooter: track "backleaf" dùng tên ảnh có prefix PEASHOOTER.
+            if (string.Equals(
+                    normalizedTrack,
+                    "backleaf",
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                if (data.atlasParts.TryGetValue(
+                        "IMAGE_REANIM_PEASHOOTER_BACKLEAF",
+                        out part))
+                {
+                    return part;
+                }
+            }
+
+            string wallNutAtlasId = null;
+
+            switch (normalizedTrack.ToLowerInvariant())
+            {
+                case "anim_face":
+                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BODY";
+                    break;
+
+                case "anim_blink_twitch":
+                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_TWITCH";
+                    break;
+
+                case "anim_blink_twice":
+                case "anim_blink_thrice":
+                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BLINK1";
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(wallNutAtlasId) &&
+                data.atlasParts.TryGetValue(wallNutAtlasId, out part))
+            {
+                return part;
+            }
+
+            return null;
+        }
+
+        private static PlantReanimFrame ParseFrame(JObject frame)
+        {
+            return new PlantReanimFrame
+            {
+                x = NullableFloat(frame["x"]),
+                y = NullableFloat(frame["y"]),
+                kx = NullableFloat(frame["kx"]),
+                ky = NullableFloat(frame["ky"]),
+                sx = NullableFloat(frame["sx"]),
+                sy = NullableFloat(frame["sy"]),
+                f = NullableInt(frame["f"]),
+                i = NullableInt(frame["i"])
+            };
+        }
+
+        private static string NormalizeId(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return null;
+
+            int suffixIndex = id.IndexOf('|');
+
+            if (suffixIndex >= 0)
+                id = id.Substring(0, suffixIndex);
+
+            return id.Trim().ToUpperInvariant();
+        }
+
+        private static float Number(JToken token)
+        {
+            float value;
+
+            return token != null &&
+                   float.TryParse(
+                       token.ToString(),
+                       NumberStyles.Float,
+                       CultureInfo.InvariantCulture,
+                       out value)
+                ? value
+                : 0f;
+        }
+
+        private static float? NullableFloat(JToken token)
+        {
+            if (token == null || token.Type == JTokenType.Null)
+                return null;
+
+            float value;
+
+            return float.TryParse(
+                token.ToString(),
+                NumberStyles.Float,
+                CultureInfo.InvariantCulture,
+                out value)
+                ? (float?)value
+                : null;
+        }
+
+        private static int? NullableInt(JToken token)
+        {
+            if (token == null || token.Type == JTokenType.Null)
+                return null;
+
+            int value;
+
+            return int.TryParse(
+                token.ToString(),
+                NumberStyles.Integer,
+                CultureInfo.InvariantCulture,
+                out value)
+                ? (int?)value
+                : null;
+        }
     }
 }
