@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5619811719741830373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3839216573971015029}
+  - component: {fileID: 3039563235543221716}
+  - component: {fileID: 446693751288138279}
+  m_Layer: 0
+  m_Name: Test_Particle_All
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3839216573971015029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619811719741830373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3039563235543221716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619811719741830373}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb58de95057c66743a5c0fba709d595c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atlasTexture: {fileID: 2800000, guid: 886bb7555874f8b4c8072a493f0ec9b1, type: 3}
+  atlasJson: {fileID: 4900000, guid: 6b035bde13662ca4eb1588d19b005bcf, type: 3}
+  pixelsPerUnit: 100
+  effectScale: 1
+  includeBlastMark: 0
+  sortingLayer: Default
+  sortingOrder: 50
+  additiveMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &446693751288138279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619811719741830373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8ced6951d2d5743bf0b43a58f38ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atlasTexture: {fileID: 2800000, guid: 886bb7555874f8b4c8072a493f0ec9b1, type: 3}
+  atlasJson: {fileID: 4900000, guid: 6b035bde13662ca4eb1588d19b005bcf, type: 3}
+  pixelsPerUnit: 100
+  effectScale: 1
+  sortingLayer: Default
+  sortingOrder: 50
+  additiveMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

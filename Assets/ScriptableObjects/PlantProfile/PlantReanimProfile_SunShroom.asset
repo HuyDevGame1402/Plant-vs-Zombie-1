@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a71e2301ffdff04e8d3a3d8e29e5ece, type: 3}
+  m_Name: PlantReanimProfile_SunShroom
+  m_EditorClassIdentifier: 
+  atlasJson: {fileID: 4900000, guid: 7d6daf17e257ac642859f1ddf6e6969f, type: 3}
+  reanimJson: {fileID: 4900000, guid: cb6855c8a46e020498c66701d3077342, type: 3}
+  atlasTexture: {fileID: 2800000, guid: 2aabae1a9e737bb4f8e0068a9809c324, type: 3}
+  material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  pixelsPerUnit: 100
+  positionScale: 2
+  plantScale: {x: 1.6, y: 1.6}
+  showShadow: 1
+  shadowOffset: {x: 0, y: -3}
+  shadowScale: 1.2
+  globalScale: 1
+  clips: []
+  layers: []
+  reanimOrigin: {x: 0, y: 0}

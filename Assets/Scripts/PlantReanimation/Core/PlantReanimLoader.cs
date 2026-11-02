@@ -238,21 +238,78 @@ namespace PlantReanimation.Core
             return bestOffset;
         }
 
+        //private static PlantAtlasPart FindAtlasPartForTrack(
+        //    PlantReanimData data,
+        //    string trackName)
+        //{
+        //    string normalizedTrack = trackName.Trim();
+
+        //    // Cherrybomb: CherryBomb_leftstem
+        //    // -> IMAGE_REANIM_CHERRYBOMB_LEFTSTEM
+        //    string directId = NormalizeId("IMAGE_REANIM_" + normalizedTrack);
+
+        //    PlantAtlasPart part;
+        //    if (data.atlasParts.TryGetValue(directId, out part))
+        //        return part;
+
+        //    // Peashooter: track "backleaf" dùng tên ảnh có prefix PEASHOOTER.
+        //    if (string.Equals(
+        //            normalizedTrack,
+        //            "backleaf",
+        //            StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        if (data.atlasParts.TryGetValue(
+        //                "IMAGE_REANIM_PEASHOOTER_BACKLEAF",
+        //                out part))
+        //        {
+        //            return part;
+        //        }
+        //    }
+
+        //    string wallNutAtlasId = null;
+
+        //    switch (normalizedTrack.ToLowerInvariant())
+        //    {
+        //        case "anim_face":
+        //            wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BODY";
+        //            break;
+
+        //        case "anim_blink_twitch":
+        //            wallNutAtlasId = "IMAGE_REANIM_WALLNUT_TWITCH";
+        //            break;
+
+        //        case "anim_blink_twice":
+        //        case "anim_blink_thrice":
+        //            wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BLINK1";
+        //            break;
+        //    }
+
+        //    if (!string.IsNullOrEmpty(wallNutAtlasId) &&
+        //        data.atlasParts.TryGetValue(wallNutAtlasId, out part))
+        //    {
+        //        return part;
+        //    }
+
+        //    return null;
+        //}
+
         private static PlantAtlasPart FindAtlasPartForTrack(
             PlantReanimData data,
             string trackName)
         {
+            if (data == null || string.IsNullOrWhiteSpace(trackName))
+                return null;
+
             string normalizedTrack = trackName.Trim();
 
-            // Cherrybomb: CherryBomb_leftstem
-            // -> IMAGE_REANIM_CHERRYBOMB_LEFTSTEM
+            // Ưu tiên track có tên tương ứng trực tiếp với atlas image.
             string directId = NormalizeId("IMAGE_REANIM_" + normalizedTrack);
 
             PlantAtlasPart part;
             if (data.atlasParts.TryGetValue(directId, out part))
                 return part;
 
-            // Peashooter: track "backleaf" dùng tên ảnh có prefix PEASHOOTER.
+            // Peashooter có track backleaf nhưng atlas dùng prefix PEASHOOTER.
             if (string.Equals(
                     normalizedTrack,
                     "backleaf",
@@ -266,14 +323,12 @@ namespace PlantReanimation.Core
                 }
             }
 
+            // Chỉ ánh xạ các marker đặc thù của Wall-nut.
+            // Không ánh xạ "anim_face" ở đây vì nhiều cây khác cũng dùng tên này.
             string wallNutAtlasId = null;
 
             switch (normalizedTrack.ToLowerInvariant())
             {
-                case "anim_face":
-                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BODY";
-                    break;
-
                 case "anim_blink_twitch":
                     wallNutAtlasId = "IMAGE_REANIM_WALLNUT_TWITCH";
                     break;
