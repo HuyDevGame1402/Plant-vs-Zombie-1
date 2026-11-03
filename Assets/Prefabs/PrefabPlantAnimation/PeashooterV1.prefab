@@ -57,5 +57,5 @@ MonoBehaviour:
   autoShootTest: 0
   autoShootInterval: 2
   shootNow: 0
-  shotsPerBurst: 2
+  shotsPerBurst: 1
   logFireEvent: 0

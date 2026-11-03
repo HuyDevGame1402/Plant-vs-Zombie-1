@@ -416,5 +416,9 @@ namespace PlantReanimation.Controllers.Peashooter
         {
             Shoot();
         }
+        public void PlayAnimationIdle()
+        {
+            Play(idleClipName, true);
+        }
     }
 }
