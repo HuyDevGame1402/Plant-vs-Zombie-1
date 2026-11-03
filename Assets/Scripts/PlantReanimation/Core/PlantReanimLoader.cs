@@ -294,22 +294,22 @@ namespace PlantReanimation.Core
         //}
 
         private static PlantAtlasPart FindAtlasPartForTrack(
-            PlantReanimData data,
-            string trackName)
+    PlantReanimData data,
+    string trackName)
         {
             if (data == null || string.IsNullOrWhiteSpace(trackName))
                 return null;
 
             string normalizedTrack = trackName.Trim();
 
-            // Ưu tiên track có tên tương ứng trực tiếp với atlas image.
+            // Ưu tiên track có tên khớp trực tiếp với atlas.
             string directId = NormalizeId("IMAGE_REANIM_" + normalizedTrack);
 
             PlantAtlasPart part;
             if (data.atlasParts.TryGetValue(directId, out part))
                 return part;
 
-            // Peashooter có track backleaf nhưng atlas dùng prefix PEASHOOTER.
+            // Peashooter: track backleaf dùng prefix PEASHOOTER trong atlas.
             if (string.Equals(
                     normalizedTrack,
                     "backleaf",
@@ -323,24 +323,77 @@ namespace PlantReanimation.Core
                 }
             }
 
-            // Chỉ ánh xạ các marker đặc thù của Wall-nut.
-            // Không ánh xạ "anim_face" ở đây vì nhiều cây khác cũng dùng tên này.
-            string wallNutAtlasId = null;
+            string fallbackAtlasId = null;
 
             switch (normalizedTrack.ToLowerInvariant())
             {
                 case "anim_blink_twitch":
-                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_TWITCH";
+                    fallbackAtlasId = "IMAGE_REANIM_WALLNUT_TWITCH";
                     break;
 
                 case "anim_blink_twice":
                 case "anim_blink_thrice":
-                    wallNutAtlasId = "IMAGE_REANIM_WALLNUT_BLINK1";
+                    fallbackAtlasId = "IMAGE_REANIM_WALLNUT_BLINK1";
+                    break;
+
+                // Track trong Fume-shroom JSON mang tên DoomShroom_*,
+                // nhưng ảnh thực tế thuộc atlas FUMESHROOM.
+                case "doomshroom_eyes":
+                    fallbackAtlasId = "IMAGE_REANIM_FUMESHROOM_BLINK2";
+                    break;
+
+                case "doomshroom_head":
+                    fallbackAtlasId = "IMAGE_REANIM_FUMESHROOM_HEAD";
+                    break;
+
+                case "doomshroom_spout":
+                    fallbackAtlasId = "IMAGE_REANIM_FUMESHROOM_SPOUT";
+                    break;
+
+                case "doomshroom_tip":
+                    fallbackAtlasId = "IMAGE_REANIM_FUMESHROOM_TIP";
+                    break;
+
+                // Hypno-shroom dùng track tên chung Layer 1–4.
+                // Chỉ ánh xạ nếu Reanim có đủ bộ track đặc trưng của nó.
+                case "layer 1":
+                case "layer 2":
+                case "layer 3":
+                case "layer 4":
+                    bool isHypnoShroom =
+                        data.GetTrack("Layer 1") != null &&
+                        data.GetTrack("Layer 2") != null &&
+                        data.GetTrack("Layer 3") != null &&
+                        data.GetTrack("Layer 4") != null &&
+                        data.GetTrack("anim_idle") != null &&
+                        data.GetTrack("anim_sleep") != null;
+
+                    if (!isHypnoShroom)
+                        break;
+
+                    switch (normalizedTrack.ToLowerInvariant())
+                    {
+                        case "layer 1":
+                            fallbackAtlasId = "IMAGE_REANIM_HYPNOSHROOM_BODY";
+                            break;
+
+                        case "layer 2":
+                            fallbackAtlasId = "IMAGE_REANIM_HYPNOSHROOM_HEAD";
+                            break;
+
+                        case "layer 3":
+                            fallbackAtlasId = "IMAGE_REANIM_HYPNOSHROOM_EYE1";
+                            break;
+
+                        case "layer 4":
+                            fallbackAtlasId = "IMAGE_REANIM_HYPNOSHROOM_EYE2";
+                            break;
+                    }
                     break;
             }
 
-            if (!string.IsNullOrEmpty(wallNutAtlasId) &&
-                data.atlasParts.TryGetValue(wallNutAtlasId, out part))
+            if (!string.IsNullOrEmpty(fallbackAtlasId) &&
+                data.atlasParts.TryGetValue(fallbackAtlasId, out part))
             {
                 return part;
             }
