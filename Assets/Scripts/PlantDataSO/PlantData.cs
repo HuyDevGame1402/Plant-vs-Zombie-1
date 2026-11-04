@@ -58,6 +58,7 @@ public class PlantData : ScriptableObject
     [Header("Thông tin bổ sung")]
     [TextArea(2, 5)]
     public string extraNotes;
+    public Sprite imageSelectGUI;
 
     // bo sung offset khi trong cay cho chuan
     public Vector2 offsetCreatePlant;

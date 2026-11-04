@@ -24,7 +24,7 @@ public class CreatePlantManager : MonoBehaviour
     {
         if (plantPrefab != null)
         {
-            Instantiate(plantPrefab, position + (Vector3)plantPrefab.GetComponent<Plant>().plantData.offsetCreatePlant, Quaternion.identity);
+            Instantiate(plantPrefab, position, Quaternion.identity);
         }
         else
         {

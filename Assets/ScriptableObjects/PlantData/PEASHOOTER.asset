@@ -45,3 +45,5 @@ MonoBehaviour:
   coinKind: 
   productionInitialState: 
   extraNotes: 
+  imageSelectGUI: {fileID: -94189671, guid: cbd8e0c4be7258d4aaca7304c4d9402d, type: 3}
+  offsetCreatePlant: {x: 0, y: 0}
