@@ -44,6 +44,8 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
     Sequence _seq;
     bool _collected;
 
+    private SunValue sunValueScript;
+
     void Awake()
     {
         _rt = (RectTransform)transform;
@@ -51,6 +53,8 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
         _group = GetComponent<CanvasGroup>();
         if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
         _baseScale = _rt.localScale;
+
+        sunValueScript = GetComponent<SunValue>();
     }
 
     public void SetPool(SunPool pool) { _pool = pool; }
@@ -153,6 +157,11 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
         // Cũng có thể không sửa file này mà đăng ký SunUI.OnCollected += (int v) => { ... };
         // (Sau hàm này sun sẽ tự nhỏ lại, mờ đi rồi trả về pool.)
         // =====================================================================
+
+        if(SunMoneyManager.Instance != null && sunValueScript != null)
+        {
+            SunMoneyManager.Instance.AddSunMoney(sunValueScript.SunValueAmount);    
+        }
     }
 
     void Release()

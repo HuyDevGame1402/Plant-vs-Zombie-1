@@ -1105,7 +1105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &477964943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ RectTransform:
   m_GameObject: {fileID: 477964942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1432748926}
@@ -1763,6 +1763,7 @@ GameObject:
   - component: {fileID: 954572026}
   - component: {fileID: 954572025}
   - component: {fileID: 954572028}
+  - component: {fileID: 954572029}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1894,6 +1895,19 @@ MonoBehaviour:
   costText: {fileID: 214594561}
   plantGrowBG: {fileID: 658574507}
   borderSlectPlantGUI: {fileID: 1002319697}
+--- !u!114 &954572029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954572023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc9996d1b579f4409e48e27e92c822d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTransform: {fileID: 1505037458}
 --- !u!1 &986619355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2484,7 @@ GameObject:
   - component: {fileID: 1432748929}
   - component: {fileID: 1432748928}
   - component: {fileID: 1432748927}
+  - component: {fileID: 1432748931}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2601,6 +2616,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432748925}
   m_CullTransparentMesh: 1
+--- !u!114 &1432748931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432748925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc9996d1b579f4409e48e27e92c822d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTransform: {fileID: 477964943}
 --- !u!1 &1496671209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,7 +2780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1505037458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2762,7 +2790,7 @@ RectTransform:
   m_GameObject: {fileID: 1505037457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 954572024}
@@ -3450,6 +3478,7 @@ GameObject:
   - component: {fileID: 1954219434}
   - component: {fileID: 1954219436}
   - component: {fileID: 1954219435}
+  - component: {fileID: 1954219437}
   m_Layer: 5
   m_Name: MoneyText
   m_TagString: Untagged
@@ -3573,6 +3602,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954219433}
   m_CullTransparentMesh: 1
+--- !u!114 &1954219437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954219433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7d23793ac36fb4f994812ac0944030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunMoneyText: {fileID: 0}
 --- !u!1 &1992688040
 GameObject:
   m_ObjectHideFlags: 0

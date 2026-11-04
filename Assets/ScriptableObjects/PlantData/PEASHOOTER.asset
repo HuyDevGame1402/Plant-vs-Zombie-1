@@ -46,4 +46,5 @@ MonoBehaviour:
   productionInitialState: 
   extraNotes: 
   imageSelectGUI: {fileID: -94189671, guid: cbd8e0c4be7258d4aaca7304c4d9402d, type: 3}
+  plantPrefab: {fileID: 6942925656450320845, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
   offsetCreatePlant: {x: 0, y: 0}

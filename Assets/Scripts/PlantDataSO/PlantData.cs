@@ -59,6 +59,7 @@ public class PlantData : ScriptableObject
     [TextArea(2, 5)]
     public string extraNotes;
     public Sprite imageSelectGUI;
+    public GameObject plantPrefab;
 
     // bo sung offset khi trong cay cho chuan
     public Vector2 offsetCreatePlant;

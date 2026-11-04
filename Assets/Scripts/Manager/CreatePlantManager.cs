@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CreatePlantManager : MonoBehaviour
 {
     public static CreatePlantManager Instance { get; private set; }
 
     [SerializeField] private GameObject plantPrefab;
+
+    private PlantData plantDataSelected;
+    private ButtonSelectPlant buttonSelectPlant;
+
+    public event Action OnCreatedPlantEvent;
 
     private void Awake()
     {
@@ -18,13 +22,31 @@ public class CreatePlantManager : MonoBehaviour
         {
             Instance = this;
         }
-    }   
+    } 
+    
+    public void SetupPlantSelectSpawn(ButtonSelectPlant buttonSelectPlant, PlantData plantData)
+    {
+        plantDataSelected = plantData;
+        this.buttonSelectPlant = buttonSelectPlant;
+    }
 
     public void CreatePlant(Vector3 position)
     {
-        if (plantPrefab != null)
+        if (plantDataSelected != null)
         {
-            Instantiate(plantPrefab, position, Quaternion.identity);
+            Instantiate(plantDataSelected.plantPrefab, position, Quaternion.identity);
+            buttonSelectPlant.ActiveSelectGUIPlant(false);
+
+            if(SunMoneyManager.Instance != null)
+            {
+                SunMoneyManager.Instance.SpendSunMoney(plantDataSelected.seedCostSun);
+            }
+
+            buttonSelectPlant.PlantCooldownUI.StartCooldown(plantDataSelected.seedPacketRefreshTicks);
+            buttonSelectPlant.DisablePlantClick();
+            plantDataSelected = null;
+            buttonSelectPlant = null;
+            OnCreatedPlantEvent?.Invoke();
         }
         else
         {

@@ -49,6 +49,18 @@ public class LogicSelectPlantUI : MonoBehaviour
     {
         // test thu
         OnLoadPlantUpGUI();
+
+
+        // event
+        if (CreatePlantManager.Instance != null)
+        {
+            CreatePlantManager.Instance.OnCreatedPlantEvent += ResetPlantSelectGUI;
+        }
+    }
+
+    private void ResetPlantSelectGUI()
+    {
+        plantSelect = null;
     }
 
 
