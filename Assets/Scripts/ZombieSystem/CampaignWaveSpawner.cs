@@ -97,6 +97,11 @@ public class CampaignWaveSpawner : MonoBehaviour
                 spawnPosition += Vector3.left * (zombieIndex * horizontalPreviewSpacing);
                 GameObject spawned = Instantiate(zombieHeadPrefab, spawnPosition, Quaternion.identity);
                 spawned.name = $"TestZombie_{type}_L{laneIndex}_W{wave.waveNumber}_{zombieIndex + 1}";
+
+                CampaignZombie campaignZombie = spawned.GetComponent<CampaignZombie>();
+                if (campaignZombie == null)
+                    campaignZombie = spawned.AddComponent<CampaignZombie>();
+                campaignZombie.Initialize(type, laneIndex, wave.waveNumber, laneManager);
             }
 
             if (waveIndex < waves.Count - 1)

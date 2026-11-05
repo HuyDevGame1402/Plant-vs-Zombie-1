@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Owns five lane spawn anchors and chooses a valid lane and horizontal spawn position.</summary>
+/// <summary>Stores active zombies globally and by lane, and chooses lane spawn positions.</summary>
 public class CampaignLaneManager : MonoBehaviour
 {
     [Serializable]
@@ -16,6 +16,15 @@ public class CampaignLaneManager : MonoBehaviour
     }
 
     [SerializeField] private LaneSpawnPoint[] lanes = new LaneSpawnPoint[5];
+
+    private readonly List<CampaignZombie>[] zombiesByLane = new List<CampaignZombie>[5];
+    private readonly List<CampaignZombie> allZombies = new();
+
+    private void Awake()
+    {
+        for (int i = 0; i < zombiesByLane.Length; i++)
+            zombiesByLane[i] = new List<CampaignZombie>();
+    }
 
     public bool TryPickSpawn(int globalLevel, System.Random random, out int laneIndex, out Vector3 spawnPosition)
     {
@@ -56,6 +65,57 @@ public class CampaignLaneManager : MonoBehaviour
         return true;
     }
 
+    public IReadOnlyList<CampaignZombie> GetZombiesInLane(int laneIndex)
+    {
+        if (!IsValidLane(laneIndex))
+            return Array.Empty<CampaignZombie>();
+
+        RemoveDestroyed(zombiesByLane[laneIndex]);
+        return zombiesByLane[laneIndex];
+    }
+
+    public IReadOnlyList<CampaignZombie> GetAllZombies()
+    {
+        RemoveDestroyed(allZombies);
+        return allZombies;
+    }
+
+    public bool HasZombieInLane(int laneIndex)
+        => GetZombiesInLane(laneIndex).Count > 0;
+
+    public int GetZombieCountInLane(int laneIndex)
+        => GetZombiesInLane(laneIndex).Count;
+
+    public int GetTotalZombieCount()
+        => GetAllZombies().Count;
+
+    public void RegisterZombie(CampaignZombie zombie)
+    {
+        if (zombie == null)
+            return;
+
+        int laneIndex = zombie.LaneIndex;
+        if (!IsValidLane(laneIndex))
+        {
+            Debug.LogError($"Cannot register zombie with invalid lane index {laneIndex}.", zombie);
+            return;
+        }
+
+        EnsureListsInitialized();
+        RemoveFromLists(zombie);
+        zombiesByLane[laneIndex].Add(zombie);
+        allZombies.Add(zombie);
+    }
+
+    public void UnregisterZombie(CampaignZombie zombie)
+    {
+        if (zombie == null)
+            return;
+
+        EnsureListsInitialized();
+        RemoveFromLists(zombie);
+    }
+
     public static bool IsLaneAllowed(int globalLevel, int laneIndex)
     {
         if (laneIndex < 0 || laneIndex >= 5 || globalLevel < 1 || globalLevel > 50)
@@ -68,5 +128,33 @@ public class CampaignLaneManager : MonoBehaviour
             return laneIndex >= 1 && laneIndex <= 3;
 
         return true;
+    }
+
+    private bool IsValidLane(int laneIndex)
+        => laneIndex >= 0 && laneIndex < zombiesByLane.Length;
+
+    private void EnsureListsInitialized()
+    {
+        for (int i = 0; i < zombiesByLane.Length; i++)
+        {
+            if (zombiesByLane[i] == null)
+                zombiesByLane[i] = new List<CampaignZombie>();
+        }
+    }
+
+    private void RemoveFromLists(CampaignZombie zombie)
+    {
+        for (int i = 0; i < zombiesByLane.Length; i++)
+            zombiesByLane[i]?.Remove(zombie);
+        allZombies.Remove(zombie);
+    }
+
+    private static void RemoveDestroyed(List<CampaignZombie> list)
+    {
+        for (int i = list.Count - 1; i >= 0; i--)
+        {
+            if (list[i] == null)
+                list.RemoveAt(i);
+        }
     }
 }
