@@ -1,0 +1,3172 @@
+{
+  "title": "PvZ adventure zombie-wave schedule and generation",
+  "source": [
+    "src/Lawn/Board.cpp",
+    "src/Lawn/Challenge.h",
+    "src/Lawn/Zombie.cpp",
+    "src/LawnApp.cpp",
+    "src/GameConstants.h"
+  ],
+  "scope": "Adventure campaign levels 1-50. Challenge and survival modes have separate wave setup and are not represented as per-level campaign rows.",
+  "units": {
+    "tick": "One board/game update. Default frame time is 10 ms, so convert ticks to seconds by multiplying by 0.01; actual wall-clock duration may vary.",
+    "waveNumbers": "One-based in this JSON; internal code wave indexes are zero-based."
+  },
+  "schedule": {
+    "initialDelay": {
+      "standardAdventureTicks": 1800,
+      "standardAdventureSeconds": 18,
+      "level2FirstTimeTicks": 5000,
+      "level2FirstTimeSeconds": 50,
+      "description": "Standard Adventure first-wave counter is 1800 ticks; first-time level 2 uses 5000; mini-boss levels 10, 20, and 30 override to 100. Tutorial and special setup can pause/override the counter.",
+      "miniBossLevelTicks": 100,
+      "miniBossLevelSeconds": 1
+    },
+    "regularBetweenWaveDelay": {
+      "ticks": {
+        "min": 2500,
+        "max": 3099
+      },
+      "seconds": {
+        "min": 25,
+        "max": 30.99
+      },
+      "description": "After a non-flag wave. Can be reduced: after at least 400 ticks, if the previous wave health is at/below a randomized 50%-65% threshold, remaining countdown is clamped to 200 ticks (about 2 seconds)."
+    },
+    "flagWaveBetweenDelay": {
+      "counterTicks": 4500,
+      "counterSeconds": 45,
+      "hugeWaveWarningTicks": 750,
+      "hugeWaveWarningSeconds": 7.5,
+      "approxSpawnToSpawnSeconds": 52.5,
+      "description": "Campaign flag interval; the 4500-tick counter is followed by a 750-tick huge-wave warning and about one more tick before spawning."
+    },
+    "zombieBatch": {
+      "description": "At the wave timer reaching zero, Board::SpawnZombieWave iterates through that wave list and creates all listed zombies in the same update. There is no global fixed delay between every zombie in the batch; each zombie then has its own entry/movement behavior."
+    }
+  },
+  "waveGeneration": {
+    "ordinaryFirstPlayPoints": "floor(zeroBasedWaveIndex / 3) + 1",
+    "completedAdventurePoints": "floor(zeroBasedWaveIndex * 2 / 5) + 1, except level 5 uses the ordinary formula",
+    "flagWave": "Adds min(basePoints, 8) normal zombies plus one flag zombie, then scales remaining points by 2.5 before weighted picks.",
+    "pointMultipliers": {
+      "miniBossLevels": [
+        10,
+        20,
+        30
+      ],
+      "miniBoss": 3,
+      "levelsWithSpecificModes": "Some special levels apply x2, x3, x4, or x6; see Board::PickZombieWaves."
+    },
+    "pickRule": "While points remain, picks from level-allowed zombie types by weighted random selection; each pick subtracts that zombie type pointCost. Types also require firstWave eligibility, except special modes.",
+    "fixedCaveats": [
+      "The final wave guarantees one of every eligible level zombie type that has not already been selected (Yeti excluded).",
+      "Newly introduced zombie types can have a guaranteed intro spawn in a midpoint/final wave; see guaranteedIntroZombieTypes.",
+      "Level 50 boss behavior is special/cutscene-driven; the normal candidate list is not a full boss script.",
+      "Bobsled team may be replaced by four normal zombies if the board cannot add a bobsled team."
+    ],
+    "randomness": "Exact count/type per wave is not a single fixed table. Wave lists are generated with weighted selection and are influenced by player ID, board random seed, level, and adventure completion state; the generated list is then saved."
+  },
+  "levels": [
+    {
+      "level": 1,
+      "area": 1,
+      "levelInArea": 1,
+      "background": "day",
+      "baseWaves": 4,
+      "firstAdventurePlay": {
+        "waveCount": 4,
+        "flagWaveNumbers": [],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 2,
+      "area": 1,
+      "levelInArea": 2,
+      "background": "day",
+      "baseWaves": 6,
+      "firstAdventurePlay": {
+        "waveCount": 6,
+        "flagWaveNumbers": [
+          6
+        ],
+        "firstWaveDelayTicks": 5000
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 3,
+      "area": 1,
+      "levelInArea": 3,
+      "background": "day",
+      "baseWaves": 8,
+      "firstAdventurePlay": {
+        "waveCount": 8,
+        "flagWaveNumbers": [
+          8
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "TRAFFIC_CONE"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 4,
+      "area": 1,
+      "levelInArea": 4,
+      "background": "day",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 5,
+      "area": 1,
+      "levelInArea": 5,
+      "background": "day",
+      "baseWaves": 8,
+      "firstAdventurePlay": {
+        "waveCount": 8,
+        "flagWaveNumbers": [
+          8
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 6,
+      "area": 1,
+      "levelInArea": 6,
+      "background": "day",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "POLEVAULTER"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 7,
+      "area": 1,
+      "levelInArea": 7,
+      "background": "day",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 8,
+      "area": 1,
+      "levelInArea": 8,
+      "background": "day",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "PAIL"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 9,
+      "area": 1,
+      "levelInArea": 9,
+      "background": "day",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 10,
+      "area": 1,
+      "levelInArea": 10,
+      "background": "day",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 11,
+      "area": 2,
+      "levelInArea": 1,
+      "background": "night",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "NEWSPAPER",
+          "nameId": "NEWSPAPER_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 1000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "NEWSPAPER"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 12,
+      "area": 2,
+      "levelInArea": 2,
+      "background": "night",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "NEWSPAPER",
+          "nameId": "NEWSPAPER_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 1000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 13,
+      "area": 2,
+      "levelInArea": 3,
+      "background": "night",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOOR",
+          "nameId": "SCREEN_DOOR_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3500,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "DOOR"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 14,
+      "area": 2,
+      "levelInArea": 4,
+      "background": "night",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "DOOR",
+          "nameId": "SCREEN_DOOR_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3500,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 15,
+      "area": 2,
+      "levelInArea": 5,
+      "background": "night",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "NEWSPAPER",
+          "nameId": "NEWSPAPER_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 1000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 16,
+      "area": 2,
+      "levelInArea": 6,
+      "background": "night",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "FOOTBALL"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 17,
+      "area": 2,
+      "levelInArea": 7,
+      "background": "night",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOOR",
+          "nameId": "SCREEN_DOOR_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3500,
+          "firstWave": 5
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 18,
+      "area": 2,
+      "levelInArea": 8,
+      "background": "night",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DANCER",
+          "nameId": "DANCING_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "DANCER",
+        "BACKUP_DANCER"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 19,
+      "area": 2,
+      "levelInArea": 9,
+      "background": "night",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOOR",
+          "nameId": "SCREEN_DOOR_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3500,
+          "firstWave": 5
+        },
+        {
+          "type": "DANCER",
+          "nameId": "DANCING_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 20,
+      "area": 2,
+      "levelInArea": 10,
+      "background": "night",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOOR",
+          "nameId": "SCREEN_DOOR_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3500,
+          "firstWave": 5
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "DANCER",
+          "nameId": "DANCING_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 21,
+      "area": 3,
+      "levelInArea": 1,
+      "background": "pool",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 22,
+      "area": 3,
+      "levelInArea": 2,
+      "background": "pool",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "NEWSPAPER",
+          "nameId": "NEWSPAPER_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 1000,
+          "firstWave": 1
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 23,
+      "area": 3,
+      "levelInArea": 3,
+      "background": "pool",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "SNORKEL",
+          "nameId": "SNORKEL_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "SNORKEL"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 24,
+      "area": 3,
+      "levelInArea": 4,
+      "background": "pool",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "NEWSPAPER",
+          "nameId": "NEWSPAPER_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 1000,
+          "firstWave": 1
+        },
+        {
+          "type": "SNORKEL",
+          "nameId": "SNORKEL_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 25,
+      "area": 3,
+      "levelInArea": 5,
+      "background": "pool",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "SNORKEL",
+          "nameId": "SNORKEL_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 26,
+      "area": 3,
+      "levelInArea": 6,
+      "background": "pool",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "ZAMBONI",
+          "nameId": "ZOMBONI",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "BOBSLED",
+          "nameId": "ZOMBIE_BOBSLED_TEAM",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "ZAMBONI",
+        "BOBSLED"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 27,
+      "area": 3,
+      "levelInArea": 7,
+      "background": "pool",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "SNORKEL",
+          "nameId": "SNORKEL_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "ZAMBONI",
+          "nameId": "ZOMBONI",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "BOBSLED",
+          "nameId": "ZOMBIE_BOBSLED_TEAM",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 28,
+      "area": 3,
+      "levelInArea": 8,
+      "background": "pool",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOLPHIN_RIDER",
+          "nameId": "DOLPHIN_RIDER_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1500,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "DOLPHIN_RIDER"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 29,
+      "area": 3,
+      "levelInArea": 9,
+      "background": "pool",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "ZAMBONI",
+          "nameId": "ZOMBONI",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "BOBSLED",
+          "nameId": "ZOMBIE_BOBSLED_TEAM",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "DOLPHIN_RIDER",
+          "nameId": "DOLPHIN_RIDER_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1500,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 30,
+      "area": 3,
+      "levelInArea": 10,
+      "background": "pool",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 100
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "SNORKEL",
+          "nameId": "SNORKEL_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "ZAMBONI",
+          "nameId": "ZOMBONI",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "BOBSLED",
+          "nameId": "ZOMBIE_BOBSLED_TEAM",
+          "pointCost": 3,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "DOLPHIN_RIDER",
+          "nameId": "DOLPHIN_RIDER_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1500,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 31,
+      "area": 4,
+      "levelInArea": 1,
+      "background": "fog",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "JACK_IN_THE_BOX"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 32,
+      "area": 4,
+      "levelInArea": 2,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 33,
+      "area": 4,
+      "levelInArea": 3,
+      "background": "fog",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "BALLOON",
+          "nameId": "BALLOON_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "BALLOON"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 34,
+      "area": 4,
+      "levelInArea": 4,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DOLPHIN_RIDER",
+          "nameId": "DOLPHIN_RIDER_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1500,
+          "firstWave": 10
+        },
+        {
+          "type": "BALLOON",
+          "nameId": "BALLOON_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 35,
+      "area": 4,
+      "levelInArea": 5,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 36,
+      "area": 4,
+      "levelInArea": 6,
+      "background": "fog",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "DIGGER",
+          "nameId": "DIGGER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "DIGGER"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 37,
+      "area": 4,
+      "levelInArea": 7,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "DIGGER",
+          "nameId": "DIGGER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 38,
+      "area": 4,
+      "levelInArea": 8,
+      "background": "fog",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POGO",
+          "nameId": "POGO_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "POGO"
+      ],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 39,
+      "area": 4,
+      "levelInArea": 9,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "BALLOON",
+          "nameId": "BALLOON_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "POGO",
+          "nameId": "POGO_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": null
+    },
+    {
+      "level": 40,
+      "area": 4,
+      "levelInArea": 10,
+      "background": "fog",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "BALLOON",
+          "nameId": "BALLOON_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 10
+        },
+        {
+          "type": "DIGGER",
+          "nameId": "DIGGER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "POGO",
+          "nameId": "POGO_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "YETI"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 41,
+      "area": 5,
+      "levelInArea": 1,
+      "background": "roof",
+      "baseWaves": 10,
+      "firstAdventurePlay": {
+        "waveCount": 10,
+        "flagWaveNumbers": [
+          10
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "BUNGEE",
+          "nameId": "BUNGEE_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "BUNGEE"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 42,
+      "area": 5,
+      "levelInArea": 2,
+      "background": "roof",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "POLEVAULTER",
+          "nameId": "POLE_VAULTING_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "BUNGEE",
+          "nameId": "BUNGEE_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 43,
+      "area": 5,
+      "levelInArea": 3,
+      "background": "roof",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "LADDER"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 44,
+      "area": 5,
+      "levelInArea": 4,
+      "background": "roof",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "FOOTBALL",
+          "nameId": "FOOTBALL_ZOMBIE",
+          "pointCost": 7,
+          "pickWeight": 2000,
+          "firstWave": 5
+        },
+        {
+          "type": "POGO",
+          "nameId": "POGO_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 45,
+      "area": 5,
+      "levelInArea": 5,
+      "background": "roof",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 46,
+      "area": 5,
+      "levelInArea": 6,
+      "background": "roof",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "CATAPULT",
+          "nameId": "CATAPULT_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1500,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "CATAPULT"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 47,
+      "area": 5,
+      "levelInArea": 7,
+      "background": "roof",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "BUNGEE",
+          "nameId": "BUNGEE_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "CATAPULT",
+          "nameId": "CATAPULT_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1500,
+          "firstWave": 10
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 48,
+      "area": 5,
+      "levelInArea": 8,
+      "background": "roof",
+      "baseWaves": 20,
+      "firstAdventurePlay": {
+        "waveCount": 20,
+        "flagWaveNumbers": [
+          10,
+          20
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "GARGANTUAR",
+          "nameId": "GARGANTUAR",
+          "pointCost": 10,
+          "pickWeight": 1500,
+          "firstWave": 15
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "GARGANTUAR",
+        "IMP",
+        "REDEYE_GARGANTUAR"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 49,
+      "area": 5,
+      "levelInArea": 9,
+      "background": "roof",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "BUNGEE",
+          "nameId": "BUNGEE_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "CATAPULT",
+          "nameId": "CATAPULT_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1500,
+          "firstWave": 10
+        },
+        {
+          "type": "GARGANTUAR",
+          "nameId": "GARGANTUAR",
+          "pointCost": 10,
+          "pickWeight": 1500,
+          "firstWave": 15
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    },
+    {
+      "level": 50,
+      "area": 5,
+      "levelInArea": 10,
+      "background": "final_boss",
+      "baseWaves": 30,
+      "firstAdventurePlay": {
+        "waveCount": 30,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "afterAdventureCompleted": {
+        "waveCount": 40,
+        "flagWaveNumbers": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "firstWaveDelayTicks": 1800
+      },
+      "zombieCandidates": [
+        {
+          "type": "NORMAL",
+          "nameId": "ZOMBIE",
+          "pointCost": 1,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "TRAFFIC_CONE",
+          "nameId": "CONEHEAD_ZOMBIE",
+          "pointCost": 2,
+          "pickWeight": 4000,
+          "firstWave": 1
+        },
+        {
+          "type": "PAIL",
+          "nameId": "BUCKETHEAD_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 3000,
+          "firstWave": 1
+        },
+        {
+          "type": "JACK_IN_THE_BOX",
+          "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "BUNGEE",
+          "nameId": "BUNGEE_ZOMBIE",
+          "pointCost": 3,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "LADDER",
+          "nameId": "LADDER_ZOMBIE",
+          "pointCost": 4,
+          "pickWeight": 1000,
+          "firstWave": 10
+        },
+        {
+          "type": "CATAPULT",
+          "nameId": "CATAPULT_ZOMBIE",
+          "pointCost": 5,
+          "pickWeight": 1500,
+          "firstWave": 10
+        },
+        {
+          "type": "GARGANTUAR",
+          "nameId": "GARGANTUAR",
+          "pointCost": 10,
+          "pickWeight": 1500,
+          "firstWave": 15
+        }
+      ],
+      "finalWaveIncludesAllLevelCandidates": true,
+      "guaranteedIntroZombieTypes": [
+        "BOSS"
+      ],
+      "yetiMayBeIncludedConditionally": "Only if CanSpawnYetis() allows it; Yeti is excluded from the final-wave missing-types guarantee."
+    }
+  ],
+  "zombieDefinitionReference": [
+    {
+      "type": "NORMAL",
+      "nameId": "ZOMBIE",
+      "pointCost": 1,
+      "startingLevel": 1,
+      "firstAllowedWave": 1,
+      "pickWeight": 4000
+    },
+    {
+      "type": "FLAG",
+      "nameId": "FLAG_ZOMBIE",
+      "pointCost": 1,
+      "startingLevel": 1,
+      "firstAllowedWave": 1,
+      "pickWeight": 0
+    },
+    {
+      "type": "TRAFFIC_CONE",
+      "nameId": "CONEHEAD_ZOMBIE",
+      "pointCost": 2,
+      "startingLevel": 3,
+      "firstAllowedWave": 1,
+      "pickWeight": 4000
+    },
+    {
+      "type": "POLEVAULTER",
+      "nameId": "POLE_VAULTING_ZOMBIE",
+      "pointCost": 2,
+      "startingLevel": 6,
+      "firstAllowedWave": 5,
+      "pickWeight": 2000
+    },
+    {
+      "type": "PAIL",
+      "nameId": "BUCKETHEAD_ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 8,
+      "firstAllowedWave": 1,
+      "pickWeight": 3000
+    },
+    {
+      "type": "NEWSPAPER",
+      "nameId": "NEWSPAPER_ZOMBIE",
+      "pointCost": 2,
+      "startingLevel": 11,
+      "firstAllowedWave": 1,
+      "pickWeight": 1000
+    },
+    {
+      "type": "DOOR",
+      "nameId": "SCREEN_DOOR_ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 13,
+      "firstAllowedWave": 5,
+      "pickWeight": 3500
+    },
+    {
+      "type": "FOOTBALL",
+      "nameId": "FOOTBALL_ZOMBIE",
+      "pointCost": 7,
+      "startingLevel": 16,
+      "firstAllowedWave": 5,
+      "pickWeight": 2000
+    },
+    {
+      "type": "DANCER",
+      "nameId": "DANCING_ZOMBIE",
+      "pointCost": 5,
+      "startingLevel": 18,
+      "firstAllowedWave": 5,
+      "pickWeight": 1000
+    },
+    {
+      "type": "BACKUP_DANCER",
+      "nameId": "BACKUP_DANCER",
+      "pointCost": 1,
+      "startingLevel": 18,
+      "firstAllowedWave": 1,
+      "pickWeight": 0
+    },
+    {
+      "type": "DUCKY_TUBE",
+      "nameId": "DUCKY_TUBE_ZOMBIE",
+      "pointCost": 1,
+      "startingLevel": 21,
+      "firstAllowedWave": 5,
+      "pickWeight": 0
+    },
+    {
+      "type": "SNORKEL",
+      "nameId": "SNORKEL_ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 23,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "ZAMBONI",
+      "nameId": "ZOMBONI",
+      "pointCost": 7,
+      "startingLevel": 26,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "BOBSLED",
+      "nameId": "ZOMBIE_BOBSLED_TEAM",
+      "pointCost": 3,
+      "startingLevel": 26,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "DOLPHIN_RIDER",
+      "nameId": "DOLPHIN_RIDER_ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 28,
+      "firstAllowedWave": 10,
+      "pickWeight": 1500
+    },
+    {
+      "type": "JACK_IN_THE_BOX",
+      "nameId": "JACK_IN_THE_BOX_ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 31,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "BALLOON",
+      "nameId": "BALLOON_ZOMBIE",
+      "pointCost": 2,
+      "startingLevel": 33,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "DIGGER",
+      "nameId": "DIGGER_ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 36,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "POGO",
+      "nameId": "POGO_ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 38,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "YETI",
+      "nameId": "ZOMBIE_YETI",
+      "pointCost": 4,
+      "startingLevel": 40,
+      "firstAllowedWave": 1,
+      "pickWeight": 1
+    },
+    {
+      "type": "BUNGEE",
+      "nameId": "BUNGEE_ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 41,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "LADDER",
+      "nameId": "LADDER_ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 43,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "CATAPULT",
+      "nameId": "CATAPULT_ZOMBIE",
+      "pointCost": 5,
+      "startingLevel": 46,
+      "firstAllowedWave": 10,
+      "pickWeight": 1500
+    },
+    {
+      "type": "GARGANTUAR",
+      "nameId": "GARGANTUAR",
+      "pointCost": 10,
+      "startingLevel": 48,
+      "firstAllowedWave": 15,
+      "pickWeight": 1500
+    },
+    {
+      "type": "IMP",
+      "nameId": "IMP",
+      "pointCost": 10,
+      "startingLevel": 48,
+      "firstAllowedWave": 1,
+      "pickWeight": 0
+    },
+    {
+      "type": "BOSS",
+      "nameId": "BOSS",
+      "pointCost": 10,
+      "startingLevel": 50,
+      "firstAllowedWave": 1,
+      "pickWeight": 0
+    },
+    {
+      "type": "PEA_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 1,
+      "startingLevel": 99,
+      "firstAllowedWave": 1,
+      "pickWeight": 4000
+    },
+    {
+      "type": "WALLNUT_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 99,
+      "firstAllowedWave": 1,
+      "pickWeight": 3000
+    },
+    {
+      "type": "JALAPENO_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 99,
+      "firstAllowedWave": 10,
+      "pickWeight": 1000
+    },
+    {
+      "type": "GATLING_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 99,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "SQUASH_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 3,
+      "startingLevel": 99,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "TALLNUT_HEAD",
+      "nameId": "ZOMBIE",
+      "pointCost": 4,
+      "startingLevel": 99,
+      "firstAllowedWave": 10,
+      "pickWeight": 2000
+    },
+    {
+      "type": "REDEYE_GARGANTUAR",
+      "nameId": "REDEYED_GARGANTUAR",
+      "pointCost": 10,
+      "startingLevel": 48,
+      "firstAllowedWave": 15,
+      "pickWeight": 6000
+    }
+  ]
+}

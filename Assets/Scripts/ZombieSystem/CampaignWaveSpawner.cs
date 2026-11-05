@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Prototype runner: plays Adventure level 1-1 on a single lane using one test zombie prefab.</summary>
+/// <summary>Prototype runner for five lanes. All zombie types still use the temporary test prefab.</summary>
 public class CampaignWaveSpawner : MonoBehaviour
 {
     [Header("Databases")]
     [SerializeField] private CampaignLevelDatabase levelDatabase;
     [SerializeField] private ZombieDatabase zombieDatabase;
 
-    [Header("Test lane")]
+    [Header("Lane spawning")]
+    [SerializeField] private CampaignLaneManager laneManager;
     [SerializeField] private GameObject zombieHeadPrefab;
-    [SerializeField] private Transform spawnPoint;
 
-    [Header("Level 1-1 test settings")]
+    [Header("Campaign selection")]
     [SerializeField, Min(1)] private int world = 1;
     [SerializeField, Range(1, 10)] private int level = 1;
+    [SerializeField] private bool hasFinishedAdventure;
     [SerializeField] private int randomSeed = 12345;
-    [SerializeField, Min(0f)] private float delayBetweenZombies = 1.5f;
-    [SerializeField, Min(0f)] private float delayBetweenWaves = 8f;
     [SerializeField, Min(0f)] private float horizontalPreviewSpacing = 0.2f;
 
     private bool hasStarted;
@@ -34,10 +33,10 @@ public class CampaignWaveSpawner : MonoBehaviour
             yield break;
         hasStarted = true;
 
-        if (levelDatabase == null || zombieDatabase == null || zombieHeadPrefab == null || spawnPoint == null)
+        if (levelDatabase == null || zombieDatabase == null || laneManager == null || zombieHeadPrefab == null)
         {
             Debug.LogError(
-                "CampaignWaveSpawner: assign Level Database, Zombie Database, Zombie Head Prefab, and Spawn Point in the Inspector.",
+                "CampaignWaveSpawner: assign Level Database, Zombie Database, Lane Manager, and Zombie Head Prefab in the Inspector.",
                 this);
             yield break;
         }
@@ -46,6 +45,7 @@ public class CampaignWaveSpawner : MonoBehaviour
         if (levelData == null)
             yield break;
 
+        CampaignTimingData timing = levelDatabase.Timing ?? new CampaignTimingData();
         List<CampaignWavePlan> waves;
         try
         {
@@ -53,8 +53,8 @@ public class CampaignWaveSpawner : MonoBehaviour
                 levelData,
                 zombieDatabase,
                 randomSeed,
-                isFirstAdventurePlay: true,
-                hasFinishedAdventure: false);
+                isFirstAdventurePlay: !hasFinishedAdventure,
+                hasFinishedAdventure: hasFinishedAdventure);
         }
         catch (System.Exception exception)
         {
@@ -62,8 +62,23 @@ public class CampaignWaveSpawner : MonoBehaviour
             yield break;
         }
 
-        Debug.Log($"Starting World {world}-{level}: {waves.Count} waves", this);
+        int firstDelayTicks = hasFinishedAdventure
+            ? levelData.replayInitialDelayTicks
+            : levelData.firstPlayInitialDelayTicks;
+        if (firstDelayTicks <= 0)
+        {
+            int globalLevel = levelData.GlobalLevel;
+            firstDelayTicks = globalLevel == 10 || globalLevel == 20 || globalLevel == 30
+                ? timing.miniBossInitialDelayTicks
+                : (!hasFinishedAdventure && globalLevel == 2
+                    ? timing.level2FirstTimeInitialDelayTicks
+                    : timing.standardInitialDelayTicks);
+        }
 
+        Debug.Log($"Starting World {world}-{level}: {waves.Count} waves after {firstDelayTicks} ticks", this);
+        yield return new WaitForSeconds(timing.TicksToSeconds(firstDelayTicks));
+
+        var laneRandom = new System.Random(randomSeed ^ 0x5F3759DF);
         for (int waveIndex = 0; waveIndex < waves.Count; waveIndex++)
         {
             CampaignWavePlan wave = waves[waveIndex];
@@ -71,21 +86,38 @@ public class CampaignWaveSpawner : MonoBehaviour
                 $"Wave {wave.waveNumber}/{waves.Count} — {(wave.isFlagWave ? "FLAG" : "normal")}, {wave.zombies.Count} zombies",
                 this);
 
+            // The original game creates the wave roster as one batch in a single board update.
             for (int zombieIndex = 0; zombieIndex < wave.zombies.Count; zombieIndex++)
             {
                 ZombieType type = wave.zombies[zombieIndex];
-                Vector3 previewOffset = Vector3.left * (zombieIndex * horizontalPreviewSpacing);
-                GameObject spawned = Instantiate(zombieHeadPrefab, spawnPoint.position + previewOffset, spawnPoint.rotation);
-                spawned.name = $"TestZombie_{type}_W{wave.waveNumber}_{zombieIndex + 1}";
+                if (!laneManager.TryPickSpawn(levelData.GlobalLevel, laneRandom, out int laneIndex, out Vector3 spawnPosition))
+                    yield break;
 
-                if (delayBetweenZombies > 0f)
-                    yield return new WaitForSeconds(delayBetweenZombies);
+                // Small spacing keeps the temporary stationary heads visible when several share one lane.
+                spawnPosition += Vector3.left * (zombieIndex * horizontalPreviewSpacing);
+                GameObject spawned = Instantiate(zombieHeadPrefab, spawnPosition, Quaternion.identity);
+                spawned.name = $"TestZombie_{type}_L{laneIndex}_W{wave.waveNumber}_{zombieIndex + 1}";
             }
 
-            if (waveIndex < waves.Count - 1 && delayBetweenWaves > 0f)
-                yield return new WaitForSeconds(delayBetweenWaves);
+            if (waveIndex < waves.Count - 1)
+            {
+                CampaignWavePlan nextWave = waves[waveIndex + 1];
+                int delayTicks;
+                if (nextWave.isFlagWave)
+                {
+                    delayTicks = timing.flagWaveBetweenDelayTicks + timing.hugeWaveWarningTicks;
+                }
+                else
+                {
+                    delayTicks = Random.Range(
+                        timing.regularBetweenWaveMinTicks,
+                        timing.regularBetweenWaveMaxTicks + 1);
+                }
+
+                yield return new WaitForSeconds(timing.TicksToSeconds(delayTicks));
+            }
         }
 
-        Debug.Log("Level 1-1 test waves finished spawning.", this);
+        Debug.Log("All campaign waves finished spawning.", this);
     }
 }

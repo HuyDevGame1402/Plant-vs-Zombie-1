@@ -16,200 +16,698 @@ MonoBehaviour:
   - world: 1
     level: 1
     baseWaves: 4
+    background: day
     allowedZombies: 00000000
+    firstPlayWaveCount: 4
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 2
     baseWaves: 6
+    background: day
     allowedZombies: 00000000
+    firstPlayWaveCount: 6
+    firstPlayInitialDelayTicks: 5000
+    firstPlayFlagWaveNumbers: 06000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 3
     baseWaves: 8
+    background: day
     allowedZombies: 0000000002000000
+    firstPlayWaveCount: 8
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 08000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - TRAFFIC_CONE
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 4
     baseWaves: 10
+    background: day
     allowedZombies: 0000000002000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 5
     baseWaves: 8
+    background: day
     allowedZombies: 0000000002000000
+    firstPlayWaveCount: 8
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 08000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 6
     baseWaves: 10
+    background: day
     allowedZombies: 000000000200000003000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - POLEVAULTER
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 7
     baseWaves: 20
+    background: day
     allowedZombies: 000000000200000003000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 8
     baseWaves: 10
+    background: day
     allowedZombies: 000000000200000004000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - PAIL
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 9
     baseWaves: 20
+    background: day
     allowedZombies: 00000000020000000300000004000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 1
     level: 10
     baseWaves: 20
+    background: day
     allowedZombies: 00000000020000000300000004000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 100
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 100
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 1
     baseWaves: 10
+    background: night
     allowedZombies: 0000000005000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - NEWSPAPER
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 2
     baseWaves: 20
+    background: night
     allowedZombies: 00000000020000000400000005000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 3
     baseWaves: 10
+    background: night
     allowedZombies: 000000000200000006000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - DOOR
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 4
     baseWaves: 20
+    background: night
     allowedZombies: 00000000020000000300000006000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 5
     baseWaves: 10
+    background: night
     allowedZombies: 0000000002000000030000000400000005000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 6
     baseWaves: 10
+    background: night
     allowedZombies: 000000000200000007000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - FOOTBALL
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 7
     baseWaves: 20
+    background: night
     allowedZombies: 00000000020000000600000007000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 8
     baseWaves: 10
+    background: night
     allowedZombies: 000000000200000008000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - DANCER
+    - BACKUP_DANCER
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 9
     baseWaves: 20
+    background: night
     allowedZombies: 00000000020000000600000008000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 2
     level: 10
     baseWaves: 20
+    background: night
     allowedZombies: 0000000002000000060000000700000008000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 100
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 100
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 1
     baseWaves: 10
+    background: pool
     allowedZombies: 0000000002000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 2
     baseWaves: 20
+    background: pool
     allowedZombies: 0000000002000000040000000500000007000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 3
     baseWaves: 20
+    background: pool
     allowedZombies: 00000000020000000b000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - SNORKEL
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 4
     baseWaves: 30
+    background: pool
     allowedZombies: 00000000020000000300000004000000050000000b000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 5
     baseWaves: 20
+    background: pool
     allowedZombies: 0000000002000000070000000b000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 6
     baseWaves: 20
+    background: pool
     allowedZombies: 00000000020000000c0000000d000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - ZAMBONI
+    - BOBSLED
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 7
     baseWaves: 30
+    background: pool
     allowedZombies: 0000000002000000040000000b0000000c0000000d000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 8
     baseWaves: 20
+    background: pool
     allowedZombies: 00000000020000000e000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - DOLPHIN_RIDER
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 9
     baseWaves: 30
+    background: pool
     allowedZombies: 000000000200000003000000040000000c0000000d0000000e000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 3
     level: 10
     baseWaves: 30
+    background: pool
     allowedZombies: 0000000002000000040000000b0000000c0000000d0000000e000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 100
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 100
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 1
     baseWaves: 10
+    background: fog
     allowedZombies: 00000000020000000f000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - JACK_IN_THE_BOX
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 2
     baseWaves: 20
+    background: fog
     allowedZombies: 0000000002000000070000000f000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 3
     baseWaves: 10
+    background: fog
     allowedZombies: 000000000200000010000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - BALLOON
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 4
     baseWaves: 20
+    background: fog
     allowedZombies: 00000000020000000e00000010000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 5
     baseWaves: 20
+    background: fog
     allowedZombies: 0000000002000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 6
     baseWaves: 10
+    background: fog
     allowedZombies: 000000000200000011000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - DIGGER
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 7
     baseWaves: 20
+    background: fog
     allowedZombies: 0000000002000000040000000f00000011000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 8
     baseWaves: 10
+    background: fog
     allowedZombies: 000000000200000012000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - POGO
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 9
     baseWaves: 20
+    background: fog
     allowedZombies: 0000000002000000040000001000000012000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: 
   - world: 4
     level: 10
     baseWaves: 20
+    background: fog
     allowedZombies: 0000000002000000040000000f000000100000001100000012000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - YETI
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 1
     baseWaves: 10
+    background: roof
     allowedZombies: 000000000200000014000000
+    firstPlayWaveCount: 10
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000
+    replayWaveCount: 20
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a00000014000000
+    guaranteedIntroZombieTypeIds:
+    - BUNGEE
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 2
     baseWaves: 20
+    background: roof
     allowedZombies: 0000000002000000030000000400000014000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 3
     baseWaves: 20
+    background: roof
     allowedZombies: 000000000200000015000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - LADDER
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 4
     baseWaves: 30
+    background: roof
     allowedZombies: 0000000002000000070000001200000015000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 5
     baseWaves: 20
+    background: roof
     allowedZombies: 00000000020000000400000015000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 6
     baseWaves: 20
+    background: roof
     allowedZombies: 000000000200000016000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - CATAPULT
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 7
     baseWaves: 30
+    background: roof
     allowedZombies: 0000000002000000140000001500000016000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 8
     baseWaves: 20
+    background: roof
     allowedZombies: 000000000200000017000000
+    firstPlayWaveCount: 20
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a00000014000000
+    replayWaveCount: 30
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e000000
+    guaranteedIntroZombieTypeIds:
+    - GARGANTUAR
+    - IMP
+    - REDEYE_GARGANTUAR
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 9
     baseWaves: 30
+    background: roof
     allowedZombies: 0000000002000000040000000f00000014000000150000001600000017000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds: []
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
   - world: 5
     level: 10
     baseWaves: 30
+    background: final_boss
     allowedZombies: 0000000002000000040000000f00000014000000150000001600000017000000
+    firstPlayWaveCount: 30
+    firstPlayInitialDelayTicks: 1800
+    firstPlayFlagWaveNumbers: 0a000000140000001e000000
+    replayWaveCount: 40
+    replayInitialDelayTicks: 1800
+    replayFlagWaveNumbers: 0a000000140000001e00000028000000
+    guaranteedIntroZombieTypeIds:
+    - BOSS
+    yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
+      from the final-wave missing-types guarantee.
+  timing:
+    ticksPerSecond: 100
+    standardInitialDelayTicks: 1800
+    level2FirstTimeInitialDelayTicks: 5000
+    miniBossInitialDelayTicks: 100
+    regularBetweenWaveMinTicks: 2500
+    regularBetweenWaveMaxTicks: 3099
+    flagWaveBetweenDelayTicks: 4500
+    hugeWaveWarningTicks: 750
+    healthAccelerationMinimumElapsedTicks: 400
+    healthAccelerationRemainingTicks: 200
+    healthThresholdMinimum: 0.5
+    healthThresholdMaximum: 0.65

@@ -82,6 +82,9 @@ public class ReanimData
     public readonly List<ReanimTrack> Tracks =
         new List<ReanimTrack>();
 
+    /// <summary>Root/ground motion track, kept separate from drawable parts.</summary>
+    public ReanimTrack GroundTrack { get; internal set; }
+
     public readonly Dictionary<string, ReanimClip> Clips =
         new Dictionary<string, ReanimClip>(StringComparer.OrdinalIgnoreCase);
 

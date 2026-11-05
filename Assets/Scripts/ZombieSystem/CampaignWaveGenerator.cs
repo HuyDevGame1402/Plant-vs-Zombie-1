@@ -37,9 +37,21 @@ public static class CampaignWaveGenerator
         if (globalLevel < 1 || globalLevel > 50)
             throw new ArgumentOutOfRangeException(nameof(levelData), "Global campaign level must be from 1 to 50.");
 
-        int waveCount = levelData.baseWaves;
-        if (hasFinishedAdventure && !isMiniBossLevel)
-            waveCount = waveCount < 10 ? 20 : waveCount + 10;
+        int waveCount;
+        if (hasFinishedAdventure && levelData.replayWaveCount > 0)
+        {
+            waveCount = levelData.replayWaveCount;
+        }
+        else if (!hasFinishedAdventure && levelData.firstPlayWaveCount > 0)
+        {
+            waveCount = levelData.firstPlayWaveCount;
+        }
+        else
+        {
+            waveCount = levelData.baseWaves;
+            if (hasFinishedAdventure && !isMiniBossLevel)
+                waveCount = waveCount < 10 ? 20 : waveCount + 10;
+        }
 
         var random = new Random(seed);
         var waves = new List<CampaignWavePlan>(waveCount);
@@ -47,7 +59,7 @@ public static class CampaignWaveGenerator
 
         for (int waveIndex = 0; waveIndex < waveCount; waveIndex++)
         {
-            bool isFlagWave = IsFlagWave(waveIndex, waveCount, isFirstAdventurePlay, globalLevel);
+            bool isFlagWave = IsFlagWave(waveIndex, waveCount, levelData, isFirstAdventurePlay, hasFinishedAdventure, globalLevel);
             var wave = new CampaignWavePlan
             {
                 waveNumber = waveIndex + 1,
@@ -103,8 +115,25 @@ public static class CampaignWaveGenerator
         return waves;
     }
 
-    private static bool IsFlagWave(int waveIndex, int waveCount, bool firstPlay, int globalLevel)
+    private static bool IsFlagWave(
+        int waveIndex,
+        int waveCount,
+        CampaignLevelData levelData,
+        bool firstPlay,
+        bool hasFinishedAdventure,
+        int globalLevel)
     {
+        bool hasImportedSchedule = hasFinishedAdventure
+            ? levelData.replayWaveCount > 0
+            : levelData.firstPlayWaveCount > 0;
+        if (hasImportedSchedule)
+        {
+            List<int> importedFlagWaves = hasFinishedAdventure
+                ? levelData.replayFlagWaveNumbers
+                : levelData.firstPlayFlagWaveNumbers;
+            return importedFlagWaves != null && importedFlagWaves.Contains(waveIndex + 1);
+        }
+
         if (firstPlay && globalLevel == 1)
             return false;
 

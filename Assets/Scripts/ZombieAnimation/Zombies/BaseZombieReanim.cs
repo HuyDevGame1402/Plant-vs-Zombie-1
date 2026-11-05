@@ -44,6 +44,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [SerializeField] private bool moveWhileWalking = false;
     [SerializeField] private float walkSpeed = 0.3f;
 
+    private float requestedWalkSpeed = -1f;
+
     [Header("Sau khi chết")]
     [SerializeField] private bool fadeAfterDeath = true;
     [SerializeField] private float lingerTime = 1.5f;
@@ -294,12 +296,16 @@ public abstract class BaseZombieReanim : MonoBehaviour
         float dt = Time.deltaTime;
 
         animationPlayer.AnimationSpeed = animationSpeed;
+        if (currentState == ZombieState.Walk && data.GroundTrack != null)
+            animationPlayer.AnimationSpeed = GetGroundMotionAnimationRate();
         animationPlayer.BlendDuration = blendDuration;
+
+        float previousClipTime = animationPlayer.ClipTime;
         animationPlayer.Tick(dt);
 
         for (int i = 0; i < extraPlayers.Count; i++)
         {
-            extraPlayers[i].AnimationSpeed = animationSpeed;
+            extraPlayers[i].AnimationSpeed = animationPlayer.AnimationSpeed;
             extraPlayers[i].Tick(dt);
         }
 
@@ -314,7 +320,11 @@ public abstract class BaseZombieReanim : MonoBehaviour
                 OnDeathFinished();
         }
 
-        if (currentState == ZombieState.Walk && moveWhileWalking)
+        if (currentState == ZombieState.Walk && data.GroundTrack != null)
+        {
+            ApplyGroundMotion(previousClipTime, animationPlayer.ClipTime);
+        }
+        else if (currentState == ZombieState.Walk && moveWhileWalking)
         {
             transform.position +=
                 Vector3.left * (walkSpeed * animationSpeed * dt);
@@ -632,12 +642,78 @@ public abstract class BaseZombieReanim : MonoBehaviour
         PlayAction("walk", chosenWalkClip);
     }
 
+    /// <summary>Speed requested by the AI in Unity units per second.</summary>
+    public void SetWalkMotionSpeed(float speed)
+    {
+        requestedWalkSpeed = Mathf.Max(0f, speed);
+    }
+
+    public bool HasGroundMotion => data != null && data.GroundTrack != null;
+
+    private float GetGroundMotionAnimationRate()
+    {
+        ReanimData.ReanimClip clip = animationPlayer.CurrentClip;
+        if (clip == null || clip.Length <= 0)
+            return animationSpeed;
+
+        float stride = GetGroundStride(clip);
+        float scale = profile.GlobalScale.x / profile.PixelPerUnit;
+        float speedAtRateOne = Mathf.Abs(stride) * scale * data.Fps / clip.Length;
+        float targetSpeed = requestedWalkSpeed >= 0f ? requestedWalkSpeed : walkSpeed;
+
+        if (speedAtRateOne <= 0.0001f)
+            return animationSpeed;
+
+        return animationSpeed * targetSpeed / speedAtRateOne;
+    }
+
+    private float GetGroundStride(ReanimData.ReanimClip clip)
+    {
+        return SampleGroundX(clip.end) - SampleGroundX(clip.start);
+    }
+
+    private float SampleGroundX(float frame)
+    {
+        ReanimData.ReanimTrack track = data.GroundTrack;
+        if (track == null || track.frames.Length == 0)
+            return 0f;
+
+        int a = Mathf.Clamp(Mathf.FloorToInt(frame), 0, track.frames.Length - 1);
+        int b = Mathf.Min(a + 1, track.frames.Length - 1);
+        return Mathf.Lerp(track.frames[a].x, track.frames[b].x, frame - a);
+    }
+
+    private float GetUnwrappedGroundX(float elapsedFrames, ReanimData.ReanimClip clip)
+    {
+        float length = Mathf.Max(1f, clip.Length);
+        float loops = Mathf.Floor(elapsedFrames / length);
+        float frameInLoop = Mathf.Repeat(elapsedFrames, length);
+        float startX = SampleGroundX(clip.start);
+        float stride = GetGroundStride(clip);
+        return loops * stride + SampleGroundX(clip.start + frameInLoop) - startX;
+    }
+
+    private void ApplyGroundMotion(float previousTime, float currentTime)
+    {
+        ReanimData.ReanimClip clip = animationPlayer.CurrentClip;
+        if (clip == null || clip.Length <= 0)
+            return;
+
+        float scale = profile.GlobalScale.x / profile.PixelPerUnit;
+        float previous = GetUnwrappedGroundX(previousTime * data.Fps, clip);
+        float current = GetUnwrappedGroundX(currentTime * data.Fps, clip);
+        float delta = current - previous;
+        transform.position += Vector3.left * (delta * scale);
+    }
+
     public void SetWalkVariant(bool second)
     {
         chosenWalkClip = second ? walkClip2 : walkClip;
 
         if (currentState == ZombieState.Walk)
+        {
             Walk();
+        }
     }
 
     public void StartEating()

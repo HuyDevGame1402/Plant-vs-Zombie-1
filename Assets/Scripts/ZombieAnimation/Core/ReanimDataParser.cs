@@ -211,6 +211,16 @@ public static class ReanimDataParser
                     if (clip != null)
                         result.Clips[clip.name] = clip;
                 }
+                // Root motion must be available to gameplay, but must not be
+                // sent to the part renderer as a drawable sprite.
+                else if (!track.hasImage
+                    && string.Equals(
+                        track.name,
+                        "_ground",
+                        StringComparison.OrdinalIgnoreCase))
+                {
+                    result.GroundTrack = track;
+                }
                 // Track có chứa hình ảnh: lưu để Renderer sử dụng.
                 else if (track.hasImage)
                 {
