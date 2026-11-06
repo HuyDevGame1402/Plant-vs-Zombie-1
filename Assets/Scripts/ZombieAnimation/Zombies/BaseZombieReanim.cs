@@ -38,6 +38,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [SerializeField] private string deathClip = "death";
     [Tooltip("Chết mất đầu: đầu bật ra, thân ngã không đầu.")]
     [SerializeField] private string deathHeadlessClip = "death2";
+    [Tooltip("Thời gian tiếp tục animation hiện tại sau khi đầu bật ra, trước khi ngã.")]
+    [SerializeField] private float headlessFallDelay = 2f;
 
     [Header("Di chuyển")]
     [Tooltip("Tự dịch sang trái khi đang Walk. Tắt nếu script khác lo việc di chuyển.")]
@@ -165,6 +167,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
     private bool armLost;
     private bool headDetached;
+    private bool headlessDeathPending;
+    private float headlessFallDelayRemaining;
     private float currentHealth;
     private float deadTimer;
     private bool destroyQueued;
@@ -174,6 +178,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     public bool HasArm => !armLost;
     public bool IsDeadOrDying =>
         deathLocked ||
+        headlessDeathPending ||
         currentState == ZombieState.Dying ||
         currentState == ZombieState.Dead;
 
@@ -310,6 +315,18 @@ public abstract class BaseZombieReanim : MonoBehaviour
         }
 
         OnTick(dt);
+
+        if (headlessDeathPending)
+        {
+            headlessFallDelayRemaining -= dt;
+
+            if (headlessFallDelayRemaining <= 0f)
+            {
+                headlessDeathPending = false;
+                headlessFallDelayRemaining = 0f;
+                StartDeath(true, true, false);
+            }
+        }
 
         if (currentState == ZombieState.Dying && animationPlayer.IsFinished)
         {
@@ -796,17 +813,35 @@ public abstract class BaseZombieReanim : MonoBehaviour
         if (!isReady || IsDeadOrDying)
             return;
 
+        if (headless && headlessFallDelay > 0f)
+        {
+            // Bật đầu và xử lý vật đang cầm ngay; giữ clip/trạng thái hiện tại
+            // thêm một đoạn rồi mới chuyển sang animation ngã.
+            DetachHead();
+            HandleHeldItemsOnDeath(true);
+            headlessDeathPending = true;
+            headlessFallDelayRemaining = headlessFallDelay;
+
+            if (OnDeathStarted != null)
+                OnDeathStarted();
+
+            return;
+        }
+
         StartDeath(headless);
     }
 
-    private void StartDeath(bool headless)
+    private void StartDeath(
+        bool headless,
+        bool deathPartsAlreadyHandled = false,
+        bool notifyDeathStarted = true)
     {
-        if (headless || headDetached)
+        if (!deathPartsAlreadyHandled && (headless || headDetached))
         {
             headless = true;
             DetachHead();
         }
-        else
+        else if (!deathPartsAlreadyHandled)
         {
             // Clip chết ẩn track đầu, nên cho đầu dính cứng theo thân.
             partRenderer.SetAttachment(
@@ -816,7 +851,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
         }
 
         // Vật đang cầm (cờ) xử lý riêng tuỳ loại zombie. Mặc định: rơi riêng.
-        HandleHeldItemsOnDeath(headless);
+        if (!deathPartsAlreadyHandled)
+            HandleHeldItemsOnDeath(headless);
 
         currentState = ZombieState.Dying;
 
@@ -825,7 +861,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
         else
             PlayAction("death", deathClip, false);
 
-        if (OnDeathStarted != null)
+        if (notifyDeathStarted && OnDeathStarted != null)
             OnDeathStarted();
     }
 
@@ -878,6 +914,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         armLost = false;
         headDetached = false;
+        headlessDeathPending = false;
+        headlessFallDelayRemaining = 0f;
         deathLocked = false;
         destroyQueued = false;
         deadTimer = 0f;

@@ -225,34 +225,70 @@ public class Peashooter : Plant, IIdle, IAttack
     // =========================================================
 
     // Được gọi mỗi lần controller bắn một viên (đúng frame fireFrame của clip).
+
     private void HandleFire()
     {
         if (bulletPrefab == null)
         {
             Debug.LogWarning(
-                "[Peashooter] Chưa gán bulletPrefab nên không spawn được đạn.",
+                "[Peashooter] Chưa gán bulletPrefab!",
                 this
             );
+
             return;
         }
 
-        Transform spawnPoint = muzzle != null ? muzzle : transform;
+        if (ProjectilePoolManager.Instance == null)
+        {
+            Debug.LogError(
+                "[Peashooter] ProjectilePoolManager chưa tồn tại!",
+                this
+            );
 
-        GameObject bullet = Instantiate(
-            bulletPrefab,
-            spawnPoint.position,
-            spawnPoint.rotation,
-            projectileParent
-        );
+            return;
+        }
 
-        // TODO: truyền lane/damage cho script đạn của bạn, ví dụ:
-        // bullet.GetComponent<PeaBullet>().Initialize(laneIndex);
+        Transform spawnPoint = muzzle != null
+            ? muzzle
+            : transform;
+
+        // Lấy đạn từ Pool.
+        GameObject bullet =
+            ProjectilePoolManager.Instance.GetProjectile(
+                bulletPrefab,
+                spawnPoint.position,
+                spawnPoint.rotation,
+                projectileParent
+            );
+
+        if (bullet == null)
+            return;
+
+        BulletMovement movement =
+            bullet.GetComponent<BulletMovement>();
+
+        if (movement == null)
+        {
+            Debug.LogError(
+                "[Peashooter] Bullet Prefab thiếu BulletMovement!",
+                bullet
+            );
+
+            ProjectilePoolManager.Instance.ReturnToPool(bullet);
+
+            return;
+        }
+
+        // Bắt đầu bay.
+        movement.StartFlying();
 
         Debug.Log(
-            $"[Peashooter] Spawn bullet {peashooterControllerAnimation.CurrentShotIndex + 1}/{shotsPerBurst}",
+            $"[Peashooter] Get bullet from Pool | " +
+            $"Shot: {peashooterControllerAnimation.CurrentShotIndex + 1}/{shotsPerBurst}",
             this
         );
     }
+
 
     // =========================================================
     // LANE EVENTS

@@ -1,86 +1,77 @@
 ﻿
 using System;
 using System.Collections;
+using System.Globalization;
 using UnityEngine;
 
 public class PeaBulletSprite : MonoBehaviour
 {
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // ATLAS
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     [Header("Atlas")]
     [SerializeField] private Texture2D atlasTexture;
     [SerializeField] private TextAsset atlasJson;
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // RENDER
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     [Header("Render")]
-    [Tooltip("Số pixel = 1 unit")]
     [SerializeField] private float pixelsPerUnit = 100f;
-
     [SerializeField] private string sortingLayerName = "Default";
     [SerializeField] private int baseOrderInLayer = 0;
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // FLYING
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     [Header("Flying")]
-    [Tooltip("Scale ban đầu của đạn và shadow")]
     [SerializeField] private float originalScale = 1f;
 
-    [Tooltip("Alpha tối đa khi bắn")]
     [Range(0f, 1f)]
     [SerializeField] private float maxAlpha = 1f;
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // SHADOW
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     [Header("Shadow")]
     [SerializeField] private Vector2 shadowOffset = new Vector2(0f, -0.3f);
     [SerializeField] private Vector2 shadow2ExtraOffset = Vector2.zero;
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // SPLAT
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
-    [Header("Splat (đạn vỡ)")]
-
-    [Tooltip("Scale bắt đầu của hiệu ứng vỡ")]
+    [Header("Splat")]
     [SerializeField] private float beginScale = 0.5f;
-
-    [Tooltip("Scale kết thúc của hiệu ứng vỡ")]
     [SerializeField] private float splatEndScale = 1.5f;
 
-    [Tooltip("Alpha kết thúc của hiệu ứng vỡ")]
     [Range(0f, 1f)]
     [SerializeField] private float splatEndAlpha = 0f;
 
-    [Tooltip("Thời gian hiệu ứng vỡ")]
+    [Min(0.01f)]
     [SerializeField] private float splatDuration = 0.25f;
 
-    // ------------------------------------------------------------------
-    // TEST
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
+    // EVENTS
+    // ---------------------------------------------------------
 
-    [Header("Test")]
-    [SerializeField] private bool testMode = true;
+    public event Action OnSplatCompleted;
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // ATLAS ID
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     private const string ID_PEA = "IMAGE_PROJECTILEPEA|960";
     private const string ID_SHADOWS = "IMAGE_PEA_SHADOWS|960";
     private const string ID_SPLATS = "IMAGE_PEA_SPLATS|960";
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // RUNTIME
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     private SpriteRenderer peaSR;
     private SpriteRenderer shadowSR1;
@@ -93,9 +84,9 @@ public class PeaBulletSprite : MonoBehaviour
 
     private Coroutine splatRoutine;
 
-    // ------------------------------------------------------------------
-    // JSON MODEL
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
+    // JSON
+    // ---------------------------------------------------------
 
     [Serializable]
     private class AtlasRoot
@@ -113,18 +104,26 @@ public class PeaBulletSprite : MonoBehaviour
     private class Attr
     {
         public string id;
-        public string ax, ay, aw, ah, cols;
+        public string ax;
+        public string ay;
+        public string aw;
+        public string ah;
+        public string cols;
     }
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // UNITY
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     private void Awake()
     {
         if (atlasTexture == null || atlasJson == null)
         {
-            Debug.LogError("[PeaBullet] Chưa kéo atlasTexture hoặc atlasJson!", this);
+            Debug.LogError(
+                "[PeaBulletSprite] Chưa gán Atlas!",
+                this
+            );
+
             enabled = false;
             return;
         }
@@ -136,6 +135,8 @@ public class PeaBulletSprite : MonoBehaviour
         }
 
         BuildRenderers();
+
+        ResetVisual();
     }
 
     private void OnEnable()
@@ -144,15 +145,21 @@ public class PeaBulletSprite : MonoBehaviour
             Fire();
     }
 
-    // ------------------------------------------------------------------
+    private void OnDisable()
+    {
+        StopSplatRoutine();
+    }
+
+    // ---------------------------------------------------------
     // BUILD SPRITES
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     private bool BuildSprites()
     {
         atlasTexture.filterMode = FilterMode.Bilinear;
 
         string json = atlasJson.text;
+
         int brace = json.IndexOf('{');
 
         if (brace > 0)
@@ -161,23 +168,24 @@ public class PeaBulletSprite : MonoBehaviour
         AtlasRoot root = JsonUtility.FromJson<AtlasRoot>(json);
 
         if (root == null || root.resources == null)
-        {
-            Debug.LogError("[PeaBullet] Không đọc được JSON!", this);
             return false;
-        }
 
         float scale = 1f;
 
-        foreach (Res r in root.resources)
+        foreach (Res resource in root.resources)
         {
-            if (r.attributes != null &&
-                r.attributes.id != null &&
-                r.attributes.id.StartsWith("ATLASIMAGE"))
-            {
-                float atlasW = ParseF(r.attributes.aw);
+            if (resource.attributes == null)
+                continue;
 
-                if (atlasW > 0f)
-                    scale = atlasTexture.width / atlasW;
+            if (resource.attributes.id == null)
+                continue;
+
+            if (resource.attributes.id.StartsWith("ATLASIMAGE"))
+            {
+                float atlasWidth = ParseF(resource.attributes.aw);
+
+                if (atlasWidth > 0f)
+                    scale = atlasTexture.width / atlasWidth;
 
                 break;
             }
@@ -194,20 +202,30 @@ public class PeaBulletSprite : MonoBehaviour
 
         if (peaSprite == null ||
             shadowSprites == null ||
-            splatSprites == null)
+            shadowSprites.Length == 0 ||
+            splatSprites == null ||
+            splatSprites.Length == 0)
         {
-            Debug.LogError("[PeaBullet] Thiếu ID trong JSON!", this);
+            Debug.LogError(
+                "[PeaBulletSprite] Thiếu Sprite trong Atlas!",
+                this
+            );
+
             return false;
         }
 
         return true;
     }
 
-    private Sprite[] CutFrames(AtlasRoot root, string id, float scale)
+    private Sprite[] CutFrames(
+        AtlasRoot root,
+        string id,
+        float scale
+    )
     {
-        foreach (Res r in root.resources)
+        foreach (Res resource in root.resources)
         {
-            Attr a = r.attributes;
+            Attr a = resource.attributes;
 
             if (a == null || a.id != id)
                 continue;
@@ -219,21 +237,21 @@ public class PeaBulletSprite : MonoBehaviour
 
             int cols = Mathf.Max(1, ParseI(a.cols));
 
-            float fw = aw / (float)cols;
+            float frameWidth = aw / (float)cols;
 
             Sprite[] result = new Sprite[cols];
 
             for (int i = 0; i < cols; i++)
             {
-                float x = (ax + fw * i) * scale;
-                float w = fw * scale;
-                float h = ah * scale;
+                float x = (ax + frameWidth * i) * scale;
+                float width = frameWidth * scale;
+                float height = ah * scale;
 
-                float y = atlasTexture.height - (ay * scale) - h;
+                float y = atlasTexture.height - (ay * scale) - height;
 
                 result[i] = Sprite.Create(
                     atlasTexture,
-                    new Rect(x, y, w, h),
+                    new Rect(x, y, width, height),
                     new Vector2(0.5f, 0.5f),
                     pixelsPerUnit
                 );
@@ -247,27 +265,30 @@ public class PeaBulletSprite : MonoBehaviour
         return null;
     }
 
-    private static int ParseI(string s)
+    private static int ParseI(string value)
     {
-        int v;
-        return int.TryParse(s, out v) ? v : 0;
+        int result;
+
+        return int.TryParse(value, out result)
+            ? result
+            : 0;
     }
 
-    private static float ParseF(string s)
+    private static float ParseF(string value)
     {
-        float v;
+        float result;
 
         return float.TryParse(
-            s,
-            System.Globalization.NumberStyles.Float,
-            System.Globalization.CultureInfo.InvariantCulture,
-            out v
-        ) ? v : 0f;
+            value,
+            NumberStyles.Float,
+            CultureInfo.InvariantCulture,
+            out result
+        ) ? result : 0f;
     }
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // BUILD RENDERERS
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     private void BuildRenderers()
     {
@@ -284,7 +305,9 @@ public class PeaBulletSprite : MonoBehaviour
         );
 
         shadowSR1.transform.localPosition = shadowOffset;
-        shadowSR2.transform.localPosition = shadowOffset + shadow2ExtraOffset;
+
+        shadowSR2.transform.localPosition =
+            shadowOffset + shadow2ExtraOffset;
 
         peaSR = CreateSR(
             "Pea",
@@ -301,9 +324,13 @@ public class PeaBulletSprite : MonoBehaviour
         splatSR.gameObject.SetActive(false);
     }
 
-    private SpriteRenderer CreateSR(string objName, Sprite sprite, int order)
+    private SpriteRenderer CreateSR(
+        string objectName,
+        Sprite sprite,
+        int order
+    )
     {
-        GameObject go = new GameObject(objName);
+        GameObject go = new GameObject(objectName);
 
         go.transform.SetParent(transform, false);
 
@@ -316,56 +343,55 @@ public class PeaBulletSprite : MonoBehaviour
         return sr;
     }
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // FIRE
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     public void Fire()
     {
         if (peaSR == null)
             return;
 
-        if (splatRoutine != null)
-        {
-            StopCoroutine(splatRoutine);
-            splatRoutine = null;
-        }
+        StopSplatRoutine();
+
+        peaSR.sprite = peaSprite;
 
         peaSR.gameObject.SetActive(true);
         shadowSR1.gameObject.SetActive(true);
         shadowSR2.gameObject.SetActive(true);
         splatSR.gameObject.SetActive(false);
 
-        // Reset scale đạn và shadow
-        peaSR.transform.localScale = Vector3.one * originalScale;
-        shadowSR1.transform.localScale = Vector3.one * originalScale;
-        shadowSR2.transform.localScale = Vector3.one * originalScale;
+        peaSR.transform.localScale =
+            Vector3.one * originalScale;
 
-        // Reset scale ảnh vỡ
-        splatSR.transform.localScale = Vector3.one * beginScale;
+        shadowSR1.transform.localScale =
+            Vector3.one * originalScale;
 
-        // Reset alpha
+        shadowSR2.transform.localScale =
+            Vector3.one * originalScale;
+
+        splatSR.transform.localScale =
+            Vector3.one * beginScale;
+
         SetAlpha(peaSR, maxAlpha);
         SetAlpha(shadowSR1, maxAlpha);
         SetAlpha(shadowSR2, maxAlpha);
         SetAlpha(splatSR, maxAlpha);
     }
 
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
     // SPLAT
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
 
     public void Splat()
     {
         if (peaSR == null || splatRoutine != null)
             return;
 
-        // Ẩn đạn bay và shadow
         peaSR.gameObject.SetActive(false);
         shadowSR1.gameObject.SetActive(false);
         shadowSR2.gameObject.SetActive(false);
 
-        // Random ảnh vỡ
         splatSR.sprite = splatSprites[
             UnityEngine.Random.Range(0, splatSprites.Length)
         ];
@@ -377,17 +403,14 @@ public class PeaBulletSprite : MonoBehaviour
 
     private IEnumerator SplatRoutine()
     {
-        // Scale bắt đầu theo biến Begin Scale
-        float startScale = beginScale;
+        float duration = Mathf.Max(0.01f, splatDuration);
 
-        // Alpha bắt đầu
-        float startAlpha = maxAlpha;
-
-        splatSR.transform.localScale = Vector3.one * startScale;
-        SetAlpha(splatSR, startAlpha);
-
-        float duration = Mathf.Max(0.0001f, splatDuration);
         float t = 0f;
+
+        splatSR.transform.localScale =
+            Vector3.one * beginScale;
+
+        SetAlpha(splatSR, maxAlpha);
 
         while (t < duration)
         {
@@ -395,87 +418,100 @@ public class PeaBulletSprite : MonoBehaviour
 
             float k = Mathf.Clamp01(t / duration);
 
-            // Phóng to từ Begin Scale đến End Scale
             float currentScale = Mathf.Lerp(
-                startScale,
+                beginScale,
                 splatEndScale,
                 k
             );
 
-            splatSR.transform.localScale = Vector3.one * currentScale;
-
-            // Alpha giảm dần
             float currentAlpha = Mathf.Lerp(
-                startAlpha,
+                maxAlpha,
                 splatEndAlpha,
                 k
             );
+
+            splatSR.transform.localScale =
+                Vector3.one * currentScale;
 
             SetAlpha(splatSR, currentAlpha);
 
             yield return null;
         }
 
-        // Đảm bảo đạt chính xác giá trị cuối
-        splatSR.transform.localScale = Vector3.one * splatEndScale;
+        splatSR.transform.localScale =
+            Vector3.one * splatEndScale;
+
         SetAlpha(splatSR, splatEndAlpha);
 
         splatRoutine = null;
 
-        if (testMode)
-        {
-            // Test: chỉ ẩn ảnh vỡ
-            splatSR.gameObject.SetActive(false);
-        }
-        else
-        {
-            // Vỡ xong: ẩn GameObject
-            gameObject.SetActive(false);
-        }
+        // Báo cho BulletMovement rằng hiệu ứng đã kết thúc.
+        // BulletMovement sẽ trả GameObject về Pool.
+        OnSplatCompleted?.Invoke();
     }
 
-    // ------------------------------------------------------------------
-    // ALPHA
-    // ------------------------------------------------------------------
+    // ---------------------------------------------------------
+    // RESET
+    // ---------------------------------------------------------
 
-    private static void SetAlpha(SpriteRenderer sr, float a)
+    public void ResetVisual()
+    {
+        if (peaSR == null)
+            return;
+
+        StopSplatRoutine();
+
+        peaSR.sprite = peaSprite;
+
+        peaSR.gameObject.SetActive(true);
+        shadowSR1.gameObject.SetActive(true);
+        shadowSR2.gameObject.SetActive(true);
+        splatSR.gameObject.SetActive(false);
+
+        peaSR.transform.localScale =
+            Vector3.one * originalScale;
+
+        shadowSR1.transform.localScale =
+            Vector3.one * originalScale;
+
+        shadowSR2.transform.localScale =
+            Vector3.one * originalScale;
+
+        splatSR.transform.localScale =
+            Vector3.one * beginScale;
+
+        SetAlpha(peaSR, maxAlpha);
+        SetAlpha(shadowSR1, maxAlpha);
+        SetAlpha(shadowSR2, maxAlpha);
+        SetAlpha(splatSR, maxAlpha);
+    }
+
+    private void StopSplatRoutine()
+    {
+        if (splatRoutine == null)
+            return;
+
+        StopCoroutine(splatRoutine);
+
+        splatRoutine = null;
+    }
+
+    // ---------------------------------------------------------
+    // ALPHA
+    // ---------------------------------------------------------
+
+    private static void SetAlpha(
+        SpriteRenderer sr,
+        float alpha
+    )
     {
         if (sr == null)
             return;
 
-        Color c = sr.color;
-        c.a = a;
+        Color color = sr.color;
 
-        sr.color = c;
-    }
+        color.a = alpha;
 
-    // ------------------------------------------------------------------
-    // TEST
-    // ------------------------------------------------------------------
-
-    [ContextMenu("Test Fire")]
-    private void TestFire()
-    {
-        if (Application.isPlaying)
-            Fire();
-    }
-
-    [ContextMenu("Test Splat")]
-    private void TestSplat()
-    {
-        if (Application.isPlaying)
-            Splat();
-    }
-
-    private void OnGUI()
-    {
-        if (!testMode)
-            return;
-
-        if (GUI.Button(new Rect(10, 10, 160, 40), "Fire (hiện đạn)"))
-            Fire();
-
-        if (GUI.Button(new Rect(10, 60, 160, 40), "Splat (test vỡ)"))
-            Splat();
+        sr.color = color;
     }
 }

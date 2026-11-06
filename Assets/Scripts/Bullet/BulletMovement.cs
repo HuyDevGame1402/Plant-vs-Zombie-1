@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,11 +34,7 @@ public class BulletMovement : MonoBehaviour
     // ---------------------------------------------------------
 
     [Header("Movement")]
-
-    [Tooltip("Tốc độ bay của đạn")]
     [SerializeField] private float speed = 5f;
-
-    [Tooltip("Hướng bay: (1,0) sang phải, (-1,0) sang trái")]
     [SerializeField] private Vector2 direction = Vector2.right;
 
     // ---------------------------------------------------------
@@ -45,25 +42,32 @@ public class BulletMovement : MonoBehaviour
     // ---------------------------------------------------------
 
     [Header("Collision")]
-
     [SerializeField] private string zombieTag = "Zombie";
-
     [SerializeField] private bool detectZombieCollision = true;
+
+    // ---------------------------------------------------------
+    // VISUAL
+    // ---------------------------------------------------------
+
+    [Header("Visual")]
+    [SerializeField] private PeaBulletSprite bulletVisual;
 
     // ---------------------------------------------------------
     // EVENTS
     // ---------------------------------------------------------
 
     [Header("Events")]
-
-    [Tooltip("Gọi một lần khi bắt đầu bay")]
     public UnityEvent OnStartFlying;
-
-    [Tooltip("Gọi một lần khi va chạm")]
     public UnityEvent OnHit;
 
     public event Action OnStartFlyingAction;
     public event Action OnHitAction;
+
+    // ---------------------------------------------------------
+    // RUNTIME
+    // ---------------------------------------------------------
+
+    private Coroutine returnRoutine;
 
     // ---------------------------------------------------------
     // UNITY
@@ -73,23 +77,32 @@ public class BulletMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        if (bulletVisual == null)
+            bulletVisual = GetComponent<PeaBulletSprite>();
+
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
 
         rb.velocity = Vector2.zero;
+
+        if (bulletVisual != null)
+        {
+            bulletVisual.OnSplatCompleted -= HandleSplatCompleted;
+            bulletVisual.OnSplatCompleted += HandleSplatCompleted;
+        }
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        ApplyState();
+        if (bulletVisual != null)
+            bulletVisual.OnSplatCompleted -= HandleSplatCompleted;
     }
-
-    // ---------------------------------------------------------
-    // MOVEMENT
-    // ---------------------------------------------------------
 
     private void FixedUpdate()
     {
+        if (rb == null)
+            return;
+
         if (currentState == BulletState.Flying)
         {
             rb.velocity = direction.normalized * speed;
@@ -101,7 +114,7 @@ public class BulletMovement : MonoBehaviour
     }
 
     // ---------------------------------------------------------
-    // STATE CONTROL
+    // START FLYING
     // ---------------------------------------------------------
 
     public void StartFlying()
@@ -127,9 +140,13 @@ public class BulletMovement : MonoBehaviour
         ApplyState();
     }
 
+    // ---------------------------------------------------------
+    // HIT
+    // ---------------------------------------------------------
+
     public void Hit()
     {
-        if (currentState == BulletState.Hit)
+        if (currentState != BulletState.Flying)
             return;
 
         currentState = BulletState.Hit;
@@ -138,13 +155,69 @@ public class BulletMovement : MonoBehaviour
 
         OnHit?.Invoke();
         OnHitAction?.Invoke();
+
+        if (bulletVisual != null)
+        {
+            bulletVisual.Splat();
+        }
+        else
+        {
+            returnRoutine = StartCoroutine(ReturnAfterDelay());
+        }
     }
+
+    private void HandleSplatCompleted()
+    {
+        if (currentState != BulletState.Hit)
+            return;
+
+        ReturnToPool();
+    }
+
+    private IEnumerator ReturnAfterDelay()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        returnRoutine = null;
+
+        ReturnToPool();
+    }
+
+    private void ReturnToPool()
+    {
+        if (ProjectilePoolManager.Instance != null)
+        {
+            ProjectilePoolManager.Instance.ReturnToPool(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    // ---------------------------------------------------------
+    // RESET
+    // ---------------------------------------------------------
 
     public void ResetBullet()
     {
+        if (returnRoutine != null)
+        {
+            StopCoroutine(returnRoutine);
+            returnRoutine = null;
+        }
+
         currentState = BulletState.Idle;
 
         ApplyState();
+    }
+
+    public void PrepareForPool()
+    {
+        ResetBullet();
+
+        if (bulletVisual != null)
+            bulletVisual.ResetVisual();
     }
 
     // ---------------------------------------------------------
@@ -172,7 +245,7 @@ public class BulletMovement : MonoBehaviour
     }
 
     // ---------------------------------------------------------
-    // COLLISION 2D
+    // COLLISION
     // ---------------------------------------------------------
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -210,6 +283,9 @@ public class BulletMovement : MonoBehaviour
     public void SetSpeed(float newSpeed)
     {
         speed = Mathf.Max(0f, newSpeed);
+
+        if (currentState == BulletState.Flying)
+            ApplyState();
     }
 
     public void SetDirection(Vector2 newDirection)
@@ -220,12 +296,13 @@ public class BulletMovement : MonoBehaviour
         direction = newDirection.normalized;
 
         if (currentState == BulletState.Flying)
-        {
             ApplyState();
-        }
     }
 
-    public void SetSpeedAndDirection(float newSpeed, Vector2 newDirection)
+    public void SetSpeedAndDirection(
+        float newSpeed,
+        Vector2 newDirection
+    )
     {
         SetSpeed(newSpeed);
         SetDirection(newDirection);

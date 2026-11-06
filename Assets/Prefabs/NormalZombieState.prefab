@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
-  currentLane: 0
+  currentLane: 2
   animationSpeed: 1
   blendDuration: 0.12
   randomWalkVariant: 1
