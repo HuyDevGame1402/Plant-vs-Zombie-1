@@ -703,7 +703,14 @@ public abstract class BaseZombieReanim : MonoBehaviour
         float previous = GetUnwrappedGroundX(previousTime * data.Fps, clip);
         float current = GetUnwrappedGroundX(currentTime * data.Fps, clip);
         float delta = current - previous;
-        transform.position += Vector3.left * (delta * scale);
+
+        // The animated Reanim object is often a visual child of the gameplay
+        // zombie. Move the gameplay root so its collider/AI follow the motion.
+        Transform movementRoot = transform.parent != null
+            ? transform.parent
+            : transform;
+
+        movementRoot.position += Vector3.left * (delta * scale);
     }
 
     public void SetWalkVariant(bool second)

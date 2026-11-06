@@ -14,6 +14,7 @@ public class CampaignZombie : MonoBehaviour
     public bool IsRegistered => isRegistered;
 
     private CampaignLaneManager laneManager;
+    private CampaignZombieBoardRegistry boardRegistry;
 
     public void Initialize(ZombieType zombieType, int laneIndex, int waveNumber, CampaignLaneManager manager)
     {
@@ -26,6 +27,17 @@ public class CampaignZombie : MonoBehaviour
         laneManager = manager;
 
         RegisterIfReady();
+    }
+
+    public void SetBoardRegistry(CampaignZombieBoardRegistry registry)
+    {
+        boardRegistry = registry;
+    }
+
+    public void ClearBoardRegistry(CampaignZombieBoardRegistry registry)
+    {
+        if (boardRegistry == registry)
+            boardRegistry = null;
     }
 
     private void OnEnable()
@@ -54,6 +66,9 @@ public class CampaignZombie : MonoBehaviour
 
     private void Unregister()
     {
+        if (boardRegistry != null)
+            boardRegistry.UnregisterZombieFromBoard(this);
+
         if (isRegistered && laneManager != null)
             laneManager.UnregisterZombie(this);
 

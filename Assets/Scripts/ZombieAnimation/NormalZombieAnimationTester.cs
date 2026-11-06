@@ -12,55 +12,55 @@
 /// </summary>
 public class NormalZombieAnimationTester : MonoBehaviour
 {
-    [SerializeField] private BaseZombieReanim zombie;
-    [SerializeField] private float testDamage = 50f;
+    //[SerializeField] private BaseZombieReanim zombie;
+    //[SerializeField] private float testDamage = 50f;
 
-    private void Update()
-    {
-        if (zombie == null) return;
+    //private void Update()
+    //{
+    //    if (zombie == null) return;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) zombie.Idle();
+    //    if (Input.GetKeyDown(KeyCode.Alpha1)) zombie.Idle();
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            zombie.SetWalkVariant(false);
-            zombie.Walk();
-        }
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        zombie.SetWalkVariant(false);
+    //        zombie.Walk();
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            zombie.SetWalkVariant(true);
-            zombie.Walk();
-        }
+    //    if (Input.GetKeyDown(KeyCode.Alpha3))
+    //    {
+    //        zombie.SetWalkVariant(true);
+    //        zombie.Walk();
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4)) zombie.StartEating();
-        if (Input.GetKeyDown(KeyCode.Alpha5)) zombie.StopEating();
-        if (Input.GetKeyDown(KeyCode.Alpha6)) zombie.LoseArm();
-        if (Input.GetKeyDown(KeyCode.Alpha7)) zombie.Die();
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            FlagZombieReanim flagZombie = zombie as FlagZombieReanim;
+    //    if (Input.GetKeyDown(KeyCode.Alpha4)) zombie.StartEating();
+    //    if (Input.GetKeyDown(KeyCode.Alpha5)) zombie.StopEating();
+    //    if (Input.GetKeyDown(KeyCode.Alpha6)) zombie.LoseArm();
+    //    if (Input.GetKeyDown(KeyCode.Alpha7)) zombie.Die();
+    //    if (Input.GetKeyDown(KeyCode.Alpha8))
+    //    {
+    //        FlagZombieReanim flagZombie = zombie as FlagZombieReanim;
 
-            if (flagZombie != null)
-                flagZombie.DieHeadlessStandard();
-            else
-                zombie.DieHeadless();
-        }
+    //        if (flagZombie != null)
+    //            flagZombie.DieHeadlessStandard();
+    //        else
+    //            zombie.DieHeadless();
+    //    }
 
-        // Chạy trực tiếp animation chết hiếm, không phụ thuộc tỉ lệ random.
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            FlagZombieReanim flagZombie = zombie as FlagZombieReanim;
+    //    // Chạy trực tiếp animation chết hiếm, không phụ thuộc tỉ lệ random.
+    //    if (Input.GetKeyDown(KeyCode.Alpha9))
+    //    {
+    //        FlagZombieReanim flagZombie = zombie as FlagZombieReanim;
 
-            if (flagZombie != null)
-                flagZombie.DieHeadlessRare();
-            else
-                Debug.LogWarning(
-                    "Animation superlongdeath chỉ có trên Flag Zombie.",
-                    this);
-        }
+    //        if (flagZombie != null)
+    //            flagZombie.DieHeadlessRare();
+    //        else
+    //            Debug.LogWarning(
+    //                "Animation superlongdeath chỉ có trên Flag Zombie.",
+    //                this);
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.T)) zombie.TakeDamage(testDamage);
-        if (Input.GetKeyDown(KeyCode.R)) zombie.ResetZombie();
-    }
+    //    if (Input.GetKeyDown(KeyCode.T)) zombie.TakeDamage(testDamage);
+    //    if (Input.GetKeyDown(KeyCode.R)) zombie.ResetZombie();
+    //}
 }

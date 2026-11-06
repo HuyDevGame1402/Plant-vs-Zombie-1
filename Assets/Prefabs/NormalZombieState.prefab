@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 5385363914995201000}
   - component: {fileID: 4372427771221224965}
   - component: {fileID: 9044728279816972687}
-  m_Layer: 0
+  - component: {fileID: 2644934508619580155}
+  m_Layer: 2
   m_Name: NormalZombieState
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5385363914995201000
 Transform:
   m_ObjectHideFlags: 0
@@ -61,9 +62,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieType: 0
-  laneIndex: -1
+  laneIndex: 2
   waveNumber: 0
   isRegistered: 0
+--- !u!61 &2644934508619580155
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163537500453435355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2555952, y: 0.98520184}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.56316566, y: 1.9666133}
+  m_EdgeRadius: 0
 --- !u!1 &7069828388485614958
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7280599329806006694}
   - component: {fileID: 3388000851085980513}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NormalZombie_Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

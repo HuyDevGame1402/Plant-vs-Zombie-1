@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using PlantReanimation.Configuration;
 using PlantReanimation.Utilities;
@@ -18,6 +18,32 @@ namespace PlantReanimation.Core
         /// <summary>Optional per-track translation in source Reanim coordinates.</summary>
         public Func<string, PlantReanimPlaybackState, Vector2> PositionOffsetProvider { get; set; }
         public bool IsInitialized { get { return initialized; } }
+
+        // ---------- Blend giữa các clip ----------
+        private struct Pose { public float x, y, kx, ky, sx, sy; }
+        private readonly Dictionary<string, Pose> blendFrom = new Dictionary<string, Pose>(StringComparer.OrdinalIgnoreCase);
+        private PlantReanimClip lastClip;
+        private bool blendPending;
+        private float blendStartTime = -1f;
+
+        /// <summary>Thời gian blend (giây). 0 = tắt.</summary>
+        public float BlendSeconds { get; set; }
+
+        /// <summary>Gọi trước khi Play để blend từ pose hiện tại sang clip mới.</summary>
+        public void BeginBlend() { blendPending = true; }
+
+        private void CaptureBlendFrom()
+        {
+            blendFrom.Clear();
+            foreach (PlantReanimTrack t in data.tracks)
+            {
+                if (t == null || string.IsNullOrEmpty(t.name)) continue;
+                Pose p;
+                if (renderer.TryGetLayerPose(t.name, out p.x, out p.y, out p.kx, out p.ky, out p.sx, out p.sy))
+                    blendFrom[t.name] = p;
+            }
+            blendStartTime = Time.time;
+        }
 
         public void Initialize(PlantReanimData reanimData, PlantReanimPlayer animationPlayer, PlantReanimRenderer animationRenderer, Func<int, PlantAtlasPart> indexResolver = null, IList<PlantReanimLayerConfig> layerConfigs = null)
         {
@@ -77,6 +103,12 @@ namespace PlantReanimation.Core
         private void OnFrameUpdated(PlantReanimPlaybackState state)
         {
             if (!initialized || disposed || state.clip == null) return;
+            if (BlendSeconds > 0f && (blendPending || state.clip != lastClip))
+            {
+                CaptureBlendFrom();
+                blendPending = false;
+            }
+            lastClip = state.clip;
             if (state.clip.trackNames == null || state.clip.trackNames.Count == 0)
             {
                 foreach (PlantReanimTrack track in data.tracks) if (track != null) ApplyTrack(track, state);
@@ -109,6 +141,21 @@ namespace PlantReanimation.Core
             PlantReanimLayerConfig config = GetLayerConfig(track.name);
             float sx = Lerp(a.sx, b.sx, 1f, t) * (config != null ? config.localScale.x : 1f);
             float sy = Lerp(a.sy, b.sy, 1f, t) * (config != null ? config.localScale.y : 1f);
+            if (BlendSeconds > 0f && blendStartTime >= 0f)
+            {
+                float w = Mathf.Clamp01((Time.time - blendStartTime) / BlendSeconds);
+                Pose from;
+                if (w < 1f && blendFrom.TryGetValue(track.name, out from))
+                {
+                    w = w * w * (3f - 2f * w);
+                    x = Mathf.Lerp(from.x, x, w);
+                    y = Mathf.Lerp(from.y, y, w);
+                    kx = Mathf.Lerp(from.kx, kx, w);
+                    ky = Mathf.Lerp(from.ky, ky, w);
+                    sx = Mathf.Lerp(from.sx, sx, w);
+                    sy = Mathf.Lerp(from.sy, sy, w);
+                }
+            }
             int? imageIndex = ResolveDiscrete(a.i, b.i, t);
             if (imageIndex.HasValue)
             {
@@ -137,13 +184,9 @@ namespace PlantReanimation.Core
         {
             if (disposed) return;
             if (player != null) player.OnFrameUpdated -= OnFrameUpdated;
+            blendFrom.Clear(); lastClip = null; blendPending = false; blendStartTime = -1f; BlendSeconds = 0f;
             resolvedTracks.Clear(); data = null; player = null; renderer = null; atlasIndexResolver = null; layerConfigs = null; PositionOffsetProvider = null;
             initialized = false; disposed = true;
         }
     }
 }
-
-
-
-
-

@@ -15,6 +15,9 @@ namespace PlantReanimation.Controllers
         public int sortingOrder;
         public bool playOnEnable = true;
 
+        [Tooltip("Thời gian blend khi chuyển clip (giây). 0 = tắt.")]
+        [Min(0f)] public float clipBlendSeconds = 0.15f;
+
         protected PlantReanimData data;
         protected PlantReanimPlayer player;
         protected PlantReanimAnimator animator;
@@ -101,6 +104,8 @@ namespace PlantReanimation.Controllers
                     plantRenderer,
                     data.GetAtlasPartByIndex,
                     profile.layers);
+
+                animator.BlendSeconds = clipBlendSeconds;
 
                 BuildClips();
 
@@ -243,4 +248,3 @@ namespace PlantReanimation.Controllers
         }
     }
 }
-

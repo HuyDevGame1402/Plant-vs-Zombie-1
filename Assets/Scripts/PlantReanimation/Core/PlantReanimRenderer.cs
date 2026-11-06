@@ -17,6 +17,7 @@ namespace PlantReanimation.Core
             public Vector2[] uvs;
             public PlantAtlasPart currentPart;
             public float x, y, kx, ky, sx = 1f, sy = 1f;
+            public bool hasPose;
         }
 
         private const string ShadowLayerA = "__PlantReanimShadowA";
@@ -379,12 +380,39 @@ namespace PlantReanimation.Core
             layer.ky = ky;
             layer.sx = sx;
             layer.sy = sy;
+            layer.hasPose = true;
 
             layer.transform.localPosition = Vector3.zero;
             layer.transform.localRotation = Quaternion.identity;
             layer.transform.localScale = Vector3.one;
 
             UpdateLayerVertices(layer);
+        }
+
+        public bool TryGetLayerPose(
+            string layerName,
+            out float x,
+            out float y,
+            out float kx,
+            out float ky,
+            out float sx,
+            out float sy)
+        {
+            Layer layer;
+            if (layers.TryGetValue(layerName, out layer) && layer.hasPose)
+            {
+                x = layer.x;
+                y = layer.y;
+                kx = layer.kx;
+                ky = layer.ky;
+                sx = layer.sx;
+                sy = layer.sy;
+                return true;
+            }
+
+            x = y = kx = ky = 0f;
+            sx = sy = 1f;
+            return false;
         }
 
         private void UpdateLayerVertices(Layer layer)
