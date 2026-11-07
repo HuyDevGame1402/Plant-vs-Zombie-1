@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4ff9b78dc3ceb46b230e43200ac547, type: 3}
+  m_Name: 27_ZOMBIE_WALLNUT_HEAD
+  m_EditorClassIdentifier: 
+  id: 27
+  enumName: ZOMBIE_WALLNUT_HEAD
+  displayName: "Zombie \u0111\u1EA7u \xF3c ch\xF3"
+  bodyHealth: 270
+  armor:
+  - slot: helmet
+    displayName: "\u0111\u1EA7u \xF3c ch\xF3 d\xF9ng l\xE0m gi\xE1p"
+    health: 1100
+    firstDamageStageHealthRatio: 0.6666667
+    secondDamageStageHealthRatio: 0.33333334
+    dropsAtZeroHealth: 1
+  healthModifiers:
+  - condition: "Little Trouble level and on board or cutscene zombie \u2014 scale=0.5;
+      body, helmet, shield and flying health integer-divided by 4."
+    multiplier: 1
+    divisor: 4
+  attacks:
+  - target: plant
+    attackType: chew
+    damage: 4
+    hasNumericDamage: 1
+    damageUnit: health point/chew
+    intervalTicks: 4
+    hasInterval: 1
+    chilledIntervalTicks: 8
+    condition: EatPlant is called for a valid ATTACKTYPE_CHEW target; requires an
+      eligible action state, head, and no mind control. Chilled zombies use an 8-tick
+      interval.
+  movementStates:
+  - state: PickRandomSpeed default fallback
+    minSpeed: 0.23
+    maxSpeed: 0.37
+    fixedSpeed: 0
+    hasSpeedRange: 1
+    hasFixedSpeed: 0
+    speedUnit: mVelX per update
+  chilledSpeedMultiplier: 0.4
+  canLoseBodyParts: 1
+  armDropHealthRatio: 0.6666667
+  headDropHealthRatio: 0.33333334

@@ -1,3 +1,4 @@
+using PvZ.Data;
 using UnityEngine;
 
 /// <summary>Runtime identity for one spawned zombie; the lane manager uses it for lane/global queries.</summary>
@@ -15,6 +16,9 @@ public class CampaignZombie : MonoBehaviour
 
     private CampaignLaneManager laneManager;
     private CampaignZombieBoardRegistry boardRegistry;
+
+    [SerializeField] private ZombieStatsAsset zombieDatabase;
+    public ZombieStatsAsset ZombieDatabase => zombieDatabase;
 
     public void Initialize(ZombieType zombieType, int laneIndex, int waveNumber, CampaignLaneManager manager)
     {

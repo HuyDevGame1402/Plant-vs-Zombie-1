@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4372427771221224965}
   - component: {fileID: 9044728279816972687}
   - component: {fileID: 2644934508619580155}
+  - component: {fileID: 5556378043065102872}
   m_Layer: 2
   m_Name: NormalZombieState
   m_TagString: Zombie
@@ -65,6 +66,7 @@ MonoBehaviour:
   laneIndex: 2
   waveNumber: 0
   isRegistered: 0
+  zombieDatabase: {fileID: 11400000, guid: eb1ecd99e22037c4a8beb34f518dc669, type: 2}
 --- !u!61 &2644934508619580155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,6 +112,75 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56316566, y: 1.9666133}
   m_EdgeRadius: 0
+--- !u!114 &5556378043065102872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163537500453435355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807b5818fd63ca646bb99a182f9300ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  onArmorFirstDamageStage:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmorSecondDamageStage:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmorBroken:
+    m_PersistentCalls:
+      m_Calls: []
+  onArmDropped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3388000851085980513}
+        m_TargetAssemblyTypeName: BaseZombieReanim, Assembly-CSharp
+        m_MethodName: LoseArm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHeadDropped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3388000851085980513}
+        m_TargetAssemblyTypeName: BaseZombieReanim, Assembly-CSharp
+        m_MethodName: DetachHead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3388000851085980513}
+        m_TargetAssemblyTypeName: BaseZombieReanim, Assembly-CSharp
+        m_MethodName: FallHeadless
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  currentBodyHealth: 0
+  currentArmorHealth: 
 --- !u!1 &7069828388485614958
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +236,7 @@ MonoBehaviour:
   eatClip: eat
   deathClip: death
   deathHeadlessClip: death2
+  headlessFallDelay: 2
   moveWhileWalking: 0
   walkSpeed: 0.375
   fadeAfterDeath: 1

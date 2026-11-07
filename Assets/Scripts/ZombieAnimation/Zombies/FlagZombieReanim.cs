@@ -55,6 +55,7 @@ public class FlagZombieReanim : BaseZombieReanim
     };
 
     private ReanimAnimationPlayer flagPlayer;
+    private bool flagDropped;
 
     protected override HashSet<string> AllowedImageIds
     {
@@ -157,6 +158,25 @@ public class FlagZombieReanim : BaseZombieReanim
         }
     }
 
+    protected override void OnHeadDetachedHook()
+    {
+        // Trong PvZ, Flag Zombie bỏ cờ cùng lúc đầu bật ra.
+        DropFlagOnly();
+    }
+
+    protected override void OnResetHook()
+    {
+        flagDropped = false;
+        PartRenderer.SetPartHidden(flagPoleTrack, false);
+        PartRenderer.SetPartHidden(flagClothTrack, false);
+        PartRenderer.SetPartHidden(bentArmTrack, false);
+        PartRenderer.SetPartHidden(bentArmHandTrack, false);
+        PartRenderer.SetPartHidden(flagAttachTrack, false);
+        PartRenderer.SetPartHidden(armUpperTrack, true);
+        PartRenderer.SetPartHidden(armLowerTrack, true);
+        PartRenderer.SetPartHidden(armHandTrack, true);
+    }
+
     // =========================================================
     // CHẾT
     // =========================================================
@@ -224,6 +244,11 @@ public class FlagZombieReanim : BaseZombieReanim
 
     private void DropFlagOnly()
     {
+        if (flagDropped)
+            return;
+
+        flagDropped = true;
+
         List<string> flagParts = new List<string>
         {
             flagPoleTrack,

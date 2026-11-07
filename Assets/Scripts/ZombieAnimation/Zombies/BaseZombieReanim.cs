@@ -1,11 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Logic dùng chung cho mọi loại zombie Reanim: animation, layer, mất tay, chết, mảnh rơi.
-/// Mỗi loại zombie chỉ cần kế thừa class này và khai báo danh sách ảnh được phép vẽ
-/// (và thêm tính năng riêng nếu cần, ví dụ lá cờ của Flag Zombie).
+/// Logic dùng chung cho mọi loại zombie Reanim.
+/// Animation, layer, mất tay, rụng đầu, chết và mảnh rơi.
 /// </summary>
 public abstract class BaseZombieReanim : MonoBehaviour
 {
@@ -34,15 +34,17 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [SerializeField] private string walkClip = "walk";
     [SerializeField] private string walkClip2 = "walk2";
     [SerializeField] private string eatClip = "eat";
-    [Tooltip("Chết khi còn đầu: đầu dính theo thân rồi ngã.")]
+
+    [Tooltip("Chết khi còn đầu.")]
     [SerializeField] private string deathClip = "death";
-    [Tooltip("Chết mất đầu: đầu bật ra, thân ngã không đầu.")]
+
+    [Tooltip("Ngã xuống khi đã mất đầu.")]
     [SerializeField] private string deathHeadlessClip = "death2";
-    [Tooltip("Thời gian tiếp tục animation hiện tại sau khi đầu bật ra, trước khi ngã.")]
+
+    [Tooltip("Thời gian chờ sau khi rụng đầu trước khi ngã.")]
     [SerializeField] private float headlessFallDelay = 2f;
 
     [Header("Di chuyển")]
-    [Tooltip("Tự dịch sang trái khi đang Walk. Tắt nếu script khác lo việc di chuyển.")]
     [SerializeField] private bool moveWhileWalking = false;
     [SerializeField] private float walkSpeed = 0.3f;
 
@@ -57,19 +59,19 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [Header("Mảnh rơi (đầu / tay)")]
     [SerializeField] private float debrisGravity = 9f;
 
-    [Header("Máu (tuỳ chọn, dùng qua TakeDamage)")]
+    [Header("Máu")]
     [SerializeField] private float maxHealth = 270f;
-    [Tooltip("Máu còn lại <= mức này thì rụng tay.")]
     [SerializeField] private float armLostHealth = 135f;
 
     // =========================================================
-    // Hằng số riêng của Normal Zombie
+    // CONSTANTS
     // =========================================================
 
-    private const string ArmUpper2ImageId = "IMAGE_REANIM_ZOMBIE_OUTERARM_UPPER2";
+    private const string ArmUpper2ImageId =
+        "IMAGE_REANIM_ZOMBIE_OUTERARM_UPPER2";
+
     private const string DefaultBodyTrack = "Zombie_body";
 
-    /// <summary>Danh sách ảnh cơ bản của zombie thường (các loại zombie khác có thể mở rộng thêm).</summary>
     protected static readonly HashSet<string> CommonZombieImageIds =
         new HashSet<string>(StringComparer.OrdinalIgnoreCase)
     {
@@ -98,10 +100,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
         "IMAGE_REANIM_ZOMBIE_OUTERARM_UPPER2"
     };
 
-    /// <summary>Các Image ID mà zombie này được phép vẽ (lọc bớt phụ kiện không thuộc về nó).</summary>
     protected abstract HashSet<string> AllowedImageIds { get; }
 
-    // Vai trò mặc định của từng track. Extension trong Profile sẽ được cộng thêm vào.
     protected virtual ZombiePartRole GetDefaultRoles(string trackName)
     {
         switch (trackName.ToLowerInvariant())
@@ -116,12 +116,11 @@ public abstract class BaseZombieReanim : MonoBehaviour
             case "anim_bucket":
                 return ZombiePartRole.Head;
 
-            // Cẳng tay + bàn tay ngoài: rụng được, và nâng lên trên đầu khi ăn.
             case "zombie_outerarm_lower":
             case "zombie_outerarm_hand":
-                return ZombiePartRole.DroppedArm | ZombiePartRole.RaiseWhenEating;
+                return ZombiePartRole.DroppedArm |
+                       ZombiePartRole.RaiseWhenEating;
 
-            // Bắp tay (vai): ở lại thành tay cụt, luôn nằm dưới đầu.
             case "zombie_outerarm_upper":
                 return ZombiePartRole.UpperArm;
 
@@ -142,7 +141,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     }
 
     // =========================================================
-    // Runtime
+    // RUNTIME
     // =========================================================
 
     private ReanimData data;
@@ -155,9 +154,15 @@ public abstract class BaseZombieReanim : MonoBehaviour
     private readonly List<string> upperArmParts = new List<string>();
     private readonly List<string> heldItemParts = new List<string>();
     private readonly List<string> heldReplacedParts = new List<string>();
-    private readonly List<ReanimAnimationPlayer> extraPlayers = new List<ReanimAnimationPlayer>();
-    private readonly List<GameObject> debrisObjects = new List<GameObject>();
+
+    private readonly List<ReanimAnimationPlayer> extraPlayers =
+        new List<ReanimAnimationPlayer>();
+
+    private readonly List<GameObject> debrisObjects =
+        new List<GameObject>();
+
     private SortEntry[] sortEntries;
+
     private string bodyTrackName = DefaultBodyTrack;
     private int referenceFrame;
 
@@ -169,84 +174,66 @@ public abstract class BaseZombieReanim : MonoBehaviour
     private bool headDetached;
     private bool headlessDeathPending;
     private float headlessFallDelayRemaining;
+
     private float currentHealth;
     private float deadTimer;
     private bool destroyQueued;
+    private bool deathLocked;
 
     public ZombieState State => currentState;
     public bool IsReady => isReady;
     public bool HasArm => !armLost;
+
     public bool IsDeadOrDying =>
         deathLocked ||
         headlessDeathPending ||
         currentState == ZombieState.Dying ||
         currentState == ZombieState.Dead;
 
-    // Dành cho class con (Flag Zombie...)
     protected ZombieAnimationProfile Profile => profile;
     protected ReanimPartRenderer PartRenderer => partRenderer;
     protected ReanimData Data => data;
     protected int ReferenceFrame => referenceFrame;
 
-    /// <summary>Đăng ký thêm một Player (ví dụ animation lá cờ) để được cập nhật mỗi frame.</summary>
+    protected bool HeadDetached => headDetached;
+
+    // =========================================================
+    // EVENTS
+    // =========================================================
+
+    public event Action OnArmLost;
+    public event Action OnDeathStarted;
+    public event Action OnDeathFinished;
+
+    // =========================================================
+    // HOOKS
+    // =========================================================
+
     protected void AddTickPlayer(ReanimAnimationPlayer player)
     {
         if (player != null && !extraPlayers.Contains(player))
             extraPlayers.Add(player);
     }
 
-    /// <summary>Được gọi sau khi Renderer đã sẵn sàng, trước khi tính layer. Class con dùng để gắn overlay.</summary>
     protected virtual void OnRendererReady() { }
 
-    // ---------- Hook cho class con ----------
-
-    /// <summary>Gọi mỗi frame, sau khi animation được cập nhật và trước khi vẽ.</summary>
     protected virtual void OnTick(float dt) { }
 
-    /// <summary>Gọi ngay sau khi tay ngoài rụng (ví dụ lá cờ hỏng đi).</summary>
     protected virtual void OnArmLostHook() { }
 
-    /// <summary>Gọi cuối ResetZombie.</summary>
+    protected virtual void OnHeadDetachedHook() { }
+
     protected virtual void OnResetHook() { }
 
-    /// <summary>Xử lý vật đang cầm lúc bắt đầu chết. Mặc định: rơi riêng.</summary>
     protected virtual void HandleHeldItemsOnDeath(bool headless)
     {
         DropHeldItems();
     }
 
-    // ---------- Khoá hành động (chết nhiều giai đoạn) ----------
+    // =========================================================
+    // DEATH LOCK
+    // =========================================================
 
-    private bool deathLocked;
-
-    protected bool HeadDetached => headDetached;
-
-    /// <summary>Đầu bật ra (chỉ làm một lần).</summary>
-    protected void DetachHead()
-    {
-        if (headDetached)
-            return;
-
-        headDetached = true;
-
-        SpawnDebris(
-            headParts,
-            new Vector3(
-                -UnityEngine.Random.Range(0.6f, 1.3f),
-                UnityEngine.Random.Range(3.0f, 4.0f),
-                0f),
-            UnityEngine.Random.Range(-420f, 420f),
-            1.4f,
-            0.5f);
-
-        foreach (string name in headParts)
-            partRenderer.SetPartHidden(name, true);
-    }
-
-    /// <summary>
-    /// Khoá mọi hành động (đi, ăn, nhận sát thương...) và phát idle,
-    /// để class con diễn một đoạn animation riêng trước khi ngã.
-    /// </summary>
     protected void EnterDeathLock()
     {
         deathLocked = true;
@@ -254,39 +241,36 @@ public abstract class BaseZombieReanim : MonoBehaviour
         PlayAction("idle", idleClip);
     }
 
-    /// <summary>Hết giai đoạn riêng: mở khoá và bắt đầu animation ngã.</summary>
     protected void ReleaseDeathLockAndDie(bool headless)
     {
         deathLocked = false;
         StartDeath(headless);
     }
 
-    /// <summary>
-    /// Starts a specific non-looping death clip. Used by variants with a dedicated
-    /// death animation (for example Flag Zombie's rare superlongdeath).
-    /// </summary>
     protected bool PlayCustomDeathAnimation(string clipName)
     {
-        if (!isReady || animationPlayer == null ||
+        if (!isReady ||
+            animationPlayer == null ||
             string.IsNullOrEmpty(clipName) ||
-            data == null || !data.Clips.ContainsKey(clipName))
+            data == null ||
+            !data.Clips.ContainsKey(clipName))
         {
             return false;
         }
 
         deathLocked = false;
         currentState = ZombieState.Dying;
+
         animationPlayer.Play(clipName, false);
 
-        if (OnDeathStarted != null)
-            OnDeathStarted();
+        OnDeathStarted?.Invoke();
 
         return true;
     }
 
-    public event Action OnArmLost;
-    public event Action OnDeathStarted;
-    public event Action OnDeathFinished;
+    // =========================================================
+    // UNITY
+    // =========================================================
 
     private void Start()
     {
@@ -301,54 +285,70 @@ public abstract class BaseZombieReanim : MonoBehaviour
         float dt = Time.deltaTime;
 
         animationPlayer.AnimationSpeed = animationSpeed;
-        if (currentState == ZombieState.Walk && data.GroundTrack != null)
-            animationPlayer.AnimationSpeed = GetGroundMotionAnimationRate();
+
+        if (currentState == ZombieState.Walk &&
+            data.GroundTrack != null)
+        {
+            animationPlayer.AnimationSpeed =
+                GetGroundMotionAnimationRate();
+        }
+
         animationPlayer.BlendDuration = blendDuration;
 
         float previousClipTime = animationPlayer.ClipTime;
+
         animationPlayer.Tick(dt);
 
         for (int i = 0; i < extraPlayers.Count; i++)
         {
-            extraPlayers[i].AnimationSpeed = animationPlayer.AnimationSpeed;
+            extraPlayers[i].AnimationSpeed =
+                animationPlayer.AnimationSpeed;
+
             extraPlayers[i].Tick(dt);
         }
 
         OnTick(dt);
 
+        // Tự động chuyển từ rụng đầu sang ngã xuống.
         if (headlessDeathPending)
         {
             headlessFallDelayRemaining -= dt;
 
             if (headlessFallDelayRemaining <= 0f)
             {
-                headlessDeathPending = false;
-                headlessFallDelayRemaining = 0f;
-                StartDeath(true, true, false);
+                FallHeadless();
             }
         }
 
-        if (currentState == ZombieState.Dying && animationPlayer.IsFinished)
+        // Hoàn thành animation chết.
+        if (currentState == ZombieState.Dying &&
+            animationPlayer.IsFinished)
         {
             currentState = ZombieState.Dead;
             deadTimer = 0f;
 
-            if (OnDeathFinished != null)
-                OnDeathFinished();
+            OnDeathFinished?.Invoke();
         }
 
-        if (currentState == ZombieState.Walk && data.GroundTrack != null)
+        // Di chuyển theo Ground Track.
+        if (currentState == ZombieState.Walk &&
+            data.GroundTrack != null)
         {
-            ApplyGroundMotion(previousClipTime, animationPlayer.ClipTime);
+            ApplyGroundMotion(
+                previousClipTime,
+                animationPlayer.ClipTime);
         }
-        else if (currentState == ZombieState.Walk && moveWhileWalking)
+        else if (currentState == ZombieState.Walk &&
+                 moveWhileWalking)
         {
             transform.position +=
                 Vector3.left * (walkSpeed * animationSpeed * dt);
         }
 
         partRenderer.Render();
+
         UpdateSorting();
+
         UpdateDeathFade(dt);
     }
 
@@ -365,9 +365,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     {
         if (profile == null)
         {
-            Debug.LogError(
-                "ZombieReanim: Chưa gán Profile.",
-                this);
+            Debug.LogError("ZombieReanim: Chưa gán Profile.", this);
             return;
         }
 
@@ -391,12 +389,12 @@ public abstract class BaseZombieReanim : MonoBehaviour
         if (!data.Clips.ContainsKey(idleClip))
         {
             Debug.LogError(
-                "ZombieReanim: Không tìm thấy clip '" + idleClip + "'.",
+                "ZombieReanim: Không tìm thấy clip '" +
+                idleClip + "'.",
                 this);
             return;
         }
 
-        // Tạo material riêng cho zombie này.
         runtimeMaterial = new Material(profile.SharedMaterial);
         runtimeMaterial.mainTexture = profile.AtlasTexture;
 
@@ -407,9 +405,10 @@ public abstract class BaseZombieReanim : MonoBehaviour
         animationPlayer.Initialize(data);
 
         chosenWalkClip =
-            randomWalkVariant && UnityEngine.Random.value < 0.5f
-            ? walkClip2
-            : walkClip;
+            randomWalkVariant &&
+            UnityEngine.Random.value < 0.5f
+                ? walkClip2
+                : walkClip;
 
         animationPlayer.Play(idleClip, true);
 
@@ -433,6 +432,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
             Debug.LogError(
                 "ZombieReanim: Renderer khởi tạo thất bại.",
                 this);
+
             Cleanup();
             return;
         }
@@ -456,12 +456,10 @@ public abstract class BaseZombieReanim : MonoBehaviour
             this);
     }
 
-    /// <summary>
-    /// Gom bộ phận theo vai trò và tính thứ tự layer:
-    ///  - Mọi bộ phận không phải đầu giữ thứ tự cũ (nằm dưới đầu, kể cả bắp tay Zombie_outerarm_upper).
-    ///  - Đầu + cằm nằm sau cùng (trên tất cả).
-    ///  - Cẳng tay + bàn tay ngoài chỉ được nâng lên trên đầu khi đang ăn.
-    /// </summary>
+    // =========================================================
+    // BUILD PART ROLES
+    // =========================================================
+
     private void BuildPartRoles()
     {
         headParts.Clear();
@@ -469,10 +467,13 @@ public abstract class BaseZombieReanim : MonoBehaviour
         upperArmParts.Clear();
         heldItemParts.Clear();
         heldReplacedParts.Clear();
+
         bodyTrackName = DefaultBodyTrack;
 
         IReadOnlyList<string> names = partRenderer.PartNames;
-        ZombiePartRole[] roles = new ZombiePartRole[names.Count];
+
+        ZombiePartRole[] roles =
+            new ZombiePartRole[names.Count];
 
         for (int i = 0; i < names.Count; i++)
         {
@@ -486,7 +487,6 @@ public abstract class BaseZombieReanim : MonoBehaviour
             if ((roles[i] & ZombiePartRole.Head) != 0)
                 headParts.Add(name);
 
-            // Chỉ cánh tay ngoài mới rụng khi mất tay. Vật đang cầm (cờ) ở lại.
             if ((roles[i] & ZombiePartRole.DroppedArm) != 0)
                 droppedArmParts.Add(name);
 
@@ -507,12 +507,14 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         int index = 0;
 
+        // Các bộ phận không phải đầu.
         for (int i = 0; i < names.Count; i++)
         {
             if ((roles[i] & ZombiePartRole.Head) == 0)
                 sortEntries[i].normalIndex = index++;
         }
 
+        // Đầu nằm trên cùng.
         for (int i = 0; i < names.Count; i++)
         {
             if ((roles[i] & ZombiePartRole.Head) != 0)
@@ -521,25 +523,30 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         for (int i = 0; i < names.Count; i++)
         {
-            sortEntries[i].renderer = partRenderer.GetPartRenderer(names[i]);
+            sortEntries[i].renderer =
+                partRenderer.GetPartRenderer(names[i]);
 
-            bool raise = (roles[i] & ZombiePartRole.RaiseWhenEating) != 0;
+            bool raise =
+                (roles[i] & ZombiePartRole.RaiseWhenEating) != 0;
 
             sortEntries[i].raiseWhenEating = raise;
+
             sortEntries[i].raisedIndex = raise
                 ? index++
                 : sortEntries[i].normalIndex;
         }
     }
 
-    /// <summary>Ẩn các bộ phận bị thay thế khi đang cầm vật (ví dụ bàn tay thường của Flag Zombie).</summary>
     private void ApplyInitialPartState()
     {
         foreach (string name in heldReplacedParts)
             partRenderer.SetPartHidden(name, true);
     }
 
-    /// <summary>Vật đang cầm rơi riêng (lúc chết), các bộ phận bị thay thế hiện lại.</summary>
+    // =========================================================
+    // HELD ITEMS
+    // =========================================================
+
     protected void DropHeldItems()
     {
         DropHeldItems(
@@ -550,7 +557,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
             UnityEngine.Random.Range(-250f, 250f));
     }
 
-    protected void DropHeldItems(Vector3 velocity, float angularVelocity)
+    protected void DropHeldItems(
+        Vector3 velocity,
+        float angularVelocity)
     {
         if (heldItemParts.Count == 0)
             return;
@@ -579,8 +588,11 @@ public abstract class BaseZombieReanim : MonoBehaviour
             return;
 
         bool eating = currentState == ZombieState.Eat;
+
         float x = transform.position.x;
-        ZombieLayerManager layerManager = ZombieLayerManager.Instance;
+
+        ZombieLayerManager layerManager =
+            ZombieLayerManager.Instance;
 
         for (int i = 0; i < sortEntries.Length; i++)
         {
@@ -589,13 +601,16 @@ public abstract class BaseZombieReanim : MonoBehaviour
             if (entry.renderer == null)
                 continue;
 
-            int index = (eating && entry.raiseWhenEating)
-                ? entry.raisedIndex
-                : entry.normalIndex;
+            int index =
+                eating && entry.raiseWhenEating
+                    ? entry.raisedIndex
+                    : entry.normalIndex;
 
-            entry.renderer.sortingOrder = layerManager != null
-                ? layerManager.GetSortingOrder(currentLane, index, x)
-                : ((int)currentLane * 1000) + index;
+            entry.renderer.sortingOrder =
+                layerManager != null
+                    ? layerManager.GetSortingOrder(
+                        currentLane, index, x)
+                    : ((int)currentLane * 1000) + index;
         }
 
         partRenderer.SetShadowSortingOrder(
@@ -635,7 +650,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     }
 
     // =========================================================
-    // PUBLIC API - DI CHUYỂN / ĂN
+    // MOVEMENT / EATING
     // =========================================================
 
     public void Idle()
@@ -644,39 +659,48 @@ public abstract class BaseZombieReanim : MonoBehaviour
             return;
 
         currentState = ZombieState.Idle;
+
         PlayAction("idle", idleClip);
     }
 
-    /// <summary>
-    /// Đi bộ. Mất tay không đổi animation: zombie vẫn đi tiếp đúng kiểu đang đi.
-    /// </summary>
     public void Walk()
     {
         if (!isReady || IsDeadOrDying)
             return;
 
         currentState = ZombieState.Walk;
+
         PlayAction("walk", chosenWalkClip);
     }
 
-    /// <summary>Speed requested by the AI in Unity units per second.</summary>
     public void SetWalkMotionSpeed(float speed)
     {
         requestedWalkSpeed = Mathf.Max(0f, speed);
     }
 
-    public bool HasGroundMotion => data != null && data.GroundTrack != null;
+    public bool HasGroundMotion =>
+        data != null && data.GroundTrack != null;
 
     private float GetGroundMotionAnimationRate()
     {
-        ReanimData.ReanimClip clip = animationPlayer.CurrentClip;
+        ReanimData.ReanimClip clip =
+            animationPlayer.CurrentClip;
+
         if (clip == null || clip.Length <= 0)
             return animationSpeed;
 
         float stride = GetGroundStride(clip);
-        float scale = profile.GlobalScale.x / profile.PixelPerUnit;
-        float speedAtRateOne = Mathf.Abs(stride) * scale * data.Fps / clip.Length;
-        float targetSpeed = requestedWalkSpeed >= 0f ? requestedWalkSpeed : walkSpeed;
+
+        float scale =
+            profile.GlobalScale.x / profile.PixelPerUnit;
+
+        float speedAtRateOne =
+            Mathf.Abs(stride) * scale * data.Fps / clip.Length;
+
+        float targetSpeed =
+            requestedWalkSpeed >= 0f
+                ? requestedWalkSpeed
+                : walkSpeed;
 
         if (speedAtRateOne <= 0.0001f)
             return animationSpeed;
@@ -686,48 +710,78 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
     private float GetGroundStride(ReanimData.ReanimClip clip)
     {
-        return SampleGroundX(clip.end) - SampleGroundX(clip.start);
+        return SampleGroundX(clip.end) -
+               SampleGroundX(clip.start);
     }
 
     private float SampleGroundX(float frame)
     {
         ReanimData.ReanimTrack track = data.GroundTrack;
+
         if (track == null || track.frames.Length == 0)
             return 0f;
 
-        int a = Mathf.Clamp(Mathf.FloorToInt(frame), 0, track.frames.Length - 1);
+        int a = Mathf.Clamp(
+            Mathf.FloorToInt(frame),
+            0,
+            track.frames.Length - 1);
+
         int b = Mathf.Min(a + 1, track.frames.Length - 1);
-        return Mathf.Lerp(track.frames[a].x, track.frames[b].x, frame - a);
+
+        return Mathf.Lerp(
+            track.frames[a].x,
+            track.frames[b].x,
+            frame - a);
     }
 
-    private float GetUnwrappedGroundX(float elapsedFrames, ReanimData.ReanimClip clip)
+    private float GetUnwrappedGroundX(
+        float elapsedFrames,
+        ReanimData.ReanimClip clip)
     {
         float length = Mathf.Max(1f, clip.Length);
+
         float loops = Mathf.Floor(elapsedFrames / length);
-        float frameInLoop = Mathf.Repeat(elapsedFrames, length);
+
+        float frameInLoop =
+            Mathf.Repeat(elapsedFrames, length);
+
         float startX = SampleGroundX(clip.start);
+
         float stride = GetGroundStride(clip);
-        return loops * stride + SampleGroundX(clip.start + frameInLoop) - startX;
+
+        return loops * stride +
+               SampleGroundX(clip.start + frameInLoop) -
+               startX;
     }
 
-    private void ApplyGroundMotion(float previousTime, float currentTime)
+    private void ApplyGroundMotion(
+        float previousTime,
+        float currentTime)
     {
-        ReanimData.ReanimClip clip = animationPlayer.CurrentClip;
+        ReanimData.ReanimClip clip =
+            animationPlayer.CurrentClip;
+
         if (clip == null || clip.Length <= 0)
             return;
 
-        float scale = profile.GlobalScale.x / profile.PixelPerUnit;
-        float previous = GetUnwrappedGroundX(previousTime * data.Fps, clip);
-        float current = GetUnwrappedGroundX(currentTime * data.Fps, clip);
+        float scale =
+            profile.GlobalScale.x / profile.PixelPerUnit;
+
+        float previous = GetUnwrappedGroundX(
+            previousTime * data.Fps, clip);
+
+        float current = GetUnwrappedGroundX(
+            currentTime * data.Fps, clip);
+
         float delta = current - previous;
 
-        // The animated Reanim object is often a visual child of the gameplay
-        // zombie. Move the gameplay root so its collider/AI follow the motion.
-        Transform movementRoot = transform.parent != null
-            ? transform.parent
-            : transform;
+        Transform movementRoot =
+            transform.parent != null
+                ? transform.parent
+                : transform;
 
-        movementRoot.position += Vector3.left * (delta * scale);
+        movementRoot.position +=
+            Vector3.left * (delta * scale);
     }
 
     public void SetWalkVariant(bool second)
@@ -735,9 +789,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
         chosenWalkClip = second ? walkClip2 : walkClip;
 
         if (currentState == ZombieState.Walk)
-        {
             Walk();
-        }
     }
 
     public void StartEating()
@@ -746,6 +798,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
             return;
 
         currentState = ZombieState.Eat;
+
         PlayAction("eat", eatClip);
     }
 
@@ -756,12 +809,13 @@ public abstract class BaseZombieReanim : MonoBehaviour
     }
 
     // =========================================================
-    // PUBLIC API - MẤT TAY
+    // 1. LOSE ARM - RỤNG TAY
     // =========================================================
 
     /// <summary>
-    /// Rụng tay trái: cẳng tay + bàn tay bay ra, bắp tay đổi thành tay cụt.
-    /// Animation đang chạy (đi / ăn / đứng) KHÔNG bị reset, chỉ thay đổi hình ảnh.
+    /// Rụng cẳng tay và bàn tay ngoài.
+    /// Bắp tay chuyển thành tay cụt.
+    /// Không reset animation hiện tại.
     /// </summary>
     public void LoseArm()
     {
@@ -773,36 +827,125 @@ public abstract class BaseZombieReanim : MonoBehaviour
         SpawnDebris(
             droppedArmParts,
             new Vector3(
-                UnityEngine.Random.Range(-0.3f, 0.3f),
-                UnityEngine.Random.Range(1.4f, 2.0f),
+                UnityEngine.Random.Range(-0.55f, 0.25f),
+                UnityEngine.Random.Range(2.4f, 3.0f),
                 0f),
-            UnityEngine.Random.Range(-200f, 200f),
-            1.2f,
-            0.5f);
+            UnityEngine.Random.Range(-240f, 240f),
+            1.25f,
+            0.4f);
 
         foreach (string name in droppedArmParts)
             partRenderer.SetPartHidden(name, true);
 
         foreach (string name in upperArmParts)
-            partRenderer.SetPartImageOverride(name, ArmUpper2ImageId);
+        {
+            partRenderer.SetPartImageOverride(
+                name,
+                ArmUpper2ImageId);
+        }
 
         OnArmLostHook();
 
-        if (OnArmLost != null)
-            OnArmLost();
+        OnArmLost?.Invoke();
     }
 
     // =========================================================
-    // PUBLIC API - CHẾT
+    // 2. DETACH HEAD - RỤNG ĐẦU
     // =========================================================
 
-    /// <summary>Chết khi còn đầu: ngã ra sau, đầu dính theo thân.</summary>
+    /// <summary>
+    /// Chỉ thực hiện hiệu ứng rụng đầu.
+    /// Không chạy animation ngã.
+    /// Không tự động thay đổi trạng thái Idle / Walk / Eat.
+    /// </summary>
+    public void DetachHead()
+    {
+        if (!isReady ||
+            headDetached ||
+            currentState == ZombieState.Dying ||
+            currentState == ZombieState.Dead ||
+            deathLocked)
+        {
+            return;
+        }
+
+        headDetached = true;
+
+        SpawnDebris(
+            headParts,
+            new Vector3(
+                -UnityEngine.Random.Range(0.9f, 1.4f),
+                UnityEngine.Random.Range(4.2f, 5.0f),
+                0f),
+            UnityEngine.Random.Range(-420f, 420f),
+            1.35f,
+            0.45f,
+            1f);
+
+        foreach (string name in headParts)
+            partRenderer.SetPartHidden(name, true);
+
+        OnHeadDetachedHook();
+    }
+
+    // =========================================================
+    // 3. FALL HEADLESS - NGÃ XUỐNG KHÔNG ĐẦU
+    // =========================================================
+
+    /// <summary>
+    /// Chạy animation ngã xuống khi zombie đã rụng đầu.
+    /// Không thực hiện hiệu ứng rụng đầu lần nữa.
+    /// </summary>
+    public void FallHeadless()
+    {
+        if (!isReady)
+            return;
+
+        if (!headDetached)
+        {
+            Debug.LogWarning(
+                "ZombieReanim: Phải rụng đầu trước khi ngã.",
+                this);
+
+            return;
+        }
+
+        if (currentState == ZombieState.Dying ||
+            currentState == ZombieState.Dead ||
+            deathLocked)
+        {
+            return;
+        }
+
+        // Ghi nhận xem sự kiện chết đã được thông báo chưa.
+        bool alreadyNotified = headlessDeathPending;
+
+        headlessDeathPending = false;
+        headlessFallDelayRemaining = 0f;
+
+        // Các bộ phận đầu và vật cầm đã được xử lý trước đó.
+        StartDeath(
+            true,
+            true,
+            !alreadyNotified);
+    }
+
+    // =========================================================
+    // DEATH API
+    // =========================================================
+
+    /// <summary>
+    /// Chết khi còn đầu.
+    /// </summary>
     public void Die()
     {
         BeginDeath(false);
     }
 
-    /// <summary>Chết mất đầu: đầu bật ra bay đi, thân ngã không đầu.</summary>
+    /// <summary>
+    /// Chết không đầu.
+    /// Rụng đầu trước, chờ headlessFallDelay rồi ngã.
+    /// </summary>
     public virtual void DieHeadless()
     {
         BeginDeath(true);
@@ -813,64 +956,85 @@ public abstract class BaseZombieReanim : MonoBehaviour
         if (!isReady || IsDeadOrDying)
             return;
 
-        if (headless && headlessFallDelay > 0f)
+        if (headless)
         {
-            // Bật đầu và xử lý vật đang cầm ngay; giữ clip/trạng thái hiện tại
-            // thêm một đoạn rồi mới chuyển sang animation ngã.
+            // Giai đoạn 1: Rụng đầu.
             DetachHead();
+
+            // Xử lý vật đang cầm.
             HandleHeldItemsOnDeath(true);
+
+            // Chờ trước khi ngã.
             headlessDeathPending = true;
             headlessFallDelayRemaining = headlessFallDelay;
 
-            if (OnDeathStarted != null)
-                OnDeathStarted();
+            OnDeathStarted?.Invoke();
+
+            // Nếu không cần chờ thì ngã ngay.
+            if (headlessFallDelay <= 0f)
+                FallHeadless();
 
             return;
         }
 
-        StartDeath(headless);
+        StartDeath(false);
     }
 
+    /// <summary>
+    /// Bắt đầu animation ngã.
+    /// </summary>
     private void StartDeath(
         bool headless,
         bool deathPartsAlreadyHandled = false,
         bool notifyDeathStarted = true)
     {
-        if (!deathPartsAlreadyHandled && (headless || headDetached))
-        {
-            headless = true;
-            DetachHead();
-        }
-        else if (!deathPartsAlreadyHandled)
-        {
-            // Clip chết ẩn track đầu, nên cho đầu dính cứng theo thân.
-            partRenderer.SetAttachment(
-                headParts,
-                bodyTrackName,
-                referenceFrame);
-        }
-
-        // Vật đang cầm (cờ) xử lý riêng tuỳ loại zombie. Mặc định: rơi riêng.
         if (!deathPartsAlreadyHandled)
+        {
+            if (headless || headDetached)
+            {
+                headless = true;
+                DetachHead();
+            }
+            else
+            {
+                // Đầu dính theo thân khi chết còn đầu.
+                partRenderer.SetAttachment(
+                    headParts,
+                    bodyTrackName,
+                    referenceFrame);
+            }
+
             HandleHeldItemsOnDeath(headless);
+        }
 
         currentState = ZombieState.Dying;
 
         if (headless)
-            PlayAction("deathHeadless", deathHeadlessClip, false);
+        {
+            PlayAction(
+                "deathHeadless",
+                deathHeadlessClip,
+                false);
+        }
         else
-            PlayAction("death", deathClip, false);
+        {
+            PlayAction(
+                "death",
+                deathClip,
+                false);
+        }
 
-        if (notifyDeathStarted && OnDeathStarted != null)
-            OnDeathStarted();
+        if (notifyDeathStarted)
+            OnDeathStarted?.Invoke();
     }
 
     // =========================================================
-    // PUBLIC API - MÁU
+    // HEALTH
     // =========================================================
 
-    /// <summary>Trừ máu. Tới mốc armLostHealth thì rụng tay, về 0 thì chết.</summary>
-    public void TakeDamage(float damage, bool removeHead = false)
+    public void TakeDamage(
+        float damage,
+        bool removeHead = false)
     {
         if (!isReady || IsDeadOrDying)
             return;
@@ -892,7 +1056,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     }
 
     // =========================================================
-    // PUBLIC API - HỒI SINH (dùng để test)
+    // RESET ZOMBIE
     // =========================================================
 
     public void ResetZombie()
@@ -910,25 +1074,30 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         partRenderer.ClearOverrides();
         partRenderer.SetAlpha(1f);
+
         ApplyInitialPartState();
 
         armLost = false;
         headDetached = false;
+
         headlessDeathPending = false;
         headlessFallDelayRemaining = 0f;
+
         deathLocked = false;
         destroyQueued = false;
+
         deadTimer = 0f;
         currentHealth = maxHealth;
 
         currentState = ZombieState.Idle;
+
         PlayAction("idle", idleClip);
 
         OnResetHook();
     }
 
     // =========================================================
-    // MẢNH RƠI / MỜ DẦN
+    // DEBRIS
     // =========================================================
 
     protected void SpawnDebris(
@@ -936,7 +1105,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
         Vector3 velocity,
         float angularVelocity,
         float lifetime,
-        float fadeTime)
+        float fadeTime,
+        float groundLinger = 0f)
     {
         GameObject debris = partRenderer.SpawnDebris(
             trackNames,
@@ -944,16 +1114,24 @@ public abstract class BaseZombieReanim : MonoBehaviour
             debrisGravity,
             angularVelocity,
             lifetime,
-            fadeTime);
+            fadeTime,
+            groundLinger);
 
         if (debris != null)
             debrisObjects.Add(debris);
     }
 
+    // =========================================================
+    // DEATH FADE
+    // =========================================================
+
     private void UpdateDeathFade(float dt)
     {
-        if (currentState != ZombieState.Dead || !fadeAfterDeath)
+        if (currentState != ZombieState.Dead ||
+            !fadeAfterDeath)
+        {
             return;
+        }
 
         deadTimer += dt;
 
@@ -962,11 +1140,14 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         float k = fadeDuration <= 0f
             ? 1f
-            : Mathf.Clamp01((deadTimer - lingerTime) / fadeDuration);
+            : Mathf.Clamp01(
+                (deadTimer - lingerTime) / fadeDuration);
 
         partRenderer.SetAlpha(1f - k);
 
-        if (k >= 1f && destroyAfterFade && !destroyQueued)
+        if (k >= 1f &&
+            destroyAfterFade &&
+            !destroyQueued)
         {
             destroyQueued = true;
             Destroy(gameObject);
@@ -988,7 +1169,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
         }
 
         animationPlayer = null;
+
         extraPlayers.Clear();
+
         sortEntries = null;
 
         if (runtimeMaterial != null)

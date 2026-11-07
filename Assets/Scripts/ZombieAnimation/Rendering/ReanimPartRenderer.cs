@@ -975,7 +975,8 @@ public class ReanimPartRenderer
         float gravity,
         float angularVelocity,
         float lifetime,
-        float fadeTime)
+        float fadeTime,
+        float groundLinger)
     {
         if (!initialized || trackNames == null)
             return null;
@@ -1012,6 +1013,9 @@ public class ReanimPartRenderer
         GameObject root = new GameObject("Debris");
         root.transform.SetParent(parent, false);
         root.transform.localPosition = pivot;
+        // Particle PvZ được tách khỏi zombie ngay khi sinh ra. Giữ nguyên
+        // pose/thang đo thế giới hiện tại để debris không bị kéo theo zombie.
+        root.transform.SetParent(null, true);
 
         List<Mesh> meshes = new List<Mesh>();
 
@@ -1063,12 +1067,17 @@ public class ReanimPartRenderer
 
         ReanimDebris debris = root.AddComponent<ReanimDebris>();
 
+        float groundY = parent.position.y +
+            (pivot.y - min.y) * Mathf.Abs(parent.lossyScale.y);
+
         debris.Init(
             velocity,
             gravity,
             angularVelocity,
             lifetime,
             fadeTime,
+            groundY,
+            groundLinger,
             meshes.ToArray());
 
         return root;
