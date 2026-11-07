@@ -264,6 +264,9 @@ public class Peashooter : Plant, IIdle, IAttack
         if (bullet == null)
             return;
 
+        // đưa damage vào đạn
+        bullet.GetComponent<BulletData>()?.SetUpDataBullet(plantData.damagePerHit);
+
         BulletMovement movement =
             bullet.GetComponent<BulletMovement>();
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8340772971316517273}
   - component: {fileID: 3207187642672792399}
   - component: {fileID: 6430850362458598970}
+  - component: {fileID: 8156608244334248947}
   m_Layer: 0
   m_Name: BulletPeashooter
   m_TagString: Untagged
@@ -77,6 +78,7 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   zombieTag: Zombie
   detectZombieCollision: 1
+  splatOffset: {x: 0.2, y: 0.08}
   bulletVisual: {fileID: 3912558498797570453}
   OnStartFlying:
     m_PersistentCalls:
@@ -170,3 +172,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8156608244334248947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695741725581973035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1c175448170944e82216f8327883fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

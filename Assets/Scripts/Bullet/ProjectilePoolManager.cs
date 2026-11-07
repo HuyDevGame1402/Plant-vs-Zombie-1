@@ -79,7 +79,11 @@ public class ProjectilePoolManager : MonoBehaviour
         {
             if (entry.prefab == null)
             {
-                Debug.LogWarning("[ProjectilePoolManager] Có Pool chưa gán Prefab!", this);
+                Debug.LogWarning(
+                    "[ProjectilePoolManager] Có Pool chưa gán Prefab!",
+                    this
+                );
+
                 continue;
             }
 
@@ -89,6 +93,7 @@ public class ProjectilePoolManager : MonoBehaviour
                     $"[ProjectilePoolManager] Prefab {entry.prefab.name} bị đăng ký trùng!",
                     this
                 );
+
                 continue;
             }
 
@@ -122,7 +127,8 @@ public class ProjectilePoolManager : MonoBehaviour
         {
             GameObject projectile = CreateProjectile(pool);
 
-            ReturnToPool(projectile);
+            // Đạn mới đã inactive nên đưa trực tiếp vào Queue.
+            pool.available.Enqueue(projectile);
         }
 
         Debug.Log(
@@ -192,10 +198,12 @@ public class ProjectilePoolManager : MonoBehaviour
 
         Transform projectileTransform = projectile.transform;
 
-        projectileTransform.SetParent(
-            parent != null ? parent : pool.container,
-            true
-        );
+        // Cho phép spawn dưới parent tùy chọn.
+        Transform spawnParent = parent != null
+            ? parent
+            : pool.container;
+
+        projectileTransform.SetParent(spawnParent, true);
 
         projectileTransform.SetPositionAndRotation(
             position,
@@ -203,7 +211,8 @@ public class ProjectilePoolManager : MonoBehaviour
         );
 
         // Reset trạng thái trước khi kích hoạt.
-        BulletMovement movement = projectile.GetComponent<BulletMovement>();
+        BulletMovement movement =
+            projectile.GetComponent<BulletMovement>();
 
         if (movement != null)
         {
@@ -244,17 +253,23 @@ public class ProjectilePoolManager : MonoBehaviour
         if (!projectile.activeSelf)
             return;
 
-        BulletMovement movement = projectile.GetComponent<BulletMovement>();
+        BulletMovement movement =
+            projectile.GetComponent<BulletMovement>();
 
         if (movement != null)
+        {
             movement.PrepareForPool();
+        }
 
-        projectile.SetActive(false);
-
+        // QUAN TRỌNG:
+        // Luôn đưa đạn về đúng Pool container.
+        // Không phụ thuộc parent hiện tại của viên đạn.
         projectile.transform.SetParent(
             pool.container,
             false
         );
+
+        projectile.SetActive(false);
 
         if (pool.available.Count >= pool.maxSize)
         {
