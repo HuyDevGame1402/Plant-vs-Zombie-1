@@ -1,0 +1,1272 @@
+{
+  "title": "PvZ plant parameters",
+  "source": [
+    "src/Lawn/Plant.cpp",
+    "src/Lawn/Projectile.cpp"
+  ],
+  "units": {
+    "ticks": "Game update ticks; not milliseconds. Wall-clock duration depends on the game update rate.",
+    "seedPacketRefreshTicks": "Cooldown before a seed packet can be used again.",
+    "launchRateTicks": "PlantDefinition.mLaunchRate. Shooters and production plants use different update logic; not a universal attack interval.",
+    "damage": "Damage values as passed to projectile/direct attack logic; actual effects can depend on target type, splash, flags, and game mode."
+  },
+  "notes": [
+    "Contains all 53 entries in gPlantDefs, including imitater and special/non-standard entries.",
+    "Health defaults to 300 in PlantInitialize; explicit overrides and the Big Time mode multiplier are included.",
+    "null means the plant does not map to a fixed projectile damage value in the shared table; see attack.notes and source logic.",
+    "Some cooldowns, damage, ranges, and effects are dynamic or mode-dependent and are not represented by one scalar.",
+    "Projectile damage table also includes projectile types that are not used by standard plant seed entries."
+  ],
+  "projectileDamageTable": {
+    "pea": 20,
+    "snowpea": 20,
+    "cabbage": 40,
+    "melon": 80,
+    "puff": 20,
+    "wintermelon": 80,
+    "fireball": 40,
+    "star": 20,
+    "spike": 20,
+    "basketball": 75,
+    "kernel": 20,
+    "cobbig": 300,
+    "butter": 40,
+    "zombie_pea": 20
+  },
+  "plants": [
+    {
+      "id": "PEASHOOTER",
+      "seedEnum": "SEED_PEASHOOTER",
+      "nameId": "PEASHOOTER",
+      "reanimationType": "REANIM_PEASHOOTER",
+      "packetIndex": 0,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "pea",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "SUNFLOWER",
+      "seedEnum": "SEED_SUNFLOWER",
+      "nameId": "SUNFLOWER",
+      "reanimationType": "REANIM_SUNFLOWER",
+      "packetIndex": 1,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 2500,
+      "launchRateMeaning": "production cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300,
+        "conditionalModeMultiplier": {
+          "mode": "BIG_TIME",
+          "multiplier": 2
+        }
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Produces one sun per production cycle."
+      },
+      "production": {
+        "type": "sun",
+        "amountPerCycle": 1
+      }
+    },
+    {
+      "id": "CHERRYBOMB",
+      "seedEnum": "SEED_CHERRYBOMB",
+      "nameId": "CHERRY_BOMB",
+      "reanimationType": "REANIM_CHERRYBOMB",
+      "packetIndex": 3,
+      "seedCostSun": 150,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Explodes after a 100-tick special countdown; damage is applied by its special-effect logic."
+      }
+    },
+    {
+      "id": "WALLNUT",
+      "seedEnum": "SEED_WALLNUT",
+      "nameId": "WALL_NUT",
+      "reanimationType": "REANIM_WALLNUT",
+      "packetIndex": 2,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 4000,
+        "maxHpAtPlanting": 4000,
+        "conditionalModeMultiplier": {
+          "mode": "BIG_TIME",
+          "multiplier": 2
+        }
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "POTATOMINE",
+      "seedEnum": "SEED_POTATOMINE",
+      "nameId": "POTATO_MINE",
+      "reanimationType": "REANIM_POTATOMINE",
+      "packetIndex": 37,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Arms after an initial 1500-tick countdown; explosive damage is handled by special-effect logic."
+      }
+    },
+    {
+      "id": "SNOWPEA",
+      "seedEnum": "SEED_SNOWPEA",
+      "nameId": "SNOW_PEA",
+      "reanimationType": "REANIM_SNOWPEA",
+      "packetIndex": 4,
+      "seedCostSun": 175,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "snowpea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "pea; also applies chill",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "CHOMPER",
+      "seedEnum": "SEED_CHOMPER",
+      "nameId": "CHOMPER",
+      "reanimationType": "REANIM_CHOMPER",
+      "packetIndex": 31,
+      "seedCostSun": 150,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Normally devours an eligible target; Gargantuar/Boss takes 40 damage instead."
+      }
+    },
+    {
+      "id": "REPEATER",
+      "seedEnum": "SEED_REPEATER",
+      "nameId": "REPEATER",
+      "reanimationType": "REANIM_REPEATER",
+      "packetIndex": 5,
+      "seedCostSun": 200,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 2,
+        "notes": "two peas per shooting animation",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "PUFFSHROOM",
+      "seedEnum": "SEED_PUFFSHROOM",
+      "nameId": "PUFF_SHROOM",
+      "reanimationType": "REANIM_PUFFSHROOM",
+      "packetIndex": 6,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "puff",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "short-range projectile",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "SUNSHROOM",
+      "seedEnum": "SEED_SUNSHROOM",
+      "nameId": "SUN_SHROOM",
+      "reanimationType": "REANIM_SUNSHROOM",
+      "packetIndex": 7,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 2500,
+      "launchRateMeaning": "production cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Production cycle produces a small sun initially; later state changes production."
+      },
+      "production": {
+        "type": "sun",
+        "amountPerCycle": 1,
+        "initialState": "small sun; changes as plant grows"
+      }
+    },
+    {
+      "id": "FUMESHROOM",
+      "seedEnum": "SEED_FUMESHROOM",
+      "nameId": "FUME_SHROOM",
+      "reanimationType": "REANIM_FUMESHROOM",
+      "packetIndex": 9,
+      "seedCostSun": 75,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": 20,
+        "projectilesPerSequence": null,
+        "notes": "Direct row-area damage: 20 per hit.",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "GRAVEBUSTER",
+      "seedEnum": "SEED_GRAVEBUSTER",
+      "nameId": "GRAVE_BUSTER",
+      "reanimationType": "REANIM_GRAVE_BUSTER",
+      "packetIndex": 40,
+      "seedCostSun": 75,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Consumes a grave; no projectile damage value."
+      }
+    },
+    {
+      "id": "HYPNOSHROOM",
+      "seedEnum": "SEED_HYPNOSHROOM",
+      "nameId": "HYPNO_SHROOM",
+      "reanimationType": "REANIM_HYPNOSHROOM",
+      "packetIndex": 10,
+      "seedCostSun": 75,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Converts an eater; no projectile damage value."
+      }
+    },
+    {
+      "id": "SCAREDYSHROOM",
+      "seedEnum": "SEED_SCAREDYSHROOM",
+      "nameId": "SCAREDY_SHROOM",
+      "reanimationType": "REANIM_SCRAREYSHROOM",
+      "packetIndex": 33,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "puff",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "fires when not scared/too close",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "ICESHROOM",
+      "seedEnum": "SEED_ICESHROOM",
+      "nameId": "ICE_SHROOM",
+      "reanimationType": "REANIM_ICESHROOM",
+      "packetIndex": 36,
+      "seedCostSun": 75,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Triggers a global freeze effect; no projectile damage value."
+      }
+    },
+    {
+      "id": "DOOMSHROOM",
+      "seedEnum": "SEED_DOOMSHROOM",
+      "nameId": "DOOM_SHROOM",
+      "reanimationType": "REANIM_DOOMSHROOM",
+      "packetIndex": 20,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Explodes after a 100-tick special countdown; damage/radius are handled by special-effect logic."
+      }
+    },
+    {
+      "id": "LILYPAD",
+      "seedEnum": "SEED_LILYPAD",
+      "nameId": "LILY_PAD",
+      "reanimationType": "REANIM_LILYPAD",
+      "packetIndex": 19,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "SQUASH",
+      "seedEnum": "SEED_SQUASH",
+      "nameId": "SQUASH",
+      "reanimationType": "REANIM_SQUASH",
+      "packetIndex": 21,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Targeting/animation-driven slam; damage is handled by DoSquashDamage."
+      }
+    },
+    {
+      "id": "THREEPEATER",
+      "seedEnum": "SEED_THREEPEATER",
+      "nameId": "THREEPEATER",
+      "reanimationType": "REANIM_THREEPEATER",
+      "packetIndex": 12,
+      "seedCostSun": 325,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 3,
+        "notes": "one pea in each of up to three rows",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "TANGLEKELP",
+      "seedEnum": "SEED_TANGLEKELP",
+      "nameId": "TANGLE_KELP",
+      "reanimationType": "REANIM_TANGLEKELP",
+      "packetIndex": 17,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Grabs and removes a target; no projectile damage value."
+      }
+    },
+    {
+      "id": "JALAPENO",
+      "seedEnum": "SEED_JALAPENO",
+      "nameId": "JALAPENO",
+      "reanimationType": "REANIM_JALAPENO",
+      "packetIndex": 11,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Row-wide special attack; damage is handled by special-effect logic."
+      }
+    },
+    {
+      "id": "SPIKEWEED",
+      "seedEnum": "SEED_SPIKEWEED",
+      "nameId": "SPIKEWEED",
+      "reanimationType": "REANIM_SPIKEWEED",
+      "packetIndex": 22,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": 20,
+        "projectilesPerSequence": null,
+        "notes": "Direct row damage: 20 per attack; attack animation timing controls hit."
+      }
+    },
+    {
+      "id": "TORCHWOOD",
+      "seedEnum": "SEED_TORCHWOOD",
+      "nameId": "TORCHWOOD",
+      "reanimationType": "REANIM_TORCHWOOD",
+      "packetIndex": 29,
+      "seedCostSun": 175,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "TALLNUT",
+      "seedEnum": "SEED_TALLNUT",
+      "nameId": "TALL_NUT",
+      "reanimationType": "REANIM_TALLNUT",
+      "packetIndex": 28,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 8000,
+        "maxHpAtPlanting": 8000
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "SEASHROOM",
+      "seedEnum": "SEED_SEASHROOM",
+      "nameId": "SEA_SHROOM",
+      "reanimationType": "REANIM_SEASHROOM",
+      "packetIndex": 39,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "puff",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "short-range projectile",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "PLANTERN",
+      "seedEnum": "SEED_PLANTERN",
+      "nameId": "PLANTERN",
+      "reanimationType": "REANIM_PLANTERN",
+      "packetIndex": 38,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 2500,
+      "launchRateMeaning": "plant-specific timer; not an attack or production interval",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "CACTUS",
+      "seedEnum": "SEED_CACTUS",
+      "nameId": "CACTUS",
+      "reanimationType": "REANIM_CACTUS",
+      "packetIndex": 15,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "spike",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "attack projectile depends on cactus state",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "BLOVER",
+      "seedEnum": "SEED_BLOVER",
+      "nameId": "BLOVER",
+      "reanimationType": "REANIM_BLOVER",
+      "packetIndex": 18,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Special utility effect; no projectile damage value."
+      }
+    },
+    {
+      "id": "SPLITPEA",
+      "seedEnum": "SEED_SPLITPEA",
+      "nameId": "SPLIT_PEA",
+      "reanimationType": "REANIM_SPLITPEA",
+      "packetIndex": 32,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 2,
+        "notes": "one shot in each direction when targets allow",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "STARFRUIT",
+      "seedEnum": "SEED_STARFRUIT",
+      "nameId": "STARFRUIT",
+      "reanimationType": "REANIM_STARFRUIT",
+      "packetIndex": 30,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "star",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 5,
+        "notes": "five directions; which projectiles hit depends on targets",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "PUMPKINSHELL",
+      "seedEnum": "SEED_PUMPKINSHELL",
+      "nameId": "PUMPKIN",
+      "reanimationType": "REANIM_PUMPKIN",
+      "packetIndex": 25,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 4000,
+        "maxHpAtPlanting": 4000
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "MAGNETSHROOM",
+      "seedEnum": "SEED_MAGNETSHROOM",
+      "nameId": "MAGNET_SHROOM",
+      "reanimationType": "REANIM_MAGNETSHROOM",
+      "packetIndex": 35,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "CABBAGEPULT",
+      "seedEnum": "SEED_CABBAGEPULT",
+      "nameId": "CABBAGE_PULT",
+      "reanimationType": "REANIM_CABBAGEPULT",
+      "packetIndex": 13,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 300,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "cabbage",
+        "damagePerHit": 40,
+        "projectilesPerSequence": 1,
+        "notes": "lobbed projectile",
+        "nominalIntervalTicks": 300,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "FLOWERPOT",
+      "seedEnum": "SEED_FLOWERPOT",
+      "nameId": "FLOWER_POT",
+      "reanimationType": "REANIM_FLOWER_POT",
+      "packetIndex": 33,
+      "seedCostSun": 25,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "KERNELPULT",
+      "seedEnum": "SEED_KERNELPULT",
+      "nameId": "KERNEL_PULT",
+      "reanimationType": "REANIM_KERNELPULT",
+      "packetIndex": 13,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 300,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "kernel",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "kernel; secondary shot can be butter",
+        "nominalIntervalTicks": 300,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "INSTANT_COFFEE",
+      "seedEnum": "SEED_INSTANT_COFFEE",
+      "nameId": "COFFEE_BEAN",
+      "reanimationType": "REANIM_COFFEEBEAN",
+      "packetIndex": 33,
+      "seedCostSun": 75,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "GARLIC",
+      "seedEnum": "SEED_GARLIC",
+      "nameId": "GARLIC",
+      "reanimationType": "REANIM_GARLIC",
+      "packetIndex": 8,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 400,
+        "maxHpAtPlanting": 400
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "UMBRELLA",
+      "seedEnum": "SEED_UMBRELLA",
+      "nameId": "UMBRELLA_LEAF",
+      "reanimationType": "REANIM_UMBRELLALEAF",
+      "packetIndex": 23,
+      "seedCostSun": 100,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "MARIGOLD",
+      "seedEnum": "SEED_MARIGOLD",
+      "nameId": "MARIGOLD",
+      "reanimationType": "REANIM_MARIGOLD",
+      "packetIndex": 24,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 2500,
+      "launchRateMeaning": "production cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300,
+        "conditionalModeMultiplier": {
+          "mode": "BIG_TIME",
+          "multiplier": 2
+        }
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Produces a coin on its production cycle; no attack damage."
+      },
+      "production": {
+        "type": "coin",
+        "amountPerCycle": 1,
+        "coinKind": "silver or gold (random)"
+      }
+    },
+    {
+      "id": "MELONPULT",
+      "seedEnum": "SEED_MELONPULT",
+      "nameId": "MELON_PULT",
+      "reanimationType": "REANIM_MELONPULT",
+      "packetIndex": 14,
+      "seedCostSun": 300,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 300,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "melon",
+        "damagePerHit": 80,
+        "projectilesPerSequence": 1,
+        "notes": "lobbed projectile with splash behavior",
+        "nominalIntervalTicks": 300,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "GATLINGPEA",
+      "seedEnum": "SEED_GATLINGPEA",
+      "nameId": "GATLING_PEA",
+      "reanimationType": "REANIM_GATLINGPEA",
+      "packetIndex": 5,
+      "seedCostSun": 250,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 4,
+        "notes": "four peas per shooting animation",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "TWINSUNFLOWER",
+      "seedEnum": "SEED_TWINSUNFLOWER",
+      "nameId": "TWIN_SUNFLOWER",
+      "reanimationType": "REANIM_TWIN_SUNFLOWER",
+      "packetIndex": 1,
+      "seedCostSun": 150,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 2500,
+      "launchRateMeaning": "production cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "Produces two suns per production cycle."
+      },
+      "production": {
+        "type": "sun",
+        "amountPerCycle": 2
+      }
+    },
+    {
+      "id": "GLOOMSHROOM",
+      "seedEnum": "SEED_GLOOMSHROOM",
+      "nameId": "GLOOM_SHROOM",
+      "reanimationType": "REANIM_GLOOMSHROOM",
+      "packetIndex": 27,
+      "seedCostSun": 150,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "shooter",
+      "launchRateTicks": 200,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": 20,
+        "projectilesPerSequence": null,
+        "notes": "Direct area damage: 20 per hit across nearby rows; four hit events per firing sequence.",
+        "nominalIntervalTicks": 200,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "CATTAIL",
+      "seedEnum": "SEED_CATTAIL",
+      "nameId": "CATTAIL",
+      "reanimationType": "REANIM_CATTAIL",
+      "packetIndex": 27,
+      "seedCostSun": 225,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "spike",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 1,
+        "notes": "targets zombies across rows",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "WINTERMELON",
+      "seedEnum": "SEED_WINTERMELON",
+      "nameId": "WINTER_MELON",
+      "reanimationType": "REANIM_WINTER_MELON",
+      "packetIndex": 27,
+      "seedCostSun": 200,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "shooter",
+      "launchRateTicks": 300,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "wintermelon",
+        "damagePerHit": 80,
+        "projectilesPerSequence": 1,
+        "notes": "lobbed projectile with chill/splash behavior",
+        "nominalIntervalTicks": 300,
+        "intervalJitterTicks": 15
+      }
+    },
+    {
+      "id": "GOLD_MAGNET",
+      "seedEnum": "SEED_GOLD_MAGNET",
+      "nameId": "GOLD_MAGNET",
+      "reanimationType": "REANIM_GOLD_MAGNET",
+      "packetIndex": 27,
+      "seedCostSun": 50,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "SPIKEROCK",
+      "seedEnum": "SEED_SPIKEROCK",
+      "nameId": "SPIKEROCK",
+      "reanimationType": "REANIM_SPIKEROCK",
+      "packetIndex": 27,
+      "seedCostSun": 125,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 450,
+        "maxHpAtPlanting": 450
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": 20,
+        "projectilesPerSequence": null,
+        "notes": "Direct row damage: 20 at two attack-animation timings; takes 50 HP damage on specified vehicle impacts."
+      }
+    },
+    {
+      "id": "COBCANNON",
+      "seedEnum": "SEED_COBCANNON",
+      "nameId": "COB_CANNON",
+      "reanimationType": "REANIM_COBCANNON",
+      "packetIndex": 16,
+      "seedCostSun": 500,
+      "seedPacketRefreshTicks": 5000,
+      "subclass": "normal",
+      "launchRateTicks": 600,
+      "launchRateMeaning": "plant-specific stored rate; firing/reload uses dedicated state logic",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "cobbig",
+        "damagePerHit": 300,
+        "projectilesPerSequence": 1,
+        "notes": "cob projectile; damage value is 300"
+      }
+    },
+    {
+      "id": "IMITATER",
+      "seedEnum": "SEED_IMITATER",
+      "nameId": "IMITATER",
+      "reanimationType": "REANIM_IMITATER",
+      "packetIndex": 33,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "EXPLODE_O_NUT",
+      "seedEnum": "SEED_EXPLODE_O_NUT",
+      "nameId": "EXPLODE_O_NUT",
+      "reanimationType": "REANIM_WALLNUT",
+      "packetIndex": 2,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 4000,
+        "maxHpAtPlanting": 4000
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "GIANT_WALLNUT",
+      "seedEnum": "SEED_GIANT_WALLNUT",
+      "nameId": "GIANT_WALLNUT",
+      "reanimationType": "REANIM_WALLNUT",
+      "packetIndex": 2,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 4000,
+        "maxHpAtPlanting": 4000
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "SPROUT",
+      "seedEnum": "SEED_SPROUT",
+      "nameId": "SPROUT",
+      "reanimationType": "REANIM_ZENGARDEN_SPROUT",
+      "packetIndex": 33,
+      "seedCostSun": 0,
+      "seedPacketRefreshTicks": 3000,
+      "subclass": "normal",
+      "launchRateTicks": 0,
+      "launchRateMeaning": "0 = no generic launch timer",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": null,
+        "damagePerHit": null,
+        "projectilesPerSequence": null,
+        "notes": "No single fixed projectile damage value is declared for this plant; it is a utility/non-attacker or uses special/update logic."
+      }
+    },
+    {
+      "id": "LEFTPEATER",
+      "seedEnum": "SEED_LEFTPEATER",
+      "nameId": "REPEATER",
+      "reanimationType": "REANIM_REPEATER",
+      "packetIndex": 5,
+      "seedCostSun": 200,
+      "seedPacketRefreshTicks": 750,
+      "subclass": "shooter",
+      "launchRateTicks": 150,
+      "launchRateMeaning": "shoot cycle",
+      "health": {
+        "initialHp": 300,
+        "maxHpAtPlanting": 300
+      },
+      "attack": {
+        "projectileType": "pea",
+        "damagePerHit": 20,
+        "projectilesPerSequence": 2,
+        "notes": "two peas per shooting animation",
+        "nominalIntervalTicks": 150,
+        "intervalJitterTicks": 15
+      }
+    }
+  ]
+}

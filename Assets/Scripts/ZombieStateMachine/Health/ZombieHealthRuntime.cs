@@ -166,5 +166,10 @@ namespace PvZ.Data
                 onHeadDropped?.Invoke();
             }
         }
+
+        public bool HasHead()
+        {
+            return currentBodyHealth > stats.bodyHealth * stats.headDropHealthRatio;
+        }
     }
 }

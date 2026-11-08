@@ -3,11 +3,10 @@
 public class NormalZombieAI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField]
-    private BaseZombieReanim zombie;
+    [SerializeField] private BaseZombieReanim zombie;
+    [SerializeField] private TriggerAttackZombie attackTrigger;
 
     private ZombieStateMachine stateMachine;
-
     private bool initialized;
 
     [Header("Movement")]
@@ -18,20 +17,25 @@ public class NormalZombieAI : MonoBehaviour
         if (zombie == null)
             zombie = GetComponent<BaseZombieReanim>();
 
+        if (attackTrigger == null)
+            attackTrigger = GetComponentInChildren<TriggerAttackZombie>();
+
         stateMachine = new ZombieStateMachine();
     }
 
     private void Update()
     {
-        // Chờ Reanim khởi tạo xong
         if (!initialized)
         {
-            if (zombie == null || !zombie.IsReady)
+            if (zombie == null || !zombie.IsReady || attackTrigger == null)
                 return;
 
             InitializeStateMachine();
             return;
         }
+
+        if (zombie.IsDeadOrDying)
+            return;
 
         stateMachine.Update();
     }
@@ -39,7 +43,7 @@ public class NormalZombieAI : MonoBehaviour
     private void InitializeStateMachine()
     {
         stateMachine.Initialize(
-            new ZombieWalkState(zombie, stateMachine, moveSpeed)
+            new ZombieWalkState(zombie, stateMachine, attackTrigger, moveSpeed)
         );
 
         initialized = true;

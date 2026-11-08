@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b355472a3a3046b5a622eadcc9a08, type: 3}
+  m_Name: TALLNUT
+  m_EditorClassIdentifier: 
+  id: TALLNUT
+  displayName: 
+  description: 
+  seedEnum: SEED_TALLNUT
+  nameId: TALL_NUT
+  reanimationType: REANIM_TALLNUT
+  subclass: normal
+  packetIndex: 28
+  seedCostSun: 125
+  seedPacketRefreshTicks: 3000
+  launchRateTicks: 0
+  launchRateMeaning: 0 = no generic launch timer
+  initialHp: 8000
+  maxHpAtPlanting: 8000
+  hasConditionalHealthMultiplier: 0
+  conditionalHealthMode: 
+  conditionalHealthMultiplier: 1
+  projectileType: 
+  hasDamagePerHit: 0
+  damagePerHit: 0
+  hasProjectilesPerSequence: 0
+  projectilesPerSequence: 0
+  hasAttackInterval: 0
+  nominalIntervalTicks: 0
+  intervalJitterTicks: 0
+  attackNotes: No single fixed projectile damage value is declared for this plant;
+    it is a utility/non-attacker or uses special/update logic.
+  producesResource: 0
+  productionType: 
+  amountPerCycle: 0
+  coinKind: 
+  productionInitialState: 
+  extraNotes: 
+  imageSelectGUI: {fileID: 0}
+  plantPrefab: {fileID: 0}
+  offsetCreatePlant: {x: 0, y: 0}

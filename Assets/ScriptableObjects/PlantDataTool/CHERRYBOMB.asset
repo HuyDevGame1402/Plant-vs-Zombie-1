@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b355472a3a3046b5a622eadcc9a08, type: 3}
+  m_Name: CHERRYBOMB
+  m_EditorClassIdentifier: 
+  id: CHERRYBOMB
+  displayName: 
+  description: 
+  seedEnum: SEED_CHERRYBOMB
+  nameId: CHERRY_BOMB
+  reanimationType: REANIM_CHERRYBOMB
+  subclass: normal
+  packetIndex: 3
+  seedCostSun: 150
+  seedPacketRefreshTicks: 5000
+  launchRateTicks: 0
+  launchRateMeaning: 0 = no generic launch timer
+  initialHp: 300
+  maxHpAtPlanting: 300
+  hasConditionalHealthMultiplier: 0
+  conditionalHealthMode: 
+  conditionalHealthMultiplier: 1
+  projectileType: 
+  hasDamagePerHit: 0
+  damagePerHit: 0
+  hasProjectilesPerSequence: 0
+  projectilesPerSequence: 0
+  hasAttackInterval: 0
+  nominalIntervalTicks: 0
+  intervalJitterTicks: 0
+  attackNotes: Explodes after a 100-tick special countdown; damage is applied by
+    its special-effect logic.
+  producesResource: 0
+  productionType: 
+  amountPerCycle: 0
+  coinKind: 
+  productionInitialState: 
+  extraNotes: 
+  imageSelectGUI: {fileID: 0}
+  plantPrefab: {fileID: 0}
+  offsetCreatePlant: {x: 0, y: 0}

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b355472a3a3046b5a622eadcc9a08, type: 3}
+  m_Name: THREEPEATER
+  m_EditorClassIdentifier: 
+  id: THREEPEATER
+  displayName: 
+  description: 
+  seedEnum: SEED_THREEPEATER
+  nameId: THREEPEATER
+  reanimationType: REANIM_THREEPEATER
+  subclass: shooter
+  packetIndex: 12
+  seedCostSun: 325
+  seedPacketRefreshTicks: 750
+  launchRateTicks: 150
+  launchRateMeaning: shoot cycle
+  initialHp: 300
+  maxHpAtPlanting: 300
+  hasConditionalHealthMultiplier: 0
+  conditionalHealthMode: 
+  conditionalHealthMultiplier: 1
+  projectileType: pea
+  hasDamagePerHit: 1
+  damagePerHit: 20
+  hasProjectilesPerSequence: 1
+  projectilesPerSequence: 3
+  hasAttackInterval: 1
+  nominalIntervalTicks: 150
+  intervalJitterTicks: 15
+  attackNotes: one pea in each of up to three rows
+  producesResource: 0
+  productionType: 
+  amountPerCycle: 0
+  coinKind: 
+  productionInitialState: 
+  extraNotes: 
+  imageSelectGUI: {fileID: 0}
+  plantPrefab: {fileID: 0}
+  offsetCreatePlant: {x: 0, y: 0}

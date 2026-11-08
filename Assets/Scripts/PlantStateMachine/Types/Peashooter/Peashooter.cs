@@ -6,9 +6,6 @@ public class Peashooter : Plant, IIdle, IAttack
     [Header("References")]
     [SerializeField] private PeashooterController peashooterControllerAnimation;
 
-    [Header("Lane Settings")]
-    [SerializeField] private int laneIndex = 2;
-
     [Header("Projectile (dùng chung cho họ cây đậu)")]
     [Tooltip("Prefab đạn. Peashooter/Repeater/Gatling = đạn thường, Snow Pea = đạn băng...")]
     [SerializeField] private GameObject bulletPrefab;

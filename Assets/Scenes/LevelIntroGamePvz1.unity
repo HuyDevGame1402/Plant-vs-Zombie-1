@@ -914,9 +914,25 @@ PrefabInstance:
       propertyPath: projectileParent
       value: 
       objectReference: {fileID: 1166866088}
+    - target: {fileID: 705074412400416728, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8534994
+      objectReference: {fileID: 0}
+    - target: {fileID: 705074412400416728, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2720733
+      objectReference: {fileID: 0}
+    - target: {fileID: 705074412400416728, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10115576
+      objectReference: {fileID: 0}
+    - target: {fileID: 705074412400416728, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5127542
+      objectReference: {fileID: 0}
     - target: {fileID: 6285608418007838442, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.215
+      value: 4.757
       objectReference: {fileID: 0}
     - target: {fileID: 6285608418007838442, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
       propertyPath: m_LocalPosition.y
@@ -957,10 +973,6 @@ PrefabInstance:
     - target: {fileID: 6942925656450320845, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
       propertyPath: m_Name
       value: Peashooter (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6942925656450320845, guid: 7a7e41a660c29bd418f31aadfef90825, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4009,6 +4021,22 @@ PrefabInstance:
     - target: {fileID: 6163537500453435355, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
       propertyPath: m_Name
       value: NormalZombieState
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5956392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.92735434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0021327734
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646433048808846431, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

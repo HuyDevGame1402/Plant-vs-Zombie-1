@@ -332,7 +332,7 @@ public class BulletMovement : MonoBehaviour
         if (currentState != BulletState.Flying)
             return;
 
-        Transform zombie = other.transform;
+        Transform zombie = FindZombieRoot(other.transform);
 
         if (zombie != null)
         {

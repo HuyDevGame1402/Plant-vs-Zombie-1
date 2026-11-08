@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b355472a3a3046b5a622eadcc9a08, type: 3}
+  m_Name: SPIKEROCK
+  m_EditorClassIdentifier: 
+  id: SPIKEROCK
+  displayName: 
+  description: 
+  seedEnum: SEED_SPIKEROCK
+  nameId: SPIKEROCK
+  reanimationType: REANIM_SPIKEROCK
+  subclass: normal
+  packetIndex: 27
+  seedCostSun: 125
+  seedPacketRefreshTicks: 5000
+  launchRateTicks: 0
+  launchRateMeaning: 0 = no generic launch timer
+  initialHp: 450
+  maxHpAtPlanting: 450
+  hasConditionalHealthMultiplier: 0
+  conditionalHealthMode: 
+  conditionalHealthMultiplier: 1
+  projectileType: 
+  hasDamagePerHit: 1
+  damagePerHit: 20
+  hasProjectilesPerSequence: 0
+  projectilesPerSequence: 0
+  hasAttackInterval: 0
+  nominalIntervalTicks: 0
+  intervalJitterTicks: 0
+  attackNotes: 'Direct row damage: 20 at two attack-animation timings; takes 50 HP
+    damage on specified vehicle impacts.'
+  producesResource: 0
+  productionType: 
+  amountPerCycle: 0
+  coinKind: 
+  productionInitialState: 
+  extraNotes: 
+  imageSelectGUI: {fileID: 0}
+  plantPrefab: {fileID: 0}
+  offsetCreatePlant: {x: 0, y: 0}

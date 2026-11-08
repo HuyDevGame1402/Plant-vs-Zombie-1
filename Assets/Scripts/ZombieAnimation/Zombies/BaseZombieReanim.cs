@@ -1184,4 +1184,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
             runtimeMaterial = null;
         }
     }
+    public void SetAnimationSpeed(float speed)
+    {
+        animationSpeed = speed;
+    }
+
 }

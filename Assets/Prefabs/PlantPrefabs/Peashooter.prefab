@@ -41,9 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6285608418007838442}
   - component: {fileID: 699325748697679178}
+  - component: {fileID: 7339925185020539802}
+  - component: {fileID: 705074412400416728}
   m_Layer: 0
   m_Name: Peashooter
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,9 +79,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548f2a19f31935c4aacaa59203f7b6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laneIndex: 2
+  eatPriority: 0
   plantData: {fileID: 11400000, guid: 6a5a612e2470ac744a90bd1114cd86fd, type: 2}
   peashooterControllerAnimation: {fileID: 9215682365469555898}
-  laneIndex: 2
   bulletPrefab: {fileID: 6695741725581973035, guid: be5f123fddaa69d4f8184622321b4068, type: 3}
   muzzle: {fileID: 3201092554061893853}
   projectileParent: {fileID: 0}
@@ -88,6 +91,72 @@ MonoBehaviour:
   retryDelay: 0.2
   initialAttackDelay: 0
   attackDelayRemaining: 0
+--- !u!114 &7339925185020539802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942925656450320845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d977704e807655f46af0d0fee8c6152d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 0
+  isDead: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &705074412400416728
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942925656450320845}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &5449448555712210679
 PrefabInstance:
   m_ObjectHideFlags: 0
