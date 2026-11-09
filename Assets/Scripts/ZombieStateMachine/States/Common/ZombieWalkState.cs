@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using PvZ.Data;
 
 public class ZombieWalkState : ZombieState
 {
@@ -29,11 +30,15 @@ public class ZombieWalkState : ZombieState
             return;
 
         GameObject target = attackTrigger.CurrentTargetPlant;
-
         if (IsValidTarget(target))
         {
             stateMachine.ChangeState(
-                new ZombieAttackState(zombie, stateMachine, attackTrigger, moveSpeed)
+                new ZombieAttackState(
+                    zombie,
+                    stateMachine,
+                    attackTrigger,
+                    moveSpeed,
+                    GetZombieStats())
             );
             return;
         }
@@ -42,6 +47,15 @@ public class ZombieWalkState : ZombieState
             return;
 
         zombie.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+    }
+
+    private ZombieStatsAsset GetZombieStats()
+    {
+        CampaignZombie campaignZombie = zombie.GetComponentInParent<CampaignZombie>();
+        if (campaignZombie == null)
+            campaignZombie = zombie.GetComponentInChildren<CampaignZombie>();
+
+        return campaignZombie != null ? campaignZombie.ZombieDatabase : null;
     }
 
     private bool IsValidTarget(GameObject target)

@@ -131,7 +131,7 @@ TextureImporter:
         width: 293
         height: 415
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,6 +139,27 @@ TextureImporter:
       bones: []
       spriteID: c6058a5be2fcb494eb7f8c0d7ced434c
       internalID: 1722948419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atlas_3.cdat_1
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 732
+        width: 282
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e0a6b6eac7d3e44a75d00527474d8e
+      internalID: 1741584129
       vertices: []
       indices: 
       edges: []
@@ -155,6 +176,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Atlas_3.cdat_0: 1722948419
+      Atlas_3.cdat_1: 1741584129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

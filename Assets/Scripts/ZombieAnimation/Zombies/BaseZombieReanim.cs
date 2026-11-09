@@ -204,6 +204,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
     public event Action OnArmLost;
     public event Action OnDeathStarted;
     public event Action OnDeathFinished;
+    /// <summary>Invoked once whenever a complete looping eat clip cycle finishes.</summary>
+    public event Action OnEatCycleCompleted;
 
     // =========================================================
     // HOOKS
@@ -299,6 +301,11 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         animationPlayer.Tick(dt);
 
+        // The compiled Reanim marks anim_eat as a 40-frame clip and has no
+        // separate bite marker, so one completed clip loop is one chew.
+        if (currentState == ZombieState.Eat)
+            NotifyCompletedEatCycles(previousClipTime, animationPlayer.ClipTime);
+
         for (int i = 0; i < extraPlayers.Count; i++)
         {
             extraPlayers[i].AnimationSpeed =
@@ -355,6 +362,20 @@ public abstract class BaseZombieReanim : MonoBehaviour
     private void OnDestroy()
     {
         Cleanup();
+    }
+
+    private void NotifyCompletedEatCycles(float previousTime, float currentTime)
+    {
+        ReanimData.ReanimClip clip = animationPlayer.CurrentClip;
+        if (clip == null || clip.Length <= 0 || currentTime <= previousTime)
+            return;
+
+        float framesPerCycle = clip.Length;
+        int previousCycle = Mathf.FloorToInt(previousTime * data.Fps / framesPerCycle);
+        int currentCycle = Mathf.FloorToInt(currentTime * data.Fps / framesPerCycle);
+
+        for (int cycle = previousCycle; cycle < currentCycle; cycle++)
+            OnEatCycleCompleted?.Invoke();
     }
 
     // =========================================================
