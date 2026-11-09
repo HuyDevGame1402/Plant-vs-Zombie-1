@@ -6,8 +6,8 @@ using UnityEngine;
 
 /// <summary>
 /// Cache dùng chung cho xe cắt cỏ: parse atlas JSON + reanim JSON đúng 1 lần.
-/// Khác với zombie: file reanim của xe có NHIỀU animation nằm chung 1 timeline
-/// (anim_normal = frame 0..16, anim_tricked = frame 17..33), nên ở đây ta tự dò
+/// File reanim của xe có NHIỀU animation nằm chung 1 timeline
+/// (anim_normal = frame 0..16, anim_tricked = frame 17..33), nên ở đây tự dò
 /// "clip" (start..end) dựa vào cờ f (-1 = ẩn, 0 = hiện) của các track anim_*.
 /// </summary>
 public static class LawnMowerReanimCache
@@ -132,7 +132,8 @@ public static class LawnMowerReanimCache
 
             Fps = reanimRoot["fps"] != null ? reanimRoot["fps"].Value<int>() : 20;
 
-            // "i" trong reanim lệch so với index trong atlas JSON -> tính offset nhờ track thân xe
+            // "i" trong reanim lệch so với index trong atlas JSON (ở file này là 242)
+            // -> tính offset nhờ track thân xe
             ImageIndexOffset = 0;
             JObject bodyTrack = FindTrack(reanimTracks, BodyTrackName);
             JArray bodyFrames = bodyTrack != null ? bodyTrack["transforms"] as JArray : null;
@@ -225,9 +226,12 @@ public static class LawnMowerReanimCache
 
             track.frames[i] = new Frame
             {
-                x = current.x, y = current.y,
-                kx = current.kx, ky = current.ky,
-                sx = current.sx, sy = current.sy,
+                x = current.x,
+                y = current.y,
+                kx = current.kx,
+                ky = current.ky,
+                sx = current.sx,
+                sy = current.sy,
                 visible = current.visible,
                 imageId = current.imageId
             };
@@ -283,15 +287,21 @@ public class PvZReanimLawnMower : MonoBehaviour
     public bool playing = true;
     [Tooltip("Bật: xe đứng im ở frame đầu khi mới tạo, gọi Run() để chạy.")]
     public bool startIdle = true;
+    [Tooltip("Bật: tự gọi StartRunThenIdle() ngay khi Start (để test). Tắt nếu bạn tự gọi từ GameManager.")]
+    public bool autoRunOnStart = true;
     public float animationSpeed = 1f;
 
     [Header("Hiển thị")]
     public float pixelPerUnit = 100f;
+    [Tooltip("Scale toàn bộ xe (cả vị trí lẫn kích thước các bộ phận).")]
     public Vector2 globalScale = Vector2.one;
-    [Tooltip("Scale riêng cho toàn bộ các bộ phận xe cắt cỏ (Vector2).")]
+    [Tooltip("Scale thêm cho toàn bộ xe. Đã áp dụng cho CẢ vị trí lẫn kích thước nên bộ phận không bị lệch.")]
     public Vector2 partsScale = Vector2.one;
-    [Tooltip("Tọa độ trong reanim nhân hệ số này (giống code zombie = 2).")]
+    [Tooltip("Tọa độ trong reanim nhân hệ số này. Atlas 960 => phải để = 2.")]
     public float positionScale = 2f;
+    [Tooltip("Dời gốc tọa độ (đơn vị reanim). Mặc định (0,0) = góc trên-trái của xe. " +
+             "Ví dụ (20, 30) để gốc nằm gần giữa đáy bánh xe.")]
+    public Vector2 pivotOffset = Vector2.zero;
 
     [Header("Sorting")]
     public string sortingLayerName = "";
@@ -362,8 +372,7 @@ public class PvZReanimLawnMower : MonoBehaviour
         SetAnimation(animation, true);
         if (startIdle) Idle();
 
-        // Ví dụ gọi hàm 1 khi bắt đầu màn chơi:
-        StartRunThenIdle();
+        if (autoRunOnStart) StartRunThenIdle();
     }
 
     private void Update()
@@ -380,7 +389,7 @@ public class PvZReanimLawnMower : MonoBehaviour
             if (traveledDistance >= targetMoveDistance)
             {
                 currentMovementState = MovementState.None;
-                
+
                 // Thực hiện callback khi chạy xong
                 Action callback = onMovementComplete;
                 onMovementComplete = null;
@@ -598,25 +607,33 @@ public class PvZReanimLawnMower : MonoBehaviour
         part.currentImageId = imageId;
     }
 
+    /// <summary>
+    /// Tính 4 góc của 1 bộ phận (đơn vị pixel, hệ y hướng xuống như reanim).
+    /// Vị trí và kích thước dùng CHUNG một hệ số scale (globalScale * partsScale)
+    /// nên đổi scale thì các bộ phận vẫn khớp nhau.
+    /// </summary>
     private void ComputeCorners(LawnMowerReanimCache.Frame a, LawnMowerReanimCache.Frame b, float t,
         LawnMowerReanimCache.AtlasPart atlasPart, Vector2[] corners)
     {
-        float x = Mathf.Lerp(a.x, b.x, t);
-        float y = Mathf.Lerp(a.y, b.y, t);
+        float x = Mathf.Lerp(a.x, b.x, t) - pivotOffset.x;
+        float y = Mathf.Lerp(a.y, b.y, t) - pivotOffset.y;
         float kx = Mathf.Lerp(a.kx, b.kx, t) * Mathf.Deg2Rad;
         float ky = Mathf.Lerp(a.ky, b.ky, t) * Mathf.Deg2Rad;
-        
-        // Kết hợp scale từ reanim, globalScale và partsScale mới thêm
-        float sx = Mathf.Lerp(a.sx, b.sx, t) * globalScale.x * partsScale.x;
-        float sy = Mathf.Lerp(a.sy, b.sy, t) * globalScale.y * partsScale.y;
+
+        float totalScaleX = globalScale.x * partsScale.x;
+        float totalScaleY = globalScale.y * partsScale.y;
+
+        float sx = Mathf.Lerp(a.sx, b.sx, t) * totalScaleX;
+        float sy = Mathf.Lerp(a.sy, b.sy, t) * totalScaleY;
 
         float m00 = Mathf.Cos(kx) * sx;
         float m01 = -Mathf.Sin(ky) * sy;
         float m10 = Mathf.Sin(kx) * sx;
         float m11 = Mathf.Cos(ky) * sy;
 
-        float tx = x * positionScale * globalScale.x;
-        float ty = y * positionScale * globalScale.y;
+        // FIX: vị trí cũng nhân partsScale (trước đây chỉ có globalScale -> bộ phận bị lệch)
+        float tx = x * positionScale * totalScaleX;
+        float ty = y * positionScale * totalScaleY;
         float w = atlasPart.width;
         float h = atlasPart.height;
 
@@ -659,11 +676,14 @@ public class PvZReanimLawnMower : MonoBehaviour
 
         if (minX > maxX) { shadowPart.renderer.enabled = false; return; }
 
+        float totalScaleX = globalScale.x * partsScale.x;
+        float totalScaleY = globalScale.y * partsScale.y;
+
         LawnMowerReanimCache.AtlasPart shadow = LawnMowerReanimCache.AtlasParts[LawnMowerReanimCache.ShadowImageId];
-        float halfW = shadow.width * globalScale.x * partsScale.x * shadowScale * 0.5f;
-        float halfH = shadow.height * globalScale.y * partsScale.y * shadowScale * 0.5f;
-        float cx = (minX + maxX) * 0.5f + shadowOffset.x * positionScale;
-        float cy = maxY + shadowOffset.y * positionScale;
+        float halfW = shadow.width * totalScaleX * shadowScale * 0.5f;
+        float halfH = shadow.height * totalScaleY * shadowScale * 0.5f;
+        float cx = (minX + maxX) * 0.5f + shadowOffset.x * positionScale * totalScaleX;
+        float cy = maxY + shadowOffset.y * positionScale * totalScaleY;
 
         shadowPart.vertices[0] = ToUnity(cx - halfW, cy - halfH);
         shadowPart.vertices[1] = ToUnity(cx + halfW, cy - halfH);

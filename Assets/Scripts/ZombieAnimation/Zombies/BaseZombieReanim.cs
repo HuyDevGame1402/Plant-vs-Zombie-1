@@ -31,6 +31,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [SerializeField] private float blendDuration = 0.12f;
     [SerializeField] private bool randomWalkVariant = true;
     [SerializeField] private string idleClip = "idle";
+    [SerializeField] private string idleClip2 = "idle2";
     [SerializeField] private string walkClip = "walk";
     [SerializeField] private string walkClip2 = "walk2";
     [SerializeField] private string eatClip = "eat";
@@ -240,7 +241,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
     {
         deathLocked = true;
         currentState = ZombieState.Idle;
-        PlayAction("idle", idleClip);
+        PlayAction("idle", ChooseIdleClip());
     }
 
     protected void ReleaseDeathLockAndDie(bool headless)
@@ -431,7 +432,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
                 ? walkClip2
                 : walkClip;
 
-        animationPlayer.Play(idleClip, true);
+        animationPlayer.Play(ChooseIdleClip(), true);
 
         partRenderer = new ReanimPartRenderer();
 
@@ -634,10 +635,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
                     : ((int)currentLane * 1000) + index;
         }
 
-        partRenderer.SetShadowSortingOrder(
-            layerManager != null
-                ? layerManager.GetShadowSortingOrder(currentLane)
-                : ((int)currentLane * 1000) - 10);
+        partRenderer.SetShadowSortingOrder(-5);
     }
 
     // =========================================================
@@ -674,6 +672,19 @@ public abstract class BaseZombieReanim : MonoBehaviour
     // MOVEMENT / EATING
     // =========================================================
 
+    private string ChooseIdleClip()
+    {
+        if (data != null &&
+            !string.IsNullOrEmpty(idleClip2) &&
+            data.Clips.ContainsKey(idleClip2) &&
+            UnityEngine.Random.value < 0.5f)
+        {
+            return idleClip2;
+        }
+
+        return idleClip;
+    }
+
     public void Idle()
     {
         if (!isReady || IsDeadOrDying)
@@ -681,7 +692,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         currentState = ZombieState.Idle;
 
-        PlayAction("idle", idleClip);
+        PlayAction("idle", ChooseIdleClip());
     }
 
     public void Walk()
@@ -1112,7 +1123,7 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         currentState = ZombieState.Idle;
 
-        PlayAction("idle", idleClip);
+        PlayAction("idle", ChooseIdleClip());
 
         OnResetHook();
     }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InitGamePvz1.unity
     guid: 5e0762ed304aac742bef351c14d6c05d
+  - enabled: 1
+    path: Assets/Scenes/MainMenuPvz1.unity
+    guid: 5d1489dbb6e2ee04e9440fdcf4566f17
   m_configObjects: {}

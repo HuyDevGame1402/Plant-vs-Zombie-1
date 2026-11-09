@@ -3,10 +3,11 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Hiệu ứng trải thảm cỏ trong Level PvZ 1 (Đã bổ sung tùy chỉnh Scale và Mask Offset Y):
+/// Hiệu ứng trải thảm cỏ trong Level PvZ 1:
 /// - Hỗ trợ tùy chọn loại thảm cỏ: 3 đường (IMAGE_SOD3ROW) hoặc 1 đường (IMAGE_SOD1ROW).
 /// - Tùy chỉnh Custom Width Scale & Custom Height Scale để thảm cỏ phủ kín sân.
 /// - Tùy chỉnh maskOffsetY để dịch chuyển vị trí Mask theo chiều dọc.
+/// - Có thể được điều khiển từ bên ngoài (LevelSodRollMover) để đồng bộ với cuộn đất.
 /// </summary>
 public class LevelSodRollAnimation : MonoBehaviour
 {
@@ -46,8 +47,15 @@ public class LevelSodRollAnimation : MonoBehaviour
     [Tooltip("Thời gian chạy hoàn thành (giây)")]
     public float demoDuration = 7f;
 
+    [Header("Điều khiển từ bên ngoài")]
+    [Tooltip("Bật: script này không tự chạy, chỉ đi theo progress do LevelSodRollMover truyền vào (tự bật khi gán Grass Animation bên Mover).")]
+    public bool externalControl = false;
+
     public float DisplayedProgress { get; private set; }
     public bool IsFinished => DisplayedProgress >= 0.9999f;
+
+    /// <summary>Chiều rộng thảm cỏ sau khi scale, tính theo đơn vị Unity.</summary>
+    public float WorldWidth => grassW * customWidthScale / pixelsPerUnit;
 
     readonly Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
     Transform maskTf;
@@ -129,7 +137,6 @@ public class LevelSodRollAnimation : MonoBehaviour
         var m = new GameObject("GrassMask");
         m.transform.SetParent(transform, false);
 
-        // Cập nhật vị trí ban đầu của Mask, cộng thêm maskOffsetY (chú ý trục Y trong Unity hướng lên, còn hệ tọa độ 960 hướng xuống nên trừ dấu)
         float basePosY = -(grassOffset.y + grassH * 0.5f + maskOffsetY);
         m.transform.localPosition = new Vector3(grassOffset.x, basePosY / pixelsPerUnit, 0f);
 
@@ -141,6 +148,9 @@ public class LevelSodRollAnimation : MonoBehaviour
     // ---------- 3. Chạy cập nhật animation ----------
     void Update()
     {
+        // Khi được điều khiển từ bên ngoài thì không tự chạy, Mover sẽ gọi ForceProgress mỗi frame.
+        if (externalControl) return;
+
         if (autoPlayDemo)
         {
             demoTime += Time.deltaTime;
@@ -152,19 +162,29 @@ public class LevelSodRollAnimation : MonoBehaviour
 
     void Apply(float rawProgress)
     {
+        // Cùng đường cong easing với cuộn đất (p^1.8)
         float p = Mathf.Pow(rawProgress, 1.8f);
 
         if (maskTf != null)
         {
-            // Cập nhật lại vị trí Y của mask theo sát maskOffsetY (phòng khi bạn thay đổi giá trị này trực tiếp trên Inspector khi game đang chạy)
             float basePosY = -(grassOffset.y + grassH * 0.5f + maskOffsetY);
             maskTf.localPosition = new Vector3(grassOffset.x, basePosY / pixelsPerUnit, 0f);
 
-            // Tính toán chiều rộng mask dựa theo tiến độ, nhân thêm customWidthScale và customHeightScale
             float currentWidth = Mathf.Lerp(0f, grassW * customWidthScale, p);
             maskTf.localScale = new Vector3(currentWidth / pixelsPerUnit, (grassH * customHeightScale) / pixelsPerUnit, 1f);
         }
     }
 
     public void SetProgress(float p) => progress = Mathf.Clamp01(p);
+
+    /// <summary>
+    /// Đặt progress và cập nhật mask ngay lập tức (không làm mượt, không trễ frame).
+    /// LevelSodRollMover gọi hàm này mỗi frame để cỏ luôn khớp với cuộn đất.
+    /// </summary>
+    public void ForceProgress(float p)
+    {
+        progress = Mathf.Clamp01(p);
+        DisplayedProgress = progress;
+        Apply(DisplayedProgress);
+    }
 }

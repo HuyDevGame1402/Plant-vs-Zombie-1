@@ -3,10 +3,9 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Script điều khiển cuộn cỏ và hiệu ứng hạt đất nâu rơi:
-/// - Tăng cường số lượng, tốc độ rơi mượt mà.
-/// - Thời gian sống/biến mất random từ 0.1s - 1.0s.
-/// - Thêm hiệu ứng xoay (rotation) ngẫu nhiên cả chiều thuận và nghịch khi hạt rơi.
+/// Controls the Level 1 sod roll and reproduces the SodRoll.xml debris emitter values.
+/// - Dirt particles spawn directly on the roll body (world space), so they follow the roll.
+/// - Can drive LevelSodRollAnimation (grass) so the grass and the roll move in perfect sync.
 /// </summary>
 public class LevelSodRollMover : MonoBehaviour
 {
@@ -21,6 +20,12 @@ public class LevelSodRollMover : MonoBehaviour
     [Tooltip("Vị trí kết thúc bên phải sân")]
     public float endX = 6f;
 
+    [Header("Đồng bộ với thảm cỏ")]
+    [Tooltip("Kéo object chứa LevelSodRollAnimation vào đây để cỏ chạy khớp với cuộn đất")]
+    public LevelSodRollAnimation grassAnimation;
+    [Tooltip("Bật: End X tự tính bằng đúng chiều rộng thảm cỏ (ghi đè giá trị End X ở trên lúc chạy)")]
+    public bool syncEndXWithGrass = true;
+
     [Header("Cấu hình Thu Nhỏ (Scale) khi Lăn")]
     [Tooltip("Scale nhỏ nhất khi lăn đến đích cuối (ví dụ: 0.45)")]
     public float minScale = 0.45f;
@@ -34,30 +39,44 @@ public class LevelSodRollMover : MonoBehaviour
     [Header("Canh chỉnh Cỏ Xanh Tròn (Offset so với Thân Đất)")]
     [Tooltip("Độ lệch X và Y tinh chỉnh thêm cho cuộn cỏ xanh")]
     public Vector2 grassRollOffset = new Vector2(0f, 0f);
+    [Tooltip("Độ chồng lấn giữa cuộn cỏ và mép dưới thân đất (đơn vị Unity). Tăng nếu còn khe hở.")]
+    public float grassOverlap = 0.02f;
 
     [Header("⚙️ TÙY CHỈNH HIỆU ỨNG HẠT ĐẤT")]
-    [Tooltip("Tần suất sinh chùm hạt đất (giây/lần)")]
-    public float dirtSpawnInterval = 0.03f;
+    [Tooltip("SodRoll.xml: SpawnRate giảm từ 200 xuống 100 hạt/giây")]
+    public Vector2 dirtSpawnRate = new Vector2(200f, 100f);
+    [Tooltip("SodRoll.xml: ParticleDuration 10–25 ticks, quy đổi 100 tick/giây")]
+    public Vector2 dirtLifeSeconds = new Vector2(0.10f, 0.25f);
+    [Tooltip("SodRoll.xml: LaunchSpeed 100, quy đổi ra đơn vị Unity/giây. Tăng lên 2-4 nếu muốn hạt văng mạnh hơn")]
+    public float dirtLaunchSpeed = 1f;
+    [Tooltip("SodRoll.xml: LaunchAngle [90,180] độ")]
+    public Vector2 dirtLaunchAngle = new Vector2(90f, 180f);
+    [Tooltip("Source ma sát mỗi tick: velocity *= 1 - 0.05")]
+    [Range(0f, 1f)] public float dirtFrictionPerTick = 0.05f;
+    [Tooltip("Gia tốc rơi (đơn vị Unity/giây²)")]
+    public float dirtAccelerationY = 10f;
+    [Tooltip("SodRoll.xml: ParticleScale [0.7,0.9]")]
+    public Vector2 dirtParticleScale = new Vector2(0.7f, 0.9f);
 
-    [Tooltip("Số lượng hạt đất sinh ra mỗi đợt")]
-    public int particlesPerSpawn = 25;
+    [Header("Giữ độ dày & độ nét của hạt đất đến cuối")]
+    [Tooltip("Bật: giữ số hạt/giây ở mức đầu (Dirt Spawn Rate X), không giảm dần về cuối")]
+    public bool keepSpawnRateConstant = true;
+    [Tooltip("Bù cho việc cuộn đất chạy nhanh dần (p^1.8): 0 = không bù, 1 = bù mạnh. Càng cao càng nhiều hạt ở cuối")]
+    [Range(0f, 1.5f)] public float speedCompensation = 0.8f;
+    [Tooltip("Bật: hạt không bị mờ dần theo tiến độ ở cuối (vẫn mờ theo vòng đời riêng của từng hạt)")]
+    public bool keepAlphaToEnd = true;
+    [Tooltip("Bật: vùng phát hạt giữ nguyên độ rộng, không hẹp dần về cuối")]
+    public bool keepEmitWidth = true;
 
-    [Tooltip("Quãng đường rơi của hạt đất (Chỉnh nhỏ để hạt rơi chậm rãi)")]
-    public float dirtFallDistance = 0.15f;
+    [Header("Vùng phát hạt (bám theo thân đất)")]
+    [Tooltip("Hạt văng ra phía sau (trái) cuộn đất. Bỏ tick nếu muốn văng sang phải.")]
+    public bool throwBackwards = true;
+    [Tooltip("Độ rộng vùng phát tại mép sau của thân đất (pixel): đầu → cuối")]
+    public Vector2 emitWidthPixels = new Vector2(25f, 1f);
 
-    [Header("⏳ TÙY CHỈNH THỜI GIAN SỐNG & BIẾN MẤT")]
-    [Tooltip("Thời gian sống ngắn nhất của hạt (giây)")]
-    public float minLifeTime = 0.1f;
-
-    [Tooltip("Thời gian sống dài nhất của hạt (giây)")]
-    public float maxLifeTime = 1.0f;
-
-    [Header("🌀 TÙY CHỈNH XOAY HẠT ĐẤT (ROTATION)")]
-    [Tooltip("Tốc độ quay tối thiểu (Độ/giây)")]
-    public float minRotationSpeed = -180f;
-
-    [Tooltip("Tốc độ quay tối đa (Độ/giây). Giá trị âm/dương sẽ quyết định chiều quay ngẫu nhiên.")]
-    public float maxRotationSpeed = 180f;
+    [Header("Particle spin")]
+    [Tooltip("SodRoll.xml: ParticleSpinSpeed [-1720,1720]")]
+    public Vector2 dirtSpinSpeed = new Vector2(-1720f, 1720f);
 
     [Header("Sorting Order (Hiển thị cao nhất)")]
     [Tooltip("Đặt từ 13 trở lên để cao hơn thân đất và cỏ xanh")]
@@ -70,20 +89,21 @@ public class LevelSodRollMover : MonoBehaviour
     [Tooltip("Kéo thanh này bằng tay để test vị trí và hiệu ứng bất cứ lúc nào")]
     public float progress = 0f;
 
-    [Tooltip("Thời gian chạy hoàn thành (giây) khi bật autoPlay")]
-    public float duration = 5f;
+    [Tooltip("SodRoll.xml SystemDuration=200 ticks, or 2 seconds at the source's 100 Hz update rate. Đây là thời gian chạy chung cho cả cuộn đất và thảm cỏ.")]
+    public float duration = 2f;
+
+    [Header("⚙️ TÙY CHỈNH TỐC ĐỘ QUAY CỎ")]
+    [Tooltip("Tổng số độ xoay của cuộn cỏ xanh từ đầu đến cuối (360 = 1 vòng, 720 = 2 vòng...)")]
+    public float totalRollAngle = 720f;
 
     private Transform dirtRollTf;   // Thân cuộn đất
     private Transform grassRollTf;  // Cuộn cỏ xanh tròn
+    private SpriteRenderer dirtBodySr;
     private float timer;
     private Vector3 spawnPosition;  // Vị trí gốc trên Scene
 
     // Danh sách Sprite các hạt đất nâu (vừa và nhỏ)
     private readonly List<Sprite> dirtParticleSprites = new List<Sprite>();
-
-    [Header("⚙️ TÙY CHỈNH TỐC ĐỘ QUAY CỎ")]
-    [Tooltip("Tổng số độ xoay của cuộn cỏ xanh từ đầu đến cuối (360 = 1 vòng, 720 = 2 vòng...)")]
-    public float totalRollAngle = 720f;
 
     private bool isCompleted = false;
 
@@ -92,19 +112,35 @@ public class LevelSodRollMover : MonoBehaviour
     {
         public GameObject gameObject;
         public SpriteRenderer spriteRenderer;
-        public Vector3 startPos;
+        public Vector3 position;
         public float lifeTime;
         public float maxLifeTime;
+        public float particleScale;
         public float rotationSpeed; // Tốc độ và chiều quay riêng cho từng hạt
+        public Vector2 velocity;
         public bool isActive;
     }
     private readonly List<DirtParticle> dirtPool = new List<DirtParticle>();
-    private float dirtSpawnTimer;
+    private float dirtSpawnAccumulator;
+    private const float SourceTicksPerSecond = 100f;
 
     void Awake()
     {
         spawnPosition = transform.localPosition;
         BuildRollObjects();
+    }
+
+    void Start()
+    {
+        if (grassAnimation == null) return;
+
+        // Cỏ không tự chạy nữa, chỉ đi theo progress của cuộn đất
+        grassAnimation.externalControl = true;
+        grassAnimation.ForceProgress(progress);
+
+        // Cuộn đất lăn đúng bằng chiều rộng thảm cỏ
+        if (syncEndXWithGrass)
+            endX = startX + grassAnimation.WorldWidth;
     }
 
     // Cắt sprite và tạo các GameObject con + Pool hạt đất
@@ -141,25 +177,19 @@ public class LevelSodRollMover : MonoBehaviour
             {
                 grassGreenSprite = Sprite.Create(atlasTexture, uRect, new Vector2(0.5f, 0.5f), pixelsPerUnit, 0, SpriteMeshType.FullRect);
             }
-            // Chỉ lấy đất nâu từ IMAGE_DIRTSMALL và IMAGE_DIRTBIG
-            else if (cleanId == "IMAGE_DIRTSMALL" || cleanId == "IMAGE_DIRTBIG")
+            // Chỉ lấy đất nâu từ IMAGE_DIRTSMALL
+            else if (cleanId == "IMAGE_DIRTSMALL")
             {
                 float cellW = w / cols;
                 float cellH = h / rows;
 
-                bool isBigDirtSheet = (cleanId == "IMAGE_DIRTBIG");
-
-                for (int rIdx = 0; rIdx < rows; rIdx++)
+                // SodRoll.xml has ImageFrames=8; cut the eight small-dirt frames from row one.
+                int frameCount = Mathf.Min(8, cols);
+                for (int cIdx = 0; cIdx < frameCount; cIdx++)
                 {
-                    for (int cIdx = 0; cIdx < cols; cIdx++)
-                    {
-                        if (isBigDirtSheet && (cellW > 60 || cellH > 60)) continue;
-
-                        float cx = x + (cIdx * cellW);
-                        float cy = y + (rIdx * cellH);
-                        var subRect = new Rect(cx, atlasTexture.height - cy - cellH, cellW, cellH);
-                        dirtParticleSprites.Add(Sprite.Create(atlasTexture, subRect, new Vector2(0.5f, 0.5f), pixelsPerUnit, 0, SpriteMeshType.FullRect));
-                    }
+                    float cx = x + cIdx * cellW;
+                    var subRect = new Rect(cx, atlasTexture.height - y - cellH, cellW, cellH);
+                    dirtParticleSprites.Add(Sprite.Create(atlasTexture, subRect, new Vector2(0.5f, 0.5f), pixelsPerUnit, 0, SpriteMeshType.FullRect));
                 }
             }
         }
@@ -172,6 +202,7 @@ public class LevelSodRollMover : MonoBehaviour
         dirtSr.sprite = dirtSprite;
         dirtSr.sortingOrder = baseSortingOrder;
         dirtRollTf = dirtGo.transform;
+        dirtBodySr = dirtSr;
 
         // --- Tạo GameObject con 2: Cuộn Cỏ Xanh Tròn ---
         var grassGo = new GameObject("GrassRoll_Cap");
@@ -197,17 +228,25 @@ public class LevelSodRollMover : MonoBehaviour
 
             AnimateRoll(progress);
 
-            // Sinh hạt đất liên tục đến sát mốc cuối (0.999f)
+            // Đồng bộ thảm cỏ theo đúng progress của cuộn đất (cùng frame, không trễ)
+            if (grassAnimation != null) grassAnimation.ForceProgress(progress);
+
+            // SodRoll.xml: SpawnRate 200→100 over SystemDuration=200 source ticks (2 seconds).
             if (dirtParticleSprites.Count > 0 && progress > 0f && progress < 0.999f)
             {
-                dirtSpawnTimer += Time.deltaTime;
-                if (dirtSpawnTimer >= dirtSpawnInterval)
+                float rate = keepSpawnRateConstant
+                    ? dirtSpawnRate.x
+                    : Mathf.Lerp(dirtSpawnRate.x, dirtSpawnRate.y, progress);
+
+                // Cuộn đất chạy nhanh dần nên cùng 1 số hạt/giây sẽ bị thưa ra ở cuối.
+                // Nhân thêm hệ số theo tiến độ để mật độ hạt trên quãng đường không giảm.
+                rate *= 1f + speedCompensation * progress;
+
+                dirtSpawnAccumulator += rate * Time.deltaTime;
+                while (dirtSpawnAccumulator >= 1f)
                 {
-                    dirtSpawnTimer = 0f;
-                    for (int i = 0; i < particlesPerSpawn; i++)
-                    {
-                        SpawnDirtParticle();
-                    }
+                    SpawnDirtParticle(progress);
+                    dirtSpawnAccumulator -= 1f;
                 }
             }
 
@@ -215,50 +254,36 @@ public class LevelSodRollMover : MonoBehaviour
             if (progress >= 0.9999f && !isCompleted)
             {
                 isCompleted = true;
-                StartCoroutine(HideRollObjectsWithDelay(0f)); // Chờ 0.5s rồi mới ẩn thân đất & cuộn cỏ
+                StartCoroutine(HideRollObjectsWithDelay(0f));
             }
         }
 
-        // 2. 🌟 LUÔN CẬP NHẬT HẠT ĐẤT: Đặt ở ngoài khối !isCompleted để các hạt đất đang rơi dở
-        // tiếp tục rơi, xoay và mờ dần alpha về 0 theo đúng vòng đời mà không bị đứng đơ hay phụ thuộc vào cuộn đất.
+        // 2. LUÔN CẬP NHẬT HẠT ĐẤT: đặt ngoài khối !isCompleted để các hạt đang rơi dở
+        // tiếp tục rơi, xoay và mờ dần theo đúng vòng đời.
         UpdateDirtParticles(Time.deltaTime);
     }
 
-    // Coroutine xử lý độ trễ và ẩn các đối tượng + hạt đất
     private System.Collections.IEnumerator HideRollObjectsWithDelay(float delay)
     {
-        // Chờ đúng số giây delay (0.5s) để người chơi thấy rõ điểm dừng cuối
         yield return new WaitForSeconds(delay);
 
-        // Ẩn thân đất cuộn và cuộn cỏ xanh
         if (dirtRollTf != null) dirtRollTf.gameObject.SetActive(false);
         if (grassRollTf != null) grassRollTf.gameObject.SetActive(false);
 
-        // Đảm bảo ẩn nốt bất kỳ hạt đất nào còn sót lại đang active trong pool
-        foreach (var p in dirtPool)
-        {
-            if (p != null && p.isActive)
-            {
-                p.isActive = false;
-                if (p.gameObject != null)
-                {
-                    p.gameObject.SetActive(false);
-                }
-            }
-        }
+        // Debris already thrown finishes its own flight and lifetime.
     }
 
-    // --- Quản lý Object Pool & Hiệu ứng hạt rơi, xoay ngẫu nhiên ---
-    void SpawnDirtParticle()
+    // --- Object pool for SodRoll.xml dirt particles ---
+    void SpawnDirtParticle(float p)
     {
-        if (dirtRollTf == null || grassRollTf == null || dirtParticleSprites.Count == 0) return;
+        if (dirtRollTf == null || grassRollTf == null || dirtBodySr == null || dirtParticleSprites.Count == 0) return;
 
         DirtParticle particle = null;
-        foreach (var p in dirtPool)
+        foreach (var pooledParticle in dirtPool)
         {
-            if (!p.isActive)
+            if (!pooledParticle.isActive)
             {
-                particle = p;
+                particle = pooledParticle;
                 break;
             }
         }
@@ -283,23 +308,30 @@ public class LevelSodRollMover : MonoBehaviour
         int randIndex = Random.Range(0, dirtParticleSprites.Count);
         particle.spriteRenderer.sprite = dirtParticleSprites[randIndex];
 
-        float topY = dirtRollTf.position.y + 0.55f;
-        float bottomY = grassRollTf.position.y - 0.3f;
-        float randomY = Random.Range(bottomY, topY);
+        particle.particleScale = Random.Range(dirtParticleScale.x, dirtParticleScale.y);
+        particle.gameObject.transform.localScale = Vector3.one * particle.particleScale;
 
-        float spawnX = transform.position.x + Random.Range(-0.18f, 0.05f);
+        // Sinh hạt ngay trên thân đất thực tế (world space) để luôn bám theo cuộn đất.
+        Bounds b = dirtBodySr.bounds;
 
-        particle.startPos = new Vector3(spawnX, randomY, transform.position.z);
-        particle.gameObject.transform.position = particle.startPos;
+        // Vùng phát ở mép sau (bên trái) của cuộn đất, hẹp dần theo tiến độ.
+        float emitWidth = (keepEmitWidth ? emitWidthPixels.x : Mathf.Lerp(emitWidthPixels.x, emitWidthPixels.y, p)) / pixelsPerUnit + 0.05f;
+        emitWidth = Mathf.Min(emitWidth, b.size.x);
+        float worldX = b.min.x + Random.Range(0f, emitWidth);
+        float worldY = Random.Range(b.min.y, b.max.y);
+        particle.position = new Vector3(worldX, worldY, dirtRollTf.position.z);
 
-        // Random góc xoay ban đầu ngẫu nhiên từ 0 đến 360 độ
+        // Hạt văng ra phía sau và lên trên (ngược chiều cuộn đất đang lăn sang phải)
+        float angle = Random.Range(dirtLaunchAngle.x, dirtLaunchAngle.y) * Mathf.Deg2Rad;
+        float dirX = throwBackwards ? -1f : 1f;
+        particle.velocity = new Vector2(dirX * Mathf.Sin(angle) * dirtLaunchSpeed, -Mathf.Cos(angle) * dirtLaunchSpeed);
+        particle.gameObject.transform.position = particle.position;
+
+        // SodRoll.xml RandomLaunchSpin: each particle starts at a random angle.
         particle.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
-
-        // Random tốc độ và chiều quay (cùng chiều hoặc ngược chiều kim đồng hồ)
-        particle.rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
-
+        particle.rotationSpeed = Random.Range(dirtSpinSpeed.x, dirtSpinSpeed.y);
         particle.lifeTime = 0f;
-        particle.maxLifeTime = Random.Range(minLifeTime, maxLifeTime);
+        particle.maxLifeTime = Random.Range(dirtLifeSeconds.x, dirtLifeSeconds.y);
         particle.isActive = true;
         particle.gameObject.SetActive(true);
 
@@ -327,16 +359,25 @@ public class LevelSodRollMover : MonoBehaviour
             }
             else
             {
-                // Rơi chậm rãi theo quãng đường ngắn
-                float currentY = p.startPos.y - (t * dirtFallDistance);
-                p.gameObject.transform.position = new Vector3(p.startPos.x, currentY, p.startPos.z);
+                // Match the source's 100 Hz particle update: friction 0.05 and downward acceleration.
+                int steps = Mathf.Max(1, Mathf.CeilToInt(dt * SourceTicksPerSecond));
+                float step = dt / steps;
+                for (int i = 0; i < steps; i++)
+                {
+                    p.velocity *= Mathf.Pow(1f - dirtFrictionPerTick, step * SourceTicksPerSecond);
+                    p.velocity.y -= dirtAccelerationY * step;
+                    p.position += (Vector3)(p.velocity * step);
+                    p.gameObject.transform.Rotate(0f, 0f, p.rotationSpeed * step);
+                }
+                p.gameObject.transform.position = p.position;
 
-                // Xoay vòng hạt đất liên tục theo tốc độ và chiều đã random
-                p.gameObject.transform.Rotate(0f, 0f, p.rotationSpeed * dt);
-
-                // Mờ dần alpha tương ứng theo vòng đời sống của từng hạt
+                // XML ParticleAlpha stays at 1 for 70% of life then fades; SystemAlpha fades after 80%.
                 Color col = p.spriteRenderer.color;
-                col.a = Mathf.Lerp(1f, 0f, t);
+                float particleAlpha = t < 0.7f ? 1f : Mathf.Lerp(1f, 0f, (t - 0.7f) / 0.3f);
+                float systemAlpha = (keepAlphaToEnd || progress < 0.8f)
+                    ? 1f
+                    : Mathf.Lerp(1f, 0f, Mathf.InverseLerp(0.8f, 1f, progress));
+                col.a = particleAlpha * systemAlpha;
                 p.spriteRenderer.color = col;
             }
         }
@@ -344,20 +385,15 @@ public class LevelSodRollMover : MonoBehaviour
 
     void AnimateRoll(float p)
     {
-        // Đồng bộ hàm mũ easing (dùng chung 1.8f giống bên thảm cỏ để tốc độ tăng/giảm khớp nhau từng khung hình)
         float easeP = Mathf.Pow(p, 1.8f);
-
-        // Dùng easeP thay vì p thuần để vị trí di chuyển ngang cũng có độ trễ/gia tốc giống hiệu ứng mở thảm cỏ
         float currentX = Mathf.Lerp(spawnPosition.x + startX, spawnPosition.x + endX, easeP);
         transform.localPosition = new Vector3(currentX, spawnPosition.y, spawnPosition.z);
-
         float currentScaleX = Mathf.Lerp(1f, minScale, p);
 
         if (dirtRollTf != null)
         {
             float currentDirtScaleY = Mathf.Lerp(1f, 1.15f, p) * dirtScale.y;
             dirtRollTf.localScale = new Vector3(currentScaleX * dirtScale.x, currentDirtScaleY, 1f);
-
             float currentDirtPosY = Mathf.Lerp(0f, -0.123f, p);
             dirtRollTf.localPosition = new Vector3(0f, currentDirtPosY, 0f);
         }
@@ -365,14 +401,30 @@ public class LevelSodRollMover : MonoBehaviour
         if (grassRollTf != null)
         {
             grassRollTf.localScale = new Vector3(currentScaleX * grassScale.x, currentScaleX * grassScale.y, 1f);
+            grassRollTf.localRotation = Quaternion.Euler(0f, 0f, -easeP * totalRollAngle);
 
-            // Góc xoay cuộn cỏ chạy theo easeP để đồng điệu tốc độ lăn
-            float rollAngle = -easeP * totalRollAngle;
-            grassRollTf.localRotation = Quaternion.Euler(0f, 0f, rollAngle);
+            // Cuộn cỏ bám vào mép dưới thực tế của Sprite thân đất.
+            float grassLocalY = -0.755f; // fallback nếu thiếu SpriteRenderer/Sprite
+            SpriteRenderer dirtRenderer = dirtRollTf != null
+                ? dirtRollTf.GetComponent<SpriteRenderer>()
+                : null;
+            SpriteRenderer grassRenderer = grassRollTf.GetComponent<SpriteRenderer>();
 
-            float interpolatedGrassPosY = Mathf.Lerp(-0.755f, -1.005f, p);
-            Vector3 finalPos = new Vector3(grassRollOffset.x, interpolatedGrassPosY + grassRollOffset.y, 0f);
-            grassRollTf.localPosition = finalPos;
+            if (dirtRenderer != null && dirtRenderer.sprite != null &&
+                grassRenderer != null && grassRenderer.sprite != null)
+            {
+                float dirtBottomY =
+                    dirtRollTf.localPosition.y +
+                    dirtRenderer.sprite.bounds.min.y * Mathf.Abs(dirtRollTf.localScale.y);
+
+                grassLocalY = dirtBottomY + grassOverlap;
+            }
+
+            grassRollTf.localPosition = new Vector3(
+                grassRollOffset.x,
+                grassLocalY + grassRollOffset.y,
+                0f
+            );
         }
     }
 
