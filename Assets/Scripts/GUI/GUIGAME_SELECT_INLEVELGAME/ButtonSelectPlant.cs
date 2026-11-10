@@ -20,6 +20,8 @@ public class ButtonSelectPlant : MonoBehaviour
     private PlantCooldownUI plantCooldownUI;
     public PlantCooldownUI PlantCooldownUI => plantCooldownUI;
 
+    [SerializeField] private bool isLockedPlant = false;
+
     private void Awake()
     {
         GetComponent<Button>().onClick.AddListener(OnClickChoosePlant);
@@ -49,7 +51,7 @@ public class ButtonSelectPlant : MonoBehaviour
 
     private void OnClickChoosePlant()
     {
-        if (hasOnChoosePlant == false) return;
+        if (hasOnChoosePlant == false || isLockedPlant == true) return;
 
         OnChoosePlantEvent?.Invoke(this, plantData);
 
@@ -87,5 +89,10 @@ public class ButtonSelectPlant : MonoBehaviour
     private void ActivePlantClick()
     {
         hasOnChoosePlant = true;
+    }
+
+    public void SetIsLockedPlant(bool islocked)
+    {
+        isLockedPlant = islocked;
     }
 }

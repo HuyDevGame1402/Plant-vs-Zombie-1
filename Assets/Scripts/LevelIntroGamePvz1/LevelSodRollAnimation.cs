@@ -63,6 +63,16 @@ public class LevelSodRollAnimation : MonoBehaviour
     float demoTime;
     SpriteRenderer grassSr;
 
+    private Coroutine blinkCoroutine;
+
+    private readonly Color normalColor = Color.white;
+    private readonly Color darkColor = new Color(
+        105f / 255f,
+        105f / 255f,
+        105f / 255f,
+        1f
+    );
+
     void Awake()
     {
         BuildSprites();
@@ -186,5 +196,67 @@ public class LevelSodRollAnimation : MonoBehaviour
         progress = Mathf.Clamp01(p);
         DisplayedProgress = progress;
         Apply(DisplayedProgress);
+    }
+
+    /// <summary>
+    /// Bắt đầu hiệu ứng nhấp nháy tối.
+    /// Trắng -> #696969 (1.5s) -> Trắng (1.5s) -> Lặp lại.
+    /// </summary>
+    public void StartBlinkDark()
+    {
+        if (grassSr == null) return;
+
+        // Tránh chạy nhiều Coroutine cùng lúc
+        if (blinkCoroutine != null)
+            StopCoroutine(blinkCoroutine);
+
+        blinkCoroutine = StartCoroutine(BlinkDarkCoroutine());
+    }
+
+    private System.Collections.IEnumerator BlinkDarkCoroutine()
+    {
+        while (true)
+        {
+            // Trắng -> Xám đậm
+            float timer = 0f;
+
+            while (timer < 1.5f)
+            {
+                timer += Time.deltaTime;
+
+                float t = Mathf.Clamp01(timer / 1.5f);
+                grassSr.color = Color.Lerp(normalColor, darkColor, t);
+
+                yield return null;
+            }
+
+            // Xám đậm -> Trắng
+            timer = 0f;
+
+            while (timer < 1.5f)
+            {
+                timer += Time.deltaTime;
+
+                float t = Mathf.Clamp01(timer / 1.5f);
+                grassSr.color = Color.Lerp(darkColor, normalColor, t);
+
+                yield return null;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Dừng hiệu ứng và đặt màu dải cỏ về trắng.
+    /// </summary>
+    public void ResetGrassColor()
+    {
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        if (grassSr != null)
+            grassSr.color = Color.white;
     }
 }

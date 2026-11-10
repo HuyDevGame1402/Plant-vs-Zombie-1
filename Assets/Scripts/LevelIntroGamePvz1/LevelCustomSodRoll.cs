@@ -6,12 +6,17 @@ using UnityEngine;
 /// Controls the Level 1 sod roll and reproduces the SodRoll.xml debris emitter values.
 /// - Dirt particles spawn directly on the roll body (world space), so they follow the roll.
 /// - Can drive LevelSodRollAnimation (grass) so the grass and the roll move in perfect sync.
+/// - Được Level1Intro điều khiển: gọi Play() để bắt đầu, chờ IsFinished để biết đã xong.
 /// </summary>
 public class LevelSodRollMover : MonoBehaviour
 {
     [Header("Cấu hình Atlas & Dữ liệu")]
     public Texture2D atlasTexture;           // LoadingImages_PlantsZombies_2_960_00.png
     public TextAsset atlasJson;              // LoadingImages_PlantsZombies_2_960.json
+
+    [Header("Điều khiển từ Intro")]
+    [Tooltip("Tắt: cuộn đất đứng yên (và bị ẩn) chờ Level1Intro gọi Play(). Bật: tự chạy ngay khi Start.")]
+    public bool playOnStart = false;
 
     [Header("Tùy chỉnh Quãng đường Lăn")]
     public float pixelsPerUnit = 100f;
@@ -84,9 +89,10 @@ public class LevelSodRollMover : MonoBehaviour
     public int baseSortingOrder = 10;
 
     [Header("Tiến độ & Chạy thử")]
+    [Tooltip("Chỉ có tác dụng khi đã Play(). Nếu tắt, progress phải được set tay bằng thanh kéo bên dưới.")]
     public bool autoPlay = true;
     [Range(0f, 1f)]
-    [Tooltip("Kéo thanh này bằng tay để test vị trí và hiệu ứng bất cứ lúc nào")]
+    [Tooltip("Kéo thanh này bằng tay để test vị trí và hiệu ứng (cần bật Play On Start hoặc gọi Play())")]
     public float progress = 0f;
 
     [Tooltip("SodRoll.xml SystemDuration=200 ticks, or 2 seconds at the source's 100 Hz update rate. Đây là thời gian chạy chung cho cả cuộn đất và thảm cỏ.")]
@@ -95,6 +101,12 @@ public class LevelSodRollMover : MonoBehaviour
     [Header("⚙️ TÙY CHỈNH TỐC ĐỘ QUAY CỎ")]
     [Tooltip("Tổng số độ xoay của cuộn cỏ xanh từ đầu đến cuối (360 = 1 vòng, 720 = 2 vòng...)")]
     public float totalRollAngle = 720f;
+
+    /// <summary>True khi cuộn đất đã lăn xong (cỏ cũng đã trải xong vì chạy cùng progress).</summary>
+    public bool IsFinished => isCompleted;
+
+    /// <summary>True khi đang chạy (đã Play() nhưng chưa xong).</summary>
+    public bool IsPlaying => isPlaying && !isCompleted;
 
     private Transform dirtRollTf;   // Thân cuộn đất
     private Transform grassRollTf;  // Cuộn cỏ xanh tròn
@@ -105,6 +117,7 @@ public class LevelSodRollMover : MonoBehaviour
     // Danh sách Sprite các hạt đất nâu (vừa và nhỏ)
     private readonly List<Sprite> dirtParticleSprites = new List<Sprite>();
 
+    private bool isPlaying = false;
     private bool isCompleted = false;
 
     // Hệ thống Object Pool cho hạt đất rơi (Độc lập chuyển động & Xoay)
@@ -132,15 +145,59 @@ public class LevelSodRollMover : MonoBehaviour
 
     void Start()
     {
-        if (grassAnimation == null) return;
+        if (playOnStart) isPlaying = true;
+        SetupGrassSync();
+    }
+
+    /// <summary>
+    /// Khóa dải cỏ vào progress của cuộn đất và tính lại endX theo chiều rộng thảm cỏ.
+    /// Gọi ở Start và ở Play() để chắc chắn luôn được áp dụng.
+    /// </summary>
+    void SetupGrassSync()
+    {
+        if (grassAnimation == null)
+        {
+            Debug.LogWarning("[LevelSodRollMover] Chưa gán Grass Animation! Dải cỏ sẽ tự chạy riêng (demoDuration) và " +
+                             "cuộn đất sẽ lăn theo End X thủ công, nên hai bên sẽ lệch nhau.", this);
+            return;
+        }
 
         // Cỏ không tự chạy nữa, chỉ đi theo progress của cuộn đất
         grassAnimation.externalControl = true;
         grassAnimation.ForceProgress(progress);
 
-        // Cuộn đất lăn đúng bằng chiều rộng thảm cỏ
+        // Cuộn đất lăn đúng bằng chiều rộng thảm cỏ.
+        // WorldWidth chỉ là chiều rộng theo đơn vị cục bộ của dải cỏ, nên phải nhân với scale thực tế
+        // của object dải cỏ (lossyScale), rồi quy đổi về không gian của object cha của cuộn đất
+        // (vì cuộn đất di chuyển bằng localPosition trong không gian đó).
         if (syncEndXWithGrass)
-            endX = startX + grassAnimation.WorldWidth;
+        {
+            float grassWorldWidth = grassAnimation.WorldWidth * Mathf.Abs(grassAnimation.transform.lossyScale.x);
+            float parentScaleX = transform.parent != null ? Mathf.Abs(transform.parent.lossyScale.x) : 1f;
+            if (parentScaleX < 0.0001f) parentScaleX = 1f;
+
+            endX = startX + grassWorldWidth / parentScaleX;
+        }
+    }
+
+    /// <summary>
+    /// Bắt đầu chạy cuộn đất + dải cỏ. Level1Intro gọi hàm này sau khi camera intro xong.
+    /// </summary>
+    public void Play()
+    {
+        if (isPlaying || isCompleted) return;
+
+        timer = 0f;
+        progress = 0f;
+        isPlaying = true;
+
+        SetupGrassSync();
+
+        if (dirtRollTf != null) dirtRollTf.gameObject.SetActive(true);
+        if (grassRollTf != null) grassRollTf.gameObject.SetActive(true);
+
+        AnimateRoll(progress);
+        if (grassAnimation != null) grassAnimation.ForceProgress(progress);
     }
 
     // Cắt sprite và tạo các GameObject con + Pool hạt đất
@@ -213,10 +270,21 @@ public class LevelSodRollMover : MonoBehaviour
         grassRollTf = grassGo.transform;
 
         AnimateRoll(progress);
+
+        // Ẩn cuộn đất cho đến khi Play() để không hiện sẵn lúc camera đang chạy
+        dirtGo.SetActive(playOnStart);
+        grassGo.SetActive(playOnStart);
     }
 
     void Update()
     {
+        // Chưa Play: đứng yên, chỉ cập nhật hạt (nếu có)
+        if (!isPlaying)
+        {
+            UpdateDirtParticles(Time.deltaTime);
+            return;
+        }
+
         // 1. Logic chạy animation cuộn cỏ và sinh hạt đất (chỉ chạy khi chưa hoàn thành)
         if (!isCompleted)
         {
