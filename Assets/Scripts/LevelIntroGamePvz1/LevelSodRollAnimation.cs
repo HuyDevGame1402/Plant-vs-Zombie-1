@@ -220,11 +220,11 @@ public class LevelSodRollAnimation : MonoBehaviour
             // Trắng -> Xám đậm
             float timer = 0f;
 
-            while (timer < 1.5f)
+            while (timer < 0.75f)
             {
                 timer += Time.deltaTime;
 
-                float t = Mathf.Clamp01(timer / 1.5f);
+                float t = Mathf.Clamp01(timer / 0.75f);
                 grassSr.color = Color.Lerp(normalColor, darkColor, t);
 
                 yield return null;
@@ -233,11 +233,11 @@ public class LevelSodRollAnimation : MonoBehaviour
             // Xám đậm -> Trắng
             timer = 0f;
 
-            while (timer < 1.5f)
+            while (timer < 0.75f)
             {
                 timer += Time.deltaTime;
 
-                float t = Mathf.Clamp01(timer / 1.5f);
+                float t = Mathf.Clamp01(timer / 0.75f);
                 grassSr.color = Color.Lerp(darkColor, normalColor, t);
 
                 yield return null;

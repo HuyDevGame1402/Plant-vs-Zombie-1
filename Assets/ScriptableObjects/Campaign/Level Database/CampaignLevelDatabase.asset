@@ -26,6 +26,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 9082272447644362218, guid: 1a97dc810b30df44d8751161607e8463, type: 3}
   - world: 1
     level: 2
     baseWaves: 6
@@ -39,6 +40,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 3
     baseWaves: 8
@@ -53,6 +55,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - TRAFFIC_CONE
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 4
     baseWaves: 10
@@ -66,6 +69,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 5
     baseWaves: 8
@@ -79,6 +83,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 6
     baseWaves: 10
@@ -93,6 +98,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - POLEVAULTER
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 7
     baseWaves: 20
@@ -106,6 +112,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 8
     baseWaves: 10
@@ -120,6 +127,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - PAIL
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 9
     baseWaves: 20
@@ -133,6 +141,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 1
     level: 10
     baseWaves: 20
@@ -146,6 +155,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 1
     baseWaves: 10
@@ -160,6 +170,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - NEWSPAPER
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 2
     baseWaves: 20
@@ -173,6 +184,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 3
     baseWaves: 10
@@ -187,6 +199,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - DOOR
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 4
     baseWaves: 20
@@ -200,6 +213,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 5
     baseWaves: 10
@@ -213,6 +227,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 6
     baseWaves: 10
@@ -227,6 +242,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - FOOTBALL
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 7
     baseWaves: 20
@@ -240,6 +256,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 8
     baseWaves: 10
@@ -255,6 +272,7 @@ MonoBehaviour:
     - DANCER
     - BACKUP_DANCER
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 9
     baseWaves: 20
@@ -268,6 +286,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 2
     level: 10
     baseWaves: 20
@@ -281,6 +300,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 1
     baseWaves: 10
@@ -294,6 +314,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a00000014000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 2
     baseWaves: 20
@@ -307,6 +328,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 3
     baseWaves: 20
@@ -321,6 +343,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - SNORKEL
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 4
     baseWaves: 30
@@ -334,6 +357,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e00000028000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 5
     baseWaves: 20
@@ -347,6 +371,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 6
     baseWaves: 20
@@ -362,6 +387,7 @@ MonoBehaviour:
     - ZAMBONI
     - BOBSLED
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 7
     baseWaves: 30
@@ -375,6 +401,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e00000028000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 8
     baseWaves: 20
@@ -389,6 +416,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - DOLPHIN_RIDER
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 9
     baseWaves: 30
@@ -402,6 +430,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e00000028000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 3
     level: 10
     baseWaves: 30
@@ -415,6 +444,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 1
     baseWaves: 10
@@ -429,6 +459,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - JACK_IN_THE_BOX
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 2
     baseWaves: 20
@@ -442,6 +473,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 3
     baseWaves: 10
@@ -456,6 +488,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - BALLOON
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 4
     baseWaves: 20
@@ -469,6 +502,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 5
     baseWaves: 20
@@ -482,6 +516,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 6
     baseWaves: 10
@@ -496,6 +531,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - DIGGER
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 7
     baseWaves: 20
@@ -509,6 +545,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 8
     baseWaves: 10
@@ -523,6 +560,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds:
     - POGO
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 9
     baseWaves: 20
@@ -536,6 +574,7 @@ MonoBehaviour:
     replayFlagWaveNumbers: 0a000000140000001e000000
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: 
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 4
     level: 10
     baseWaves: 20
@@ -551,6 +590,7 @@ MonoBehaviour:
     - YETI
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 1
     baseWaves: 10
@@ -566,6 +606,7 @@ MonoBehaviour:
     - BUNGEE
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 2
     baseWaves: 20
@@ -580,6 +621,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 3
     baseWaves: 20
@@ -595,6 +637,7 @@ MonoBehaviour:
     - LADDER
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 4
     baseWaves: 30
@@ -609,6 +652,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 5
     baseWaves: 20
@@ -623,6 +667,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 6
     baseWaves: 20
@@ -638,6 +683,7 @@ MonoBehaviour:
     - CATAPULT
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 7
     baseWaves: 30
@@ -652,6 +698,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 8
     baseWaves: 20
@@ -669,6 +716,7 @@ MonoBehaviour:
     - REDEYE_GARGANTUAR
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 9
     baseWaves: 30
@@ -683,6 +731,7 @@ MonoBehaviour:
     guaranteedIntroZombieTypeIds: []
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   - world: 5
     level: 10
     baseWaves: 30
@@ -698,6 +747,7 @@ MonoBehaviour:
     - BOSS
     yetiMayBeIncludedConditionally: Only if CanSpawnYetis() allows it; Yeti is excluded
       from the final-wave missing-types guarantee.
+    zombieIdleShowBeforeGame: {fileID: 0}
   timing:
     ticksPerSecond: 100
     standardInitialDelayTicks: 1800

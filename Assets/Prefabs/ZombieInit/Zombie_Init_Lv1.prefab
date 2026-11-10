@@ -1,0 +1,381 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2885534227043856984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3955132439617248937}
+  - component: {fileID: 6100850947665807267}
+  m_Layer: 2
+  m_Name: NormalZombie_Animation (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3955132439617248937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885534227043856984}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.39, y: 0.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4432363116774085549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6100850947665807267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885534227043856984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d84b82b8607d5489500bddb9ab6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
+  currentLane: 2
+  animationSpeed: 1
+  blendDuration: 0.12
+  randomWalkVariant: 1
+  idleClip: idle
+  idleClip2: idle2
+  walkClip: walk
+  walkClip2: walk2
+  eatClip: eat
+  deathClip: death
+  deathHeadlessClip: death2
+  headlessFallDelay: 2
+  moveWhileWalking: 0
+  walkSpeed: 0.375
+  fadeAfterDeath: 1
+  lingerTime: 1.5
+  fadeDuration: 1
+  destroyAfterFade: 1
+  debrisGravity: 9
+  maxHealth: 270
+  armLostHealth: 135
+--- !u!1 &6226278919497847810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7321266711564098183}
+  - component: {fileID: 5127694029120649838}
+  m_Layer: 2
+  m_Name: NormalZombie_Animation (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7321266711564098183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226278919497847810}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.59, y: -0.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4432363116774085549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5127694029120649838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226278919497847810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d84b82b8607d5489500bddb9ab6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
+  currentLane: 2
+  animationSpeed: 1
+  blendDuration: 0.12
+  randomWalkVariant: 1
+  idleClip: idle
+  idleClip2: idle2
+  walkClip: walk
+  walkClip2: walk2
+  eatClip: eat
+  deathClip: death
+  deathHeadlessClip: death2
+  headlessFallDelay: 2
+  moveWhileWalking: 0
+  walkSpeed: 0.375
+  fadeAfterDeath: 1
+  lingerTime: 1.5
+  fadeDuration: 1
+  destroyAfterFade: 1
+  debrisGravity: 9
+  maxHealth: 270
+  armLostHealth: 135
+--- !u!1 &7522015237197928157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2210300853169333818}
+  - component: {fileID: 4285699918026100754}
+  m_Layer: 2
+  m_Name: NormalZombie_Animation (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2210300853169333818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7522015237197928157}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.08, y: -3.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4432363116774085549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4285699918026100754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7522015237197928157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d84b82b8607d5489500bddb9ab6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
+  currentLane: 2
+  animationSpeed: 1
+  blendDuration: 0.12
+  randomWalkVariant: 1
+  idleClip: idle
+  idleClip2: idle2
+  walkClip: walk
+  walkClip2: walk2
+  eatClip: eat
+  deathClip: death
+  deathHeadlessClip: death2
+  headlessFallDelay: 2
+  moveWhileWalking: 0
+  walkSpeed: 0.375
+  fadeAfterDeath: 1
+  lingerTime: 1.5
+  fadeDuration: 1
+  destroyAfterFade: 1
+  debrisGravity: 9
+  maxHealth: 270
+  armLostHealth: 135
+--- !u!1 &8496004894070934774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8640081168530873171}
+  - component: {fileID: 8900439431487317691}
+  m_Layer: 2
+  m_Name: NormalZombie_Animation (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8640081168530873171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496004894070934774}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.93, y: -1.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4432363116774085549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8900439431487317691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496004894070934774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d84b82b8607d5489500bddb9ab6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
+  currentLane: 2
+  animationSpeed: 1
+  blendDuration: 0.12
+  randomWalkVariant: 1
+  idleClip: idle
+  idleClip2: idle2
+  walkClip: walk
+  walkClip2: walk2
+  eatClip: eat
+  deathClip: death
+  deathHeadlessClip: death2
+  headlessFallDelay: 2
+  moveWhileWalking: 0
+  walkSpeed: 0.375
+  fadeAfterDeath: 1
+  lingerTime: 1.5
+  fadeDuration: 1
+  destroyAfterFade: 1
+  debrisGravity: 9
+  maxHealth: 270
+  armLostHealth: 135
+--- !u!1 &8585330358938033291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9138077776574783056}
+  - component: {fileID: 2637288099983921937}
+  m_Layer: 2
+  m_Name: NormalZombie_Animation (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9138077776574783056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585330358938033291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.69, y: 1.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4432363116774085549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2637288099983921937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585330358938033291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d84b82b8607d5489500bddb9ab6882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 316841b885ebbf0488d1f445df43ad73, type: 2}
+  currentLane: 2
+  animationSpeed: 1
+  blendDuration: 0.12
+  randomWalkVariant: 1
+  idleClip: idle
+  idleClip2: idle2
+  walkClip: walk
+  walkClip2: walk2
+  eatClip: eat
+  deathClip: death
+  deathHeadlessClip: death2
+  headlessFallDelay: 2
+  moveWhileWalking: 0
+  walkSpeed: 0.375
+  fadeAfterDeath: 1
+  lingerTime: 1.5
+  fadeDuration: 1
+  destroyAfterFade: 1
+  debrisGravity: 9
+  maxHealth: 270
+  armLostHealth: 135
+--- !u!1 &9082272447644362218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4432363116774085549}
+  - component: {fileID: 5280627466264327621}
+  m_Layer: 0
+  m_Name: Zombie_Init_Lv1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4432363116774085549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082272447644362218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9138077776574783056}
+  - {fileID: 3955132439617248937}
+  - {fileID: 7321266711564098183}
+  - {fileID: 8640081168530873171}
+  - {fileID: 2210300853169333818}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5280627466264327621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082272447644362218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1165fb9666da41e4ba8c61689ff3d581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -27,6 +27,7 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
     [SerializeField] private GameObject[] arrayText = new GameObject[11];
 
     [SerializeField] private LevelSodRollAnimation grassAnimation;
+    [SerializeField] private CampaignWaveSpawner waveSpawner;
 
     public IEnumerator PlayIntro()
     {
@@ -90,14 +91,13 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
 
         try
         {
-            // 7. Chờ trồng đủ 2 Peashooter
+            // Chờ click chọn cây lần 2 và trồng đủ 2 Peashooter
             yield return new WaitUntil(
-                () => plantedPeashooterCount >= 2
+                () => plantedPeashooterCount >= 2 && choosePlantCount >= 1
             );
         }
         finally
         {
-            // 8. Hủy đăng ký Event
             buttonSelectPlant.OnChoosePlantEvent -= HandleChoosePlant;
             manager.OnCreatedPlantEvent -= HandlePlantCreated;
             sunManager.OnSunMoneyChanged -= HandleSunMoneyChanged;
@@ -110,11 +110,8 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
     // PLANT SELECTION EVENT
     // =========================================
 
-    private void HandleChoosePlant(
-        ButtonSelectPlant button,
-        PlantData plantData)
+    private void HandleChoosePlant(ButtonSelectPlant button, PlantData plantData)
     {
-        // Click chọn cây lần đầu tiên
         if (!hasChosenPlant)
         {
             hasChosenPlant = true;
@@ -122,15 +119,10 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
             return;
         }
 
-        // Chỉ bắt đầu nhận click sau khi trồng Peashooter thứ hai
-        if (plantedPeashooterCount >= 2)
+        if (plantedPeashooterCount >= 1 && choosePlantCount == 0)
         {
             choosePlantCount++;
-
-            if (choosePlantCount == 1)
-            {
-                OnSecondChoosePlant();
-            }
+            OnSecondChoosePlant();
         }
     }
 
@@ -144,7 +136,7 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
 
     private void OnSecondChoosePlant()
     {
-        Debug.Log("Người chơi đã click chọn cây sau khi trồng Peashooter thứ hai!");
+        Debug.LogWarning("Người chơi đã click chọn cây sau khi trồng Peashooter thứ hai!");
 
         // Action khi click chọn cây lần thứ hai
         grassAnimation.StartBlinkDark();

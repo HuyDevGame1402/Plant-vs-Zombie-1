@@ -27,4 +27,6 @@ public class CampaignLevelData
 
     // PvZ-Portable uses campaign-wide level numbers from 1 to 50.
     public int GlobalLevel => (world - 1) * 10 + level;
+
+    public GameObject zombieIdleShowBeforeGame;
 }

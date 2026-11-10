@@ -131,7 +131,7 @@ TextureImporter:
         width: 173
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,6 +139,111 @@ TextureImporter:
       bones: []
       spriteID: 27e2caaa867aadc4980e25e83442649f
       internalID: -1122199084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LOADINGIMAGES_PLANTSZOMBIES_3_960_00 1_0
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 463
+        width: 319
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b04aa684bf13c43b8c592888d94829
+      internalID: 1792598796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LOADINGIMAGES_PLANTSZOMBIES_3_960_00 1_1
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 410
+        width: 319
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d8b9fb173b1b942aeb89e7e4a34766
+      internalID: -1923052421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LOADINGIMAGES_PLANTSZOMBIES_3_960_00 1_2
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 187
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54e1e1f418a60a42a51d10741a62071
+      internalID: -120191391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LOADINGIMAGES_PLANTSZOMBIES_3_960_00 1_3
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 199
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4336a1d9c43a1e34eb1aa1fa19a2cd7d
+      internalID: 1879237531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LOADINGIMAGES_PLANTSZOMBIES_3_960_00 1_5
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 189
+        width: 8
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928e56af3b7e0b14fb13873c4d1a4a07
+      internalID: -379919120
       vertices: []
       indices: 
       edges: []

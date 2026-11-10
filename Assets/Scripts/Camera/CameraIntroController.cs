@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -28,34 +29,46 @@ public class CameraIntroController : MonoBehaviour
 
     private Vector3 startPosition = new Vector3(0f, 0f, -10f);
 
+    // Event được gọi khi camera bắt đầu quay về vị trí cũ.
+    public event Action OnCameraReturn;
+
     private void Start()
     {
-        if (cameraTransform == null)
+        if (cameraTransform == null && Camera.main != null)
             cameraTransform = Camera.main.transform;
 
-        cameraTransform.position = startPosition;
+        if (cameraTransform != null)
+            cameraTransform.position = startPosition;
 
-        //StartCoroutine(PlayCameraIntro());
+        // StartCoroutine(PlayCameraIntro());
     }
 
     public IEnumerator PlayCameraIntro()
     {
-        // Di chuyển camera sang phải
+        if (cameraTransform == null)
+        {
+            Debug.LogError("CameraIntroController: Camera Transform is missing!", this);
+            yield break;
+        }
+
+        // Di chuyển camera sang phải.
         yield return StartCoroutine(MoveCamera(
             startPosition,
             new Vector3(targetX, 0f, -10f),
             true
         ));
 
-        // Chờ tại vị trí đích
+        // Chờ tại vị trí đích.
         yield return new WaitForSeconds(waitTime);
 
-        // Quay camera về vị trí ban đầu
+        // Quay camera về vị trí ban đầu.
         yield return StartCoroutine(MoveCamera(
             new Vector3(targetX, 0f, -10f),
             startPosition,
             false
         ));
+        // Invoke event khi camera chuẩn bị quay về.
+        OnCameraReturn?.Invoke();
     }
 
     private IEnumerator MoveCamera(
@@ -73,7 +86,7 @@ public class CameraIntroController : MonoBehaviour
 
             float progress = Mathf.Clamp01(elapsed / moveDuration);
 
-            // Di chuyển mượt
+            // Di chuyển mượt.
             float smoothProgress = Mathf.SmoothStep(0f, 1f, progress);
 
             cameraTransform.position = Vector3.Lerp(
@@ -82,7 +95,7 @@ public class CameraIntroController : MonoBehaviour
                 smoothProgress
             );
 
-            // Bắt đầu fade tên người chơi khi vượt ngưỡng
+            // Bắt đầu fade tên người chơi khi vượt ngưỡng.
             if (fadeName && !fadeStarted && progress >= fadeStartProgress)
             {
                 fadeStarted = true;
