@@ -276,6 +276,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  debugDamageKey: 1
   currentBodyHealth: 0
   currentArmorHealth: 
 --- !u!50 &4054568740184346881
@@ -355,6 +356,7 @@ MonoBehaviour:
   blendDuration: 0.12
   randomWalkVariant: 1
   idleClip: idle
+  idleClip2: idle2
   walkClip: walk
   walkClip2: walk2
   eatClip: eat

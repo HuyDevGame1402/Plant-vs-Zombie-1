@@ -245,6 +245,15 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
         grassAnimation.ResetGrassColor();
         arrayText[9].SetActive(false);
         arrayText[10].SetActive(true);
+        waveSpawner.StartSpawning();
+        StartCoroutine(CoroutineDelayDisableTextGUI());
+    }
+
+    private IEnumerator CoroutineDelayDisableTextGUI()
+    {
+        yield return new WaitForSeconds(3f);
+        imageBgText.SetActive(false);
+        arrayText[10].SetActive(false);
     }
 
     private void OnPlantedAdditionalPeashooter()

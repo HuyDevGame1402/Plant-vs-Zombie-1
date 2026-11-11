@@ -14,126 +14,151 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombies:
   - zombieType: 0
+    prefab: {fileID: 6163537500453435355, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
     zombieValue: 1
     pickWeight: 4000
     startingLevel: 1
     firstAllowedWave: 1
   - zombieType: 1
+    prefab: {fileID: 0}
     zombieValue: 1
     pickWeight: 0
     startingLevel: 1
     firstAllowedWave: 1
   - zombieType: 2
+    prefab: {fileID: 0}
     zombieValue: 2
     pickWeight: 4000
     startingLevel: 3
     firstAllowedWave: 1
   - zombieType: 3
+    prefab: {fileID: 0}
     zombieValue: 2
     pickWeight: 2000
     startingLevel: 6
     firstAllowedWave: 5
   - zombieType: 4
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 3000
     startingLevel: 8
     firstAllowedWave: 1
   - zombieType: 5
+    prefab: {fileID: 0}
     zombieValue: 2
     pickWeight: 1000
     startingLevel: 11
     firstAllowedWave: 1
   - zombieType: 6
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 3500
     startingLevel: 13
     firstAllowedWave: 5
   - zombieType: 7
+    prefab: {fileID: 0}
     zombieValue: 7
     pickWeight: 2000
     startingLevel: 16
     firstAllowedWave: 5
   - zombieType: 8
+    prefab: {fileID: 0}
     zombieValue: 5
     pickWeight: 1000
     startingLevel: 18
     firstAllowedWave: 5
   - zombieType: 9
+    prefab: {fileID: 0}
     zombieValue: 1
     pickWeight: 0
     startingLevel: 18
     firstAllowedWave: 1
   - zombieType: 10
+    prefab: {fileID: 0}
     zombieValue: 1
     pickWeight: 0
     startingLevel: 21
     firstAllowedWave: 5
   - zombieType: 11
+    prefab: {fileID: 0}
     zombieValue: 3
     pickWeight: 2000
     startingLevel: 23
     firstAllowedWave: 10
   - zombieType: 12
+    prefab: {fileID: 0}
     zombieValue: 7
     pickWeight: 2000
     startingLevel: 26
     firstAllowedWave: 10
   - zombieType: 13
+    prefab: {fileID: 0}
     zombieValue: 3
     pickWeight: 2000
     startingLevel: 26
     firstAllowedWave: 10
   - zombieType: 14
+    prefab: {fileID: 0}
     zombieValue: 3
     pickWeight: 1500
     startingLevel: 28
     firstAllowedWave: 10
   - zombieType: 15
+    prefab: {fileID: 0}
     zombieValue: 3
     pickWeight: 1000
     startingLevel: 31
     firstAllowedWave: 10
   - zombieType: 16
+    prefab: {fileID: 0}
     zombieValue: 2
     pickWeight: 2000
     startingLevel: 33
     firstAllowedWave: 10
   - zombieType: 17
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 1000
     startingLevel: 36
     firstAllowedWave: 10
   - zombieType: 18
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 1000
     startingLevel: 38
     firstAllowedWave: 10
   - zombieType: 19
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 1
     startingLevel: 40
     firstAllowedWave: 1
   - zombieType: 20
+    prefab: {fileID: 0}
     zombieValue: 3
     pickWeight: 1000
     startingLevel: 41
     firstAllowedWave: 10
   - zombieType: 21
+    prefab: {fileID: 0}
     zombieValue: 4
     pickWeight: 1000
     startingLevel: 43
     firstAllowedWave: 10
   - zombieType: 22
+    prefab: {fileID: 0}
     zombieValue: 5
     pickWeight: 1500
     startingLevel: 46
     firstAllowedWave: 10
   - zombieType: 23
+    prefab: {fileID: 0}
     zombieValue: 10
     pickWeight: 1500
     startingLevel: 48
     firstAllowedWave: 15
   - zombieType: 24
+    prefab: {fileID: 0}
     zombieValue: 10
     pickWeight: 0
     startingLevel: 48

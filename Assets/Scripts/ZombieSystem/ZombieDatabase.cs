@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(
@@ -39,12 +39,18 @@ public class ZombieDatabase : ScriptableObject
         }
     }
 
-    public ZombieDefinition GetZombie(ZombieType type)
+    /// <summary>Không log lỗi khi thiếu — dùng cho thuật toán wave.</summary>
+    public bool TryGetZombie(ZombieType type, out ZombieDefinition definition)
     {
         if (lookup == null)
             BuildLookup();
 
-        if (lookup != null && lookup.TryGetValue(type, out ZombieDefinition definition))
+        return lookup.TryGetValue(type, out definition) && definition != null;
+    }
+
+    public ZombieDefinition GetZombie(ZombieType type)
+    {
+        if (TryGetZombie(type, out ZombieDefinition definition))
             return definition;
 
         Debug.LogError($"Zombie not found: {type}", this);

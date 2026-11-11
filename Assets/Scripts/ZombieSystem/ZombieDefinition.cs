@@ -7,6 +7,9 @@ public class ZombieDefinition
     [Header("Zombie Identity")]
     public ZombieType zombieType;
 
+    [Header("Prefab")]
+    public GameObject prefab;
+
     [Header("Campaign Settings")]
     [Min(0)] public int zombieValue;
     [Min(0)] public int pickWeight;

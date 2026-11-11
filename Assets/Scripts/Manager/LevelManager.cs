@@ -36,6 +36,11 @@ public class LevelManager : MonoBehaviour
         StartGameplay();
     }
 
+    public bool IsIntroLevelHD()
+    {
+        return introLevels.Contains(currentLevel);
+    }
+
     private void StartGameplay()
     {
         // Bắt đầu gameplay

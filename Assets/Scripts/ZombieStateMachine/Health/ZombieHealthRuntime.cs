@@ -1,5 +1,4 @@
-using System;
-using Unity.VisualScripting;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,6 +23,9 @@ namespace PvZ.Data
         [SerializeField] private UnityEvent onHeadDropped = new UnityEvent();
         [SerializeField] private UnityEvent onDeath = new UnityEvent();
 
+        [Header("Debug")]
+        [SerializeField] private bool debugDamageKey = false;
+
         [SerializeField] private int currentBodyHealth;
         [SerializeField] private int[] currentArmorHealth = Array.Empty<int>();
 
@@ -33,6 +35,7 @@ namespace PvZ.Data
         private bool[] armorStage1Triggered = Array.Empty<bool>();
         private bool[] armorStage2Triggered = Array.Empty<bool>();
         private bool[] armorBrokenTriggered = Array.Empty<bool>();
+        private CampaignZombie campaignZombie;
 
         public ZombieStatsAsset Stats => stats;
         public int CurrentBodyHealth => currentBodyHealth;
@@ -45,9 +48,15 @@ namespace PvZ.Data
         /// <summary>Sets this instance back to the health values stored in its stats asset.</summary>
         public void Initialize()
         {
+            campaignZombie = GetComponent<CampaignZombie>();
+
+            if (stats == null && campaignZombie != null)
+                stats = campaignZombie.ZombieDatabase;
+
             if (stats == null)
             {
-                stats = transform.GetComponent<CampaignZombie>().ZombieDatabase;
+                Debug.LogError("ZombieHealthRuntime: chưa gán ZombieStatsAsset (trên component này hoặc trên CampaignZombie).", this);
+                return;
             }
 
             currentBodyHealth = Mathf.Max(0, stats.bodyHealth);
@@ -67,12 +76,31 @@ namespace PvZ.Data
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.L))
+            if (debugDamageKey && Input.GetKeyDown(KeyCode.L))
             {
                 ApplyDamage(20);
-
                 Debug.Log($"Zombie HP: {currentBodyHealth}/{MaxBodyHealth}");
             }
+        }
+
+        /// <summary>
+        /// Tổng "máu đe doạ" dùng cho cơ chế rút ngắn countdown giữa các wave
+        /// (Board::TotalZombiesHealthInWave): body + giáp; giáp dạng shield (Newspaper, ScreenDoor) tính 20%.
+        /// </summary>
+        public float GetThreatHealth()
+        {
+            if (dead)
+                return 0f;
+
+            bool shieldLike = campaignZombie != null &&
+                (campaignZombie.ZombieType == ZombieType.ScreenDoor ||
+                 campaignZombie.ZombieType == ZombieType.Newspaper);
+
+            float total = currentBodyHealth;
+            for (int i = 0; i < currentArmorHealth.Length; i++)
+                total += shieldLike ? currentArmorHealth[i] * 0.2f : currentArmorHealth[i];
+
+            return total;
         }
 
         /// <summary>

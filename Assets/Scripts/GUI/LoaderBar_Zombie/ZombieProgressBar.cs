@@ -8,14 +8,13 @@ using UnityEngine.UI;
 /// <summary>
 /// Thanh tiến độ zombie (Flag Meter) kiểu PvZ1 – dựng hoàn toàn bằng UGUI.
 /// Chỉ cần gán 3 file: atlas PNG + atlas JSON (cắt ảnh) + reanim JSON.
-/// Các Image / Sprite / Mask... đều tự tạo khi chạy.
 ///
-/// Logic:
-///  - progress 0 -> 1 : đầu zombie chạy từ PHẢI sang TRÁI, thanh xanh lấp đầy từ phải sang trái.
-///  - flagCount = N   : cờ thứ k nằm ở mốc k/N (cờ cuối luôn ở ngoài cùng bên trái).
-///                      1 cờ  -> [trái]
-///                      2 cờ  -> [giữa, trái]
-///                      3 cờ  -> [1/3, 2/3, trái] ...
+/// Tiến độ:
+///  - Nếu gán CampaignWaveSpawner (followSpawner = true): thanh bám theo spawner thật
+///    (0 lúc wave 1 spawn -> 1 lúc wave cuối spawn, không tính countdown đầu level).
+///  - Nếu không: dùng Play(seconds) / SetProgress(p) như cũ.
+///
+/// Cờ: đặt đúng tại tiến độ của wave cờ (lấy từ spawner), hoặc k/N nếu không có spawner.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(RectTransform))]
@@ -27,12 +26,20 @@ public class ZombieProgressBar : MonoBehaviour
     public TextAsset atlasJson;      // LoadingImages_PlantsZombies_3_960.json
     public TextAsset reanimJson;     // loadbar_zombiehead_reanim_compiled_reanim.json
 
+    // ───────────────────────── NGUỒN TIẾN ĐỘ ─────────────────────────
+    [Header("Bám theo spawner")]
+    [SerializeField] private CampaignWaveSpawner campaignWaveSpawner;
+    [Tooltip("Bật: tiến độ lấy từ spawner. Tắt: dùng Play()/SetProgress() thủ công.")]
+    public bool followSpawner = true;
+    [Tooltip("Độ mượt khi tiến độ nhảy (VD: wave đến sớm do giết nhanh). 0 = không làm mượt.")]
+    [Min(0f)] public float smoothTime = 0.25f;
+
     // ───────────────────────── SETTING ─────────────────────────
     [Header("Tiến độ")]
     [Range(0f, 1f)] public float progress = 0f;
-    [Min(1)] public int flagCount = 1;
+    [Min(0)] public int flagCount = 1;   // 0 = không có cờ (VD: level đầu)
 
-    [Header("Tự chạy")]
+    [Header("Tự chạy theo thời gian (chỉ khi KHÔNG bám spawner)")]
     public bool autoPlayOnStart = false;
     [Min(0.01f)] public float duration = 10f;
     public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
@@ -40,7 +47,7 @@ public class ZombieProgressBar : MonoBehaviour
 
     [Header("Hiển thị")]
     public float scale = 1f;
-    public bool playHeadIntro = false;     // đầu zombie "trồi lên" lúc bắt đầu theo reanim (tắt = đầu chỉ chạy ngang)
+    public bool playHeadIntro = false;     // đầu zombie "trồi lên" lúc bắt đầu theo reanim
     public float introMoveScale = 1f;
 
     [Header("Tinh chỉnh (px theo ảnh gốc, ít khi cần sửa)")]
@@ -61,18 +68,23 @@ public class ZombieProgressBar : MonoBehaviour
     RectTransform _root, _mask, _head;
     readonly List<RectTransform> _flags = new List<RectTransform>();
     readonly List<float> _flagFrac = new List<float>();
+    List<float> _customFlagFrac;           // vị trí cờ lấy từ spawner (null = dùng k/N)
     Sprite _sprEmpty, _sprFull, _sprHead, _sprPole, _sprFlag;
 
     bool _playing;
     float _elapsed;
+    float _smoothVelocity;
+    bool _completedFired;
 
     // reanim intro
     struct RFrame { public float x, y, kx, sx, sy; }
-    RFrame[] _intro;                       // các frame từ lúc đầu hiện ra -> hết
+    RFrame[] _intro;
     float _introFps = 12f;
     float _introTime;
     bool _introDone = true;
     Vector2 _headBase;
+
+    bool FollowingSpawner => followSpawner && campaignWaveSpawner != null;
 
     // ───────────────────────── vòng đời ─────────────────────────
     void Awake()
@@ -83,14 +95,40 @@ public class ZombieProgressBar : MonoBehaviour
 
     void Start()
     {
-        if (autoPlayOnStart) Play(duration);
+        SetupFlagsFromSpawner();
+        BuildFlags();
+        if (!FollowingSpawner && autoPlayOnStart) Play(duration);
+    }
+
+    /// <summary>Lấy số cờ và vị trí từng cờ từ spawner (không còn dùng duration).</summary>
+    private void SetupFlagsFromSpawner()
+    {
+        if (!FollowingSpawner) return;
+
+        _customFlagFrac = campaignWaveSpawner.GetFlagProgressFractions();
+        flagCount = _customFlagFrac.Count;
     }
 
     void Update()
     {
         float dt = Time.unscaledDeltaTime;
 
-        if (_playing)
+        if (FollowingSpawner)
+        {
+            float target = Mathf.Clamp01(campaignWaveSpawner.LevelProgress01);
+
+            progress = smoothTime > 0f
+                ? Mathf.SmoothDamp(progress, target, ref _smoothVelocity, smoothTime, Mathf.Infinity, dt)
+                : target;
+
+            if (!_completedFired && target >= 1f && progress >= 0.999f)
+            {
+                progress = 1f;
+                _completedFired = true;
+                OnCompleted?.Invoke();
+            }
+        }
+        else if (_playing)
         {
             _elapsed += dt;
             float t = Mathf.Clamp01(_elapsed / duration);
@@ -108,14 +146,14 @@ public class ZombieProgressBar : MonoBehaviour
     }
 
     // ───────────────────────── API ─────────────────────────
-    /// <summary>Đặt tiến độ trực tiếp 0..1 (0 = zombie ở bên phải, 1 = tới cờ cuối bên trái).</summary>
+    /// <summary>Đặt tiến độ trực tiếp 0..1 (chỉ có tác dụng khi không bám spawner).</summary>
     public void SetProgress(float p)
     {
         _playing = false;
         progress = Mathf.Clamp01(p);
     }
 
-    /// <summary>Chạy tự động từ 0 -> 1 trong "seconds" giây.</summary>
+    /// <summary>Chạy tự động từ 0 -> 1 trong "seconds" giây (chế độ thủ công).</summary>
     public void Play(float seconds, Action onComplete = null)
     {
         duration = Mathf.Max(0.01f, seconds);
@@ -132,13 +170,24 @@ public class ZombieProgressBar : MonoBehaviour
         _playing = false;
         _elapsed = 0f;
         progress = 0f;
+        _smoothVelocity = 0f;
+        _completedFired = false;
         StartIntro();
     }
 
-    /// <summary>Đổi số cờ lúc runtime.</summary>
+    /// <summary>Đổi số cờ lúc runtime (cờ chia đều k/N).</summary>
     public void SetFlagCount(int n)
     {
-        flagCount = Mathf.Max(1, n);
+        flagCount = Mathf.Max(0, n);
+        _customFlagFrac = null;
+        BuildFlags();
+    }
+
+    /// <summary>Đặt cờ tại các vị trí tiến độ cụ thể (0..1, 1 = ngoài cùng bên trái).</summary>
+    public void SetFlagFractions(IList<float> fractions)
+    {
+        _customFlagFrac = fractions != null ? new List<float>(fractions) : null;
+        flagCount = _customFlagFrac != null ? _customFlagFrac.Count : 0;
         BuildFlags();
     }
 
@@ -165,7 +214,6 @@ public class ZombieProgressBar : MonoBehaviour
             return;
         }
 
-        // xoá con cũ (nếu build lại)
         for (int i = transform.childCount - 1; i >= 0; i--) Destroy(transform.GetChild(i).gameObject);
 
         var rects = ParseAtlas(atlasJson.text);
@@ -183,12 +231,11 @@ public class ZombieProgressBar : MonoBehaviour
         _sprEmpty = Cut(new RectInt(rBar.x, rBar.y, rBar.width, halfH), new Vector2(0.5f, 0.5f));
         _sprFull = Cut(new RectInt(rBar.x, rBar.y + halfH, rBar.width, rBar.height - halfH), new Vector2(0.5f, 0.5f));
 
-        // IMAGE_FLAGMETERPARTS (150x50): đầu zombie | cột cờ | lá cờ (toạ độ đã đo trong atlas)
+        // IMAGE_FLAGMETERPARTS (150x50): đầu zombie | cột cờ | lá cờ
         _sprHead = Cut(new RectInt(rParts.x + 4, rParts.y + 2, 45, 46), new Vector2(0.5f, 0.5f));
         _sprPole = Cut(new RectInt(rParts.x + 56, rParts.y + 10, 6, 36), new Vector2(0.5f, 0f));
         _sprFlag = Cut(new RectInt(rParts.x + 106, rParts.y + 2, 40, 36), new Vector2(0f, 1f));
 
-        // root
         _root = (RectTransform)transform;
         _root.sizeDelta = new Vector2(_w, _h);
         _root.localScale = Vector3.one * scale;
@@ -239,25 +286,28 @@ public class ZombieProgressBar : MonoBehaviour
         for (int i = flagsRoot.childCount - 1; i >= 0; i--) Destroy(flagsRoot.GetChild(i).gameObject);
         _flags.Clear(); _flagFrac.Clear();
 
-        int n = Mathf.Max(1, flagCount);
-        for (int k = 1; k <= n; k++)
+        bool custom = _customFlagFrac != null;
+        int n = custom ? _customFlagFrac.Count : Mathf.Max(0, flagCount);
+
+        for (int k = 0; k < n; k++)
         {
-            float frac = (float)k / n;                 // k=n -> 1.0 -> ngoài cùng bên trái
+            // custom: vị trí thật của wave cờ; mặc định: cờ thứ k nằm ở mốc k/N (cờ cuối ngoài cùng bên trái)
+            float frac = custom ? Mathf.Clamp01(_customFlagFrac[k]) : (float)(k + 1) / n;
             float px = fillRight - frac * (fillRight - fillLeft);
 
-            var pole = NewImage("Pole" + k, (RectTransform)flagsRoot, _sprPole);
+            var pole = NewImage("Pole" + (k + 1), (RectTransform)flagsRoot, _sprPole);
             var pr = pole.rectTransform;
             pr.anchorMin = pr.anchorMax = new Vector2(0.5f, 0.5f);
             pr.pivot = new Vector2(0.5f, 0f);
             pr.sizeDelta = new Vector2(6, 36);
             pr.anchoredPosition = new Vector2(X(px), poleBaseY);
 
-            var flag = NewImage("Flag" + k, (RectTransform)flagsRoot, _sprFlag);
+            var flag = NewImage("Flag" + (k + 1), (RectTransform)flagsRoot, _sprFlag);
             var fr = flag.rectTransform;
             fr.anchorMin = fr.anchorMax = new Vector2(0.5f, 0.5f);
             fr.pivot = new Vector2(0f, 1f);
             fr.sizeDelta = new Vector2(40, 36);
-            fr.anchoredPosition = new Vector2(X(px) - 3f, poleBaseY + 36f);   // cờ luôn ở trạng thái kéo lên
+            fr.anchoredPosition = new Vector2(X(px) - 3f, poleBaseY + 36f);
 
             _flags.Add(fr);
             _flagFrac.Add(frac);
@@ -279,7 +329,7 @@ public class ZombieProgressBar : MonoBehaviour
 
         // đầu zombie ở mép trái của thanh xanh
         float headX = X(fillRight - p * fillW);
-        _headBase = new Vector2(headX, 1f);   // Y cố định -> đầu chỉ chạy theo đường ngang
+        _headBase = new Vector2(headX, 1f);
 
         Vector2 pos = _headBase;
         float rot = 0f;
@@ -300,7 +350,7 @@ public class ZombieProgressBar : MonoBehaviour
             float ikx = Mathf.Lerp(_intro[a].kx, _intro[b].kx, t) - F.kx;
             float isx = Mathf.Lerp(_intro[a].sx, _intro[b].sx, t) / Mathf.Max(F.sx, 0.0001f);
             float isy = Mathf.Lerp(_intro[a].sy, _intro[b].sy, t) / Mathf.Max(F.sy, 0.0001f);
-            pos += new Vector2(ix, -iy) * introMoveScale;   // reanim trục Y hướng xuống
+            pos += new Vector2(ix, -iy) * introMoveScale;
             rot = -ikx;
             sc = new Vector3(isx, isy, 1f);
         }
@@ -311,8 +361,6 @@ public class ZombieProgressBar : MonoBehaviour
     }
 
     // ───────────────────────── reanim (đầu zombie trồi lên) ─────────────────────────
-    // Lưu ý: reanim này tham chiếu ảnh 190-197 (rock/head/hair/jaw) KHÔNG có trong atlas,
-    // nên ở đây chỉ dùng phần transform của track "Zombie_head" để làm hiệu ứng đầu trồi lên.
     void PrepareIntro()
     {
         _intro = null;
@@ -346,7 +394,7 @@ public class ZombieProgressBar : MonoBehaviour
                 if (d.TryGetValue("kx", out v)) kx = Num(v);
                 if (d.TryGetValue("sx", out v)) sx = Num(v);
                 if (d.TryGetValue("sy", out v)) sy = Num(v);
-                if (d.TryGetValue("f", out v)) visible = Num(v) >= 0f;   // f = -1 -> ẩn, f = 0 -> hiện
+                if (d.TryGetValue("f", out v)) visible = Num(v) >= 0f;
                 if (visible) list.Add(new RFrame { x = x, y = y, kx = kx, sx = sx, sy = sy });
             }
             if (list.Count >= 2) _intro = list.ToArray();
@@ -366,7 +414,7 @@ public class ZombieProgressBar : MonoBehaviour
     static float Num(object o) { return Convert.ToSingle(o, CultureInfo.InvariantCulture); }
 
     // ───────────────────────── helpers ─────────────────────────
-    float X(float spritePx) { return spritePx - _w * 0.5f; }   // px từ mép trái ảnh -> toạ độ từ tâm
+    float X(float spritePx) { return spritePx - _w * 0.5f; }
 
     static void Stretch(RectTransform rt)
     {
