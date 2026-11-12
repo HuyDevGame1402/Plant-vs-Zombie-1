@@ -211,8 +211,6 @@ public class CampaignZombieBoardRegistry : MonoBehaviour
         laneZombies.Add(zombieObject);
         laneByZombie.Add(zombieObject, laneIndex);
 
-        zombie.SetBoardRegistry(this);
-
         Log(
             $"REGISTER SUCCESS | " +
             $"Zombie: {zombieObject.name} | " +
@@ -292,8 +290,6 @@ public class CampaignZombieBoardRegistry : MonoBehaviour
         laneByZombie.Remove(zombieObject);
 
         bool removed = laneZombies.Remove(zombieObject);
-
-        zombie.ClearBoardRegistry(this);
 
         Log(
             $"UNREGISTER RESULT | " +

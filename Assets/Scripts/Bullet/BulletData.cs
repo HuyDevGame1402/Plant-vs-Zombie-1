@@ -7,7 +7,7 @@ public class BulletData : MonoBehaviour
 
     public void SetUpDataBullet(int damage)
     {
-        //this.damage = damage;
-        damage = 1;
+        this.damage = damage;
+        //damage = 1;
     }
 }

@@ -74,11 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  speed: 3.5
+  speed: 4.5
   direction: {x: 1, y: 0}
   zombieTag: Zombie
   detectZombieCollision: 1
-  splatOffset: {x: 0.2, y: 0.08}
+  splatOffset: {x: 0.25, y: 0.08}
   bulletVisual: {fileID: 3912558498797570453}
   OnStartFlying:
     m_PersistentCalls:
@@ -170,7 +170,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8156608244334248947
 MonoBehaviour:
@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1c175448170944e82216f8327883fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0

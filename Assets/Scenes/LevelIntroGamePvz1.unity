@@ -2260,7 +2260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &587610717
 Transform:
   m_ObjectHideFlags: 0
@@ -2385,7 +2385,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &599014692
 RectTransform:
@@ -3971,7 +3971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &986619356
 Transform:
   m_ObjectHideFlags: 0
@@ -4941,7 +4941,7 @@ Transform:
   m_GameObject: {fileID: 1383030099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7075,7 +7075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 287, y: 434}
+  m_AnchoredPosition: {x: 260, y: 470.4}
   m_SizeDelta: {x: 316, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877367563
@@ -7096,6 +7096,10 @@ MonoBehaviour:
   campaignWaveSpawner: {fileID: 986619357}
   followSpawner: 1
   smoothTime: 0.25
+  pvzStyleSmoothing: 1
+  slowPixelsPerSecond: 5
+  fastPixelsPerSecond: 20
+  meterPixels: 150
   progress: 0
   flagCount: 1
   autoPlayOnStart: 1
@@ -7180,6 +7184,7 @@ MonoBehaviour:
   debrisSettleDelay: 0.3
   guiGameSelect: {fileID: 102236986}
   sunGUI: {fileID: 599014688}
+  menuGUI: {fileID: 1587200940}
   buttonSelectPlant: {fileID: 954572028}
   plantedPeashooterCount: 0
   lawnMower: {fileID: 1771589741}
@@ -7198,6 +7203,8 @@ MonoBehaviour:
   - {fileID: 910317076}
   grassAnimation: {fileID: 1788350098}
   waveSpawner: {fileID: 986619357}
+  spawnWaveZombie: {fileID: 986619355}
+  loaderbarZombieGUI: {fileID: 970694486}
 --- !u!1 &1954219433
 GameObject:
   m_ObjectHideFlags: 0
@@ -7747,83 +7754,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a525887f56939e4aa37e4754eec9167, type: 3}
---- !u!1001 &6960342849113996971
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.834
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5385363914995201000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163537500453435355, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_Name
-      value: NormalZombieState
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163537500453435355, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5956392
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.92735434
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460648373407692662, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0021327734
-      objectReference: {fileID: 0}
-    - target: {fileID: 7646433048808846431, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.62
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24fa4f07033e7884f880cdd0cbacab7a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7834,17 +7764,16 @@ SceneRoots:
   - {fileID: 1730371778}
   - {fileID: 102236990}
   - {fileID: 1587200944}
-  - {fileID: 599014692}
   - {fileID: 519078447}
   - {fileID: 970694490}
   - {fileID: 781139825}
+  - {fileID: 599014692}
   - {fileID: 1605830550}
   - {fileID: 1108223391}
   - {fileID: 986619356}
   - {fileID: 1774092189}
   - {fileID: 1445172471}
   - {fileID: 1389279693}
-  - {fileID: 6960342849113996971}
   - {fileID: 17130480}
   - {fileID: 6781269740248097266}
   - {fileID: 299390245}

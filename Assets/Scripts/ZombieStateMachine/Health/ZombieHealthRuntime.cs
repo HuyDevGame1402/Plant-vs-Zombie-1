@@ -130,12 +130,26 @@ namespace PvZ.Data
 
             if (currentBodyHealth <= 0 && !dead)
             {
+                campaignZombie.Unregister();
                 currentBodyHealth = 0;
                 dead = true;
                 onDeath?.Invoke();
+                DisableCollider2D();
             }
 
             return bodyDamage;
+        }
+
+        private void DisableCollider2D()
+        {
+            transform.GetComponent<Collider2D>().enabled = false;
+            for(int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).TryGetComponent(out Collider2D collider))
+                {
+                    collider.enabled = false;
+                }
+            }
         }
 
         /// <summary>Returns current health for the armor slot at the given index.</summary>

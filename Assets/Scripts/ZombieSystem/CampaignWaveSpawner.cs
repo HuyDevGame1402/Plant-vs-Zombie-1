@@ -130,7 +130,7 @@ public class CampaignWaveSpawner : MonoBehaviour
     {
         if (!ResolveLevel(out levelData))
             return;
-
+        //StartSpawning();
         if (LevelManager.Instance == null) return;
 
         level = LevelManager.Instance.CurrentLevel;
@@ -139,19 +139,17 @@ public class CampaignWaveSpawner : MonoBehaviour
         if (levelData.zombieIdleShowBeforeGame != null)
             zombieInit = Instantiate(levelData.zombieIdleShowBeforeGame);
 
-        if (cameraIntroController != null && !startWithoutCameraIntro)
+        if(cameraIntroController != null)
         {
             cameraIntroController.OnCameraReturn += DestroyZombieInit;
+        }
 
+        if (!startWithoutCameraIntro)
+        {
             if (!LevelManager.Instance.IsIntroLevelHD())
             {
                 cameraIntroController.OnCameraReturn += StartSpawning;
             }
-        }
-        // test
-        else
-        {
-            StartSpawning();
         }
     }
 

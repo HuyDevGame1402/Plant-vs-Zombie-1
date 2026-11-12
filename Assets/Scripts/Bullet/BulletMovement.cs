@@ -1,5 +1,4 @@
-﻿
-using PvZ.Data;
+﻿using PvZ.Data;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -29,6 +28,7 @@ public class BulletMovement : MonoBehaviour
     // ---------------------------------------------------------
 
     private Rigidbody2D rb;
+    private CircleCollider2D circle;
 
     // ---------------------------------------------------------
     // MOVEMENT
@@ -45,6 +45,9 @@ public class BulletMovement : MonoBehaviour
     [Header("Collision")]
     [SerializeField] private string zombieTag = "Zombie";
     [SerializeField] private bool detectZombieCollision = true;
+
+    [Tooltip("Quét đường đi của đạn mỗi FixedUpdate để chống xuyên zombie.")]
+    [SerializeField] private bool useSweepCheck = true;
 
     [Tooltip("Dịch điểm splat theo tọa độ local của Zombie, tính bằng world units.")]
     [SerializeField] private Vector2 splatOffset = new Vector2(-0.03f, 0.08f);
@@ -72,24 +75,30 @@ public class BulletMovement : MonoBehaviour
     // ---------------------------------------------------------
 
     private Coroutine returnRoutine;
+    private BulletData bulletData;
+
+    // Buffer cho sweep (không tạo rác mỗi frame)
+    private readonly RaycastHit2D[] sweepHits = new RaycastHit2D[16];
+
+    // Parent trước khi gắn vào zombie, để trả lại khi reset/pool
+    private Transform parentBeforeAttach;
+    private bool attachedToZombie;
 
     // ---------------------------------------------------------
     // UNITY
     // ---------------------------------------------------------
 
-
-    private BulletData bulletData;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        circle = GetComponent<CircleCollider2D>();
 
         if (bulletVisual == null)
             bulletVisual = GetComponent<PeaBulletSprite>();
 
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
-
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.velocity = Vector2.zero;
 
         if (bulletVisual != null)
@@ -112,18 +121,44 @@ public class BulletMovement : MonoBehaviour
         if (rb == null)
             return;
 
-        if (currentState == BulletState.Flying)
-        {
-            rb.velocity = direction.normalized * speed;
-        }
-        else
+        if (currentState != BulletState.Flying)
         {
             rb.velocity = Vector2.zero;
+            return;
         }
+
+        Vector2 dir = direction.normalized;
+
+        // Quét quãng đường sắp đi để không bị tunneling.
+        // Mask ~0 = mọi layer (kể cả Ignore Raycast); lọc zombie bằng TAG.
+        if (useSweepCheck && detectZombieCollision && circle != null)
+        {
+            float dist = speed * Time.fixedDeltaTime;
+            Vector2 origin = rb.position + (Vector2)transform.TransformVector(circle.offset);
+            float radius = circle.radius * Mathf.Max(
+                Mathf.Abs(transform.lossyScale.x),
+                Mathf.Abs(transform.lossyScale.y));
+
+            int count = Physics2D.CircleCastNonAlloc(
+                origin, radius, dir, sweepHits, dist, ~0);
+
+            for (int i = 0; i < count; i++)
+            {
+                Collider2D col = sweepHits[i].collider;
+
+                if (col == null || col == circle)
+                    continue;
+
+                if (TryHitZombie(col, sweepHits[i].point))
+                    return; // đã trúng, không di chuyển tiếp
+            }
+        }
+
+        rb.velocity = dir * speed;
     }
 
     // ---------------------------------------------------------
-    // START FLYING
+    // START / STOP FLYING
     // ---------------------------------------------------------
 
     public void StartFlying()
@@ -168,9 +203,6 @@ public class BulletMovement : MonoBehaviour
         if (currentState != BulletState.Flying)
             return;
 
-        // PvZ đặt splat dựa trên vị trí đạn ở thời điểm impact rồi cộng
-        // một offset thị giác. Dùng điểm va chạm do Unity cung cấp thay vì
-        // lấy X giữa zombie và Y của sprite đạn.
         if (zombie != null)
         {
             AttachToZombie(zombie, contactPoint);
@@ -183,7 +215,6 @@ public class BulletMovement : MonoBehaviour
         OnHit?.Invoke();
         OnHitAction?.Invoke();
 
-        // Giữ nguyên hiệu ứng Splat hiện tại.
         if (bulletVisual != null)
         {
             bulletVisual.Splat();
@@ -203,8 +234,6 @@ public class BulletMovement : MonoBehaviour
         if (zombie == null)
             return;
 
-        // Chuyển offset nhỏ theo hướng/scale của zombie, tương tự offset splat
-        // tương đối với thân trong PvZ. Collider bounds giữ Y trong vùng thân.
         Collider2D bodyCollider = zombie.GetComponentInChildren<Collider2D>();
         Vector2 visualPoint = contactPoint + (Vector2)zombie.TransformVector(splatOffset);
         if (bodyCollider != null)
@@ -215,6 +244,10 @@ public class BulletMovement : MonoBehaviour
         }
 
         float bulletWorldZ = transform.position.z;
+
+        parentBeforeAttach = transform.parent;
+        attachedToZombie = true;
+
         transform.SetParent(zombie, true);
         transform.position = new Vector3(visualPoint.x, visualPoint.y, bulletWorldZ);
     }
@@ -242,6 +275,9 @@ public class BulletMovement : MonoBehaviour
 
     private void ReturnToPool()
     {
+        // Trả parent trước khi vào pool để không bị Destroy theo zombie.
+        RestoreParent();
+
         if (ProjectilePoolManager.Instance != null)
         {
             ProjectilePoolManager.Instance.ReturnToPool(gameObject);
@@ -250,6 +286,18 @@ public class BulletMovement : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void RestoreParent()
+    {
+        if (!attachedToZombie)
+            return;
+
+        attachedToZombie = false;
+
+        // parentBeforeAttach có thể là null (root) hoặc pool root.
+        transform.SetParent(parentBeforeAttach, true);
+        parentBeforeAttach = null;
     }
 
     // ---------------------------------------------------------
@@ -263,6 +311,8 @@ public class BulletMovement : MonoBehaviour
             StopCoroutine(returnRoutine);
             returnRoutine = null;
         }
+
+        RestoreParent();
 
         currentState = BulletState.Idle;
 
@@ -290,19 +340,17 @@ public class BulletMovement : MonoBehaviour
         {
             case BulletState.Idle:
             case BulletState.Hit:
-
                 rb.velocity = Vector2.zero;
                 break;
 
             case BulletState.Flying:
-
                 rb.velocity = direction.normalized * speed;
                 break;
         }
     }
 
     // ---------------------------------------------------------
-    // FIND ZOMBIE ROOT
+    // FIND ZOMBIE ROOT (lọc bằng TAG, không dùng layer)
     // ---------------------------------------------------------
 
     private Transform FindZombieRoot(Transform target)
@@ -321,6 +369,34 @@ public class BulletMovement : MonoBehaviour
     }
 
     // ---------------------------------------------------------
+    // HIT HANDLING (dùng chung cho sweep + trigger + collision)
+    // ---------------------------------------------------------
+
+    private bool TryHitZombie(Collider2D other, Vector2 contactPoint)
+    {
+        if (currentState != BulletState.Flying)
+            return false;
+
+        Transform zombie = FindZombieRoot(other.transform);
+        if (zombie == null)
+            return false; // không phải zombie -> bỏ qua, đạn bay tiếp
+
+        ZombieHealthRuntime health = zombie.GetComponent<ZombieHealthRuntime>();
+        if (health == null)
+            health = zombie.GetComponentInChildren<ZombieHealthRuntime>();
+
+        if (health != null && bulletData != null)
+            health.ApplyDamage(bulletData.Damage);
+        else
+            Debug.LogWarning(
+                "BulletMovement: Zombie '" + zombie.name +
+                "' thiếu ZombieHealthRuntime hoặc đạn thiếu BulletData.", zombie);
+
+        Hit(zombie, contactPoint);
+        return true;
+    }
+
+    // ---------------------------------------------------------
     // COLLISION
     // ---------------------------------------------------------
 
@@ -329,17 +405,7 @@ public class BulletMovement : MonoBehaviour
         if (!detectZombieCollision)
             return;
 
-        if (currentState != BulletState.Flying)
-            return;
-
-        Transform zombie = FindZombieRoot(other.transform);
-
-        if (zombie != null)
-        {
-            zombie.GetComponent<ZombieHealthRuntime>().ApplyDamage(bulletData.Damage);
-            Vector2 contactPoint = other.ClosestPoint(transform.position);
-            Hit(zombie, contactPoint);
-        }
+        TryHitZombie(other, other.ClosestPoint(transform.position));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -347,18 +413,11 @@ public class BulletMovement : MonoBehaviour
         if (!detectZombieCollision)
             return;
 
-        if (currentState != BulletState.Flying)
-            return;
+        Vector2 contactPoint = collision.contactCount > 0
+            ? collision.GetContact(0).point
+            : (Vector2)transform.position;
 
-        Transform zombie = FindZombieRoot(collision.transform);
-
-        if (zombie != null)
-        {
-            Vector2 contactPoint = collision.contactCount > 0
-                ? collision.GetContact(0).point
-                : (Vector2)transform.position;
-            Hit(zombie, contactPoint);
-        }
+        TryHitZombie(collision.collider, contactPoint);
     }
 
     // ---------------------------------------------------------

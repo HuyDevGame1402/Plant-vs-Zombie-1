@@ -13,6 +13,7 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
     [Header("GUI")]
     [SerializeField] private GameObject guiGameSelect;
     [SerializeField] private GameObject sunGUI;
+    [SerializeField] private GameObject menuGUI;
 
     [Header("Plant Selection")]
     [SerializeField] private ButtonSelectPlant buttonSelectPlant;
@@ -28,6 +29,11 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
 
     [SerializeField] private LevelSodRollAnimation grassAnimation;
     [SerializeField] private CampaignWaveSpawner waveSpawner;
+
+    [Header("Zombie wave Start")]
+    [SerializeField] private GameObject spawnWaveZombie;
+    [SerializeField] private GameObject loaderbarZombieGUI;
+     
 
     public IEnumerator PlayIntro()
     {
@@ -55,6 +61,7 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
         guiGameSelect.SetActive(true);
         imageBgText.SetActive(true);
         arrayText[0].SetActive(true);
+        menuGUI.SetActive(true);
 
         // 4. Kiểm tra CreatePlantManager
         CreatePlantManager manager = CreatePlantManager.Instance;
@@ -247,6 +254,9 @@ public class Level1Intro : MonoBehaviour, ILevelIntro
         arrayText[10].SetActive(true);
         waveSpawner.StartSpawning();
         StartCoroutine(CoroutineDelayDisableTextGUI());
+
+        spawnWaveZombie.GetComponent<CampaignWaveSpawner>().StartSpawning();
+        loaderbarZombieGUI.SetActive(true);
     }
 
     private IEnumerator CoroutineDelayDisableTextGUI()

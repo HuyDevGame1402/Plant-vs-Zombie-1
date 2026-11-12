@@ -12,6 +12,8 @@ using UnityEngine.UI;
 /// Tiến độ:
 ///  - Nếu gán CampaignWaveSpawner (followSpawner = true): thanh bám theo spawner thật
 ///    (0 lúc wave 1 spawn -> 1 lúc wave cuối spawn, không tính countdown đầu level).
+///    Với pvzStyleSmoothing = true, thanh hiển thị tiến dần về tiến độ thật với tốc độ giới hạn (như PvZ1),
+///    nên wave đến sớm không làm thanh "vụt" lên.
 ///  - Nếu không: dùng Play(seconds) / SetProgress(p) như cũ.
 ///
 /// Cờ: đặt đúng tại tiến độ của wave cờ (lấy từ spawner), hoặc k/N nếu không có spawner.
@@ -31,8 +33,18 @@ public class ZombieProgressBar : MonoBehaviour
     [SerializeField] private CampaignWaveSpawner campaignWaveSpawner;
     [Tooltip("Bật: tiến độ lấy từ spawner. Tắt: dùng Play()/SetProgress() thủ công.")]
     public bool followSpawner = true;
-    [Tooltip("Độ mượt khi tiến độ nhảy (VD: wave đến sớm do giết nhanh). 0 = không làm mượt.")]
+    [Tooltip("Độ mượt khi tiến độ nhảy (chỉ dùng khi tắt pvzStyleSmoothing). 0 = không làm mượt.")]
     [Min(0f)] public float smoothTime = 0.25f;
+
+    [Header("Tốc độ thanh (port từ PvZ1)")]
+    [Tooltip("Bật: thanh hiển thị tiến dần về tiến độ thật với tốc độ giới hạn như PvZ1 (không nhảy/vụt). Tắt: dùng smoothTime.")]
+    public bool pvzStyleSmoothing = true;
+    [Tooltip("px/giây khi thanh tụt sau mục tiêu (PvZ1: 1px mỗi 20 tick = 5px/s).")]
+    [Min(0.1f)] public float slowPixelsPerSecond = 5f;
+    [Tooltip("px/giây khi tụt xa hơn 1 đoạn wave (PvZ1: 1px mỗi 5 tick = 20px/s).")]
+    [Min(0.1f)] public float fastPixelsPerSecond = 20f;
+    [Tooltip("Tổng chiều dài thanh theo PvZ1 (150px), dùng để quy đổi tốc độ sang tỉ lệ 0..1.")]
+    [Min(1f)] public float meterPixels = 150f;
 
     // ───────────────────────── SETTING ─────────────────────────
     [Header("Tiến độ")]
@@ -76,6 +88,8 @@ public class ZombieProgressBar : MonoBehaviour
     float _smoothVelocity;
     bool _completedFired;
 
+    float _visual;                         // tiến độ hiển thị (đuổi theo target với tốc độ giới hạn)
+
     // reanim intro
     struct RFrame { public float x, y, kx, sx, sy; }
     RFrame[] _intro;
@@ -100,7 +114,7 @@ public class ZombieProgressBar : MonoBehaviour
         if (!FollowingSpawner && autoPlayOnStart) Play(duration);
     }
 
-    /// <summary>Lấy số cờ và vị trí từng cờ từ spawner (không còn dùng duration).</summary>
+    /// <summary>Lấy số cờ, vị trí từng cờ và tốc độ danh nghĩa từ spawner.</summary>
     private void SetupFlagsFromSpawner()
     {
         if (!FollowingSpawner) return;
@@ -117,9 +131,27 @@ public class ZombieProgressBar : MonoBehaviour
         {
             float target = Mathf.Clamp01(campaignWaveSpawner.LevelProgress01);
 
-            progress = smoothTime > 0f
-                ? Mathf.SmoothDamp(progress, target, ref _smoothVelocity, smoothTime, Mathf.Infinity, dt)
-                : target;
+            if (pvzStyleSmoothing)
+            {
+                // Port PvZ1: thanh hiển thị chỉ tiến dần về target với tốc độ giới hạn.
+                //  - bình thường: 1px / 20 tick; tụt xa hơn 1 đoạn wave: 1px / 5 tick.
+                // Dùng Time.deltaTime để thanh dừng cùng spawner khi pause.
+                float delta = target - _visual;
+                if (delta > 0f)
+                {
+                    int waves = campaignWaveSpawner.TotalWaves;
+                    float segLen = waves > 1 ? 1f / (waves - 1) : 1f;
+                    float pxPerSec = delta > segLen ? fastPixelsPerSecond : slowPixelsPerSecond;
+                    _visual = Mathf.Min(_visual + pxPerSec / meterPixels * Time.deltaTime, target);
+                }
+                progress = _visual;
+            }
+            else
+            {
+                progress = smoothTime > 0f
+                    ? Mathf.SmoothDamp(progress, target, ref _smoothVelocity, smoothTime, Mathf.Infinity, dt)
+                    : target;
+            }
 
             if (!_completedFired && target >= 1f && progress >= 0.999f)
             {
@@ -170,6 +202,7 @@ public class ZombieProgressBar : MonoBehaviour
         _playing = false;
         _elapsed = 0f;
         progress = 0f;
+        _visual = 0f;
         _smoothVelocity = 0f;
         _completedFired = false;
         StartIntro();
