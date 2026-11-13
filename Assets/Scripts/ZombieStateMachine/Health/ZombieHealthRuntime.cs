@@ -129,21 +129,42 @@ namespace PvZ.Data
             CheckBodyTransitions(bodyBefore, currentBodyHealth);
 
             if (currentBodyHealth <= 0 && !dead)
-            {
-                campaignZombie.Unregister();
-                currentBodyHealth = 0;
-                dead = true;
-                onDeath?.Invoke();
-                DisableCollider2D();
-            }
+                FinishDeath();
 
             return bodyDamage;
         }
 
+        /// <summary>
+        /// Giết zombie do mất đầu (cửa tử) dù máu vẫn còn.
+        /// Đi qua đúng quy trình chết: Unregister, onDeath, tắt collider.
+        /// </summary>
+        public void KillByHeadLoss()
+        {
+            if (stats == null || dead) return;
+
+            currentBodyHealth = 0;
+            FinishDeath();
+        }
+
+        private void FinishDeath()
+        {
+            if (dead) return;
+
+            if (campaignZombie != null)
+                campaignZombie.Unregister();
+
+            currentBodyHealth = 0;
+            dead = true;
+            onDeath?.Invoke();
+            DisableCollider2D();
+        }
+
         private void DisableCollider2D()
         {
-            transform.GetComponent<Collider2D>().enabled = false;
-            for(int i = 0; i < transform.childCount; i++)
+            if (TryGetComponent(out Collider2D ownCollider))
+                ownCollider.enabled = false;
+
+            for (int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).TryGetComponent(out Collider2D collider))
                 {

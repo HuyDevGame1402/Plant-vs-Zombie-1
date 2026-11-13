@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Globalization;
 using UnityEngine;
@@ -55,6 +54,9 @@ public class PeaBulletSprite : MonoBehaviour
     [Min(0.01f)]
     [SerializeField] private float splatDuration = 0.25f;
 
+    [Tooltip("Lệch thêm (world units) so với điểm viên đạn trúng đích.")]
+    [SerializeField] private Vector2 splatOffset = Vector2.zero;
+
     // ---------------------------------------------------------
     // EVENTS
     // ---------------------------------------------------------
@@ -83,6 +85,9 @@ public class PeaBulletSprite : MonoBehaviour
     private Sprite[] splatSprites;
 
     private Coroutine splatRoutine;
+
+    // Vị trí world được chốt tại thời điểm Splat.
+    private Vector3 splatWorldPos;
 
     // ---------------------------------------------------------
     // JSON
@@ -354,39 +359,36 @@ public class PeaBulletSprite : MonoBehaviour
 
         StopSplatRoutine();
 
-        peaSR.sprite = peaSprite;
-
-        peaSR.gameObject.SetActive(true);
-        shadowSR1.gameObject.SetActive(true);
-        shadowSR2.gameObject.SetActive(true);
-        splatSR.gameObject.SetActive(false);
-
-        peaSR.transform.localScale =
-            Vector3.one * originalScale;
-
-        shadowSR1.transform.localScale =
-            Vector3.one * originalScale;
-
-        shadowSR2.transform.localScale =
-            Vector3.one * originalScale;
-
-        splatSR.transform.localScale =
-            Vector3.one * beginScale;
-
-        SetAlpha(peaSR, maxAlpha);
-        SetAlpha(shadowSR1, maxAlpha);
-        SetAlpha(shadowSR2, maxAlpha);
-        SetAlpha(splatSR, maxAlpha);
+        ApplyFlyingVisual();
     }
 
     // ---------------------------------------------------------
     // SPLAT
     // ---------------------------------------------------------
 
+    /// <summary>Splat tại vị trí hiện tại của viên đạn.</summary>
     public void Splat()
+    {
+        if (peaSR == null)
+            return;
+
+        Splat(peaSR.transform.position);
+    }
+
+    /// <summary>
+    /// Splat tại một vị trí world cụ thể (ví dụ điểm va chạm).
+    /// Vị trí được chốt, không đi theo viên đạn hay zombie nữa.
+    /// </summary>
+    public void Splat(Vector3 worldPosition)
     {
         if (peaSR == null || splatRoutine != null)
             return;
+
+        splatWorldPos = new Vector3(
+            worldPosition.x + splatOffset.x,
+            worldPosition.y + splatOffset.y,
+            worldPosition.z
+        );
 
         peaSR.gameObject.SetActive(false);
         shadowSR1.gameObject.SetActive(false);
@@ -396,6 +398,7 @@ public class PeaBulletSprite : MonoBehaviour
             UnityEngine.Random.Range(0, splatSprites.Length)
         ];
 
+        splatSR.transform.position = splatWorldPos;
         splatSR.gameObject.SetActive(true);
 
         splatRoutine = StartCoroutine(SplatRoutine());
@@ -430,6 +433,9 @@ public class PeaBulletSprite : MonoBehaviour
                 k
             );
 
+            // Giữ cố định vị trí world, bất kể viên đạn/zombie di chuyển.
+            splatSR.transform.position = splatWorldPos;
+
             splatSR.transform.localScale =
                 Vector3.one * currentScale;
 
@@ -438,6 +444,7 @@ public class PeaBulletSprite : MonoBehaviour
             yield return null;
         }
 
+        splatSR.transform.position = splatWorldPos;
         splatSR.transform.localScale =
             Vector3.one * splatEndScale;
 
@@ -461,12 +468,21 @@ public class PeaBulletSprite : MonoBehaviour
 
         StopSplatRoutine();
 
+        ApplyFlyingVisual();
+    }
+
+    private void ApplyFlyingVisual()
+    {
         peaSR.sprite = peaSprite;
 
         peaSR.gameObject.SetActive(true);
         shadowSR1.gameObject.SetActive(true);
         shadowSR2.gameObject.SetActive(true);
         splatSR.gameObject.SetActive(false);
+
+        // Splat đã bị chốt world position ở lần trước, trả về local (0,0)
+        // để lần bắn sau (object pool) không bị lệch.
+        splatSR.transform.localPosition = Vector3.zero;
 
         peaSR.transform.localScale =
             Vector3.one * originalScale;

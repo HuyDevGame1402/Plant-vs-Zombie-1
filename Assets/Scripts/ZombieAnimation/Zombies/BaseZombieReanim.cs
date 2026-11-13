@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using PvZ.Data;
 
 /// <summary>
 /// Logic dùng chung cho mọi loại zombie Reanim.
@@ -42,8 +42,15 @@ public abstract class BaseZombieReanim : MonoBehaviour
     [Tooltip("Ngã xuống khi đã mất đầu.")]
     [SerializeField] private string deathHeadlessClip = "death2";
 
-    [Tooltip("Thời gian chờ sau khi rụng đầu trước khi ngã.")]
+    [Tooltip("Thời gian chờ sau khi rụng đầu (lúc bị bắn chết) trước khi ngã.")]
     [SerializeField] private float headlessFallDelay = 2f;
+
+    [Header("Cửa tử (mất đầu)")]
+    [Tooltip("Bật: sau khi rụng đầu, zombie sẽ tự chết sau Headless Doom Time dù máu còn.")]
+    [SerializeField] private bool headlessDoomEnabled = true;
+
+    [Tooltip("Số giây từ lúc rụng đầu đến lúc tự chết và ngã xuống (dù máu còn).")]
+    [SerializeField] private float headlessDoomTime = 2f;
 
     [Header("Di chuyển")]
     [SerializeField] private bool moveWhileWalking = false;
@@ -176,6 +183,12 @@ public abstract class BaseZombieReanim : MonoBehaviour
     private bool headlessDeathPending;
     private float headlessFallDelayRemaining;
 
+    // Cửa tử: đã mất đầu nhưng chưa chết, đang đếm ngược.
+    private ZombieHealthRuntime health;
+    private bool headlessDoomed;
+    private float headlessDoomRemaining;
+    private bool suppressDoom;
+
     private float currentHealth;
     private float deadTimer;
     private bool destroyQueued;
@@ -184,6 +197,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
     public ZombieState State => currentState;
     public bool IsReady => isReady;
     public bool HasArm => !armLost;
+
+    /// <summary>Zombie đã rụng đầu (dù còn sống hay đã chết).</summary>
+    public bool IsHeadless => headDetached;
 
     public bool IsDeadOrDying =>
         deathLocked ||
@@ -264,6 +280,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
         deathLocked = false;
         currentState = ZombieState.Dying;
 
+        CancelHeadlessDoom();
+
         animationPlayer.Play(clipName, false);
 
         OnDeathStarted?.Invoke();
@@ -316,6 +334,15 @@ public abstract class BaseZombieReanim : MonoBehaviour
         }
 
         OnTick(dt);
+
+        // Cửa tử: mất đầu nhưng còn máu -> đếm ngược rồi tự chết.
+        if (headlessDoomed && !IsDeadOrDying)
+        {
+            headlessDoomRemaining -= dt;
+
+            if (headlessDoomRemaining <= 0f)
+                ExpireHeadlessDoom();
+        }
 
         // Tự động chuyển từ rụng đầu sang ngã xuống.
         if (headlessDeathPending)
@@ -461,6 +488,11 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         referenceFrame = data.Clips[idleClip].start;
         currentHealth = maxHealth;
+
+        // Tìm component máu để giết zombie khi hết thời gian cửa tử.
+        health = GetComponentInParent<ZombieHealthRuntime>();
+        if (health == null)
+            health = GetComponentInChildren<ZombieHealthRuntime>();
 
         OnRendererReady();
 
@@ -886,9 +918,10 @@ public abstract class BaseZombieReanim : MonoBehaviour
     // =========================================================
 
     /// <summary>
-    /// Chỉ thực hiện hiệu ứng rụng đầu.
-    /// Không chạy animation ngã.
-    /// Không tự động thay đổi trạng thái Idle / Walk / Eat.
+    /// Thực hiện hiệu ứng rụng đầu.
+    /// Không chạy animation ngã, không đổi trạng thái Idle / Walk / Eat.
+    /// Nếu không nằm trong quy trình chết: zombie rơi vào "cửa tử",
+    /// sau headlessDoomTime giây sẽ tự chết dù máu còn.
     /// </summary>
     public void DetachHead()
     {
@@ -918,6 +951,35 @@ public abstract class BaseZombieReanim : MonoBehaviour
             partRenderer.SetPartHidden(name, true);
 
         OnHeadDetachedHook();
+
+        // Rụng đầu do đòn đánh thường -> vào cửa tử.
+        if (headlessDoomEnabled && !suppressDoom)
+        {
+            headlessDoomed = true;
+            headlessDoomRemaining = Mathf.Max(0f, headlessDoomTime);
+        }
+    }
+
+    private void CancelHeadlessDoom()
+    {
+        headlessDoomed = false;
+        headlessDoomRemaining = 0f;
+    }
+
+    /// <summary>
+    /// Hết thời gian cửa tử: giết zombie dù máu còn và cho ngã xuống.
+    /// </summary>
+    private void ExpireHeadlessDoom()
+    {
+        headlessDoomed = false;
+
+        // Đi qua quy trình chết của hệ thống máu (Unregister, onDeath, tắt collider).
+        if (health != null && !health.IsDead)
+            health.KillByHeadLoss();
+
+        // Dự phòng nếu onDeath không được nối tới hàm chết của zombie.
+        if (!IsDeadOrDying)
+            DieHeadless();
     }
 
     // =========================================================
@@ -949,6 +1011,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
             return;
         }
 
+        CancelHeadlessDoom();
+
         // Ghi nhận xem sự kiện chết đã được thông báo chưa.
         bool alreadyNotified = headlessDeathPending;
 
@@ -976,7 +1040,8 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
     /// <summary>
     /// Chết không đầu.
-    /// Rụng đầu trước, chờ headlessFallDelay rồi ngã.
+    /// Nếu đầu chưa rụng: rụng đầu, chờ headlessFallDelay rồi ngã.
+    /// Nếu đầu đã rụng từ trước: ngã ngay.
     /// </summary>
     public virtual void DieHeadless()
     {
@@ -988,23 +1053,36 @@ public abstract class BaseZombieReanim : MonoBehaviour
         if (!isReady || IsDeadOrDying)
             return;
 
+        // Đã vào quy trình chết thì hủy cửa tử.
+        CancelHeadlessDoom();
+
         if (headless)
         {
-            // Giai đoạn 1: Rụng đầu.
+            bool headAlreadyGone = headDetached;
+
+            // Giai đoạn 1: Rụng đầu (không bật cửa tử vì đang chết).
+            suppressDoom = true;
             DetachHead();
+            suppressDoom = false;
 
             // Xử lý vật đang cầm.
             HandleHeldItemsOnDeath(true);
+
+            // Đầu đã rụng từ trước (cửa tử / hết máu) hoặc không cần chờ -> ngã ngay.
+            if (headAlreadyGone || headlessFallDelay <= 0f)
+            {
+                headlessDeathPending = false;
+                headlessFallDelayRemaining = 0f;
+
+                StartDeath(true, true, true);
+                return;
+            }
 
             // Chờ trước khi ngã.
             headlessDeathPending = true;
             headlessFallDelayRemaining = headlessFallDelay;
 
             OnDeathStarted?.Invoke();
-
-            // Nếu không cần chờ thì ngã ngay.
-            if (headlessFallDelay <= 0f)
-                FallHeadless();
 
             return;
         }
@@ -1020,12 +1098,17 @@ public abstract class BaseZombieReanim : MonoBehaviour
         bool deathPartsAlreadyHandled = false,
         bool notifyDeathStarted = true)
     {
+        CancelHeadlessDoom();
+
         if (!deathPartsAlreadyHandled)
         {
             if (headless || headDetached)
             {
                 headless = true;
+
+                suppressDoom = true;
                 DetachHead();
+                suppressDoom = false;
             }
             else
             {
@@ -1114,6 +1197,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
 
         headlessDeathPending = false;
         headlessFallDelayRemaining = 0f;
+
+        CancelHeadlessDoom();
+        suppressDoom = false;
 
         deathLocked = false;
         destroyQueued = false;
@@ -1216,9 +1302,9 @@ public abstract class BaseZombieReanim : MonoBehaviour
             runtimeMaterial = null;
         }
     }
+
     public void SetAnimationSpeed(float speed)
     {
         animationSpeed = speed;
     }
-
 }

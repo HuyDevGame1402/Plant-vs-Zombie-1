@@ -195,18 +195,21 @@ public class BulletMovement : MonoBehaviour
 
     public void Hit(Transform zombie)
     {
-        Hit(zombie, (Vector2)transform.position);
+        Vector2 point = zombie != null
+            ? ComputeVisualPoint(zombie, null, transform.position)
+            : (Vector2)transform.position;
+
+        Hit(zombie, point);
     }
 
-    private void Hit(Transform zombie, Vector2 contactPoint)
+    // visualPoint: điểm splat ĐÃ tính xong (đã cộng splatOffset và clamp)
+    private void Hit(Transform zombie, Vector2 visualPoint)
     {
         if (currentState != BulletState.Flying)
             return;
 
         if (zombie != null)
-        {
-            AttachToZombie(zombie, contactPoint);
-        }
+            AttachToZombie(zombie, visualPoint);
 
         currentState = BulletState.Hit;
 
@@ -216,32 +219,49 @@ public class BulletMovement : MonoBehaviour
         OnHitAction?.Invoke();
 
         if (bulletVisual != null)
-        {
             bulletVisual.Splat();
-        }
         else
-        {
             returnRoutine = StartCoroutine(ReturnAfterDelay());
-        }
     }
 
     // ---------------------------------------------------------
     // ATTACH TO ZOMBIE
     // ---------------------------------------------------------
 
-    private void AttachToZombie(Transform zombie, Vector2 contactPoint)
+    private Vector2 ComputeVisualPoint(Transform zombie, Collider2D hitCollider, Vector2 contactPoint)
     {
-        if (zombie == null)
-            return;
-
-        Collider2D bodyCollider = zombie.GetComponentInChildren<Collider2D>();
         Vector2 visualPoint = contactPoint + (Vector2)zombie.TransformVector(splatOffset);
+
+        // Ưu tiên collider vừa trúng; chỉ clamp khi collider còn bật (bounds hợp lệ).
+        Collider2D bodyCollider = hitCollider;
+        if (bodyCollider == null || !bodyCollider.enabled)
+            bodyCollider = FindEnabledZombieCollider(zombie);
+
         if (bodyCollider != null)
         {
             Bounds bounds = bodyCollider.bounds;
             visualPoint.x = Mathf.Clamp(visualPoint.x, bounds.min.x, bounds.max.x);
             visualPoint.y = Mathf.Clamp(visualPoint.y, bounds.min.y, bounds.max.y);
         }
+
+        return visualPoint;
+    }
+
+    private Collider2D FindEnabledZombieCollider(Transform zombie)
+    {
+        Collider2D[] cols = zombie.GetComponentsInChildren<Collider2D>();
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i] != null && cols[i].enabled && cols[i] != circle)
+                return cols[i];
+        }
+        return null;
+    }
+
+    private void AttachToZombie(Transform zombie, Vector2 visualPoint)
+    {
+        if (zombie == null)
+            return;
 
         float bulletWorldZ = transform.position.z;
 
@@ -377,9 +397,19 @@ public class BulletMovement : MonoBehaviour
         if (currentState != BulletState.Flying)
             return false;
 
+        // Chỉ collider hitbox có tag Zombie mới nhận đạn.
+        // Attack trigger (không tag) bị bỏ qua, đạn bay xuyên qua nó.
+        if (!other.CompareTag(zombieTag))
+            return false;
+
         Transform zombie = FindZombieRoot(other.transform);
         if (zombie == null)
-            return false; // không phải zombie -> bỏ qua, đạn bay tiếp
+            return false;
+
+
+        // QUAN TRỌNG: tính điểm splat khi collider zombie còn bật,
+        // trước khi ApplyDamage (viên cuối có thể giết zombie và tắt collider).
+        Vector2 visualPoint = ComputeVisualPoint(zombie, other, contactPoint);
 
         ZombieHealthRuntime health = zombie.GetComponent<ZombieHealthRuntime>();
         if (health == null)
@@ -392,7 +422,7 @@ public class BulletMovement : MonoBehaviour
                 "BulletMovement: Zombie '" + zombie.name +
                 "' thiếu ZombieHealthRuntime hoặc đạn thiếu BulletData.", zombie);
 
-        Hit(zombie, contactPoint);
+        Hit(zombie, visualPoint);
         return true;
     }
 

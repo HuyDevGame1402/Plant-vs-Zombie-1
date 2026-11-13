@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7646433048808846431
 Transform:
   m_ObjectHideFlags: 0
@@ -363,6 +363,8 @@ MonoBehaviour:
   deathClip: death
   deathHeadlessClip: death2
   headlessFallDelay: 2
+  headlessDoomEnabled: 1
+  headlessDoomTime: 2
   moveWhileWalking: 0
   walkSpeed: 0.375
   fadeAfterDeath: 1

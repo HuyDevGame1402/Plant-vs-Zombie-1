@@ -61,6 +61,14 @@ public class ZombieAttackState : ZombieState
             }
         }
 
+        // Zombie đã mất đầu (cửa tử): vẫn phát animation ăn
+        // nhưng không gây sát thương lên cây.
+        if (zombie.IsHeadless)
+        {
+            chewTimer = 0f;
+            return;
+        }
+
         if (plantChewAttack == null ||
             !plantChewAttack.hasNumericDamage ||
             !plantChewAttack.hasInterval ||
@@ -90,6 +98,10 @@ public class ZombieAttackState : ZombieState
 
     private void ApplyChewDamage()
     {
+        // Phòng hờ: mất đầu giữa chừng thì không gây sát thương.
+        if (zombie.IsHeadless)
+            return;
+
         GameObject target = attackTrigger.CurrentTargetPlant;
 
         if (!IsValidTarget(target))
