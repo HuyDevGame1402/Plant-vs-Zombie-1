@@ -146,7 +146,7 @@ public class CampaignWaveSpawner : MonoBehaviour
 
         if (!startWithoutCameraIntro)
         {
-            if (!LevelManager.Instance.IsIntroLevelHD())
+            if (!LevelManager.Instance.IsIntroLevel())
             {
                 cameraIntroController.OnCameraReturn += StartSpawning;
             }
@@ -219,6 +219,9 @@ public class CampaignWaveSpawner : MonoBehaviour
 
         if (!TryBuildWaves(levelData, out waves))
             return;
+
+        // Báo tracker biết wave cuối là wave số mấy (đánh số từ 1).
+        CampaignZombieTracker.Instance?.Configure(waves.Count);
 
         laneRandom = new System.Random(runtimeSeed ^ 0x5F3759DF);
         timingRandom = new System.Random(runtimeSeed ^ 0x2545F491);

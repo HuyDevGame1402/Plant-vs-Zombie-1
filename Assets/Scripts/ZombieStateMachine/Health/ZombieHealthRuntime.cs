@@ -151,7 +151,7 @@ namespace PvZ.Data
             if (dead) return;
 
             if (campaignZombie != null)
-                campaignZombie.Unregister();
+                campaignZombie.NotifyDeath();   // <-- đổi từ Unregister() sang NotifyDeath()
 
             currentBodyHealth = 0;
             dead = true;

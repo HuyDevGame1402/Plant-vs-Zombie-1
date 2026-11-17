@@ -91,6 +91,47 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    /// <summary>
+    /// Sun của Sunflower: sinh ra ở startPos với scale = startScaleMul (vd 0.75) so với scale gốc,
+    /// nảy lên (popHeight) rồi rơi xuống landPos, trong lúc đó scale tăng dần về giá trị gốc.
+    /// Toạ độ là local của container. Sau khi đáp thì nằm chờ rồi mờ đi như sun thường.
+    /// </summary>
+    public void PopFrom(
+        Vector2 startPos,
+        Vector2 landPos,
+        float popHeight,
+        float popDuration,
+        float startScaleMul = 0.75f,
+        bool autoDisappear = true)
+    {
+        ResetState();
+
+        _rt.localPosition = new Vector3(startPos.x, startPos.y, 0f);
+        _rt.localScale = _baseScale * startScaleMul;
+
+        float duration = Mathf.Max(0.05f, popDuration);
+
+        _seq = DOTween.Sequence();
+
+        // Di chuyển: nội suy start -> land, cộng thêm parabol để nảy lên rồi rơi xuống.
+        _seq.Append(DOVirtual.Float(0f, 1f, duration, t =>
+        {
+            Vector2 p = Vector2.LerpUnclamped(startPos, landPos, t);
+            p.y += 4f * popHeight * t * (1f - t);
+            _rt.localPosition = new Vector3(p.x, p.y, 0f);
+        }).SetEase(Ease.Linear));
+
+        // Scale: từ 75% về giá trị gốc trong suốt quá trình bay.
+        _seq.Join(_rt.DOScale(_baseScale, duration).SetEase(Ease.OutQuad));
+
+        if (autoDisappear)
+        {
+            _seq.AppendInterval(groundLifetime);
+            _seq.Append(_group.DOFade(0f, fadeOutDuration));
+            _seq.OnComplete(Release);
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Collect();
@@ -119,7 +160,6 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
         Vector3 startPos = _rt.localPosition;
 
         // Giai đoạn 1: bay tới bảng, GIỮ NGUYÊN kích thước và độ đậm.
-        // Lerp tới vị trí HIỆN TẠI của bảng mỗi frame -> bảng có di chuyển/animation vẫn bay trúng.
         _seq = DOTween.Sequence();
         _seq.Append(DOVirtual.Float(0f, 1f, flyDuration, t =>
         {
@@ -149,18 +189,9 @@ public class SunUI : MonoBehaviour, IPointerClickHandler
     {
         OnCollected?.Invoke(value);
 
-        // =====================================================================
-        // >>> SUN ĐÃ BAY TỚI BẢNG SỐ LƯỢNG SUN <<<
-        // TODO: xử lý việc khác ở đây, ví dụ:
-        //   - cộng `value` vào tổng sun hiện tại và cập nhật text trên bảng
-        //   - hiệu ứng bảng (punch scale, flash...), phát âm thanh nhặt sun
-        // Cũng có thể không sửa file này mà đăng ký SunUI.OnCollected += (int v) => { ... };
-        // (Sau hàm này sun sẽ tự nhỏ lại, mờ đi rồi trả về pool.)
-        // =====================================================================
-
-        if(SunMoneyManager.Instance != null && sunValueScript != null)
+        if (SunMoneyManager.Instance != null && sunValueScript != null)
         {
-            SunMoneyManager.Instance.AddSunMoney(sunValueScript.SunValueAmount);    
+            SunMoneyManager.Instance.AddSunMoney(sunValueScript.SunValueAmount);
         }
     }
 

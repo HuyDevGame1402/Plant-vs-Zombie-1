@@ -1,4 +1,4 @@
-using PvZ.Data;
+﻿using PvZ.Data;
 using UnityEngine;
 
 /// <summary>Runtime identity for one spawned zombie; the lane manager uses it for lane/global queries.</summary>
@@ -30,6 +30,9 @@ public class CampaignZombie : MonoBehaviour
         laneManager = manager;
 
         RegisterIfReady();
+
+        // Tracker tự lọc: chỉ giữ zombie thuộc wave cuối.
+        CampaignZombieTracker.Instance?.RegisterSpawned(this);
     }
 
     private void OnEnable()
@@ -39,12 +42,16 @@ public class CampaignZombie : MonoBehaviour
 
     private void OnDisable()
     {
+        // Chỉ gỡ khỏi lane/board. KHÔNG tính là "chết" để tránh thắng nhầm khi tắt object.
         Unregister();
     }
 
     private void OnDestroy()
     {
         Unregister();
+
+        // Phòng hờ zombie bị Destroy mà không đi qua đường chết bình thường.
+        CampaignZombieTracker.Instance?.UnregisterDead(this);
     }
 
     private void RegisterIfReady()
@@ -54,6 +61,16 @@ public class CampaignZombie : MonoBehaviour
 
         laneManager.RegisterZombie(this);
         isRegistered = true;
+    }
+
+    /// <summary>
+    /// ZombieHealthRuntime gọi lúc zombie thực sự chết (HP về 0 hoặc mất đầu chết ngay).
+    /// Gỡ khỏi lane/board và báo tracker.
+    /// </summary>
+    public void NotifyDeath()
+    {
+        Unregister();
+        CampaignZombieTracker.Instance?.UnregisterDead(this);
     }
 
     public void Unregister()

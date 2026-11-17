@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SUNFLOWER
   m_EditorClassIdentifier: 
   id: SUNFLOWER
-  displayName: 
+  displayName: Sunflower
   description: 
   seedEnum: SEED_SUNFLOWER
   nameId: SUNFLOWER
@@ -44,6 +44,6 @@ MonoBehaviour:
   coinKind: 
   productionInitialState: 
   extraNotes: 
-  imageSelectGUI: {fileID: 0}
+  imageSelectGUI: {fileID: -1436931421, guid: cbd8e0c4be7258d4aaca7304c4d9402d, type: 3}
   plantPrefab: {fileID: 0}
   offsetCreatePlant: {x: 0, y: 0}

@@ -8,7 +8,7 @@ namespace PlantReanimation.Controllers.Sunflower
 {
     /// <summary>
     /// Sunflower: loops its idle animation while the separate blink track
-    /// follows the head's movement.
+    /// follows the head's movement. Có thêm hiệu ứng glow (lóe sáng).
     /// </summary>
     public class SunflowerController : PlantReanimController
     {
@@ -33,10 +33,104 @@ namespace PlantReanimation.Controllers.Sunflower
         [Tooltip("Offset bổ sung nếu mắt vẫn lệch. Tính theo đơn vị Reanim.")]
         public Vector2 blinkPositionOffset = Vector2.zero;
 
+        [Header("Glow (cần material dùng shader PlantReanim/SpriteGlow)")]
+        [Tooltip("Test trong Play Mode: kéo thanh này để xem hiệu ứng.")]
+        [Range(0f, 1f)] public float glowTest = 0f;
+
+        [Tooltip("Màu ngả vàng dùng khi material KHÔNG có shader glow (chế độ dự phòng).")]
+        public Color fallbackTint = new Color(1f, 0.85f, 0.3f, 1f);
+
+        private static readonly int GlowAmountId = Shader.PropertyToID("_GlowAmount");
+
+        private readonly List<Renderer> glowRenderers = new List<Renderer>();
+        private MaterialPropertyBlock glowBlock;
+        private float currentGlow;
+        private float lastAppliedGlow = -1f;
+
         private PlantReanimPlayer blinkPlayer;
         private PlantReanimAnimator blinkAnimator;
         private Vector2[] idleHeadPositions;
         private float blinkCountdown;
+
+        // =====================================================
+        // GLOW
+        // =====================================================
+
+        /// <summary>0 = bình thường, 1 = sáng vàng tối đa.</summary>
+        public void SetGlow(float amount)
+        {
+            currentGlow = Mathf.Clamp01(amount);
+        }
+
+        private void ApplyGlow()
+        {
+            // Bỏ qua khi không sáng và lần trước cũng không sáng.
+            if (currentGlow <= 0f && lastAppliedGlow <= 0f)
+                return;
+
+            if (glowBlock == null)
+                glowBlock = new MaterialPropertyBlock();
+
+            GetComponentsInChildren(true, glowRenderers);
+
+            for (int i = 0; i < glowRenderers.Count; i++)
+            {
+                Renderer r = glowRenderers[i];
+                if (r == null)
+                    continue;
+
+                // Không làm sáng bóng đổ.
+                if (r.gameObject.name.IndexOf("shadow", StringComparison.OrdinalIgnoreCase) >= 0)
+                    continue;
+
+                Material m = r.sharedMaterial;
+                bool hasGlowShader = m != null && m.HasProperty(GlowAmountId);
+
+                if (hasGlowShader)
+                {
+                    r.GetPropertyBlock(glowBlock);
+                    glowBlock.SetFloat(GlowAmountId, currentGlow);
+                    r.SetPropertyBlock(glowBlock);
+                }
+                else if (r is SpriteRenderer sr)
+                {
+                    // Dự phòng: ngả vàng bằng color (giữ nguyên alpha).
+                    Color tint = Color.Lerp(Color.white, fallbackTint, currentGlow);
+                    tint.a = sr.color.a;
+                    sr.color = tint;
+                }
+            }
+
+            lastAppliedGlow = currentGlow;
+        }
+
+        [ContextMenu("Debug Glow Renderers")]
+        private void DebugGlowRenderers()
+        {
+            List<Renderer> list = new List<Renderer>();
+            GetComponentsInChildren(true, list);
+
+            Debug.Log(
+                "[Glow] Profile material = " +
+                (profile != null && profile.material != null
+                    ? profile.material.name + " | shader = " + profile.material.shader.name
+                    : "NULL (controller tự tạo Sprites/Default)") +
+                " | Tổng renderer: " + list.Count,
+                this);
+
+            foreach (Renderer r in list)
+            {
+                Material m = r.sharedMaterial;
+                Debug.Log(
+                    "[Glow] " + r.GetType().Name +
+                    " | " + r.gameObject.name +
+                    " | shader = " + (m != null ? m.shader.name : "null") +
+                    " | có _GlowAmount = " + (m != null && m.HasProperty(GlowAmountId)),
+                    r);
+            }
+        }
+
+        // =====================================================
 
         protected override void InitializePlant()
         {
@@ -91,15 +185,24 @@ namespace PlantReanimation.Controllers.Sunflower
                 Blink();
             }
 
-            if (!autoBlink ||
-                blinkPlayer == null ||
-                blinkPlayer.IsPlayingClip(BlinkClipName))
-                return;
+            if (autoBlink &&
+                blinkPlayer != null &&
+                !blinkPlayer.IsPlayingClip(BlinkClipName))
+            {
+                blinkCountdown -= Time.deltaTime;
 
-            blinkCountdown -= Time.deltaTime;
+                if (blinkCountdown <= 0f)
+                    Blink();
+            }
+        }
 
-            if (blinkCountdown <= 0f)
-                Blink();
+        // LateUpdate: chạy sau khi animator cập nhật sprite của frame này.
+        private void LateUpdate()
+        {
+            if (glowTest > 0f)
+                currentGlow = glowTest;
+
+            ApplyGlow();
         }
 
         protected override void OnDisable()
@@ -117,6 +220,8 @@ namespace PlantReanimation.Controllers.Sunflower
             blinkAnimator = null;
             idleHeadPositions = null;
             blinkCountdown = 0f;
+            currentGlow = 0f;
+            lastAppliedGlow = -1f;
 
             base.OnDisable();
         }
@@ -155,19 +260,8 @@ namespace PlantReanimation.Controllers.Sunflower
             List<string> spriteTracks = GetSpriteTrackNames();
 
             // PlantReanimController mặc định tìm clip "full_idle".
-            AddClip(
-                IdleClipName,
-                idleStart,
-                idleEnd,
-                true,
-                spriteTracks);
-
-            AddClip(
-                FullIdleClipName,
-                idleStart,
-                idleEnd,
-                true,
-                spriteTracks);
+            AddClip(IdleClipName, idleStart, idleEnd, true, spriteTracks);
+            AddClip(FullIdleClipName, idleStart, idleEnd, true, spriteTracks);
 
             // Chỉ player riêng của blink điều khiển track mắt.
             AddClip(
@@ -405,6 +499,35 @@ namespace PlantReanimation.Controllers.Sunflower
             float max = Mathf.Max(min, blinkIntervalMax);
 
             blinkCountdown = UnityEngine.Random.Range(min, max);
+        }
+
+        /// <summary>
+        /// Độ dịch chuyển của đầu so với frame đầu của idle (đơn vị Reanim, trục Y hướng xuống).
+        /// </summary>
+        public Vector2 GetHeadMovement()
+        {
+            if (idleHeadPositions == null ||
+                idleHeadPositions.Length == 0 ||
+                player == null ||
+                data == null ||
+                data.fps <= 0f)
+            {
+                return Vector2.zero;
+            }
+
+            float frame = Mathf.Repeat(
+                player.ElapsedTime * data.fps,
+                idleHeadPositions.Length);
+
+            int frameA = Mathf.FloorToInt(frame);
+            int frameB = (frameA + 1) % idleHeadPositions.Length;
+
+            Vector2 current = Vector2.Lerp(
+                idleHeadPositions[frameA],
+                idleHeadPositions[frameB],
+                frame - frameA);
+
+            return current - idleHeadPositions[0];
         }
 
         [ContextMenu("Blink Sunflower")]
