@@ -18,8 +18,11 @@ public class PlantReward : LevelReward
         }
     }
 
-    public override void ShowDetails(/*RewardDetailsUI ui*/)
+    public override void ShowDetails()
     {
-        //ui.ShowPlantDetails(this);
+        if (RewardManager.Instance != null)
+        {
+            RewardManager.Instance.unlockPlant.ActiveDetail();
+        }
     }
 }

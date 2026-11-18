@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class UnLockGUIBase : MonoBehaviour
     [SerializeField] private TextMeshProUGUI namePlant;
     [SerializeField] private TextMeshProUGUI descriptionPlant;
 
-    private PlantReward plantReward;
+    [SerializeField] private PlantReward plantReward;
     
     public void SetupNewPlant(PlantReward plantReward)
     {
@@ -29,6 +29,24 @@ public class UnLockGUIBase : MonoBehaviour
     public void ActiveDetail()
     {
         main.SetActive(false);
+
+        if (iconVector == null)
+        {
+            Debug.LogError("iconVector đang bị NULL!");
+            return;
+        }
+
+        if (plantReward == null)
+        {
+            Debug.LogError("plantReward đang bị NULL!");
+            return;
+        }
+
+        if (plantReward.DetailImage == null)
+        {
+            Debug.LogError("DetailImage đang bị NULL!");
+            return;
+        }
 
         iconVector.sprite = plantReward.DetailImage;
         namePlant.text = plantReward.PlantData.displayName;

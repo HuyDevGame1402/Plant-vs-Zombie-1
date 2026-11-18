@@ -916,6 +916,15 @@ public class PvzAwardClickEffect : MonoBehaviour, IPointerClickHandler
             // Bay gio moi bat dau fade Glow.
             glowAlphaDecreasing = true;
             glowAlphaTimer = 0f;
+
+            // =================================================
+            // LOGIC XỬ LÝ CỦA BẠN:
+            // Glow bắt đầu chạy glowFadeOutDuration tại đây.
+            // Ví dụ: mở khóa cây, cập nhật dữ liệu, chuyển UI...
+            // =================================================
+
+
+            RewardManager.Instance.ActiveDetailReward();
         }
     }
 

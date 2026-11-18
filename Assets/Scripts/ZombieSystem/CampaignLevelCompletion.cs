@@ -17,13 +17,23 @@ public class CampaignLevelCompletion : MonoBehaviour
 
     public bool IsCompleted => completed;
 
+    private void Awake()
+    {
+        // Hai component cùng nằm trên một GameObject.
+        tracker = GetComponent<CampaignZombieTracker>();
+
+        if (spawner == null)
+            spawner = GetComponent<CampaignWaveSpawner>();
+    }
+
     private void OnEnable()
     {
-        tracker = CampaignZombieTracker.Instance;
-
         if (spawner == null || tracker == null)
         {
-            Debug.LogError("CampaignLevelCompletion: thiếu CampaignWaveSpawner hoặc CampaignZombieTracker trong scene.", this);
+            Debug.LogError(
+                $"Missing reference! Spawner: {spawner}, Tracker: {tracker}",
+                this
+            );
             return;
         }
 

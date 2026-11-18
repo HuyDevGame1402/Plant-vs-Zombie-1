@@ -1237,7 +1237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &225958709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2561,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &587610717
 Transform:
   m_ObjectHideFlags: 0
@@ -2623,6 +2623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelRewardDatabase: {fileID: 11400000, guid: 0c517e8873f201841894cfa9ac4fd47f, type: 2}
   unlockPlant: {fileID: 781139826}
+  campaignLevelCompletion: {fileID: 986619358}
+  reward: {fileID: 11400000, guid: 231fc10db5f5153438dcf74a340ede9a, type: 2}
 --- !u!1 &599014688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &599014689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,7 +3359,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &781139825
 RectTransform:
@@ -3399,6 +3401,7 @@ MonoBehaviour:
   iconVector: {fileID: 819577067}
   namePlant: {fileID: 2007066344}
   descriptionPlant: {fileID: 816413351}
+  plantReward: {fileID: 11400000, guid: 231fc10db5f5153438dcf74a340ede9a, type: 2}
 --- !u!1 &802371859
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,7 +6579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1501056532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8529,7 +8532,7 @@ MonoBehaviour:
   bottomOffset: 60
   topMargin: 150
   fallSpeed: 80
-  autoStart: 0
+  autoStart: 1
   isNight: 0
   ticksPerSecond: 100
 --- !u!1 &2003410279

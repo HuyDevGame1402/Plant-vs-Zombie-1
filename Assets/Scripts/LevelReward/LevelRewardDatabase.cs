@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,10 +20,14 @@ public class LevelRewardDatabase : ScriptableObject
 
     public LevelReward GetReward(int level)
     {
-        LevelRewardEntry entry = rewards.Find(
-            x => x.level == level
-        );
+        LevelRewardEntry entry = rewards.Find(x => x.level == level);
 
-        return entry != null ? entry.reward : null;
+        if (entry == null)
+        {
+            Debug.LogWarning($"Không tìm thấy reward cho level {level}");
+            return null;
+        }
+
+        return entry.reward;
     }
 }
